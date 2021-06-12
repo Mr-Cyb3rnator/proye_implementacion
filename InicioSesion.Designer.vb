@@ -70,7 +70,7 @@ Partial Class Form1
         Me.btnentrar.Name = "btnentrar"
         Me.btnentrar.Size = New System.Drawing.Size(82, 40)
         Me.btnentrar.TabIndex = 2
-        Me.btnentrar.Text = "Entrar"
+        Me.btnentrar.Text = "Entrarrrr"
         Me.btnentrar.UseVisualStyleBackColor = False
         '
         'btncrear
