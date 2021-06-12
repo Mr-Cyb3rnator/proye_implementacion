@@ -327,7 +327,7 @@ Partial Class Cabeza_ganado
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Cabeza_ganado"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "s"
+        Me.Text = "Cabezas de ganado"
         CType(Me.DGcabezas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
