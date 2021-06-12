@@ -42,92 +42,99 @@ Partial Class Clientes
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(31, 39)
+        Me.Label1.Location = New System.Drawing.Point(35, 52)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 15)
+        Me.Label1.Size = New System.Drawing.Size(106, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Codigo cliente"
         '
         'txtcodcliente
         '
-        Me.txtcodcliente.Location = New System.Drawing.Point(135, 37)
+        Me.txtcodcliente.Location = New System.Drawing.Point(169, 52)
+        Me.txtcodcliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcodcliente.Name = "txtcodcliente"
-        Me.txtcodcliente.Size = New System.Drawing.Size(88, 23)
+        Me.txtcodcliente.Size = New System.Drawing.Size(100, 27)
         Me.txtcodcliente.TabIndex = 1
         '
         'txtnombre
         '
-        Me.txtnombre.Location = New System.Drawing.Point(99, 86)
+        Me.txtnombre.Location = New System.Drawing.Point(169, 112)
+        Me.txtnombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtnombre.Name = "txtnombre"
-        Me.txtnombre.Size = New System.Drawing.Size(88, 23)
+        Me.txtnombre.Size = New System.Drawing.Size(100, 27)
         Me.txtnombre.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(31, 89)
+        Me.Label2.Location = New System.Drawing.Point(35, 119)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 15)
+        Me.Label2.Size = New System.Drawing.Size(64, 20)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Nombre"
         '
         'txtdireccion
         '
-        Me.txtdireccion.Location = New System.Drawing.Point(99, 138)
+        Me.txtdireccion.Location = New System.Drawing.Point(169, 188)
+        Me.txtdireccion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdireccion.Name = "txtdireccion"
-        Me.txtdireccion.Size = New System.Drawing.Size(88, 23)
+        Me.txtdireccion.Size = New System.Drawing.Size(100, 27)
         Me.txtdireccion.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(31, 141)
+        Me.Label3.Location = New System.Drawing.Point(35, 188)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 15)
+        Me.Label3.Size = New System.Drawing.Size(72, 20)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Direccion"
         '
         'txttelefono
         '
-        Me.txttelefono.Location = New System.Drawing.Point(99, 190)
+        Me.txttelefono.Location = New System.Drawing.Point(169, 256)
+        Me.txttelefono.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txttelefono.Name = "txttelefono"
-        Me.txttelefono.Size = New System.Drawing.Size(88, 23)
+        Me.txttelefono.Size = New System.Drawing.Size(100, 27)
         Me.txttelefono.TabIndex = 7
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(31, 194)
+        Me.Label4.Location = New System.Drawing.Point(35, 259)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 15)
+        Me.Label4.Size = New System.Drawing.Size(67, 20)
         Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Telefono"
+        Me.Label4.Text = "Teléfono"
         '
         'DGclientes
         '
         Me.DGclientes.AllowUserToAddRows = False
         Me.DGclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGclientes.Location = New System.Drawing.Point(280, 37)
+        Me.DGclientes.Location = New System.Drawing.Point(320, 49)
+        Me.DGclientes.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DGclientes.Name = "DGclientes"
         Me.DGclientes.RowHeadersWidth = 51
         Me.DGclientes.RowTemplate.Height = 24
-        Me.DGclientes.Size = New System.Drawing.Size(520, 247)
+        Me.DGclientes.Size = New System.Drawing.Size(594, 329)
         Me.DGclientes.TabIndex = 8
         '
         'bteliminar
         '
-        Me.bteliminar.Location = New System.Drawing.Point(290, 328)
+        Me.bteliminar.Location = New System.Drawing.Point(331, 437)
+        Me.bteliminar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.bteliminar.Name = "bteliminar"
-        Me.bteliminar.Size = New System.Drawing.Size(99, 52)
+        Me.bteliminar.Size = New System.Drawing.Size(113, 69)
         Me.bteliminar.TabIndex = 28
         Me.bteliminar.Text = "Eliminar"
         Me.bteliminar.UseVisualStyleBackColor = True
         '
         'btagregar
         '
-        Me.btagregar.Location = New System.Drawing.Point(164, 328)
+        Me.btagregar.Location = New System.Drawing.Point(187, 437)
+        Me.btagregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btagregar.Name = "btagregar"
-        Me.btagregar.Size = New System.Drawing.Size(99, 52)
+        Me.btagregar.Size = New System.Drawing.Size(113, 69)
         Me.btagregar.TabIndex = 27
         Me.btagregar.Text = "Agregar "
         Me.btagregar.UseVisualStyleBackColor = True
@@ -136,28 +143,28 @@ Partial Class Clientes
         '
         Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnatras.Image = CType(resources.GetObject("btnatras.Image"), System.Drawing.Image)
-        Me.btnatras.Location = New System.Drawing.Point(730, 328)
-        Me.btnatras.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnatras.Location = New System.Drawing.Point(834, 437)
         Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(94, 52)
+        Me.btnatras.Size = New System.Drawing.Size(107, 69)
         Me.btnatras.TabIndex = 29
         Me.btnatras.UseVisualStyleBackColor = False
         '
         'bteditar
         '
-        Me.bteditar.Location = New System.Drawing.Point(36, 328)
+        Me.bteditar.Location = New System.Drawing.Point(41, 437)
+        Me.bteditar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.bteditar.Name = "bteditar"
-        Me.bteditar.Size = New System.Drawing.Size(99, 52)
+        Me.bteditar.Size = New System.Drawing.Size(113, 69)
         Me.bteditar.TabIndex = 30
         Me.bteditar.Text = "Editar"
         Me.bteditar.UseVisualStyleBackColor = True
         '
         'Clientes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(835, 422)
+        Me.ClientSize = New System.Drawing.Size(954, 563)
         Me.Controls.Add(Me.bteditar)
         Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.bteliminar)
@@ -171,6 +178,7 @@ Partial Class Clientes
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtcodcliente)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
