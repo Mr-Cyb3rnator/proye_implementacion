@@ -1,6 +1,16 @@
 ﻿Imports System.Data.SqlClient
 Public Class Dieta
+    Private Sub cargarcmb()
+        Try
+            sql = "SELECT * FROM ingredientes"
+            adt = New SqlDataAdapter(sql, cn)
+            ds = New DataSet
+            adt.Fill(ds)
 
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Private Sub cargargrid()
 
         conecta()
@@ -45,6 +55,17 @@ Public Class Dieta
         cargargrid()
 
 
+        cargargrid_dieta()
+
+
+        cargarcmb()
+        Try
+            cmbcodingre.DataSource = ds.Tables(0)
+            cmbcodingre.ValueMember = "cod_ingredientes"
+        Catch ex As Exception
+
+        End Try
+
         'dgdieta.Columns.Add("Cod.Dieta", "Cod.Dieta")
         'dgdieta.Columns.Add("Cod.Ingredientes", "Cod.Ingredientes")
         'dgdieta.Columns.Add("Cantidad", "Cantidad")
@@ -56,6 +77,7 @@ Public Class Dieta
 
 
         conecta()
+
         Dim insertar_dieta As String = "insert into dieta(cod_dieta,cantidad_libras,comidas_al_dia)values(@cod_dieta,@cantidad_libras,@comidas_al_dia)"
         Dim insertar As New SqlCommand(insertar_dieta, conectar)
         insertar.Parameters.AddWithValue("@cod_dieta", txtcoddieta.Text)
@@ -87,6 +109,7 @@ Public Class Dieta
 
     Private Sub dgdieta_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgdieta.CellContentClick
         Dim row As DataGridViewRow = dgdieta.CurrentRow
+
     End Sub
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
@@ -147,7 +170,7 @@ Public Class Dieta
 
         Dim datos As String = "update ingredientes set cod_dieta=@cod_dieta where cod_ingredientes=@cod_ingredientes "
         Dim actualizar As New SqlCommand(datos, conectar)
-        actualizar.Parameters.AddWithValue("@cod_ingredientes", txtcodingre.Text)
+        actualizar.Parameters.AddWithValue("@cod_ingredientes", cmbcodingre.Text)
         actualizar.Parameters.AddWithValue("@cod_dieta", txtcoddieta.Text)
 
         actualizar.ExecuteNonQuery()
@@ -177,7 +200,7 @@ Public Class Dieta
         End If
     End Sub
 
-    Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodingre.KeyPress
+    Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs) 
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -214,5 +237,13 @@ Public Class Dieta
             e.Handled = True
 
         End If
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub txtcodingre_TextChanged(sender As Object, e As EventArgs) 
+
     End Sub
 End Class
