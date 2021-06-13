@@ -80,7 +80,7 @@ Public Class Dieta
             MessageBox.Show("Llene todos los campos", "Error")
 
 
-        Else If txtcoddieta.Text IsNot "" and txtcantidad.Text isnot "" And txtcomidaxdia.Text IsNot "" Then
+        Else
 
             conecta()
             Dim insertar_dieta As String = "insert into dieta(cod_dieta,cantidad_libras,comidas_al_dia)values(@cod_dieta,@cantidad_libras,@comidas_al_dia)"
@@ -88,13 +88,13 @@ Public Class Dieta
 
             'insertar.Parameters.AddWithValue("@cod_dieta", fila.Cells("ccodigod").Value)
             insertar.Parameters.AddWithValue("@cod_dieta", txtcoddieta.Text)
-                insertar.Parameters.AddWithValue("@cantidad_libras", txtcantidad.Text)
-                insertar.Parameters.AddWithValue("@comidas_al_dia", txtcomidaxdia.Text)
+            insertar.Parameters.AddWithValue("@cantidad_libras", txtcantidad.Text)
+            insertar.Parameters.AddWithValue("@comidas_al_dia", txtcomidaxdia.Text)
 
             insertar.ExecuteNonQuery()
 
             conectar.Close()
-                cargargrid()
+            cargargrid()
 
 
 
