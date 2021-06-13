@@ -36,156 +36,261 @@ Partial Class Compra
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btsalir = New System.Windows.Forms.Button()
         Me.btguardar = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.cPesoini = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.craza = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cprecio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgv_Compra = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.txtcod_cliente = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lb_CodigoCliente = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtcompra = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtcodgrupo = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cPesoini = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.craza = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cprecio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.dgv_Compra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(564, 240)
+        Me.Label11.Location = New System.Drawing.Point(48, 435)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(126, 20)
+        Me.Label11.Size = New System.Drawing.Size(191, 23)
         Me.Label11.TabIndex = 36
-        Me.Label11.Text = "Precio de compra"
+        Me.Label11.Text = "Precio de Compra"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(442, 240)
+        Me.Label10.Location = New System.Drawing.Point(112, 345)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(41, 20)
+        Me.Label10.Size = New System.Drawing.Size(59, 23)
         Me.Label10.TabIndex = 35
         Me.Label10.Text = "Raza"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(268, 240)
+        Me.Label9.Location = New System.Drawing.Point(112, 256)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(43, 20)
+        Me.Label9.Size = New System.Drawing.Size(63, 23)
         Me.Label9.TabIndex = 34
         Me.Label9.Text = "Edad"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(97, 240)
+        Me.Label8.Location = New System.Drawing.Point(82, 170)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(82, 20)
+        Me.Label8.Size = New System.Drawing.Size(117, 23)
         Me.Label8.TabIndex = 33
         Me.Label8.Text = "Peso Inicial"
         '
         'btagregar
         '
-        Me.btagregar.Location = New System.Drawing.Point(746, 264)
-        Me.btagregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btagregar.Location = New System.Drawing.Point(60, 551)
+        Me.btagregar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btagregar.Name = "btagregar"
-        Me.btagregar.Size = New System.Drawing.Size(109, 51)
+        Me.btagregar.Size = New System.Drawing.Size(164, 59)
         Me.btagregar.TabIndex = 32
         Me.btagregar.Text = "Agregar"
         Me.btagregar.UseVisualStyleBackColor = True
         '
         'txtprecio
         '
-        Me.txtprecio.Location = New System.Drawing.Point(577, 264)
-        Me.txtprecio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtprecio.Location = New System.Drawing.Point(68, 463)
+        Me.txtprecio.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtprecio.Name = "txtprecio"
-        Me.txtprecio.Size = New System.Drawing.Size(100, 27)
+        Me.txtprecio.Size = New System.Drawing.Size(148, 32)
         Me.txtprecio.TabIndex = 30
         '
         'txtraza
         '
-        Me.txtraza.Location = New System.Drawing.Point(425, 264)
-        Me.txtraza.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtraza.Location = New System.Drawing.Point(68, 373)
+        Me.txtraza.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtraza.Name = "txtraza"
-        Me.txtraza.Size = New System.Drawing.Size(100, 27)
+        Me.txtraza.Size = New System.Drawing.Size(148, 32)
         Me.txtraza.TabIndex = 29
         '
         'txtedad
         '
-        Me.txtedad.Location = New System.Drawing.Point(248, 264)
-        Me.txtedad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtedad.Location = New System.Drawing.Point(68, 284)
+        Me.txtedad.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtedad.Name = "txtedad"
-        Me.txtedad.Size = New System.Drawing.Size(100, 27)
+        Me.txtedad.Size = New System.Drawing.Size(148, 32)
         Me.txtedad.TabIndex = 28
         '
         'txtpesoini
         '
-        Me.txtpesoini.Location = New System.Drawing.Point(88, 264)
-        Me.txtpesoini.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtpesoini.Location = New System.Drawing.Point(68, 198)
+        Me.txtpesoini.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtpesoini.Name = "txtpesoini"
-        Me.txtpesoini.Size = New System.Drawing.Size(100, 27)
+        Me.txtpesoini.Size = New System.Drawing.Size(148, 32)
         Me.txtpesoini.TabIndex = 27
         '
         'txttotal
         '
-        Me.txttotal.Location = New System.Drawing.Point(618, 702)
-        Me.txttotal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txttotal.Location = New System.Drawing.Point(548, 537)
+        Me.txttotal.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txttotal.Name = "txttotal"
-        Me.txttotal.Size = New System.Drawing.Size(100, 27)
+        Me.txttotal.Size = New System.Drawing.Size(148, 32)
         Me.txttotal.TabIndex = 26
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(549, 708)
+        Me.Label5.Location = New System.Drawing.Point(445, 544)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(50, 20)
+        Me.Label5.Size = New System.Drawing.Size(67, 23)
         Me.Label5.TabIndex = 25
         Me.Label5.Text = "TOTAL"
         '
         'btsalir
         '
-        Me.btsalir.Location = New System.Drawing.Point(203, 674)
-        Me.btsalir.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btsalir.Location = New System.Drawing.Point(893, 343)
+        Me.btsalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btsalir.Name = "btsalir"
-        Me.btsalir.Size = New System.Drawing.Size(139, 77)
+        Me.btsalir.Size = New System.Drawing.Size(208, 89)
         Me.btsalir.TabIndex = 24
-        Me.btsalir.Text = "salir"
+        Me.btsalir.Text = "Salir"
         Me.btsalir.UseVisualStyleBackColor = True
         '
         'btguardar
         '
-        Me.btguardar.Location = New System.Drawing.Point(53, 674)
-        Me.btguardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btguardar.Location = New System.Drawing.Point(893, 211)
+        Me.btguardar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btguardar.Name = "btguardar"
-        Me.btguardar.Size = New System.Drawing.Size(139, 77)
+        Me.btguardar.Size = New System.Drawing.Size(208, 89)
         Me.btguardar.TabIndex = 23
-        Me.btguardar.Text = "guardar"
+        Me.btguardar.Text = "Guardar"
         Me.btguardar.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'dgv_Compra
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cPesoini, Me.cedad, Me.craza, Me.cprecio_compra})
-        Me.DataGridView1.Location = New System.Drawing.Point(46, 352)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(657, 311)
-        Me.DataGridView1.TabIndex = 22
+        Me.dgv_Compra.AllowUserToAddRows = False
+        Me.dgv_Compra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_Compra.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cPesoini, Me.cedad, Me.craza, Me.cprecio_compra})
+        Me.dgv_Compra.Location = New System.Drawing.Point(306, 170)
+        Me.dgv_Compra.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.dgv_Compra.Name = "dgv_Compra"
+        Me.dgv_Compra.RowHeadersWidth = 51
+        Me.dgv_Compra.RowTemplate.Height = 24
+        Me.dgv_Compra.Size = New System.Drawing.Size(554, 342)
+        Me.dgv_Compra.TabIndex = 22
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.txtcod_cliente)
+        Me.GroupBox1.Controls.Add(Me.lb_CodigoCliente)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.txtcompra)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Location = New System.Drawing.Point(58, 14)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(1052, 113)
+        Me.GroupBox1.TabIndex = 21
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Encabezado"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(650, 49)
+        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(344, 32)
+        Me.DateTimePicker1.TabIndex = 14
+        '
+        'txtcod_cliente
+        '
+        Me.txtcod_cliente.Location = New System.Drawing.Point(402, 49)
+        Me.txtcod_cliente.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtcod_cliente.Name = "txtcod_cliente"
+        Me.txtcod_cliente.Size = New System.Drawing.Size(148, 32)
+        Me.txtcod_cliente.TabIndex = 11
+        '
+        'lb_CodigoCliente
+        '
+        Me.lb_CodigoCliente.AutoSize = True
+        Me.lb_CodigoCliente.Location = New System.Drawing.Point(267, 53)
+        Me.lb_CodigoCliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lb_CodigoCliente.Name = "lb_CodigoCliente"
+        Me.lb_CodigoCliente.Size = New System.Drawing.Size(133, 23)
+        Me.lb_CodigoCliente.TabIndex = 10
+        Me.lb_CodigoCliente.Text = "Cod. Cliente"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(578, 52)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(72, 23)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Fecha"
+        '
+        'txtcompra
+        '
+        Me.txtcompra.Enabled = False
+        Me.txtcompra.Location = New System.Drawing.Point(97, 49)
+        Me.txtcompra.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtcompra.Name = "txtcompra"
+        Me.txtcompra.Size = New System.Drawing.Size(148, 32)
+        Me.txtcompra.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(9, 50)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(86, 23)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Factura"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(345, 587)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(170, 23)
+        Me.Label2.TabIndex = 38
+        Me.Label2.Text = "Grupo Asignado"
+        '
+        'txtcodgrupo
+        '
+        Me.txtcodgrupo.Location = New System.Drawing.Point(547, 579)
+        Me.txtcodgrupo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtcodgrupo.Name = "txtcodgrupo"
+        Me.txtcodgrupo.Size = New System.Drawing.Size(148, 32)
+        Me.txtcodgrupo.TabIndex = 37
+        '
+        'Button1
+        '
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.Location = New System.Drawing.Point(853, 544)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(164, 59)
+        Me.Button1.TabIndex = 39
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'cPesoini
         '
-        Me.cPesoini.HeaderText = "Peso inicial"
+        Me.cPesoini.HeaderText = "Peso Inicial"
         Me.cPesoini.MinimumWidth = 6
         Me.cPesoini.Name = "cPesoini"
         Me.cPesoini.Width = 125
@@ -206,111 +311,17 @@ Partial Class Compra
         '
         'cprecio_compra
         '
-        Me.cprecio_compra.HeaderText = "precio compra"
+        Me.cprecio_compra.HeaderText = "Precio Compra"
         Me.cprecio_compra.MinimumWidth = 6
         Me.cprecio_compra.Name = "cprecio_compra"
         Me.cprecio_compra.Width = 125
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
-        Me.GroupBox1.Controls.Add(Me.txtcod_cliente)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.txtcompra)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(77, 24)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(637, 187)
-        Me.GroupBox1.TabIndex = 21
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Encabezado"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(123, 115)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(250, 27)
-        Me.DateTimePicker1.TabIndex = 14
-        '
-        'txtcod_cliente
-        '
-        Me.txtcod_cliente.Location = New System.Drawing.Point(461, 44)
-        Me.txtcod_cliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtcod_cliente.Name = "txtcod_cliente"
-        Me.txtcod_cliente.Size = New System.Drawing.Size(100, 27)
-        Me.txtcod_cliente.TabIndex = 11
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(391, 45)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(68, 20)
-        Me.Label6.TabIndex = 10
-        Me.Label6.Text = "C Cliente"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(78, 119)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(40, 20)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Feha"
-        '
-        'txtcompra
-        '
-        Me.txtcompra.Location = New System.Drawing.Point(149, 48)
-        Me.txtcompra.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtcompra.Name = "txtcompra"
-        Me.txtcompra.Size = New System.Drawing.Size(100, 27)
-        Me.txtcompra.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(91, 49)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 20)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Factura"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(483, 745)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(115, 20)
-        Me.Label2.TabIndex = 38
-        Me.Label2.Text = "Grupo asignado"
-        '
-        'txtcodgrupo
-        '
-        Me.txtcodgrupo.Location = New System.Drawing.Point(617, 738)
-        Me.txtcodgrupo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtcodgrupo.Name = "txtcodgrupo"
-        Me.txtcodgrupo.Size = New System.Drawing.Size(100, 27)
-        Me.txtcodgrupo.TabIndex = 37
-        '
-        'Button1
-        '
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(845, 758)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(109, 51)
-        Me.Button1.TabIndex = 39
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Compra
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 23.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(1141, 835)
+        Me.ClientSize = New System.Drawing.Size(1165, 645)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtcodgrupo)
@@ -327,12 +338,14 @@ Partial Class Compra
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btsalir)
         Me.Controls.Add(Me.btguardar)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgv_Compra)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Name = "Compra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "compra"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_Compra, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -352,19 +365,19 @@ Partial Class Compra
     Friend WithEvents Label5 As Label
     Friend WithEvents btsalir As Button
     Friend WithEvents btguardar As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgv_Compra As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtcod_cliente As TextBox
-    Friend WithEvents Label6 As Label
+    Friend WithEvents lb_CodigoCliente As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents txtcompra As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents cPesoini As DataGridViewTextBoxColumn
-    Friend WithEvents cedad As DataGridViewTextBoxColumn
-    Friend WithEvents craza As DataGridViewTextBoxColumn
-    Friend WithEvents cprecio_compra As DataGridViewTextBoxColumn
     Friend WithEvents Label2 As Label
     Friend WithEvents txtcodgrupo As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Button1 As Button
+    Friend WithEvents cPesoini As DataGridViewTextBoxColumn
+    Friend WithEvents cedad As DataGridViewTextBoxColumn
+    Friend WithEvents craza As DataGridViewTextBoxColumn
+    Friend WithEvents cprecio_compra As DataGridViewTextBoxColumn
 End Class

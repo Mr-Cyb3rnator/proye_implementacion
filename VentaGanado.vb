@@ -8,7 +8,7 @@ Public Class VentaGanado
         conecta()
 
 
-        Dim cargar_datos_detalle As String = "select  cod_animal,peso_4  from animales where cod_grupo =" & txtcodgrupo.Text
+        Dim cargar_datos_detalle As String = "select cod_grupo AS 'Grupo', cod_animal AS 'Codigo Animal', peso_4 AS 'Peso Final' from animales where cod_grupo =" & txtcodgrupo.Text
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(cargar_datos_detalle, conectar)
@@ -28,6 +28,7 @@ Public Class VentaGanado
 
 
 
+
     Private Sub cargar_peso_total()
 
         conecta()
@@ -40,6 +41,8 @@ Public Class VentaGanado
         recuperar = ejecutar.ExecuteReader
 
         Dim estado As String
+
+
         estado = recuperar.Read
 
         If (estado = True) Then
@@ -65,6 +68,21 @@ Public Class VentaGanado
 
 
     Private Sub VentaGanado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        conecta()
+
+        Dim Cargar_Grupos As String = "Select cod_grupo As 'Grupos', numero_animales 'Cantidad' from grupos "
+        Dim mostrar As New DataTable
+
+        Using adpmostrar As New SqlDataAdapter(Cargar_Grupos, conectar)
+
+            adpmostrar.Fill(mostrar)
+
+        End Using
+        dgvGrupos.DataSource = mostrar
+
+        conectar.Close()
+
         'dgventaganado.Columns.Add("Cod.Venta", "Cod.Venta")
         'dgventaganado.Columns.Add("Cod.Cliente", "Cod.Cliente")
         'dgventaganado.Columns.Add("Cod.Animal", "Cod.Animal")

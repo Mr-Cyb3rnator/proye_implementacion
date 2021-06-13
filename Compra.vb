@@ -105,7 +105,7 @@ Public Class Compra
         subtotal = (Val(txtprecio.Text))
 
 
-        DataGridView1.Rows.Add(txtpesoini.Text, txtedad.Text, txtraza.Text,  subtotal)
+        dgv_Compra.Rows.Add(txtpesoini.Text, txtedad.Text, txtraza.Text, subtotal)
         totalf = totalf + subtotal
         txttotal.Text = totalf
         txtpesoini.Clear()
@@ -175,7 +175,7 @@ Public Class Compra
         Dim fila_a As DataGridViewRow = New DataGridViewRow()
 
 
-        For Each fila In DataGridView1.Rows
+        For Each fila In dgv_Compra.Rows
 
             registrard.Parameters.Clear()
             registrard.Parameters.AddWithValue("@cod_detalle_compra", txtcompra.Text)
@@ -239,7 +239,7 @@ Public Class Compra
         'datos_factura_venta.cod_fact = codigofactura
 
         conectar.Close()
-        DataGridView1.Rows.Clear()
+        dgv_Compra.Rows.Clear()
 
         'Dim fac As New factura()
         'fac.Show()
