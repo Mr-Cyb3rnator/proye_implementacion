@@ -127,9 +127,6 @@ Public Class Dieta
 
         conecta()
 
-
-
-
         Dim recuperar As String = "select * from dieta where cod_dieta=' " & txtcoddieta.Text & " ' "
         Dim mostrar As SqlDataReader
         Dim ejecutar As New SqlCommand
@@ -147,9 +144,6 @@ Public Class Dieta
 
             txtcantidad.Text = mostrar(1)
             txtcomidaxdia.Text = mostrar(2)
-
-
-
 
         Else
 
