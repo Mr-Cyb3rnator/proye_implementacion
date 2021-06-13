@@ -25,28 +25,24 @@ Partial Class estado_resultados
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(estado_resultados))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtgrupo = New System.Windows.Forms.TextBox()
-        Me.txt_cod_gastos = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.btcargar_gastos = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView_venta = New System.Windows.Forms.DataGridView()
         Me.txt_total_gastos = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtcod_venta = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.btcargar_venta = New System.Windows.Forms.Button()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView_animales = New System.Windows.Forms.DataGridView()
-        Me.txt_totalventa = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.txt_costo_compra = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView_venta = New System.Windows.Forms.DataGridView()
+        Me.txt_totalventa = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView_animales = New System.Windows.Forms.DataGridView()
         Me.txtganacia = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btcalcular = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -58,247 +54,272 @@ Partial Class estado_resultados
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(47, 22)
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Location = New System.Drawing.Point(95, 121)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(40, 15)
+        Me.Label1.Size = New System.Drawing.Size(232, 30)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Grupo"
+        Me.Label1.Text = "Código del grupo:"
         '
         'txtgrupo
         '
-        Me.txtgrupo.Location = New System.Drawing.Point(123, 22)
+        Me.txtgrupo.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtgrupo.Location = New System.Drawing.Point(335, 120)
+        Me.txtgrupo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtgrupo.Name = "txtgrupo"
-        Me.txtgrupo.Size = New System.Drawing.Size(88, 23)
+        Me.txtgrupo.Size = New System.Drawing.Size(124, 37)
         Me.txtgrupo.TabIndex = 1
-        '
-        'txt_cod_gastos
-        '
-        Me.txt_cod_gastos.Location = New System.Drawing.Point(348, 22)
-        Me.txt_cod_gastos.Name = "txt_cod_gastos"
-        Me.txt_cod_gastos.Size = New System.Drawing.Size(88, 23)
-        Me.txt_cod_gastos.TabIndex = 3
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(250, 22)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(84, 15)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Codigo Gastos"
         '
         'btcargar_gastos
         '
-        Me.btcargar_gastos.Location = New System.Drawing.Point(482, 17)
+        Me.btcargar_gastos.BackColor = System.Drawing.Color.BurlyWood
+        Me.btcargar_gastos.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btcargar_gastos.Location = New System.Drawing.Point(498, 99)
+        Me.btcargar_gastos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btcargar_gastos.Name = "btcargar_gastos"
-        Me.btcargar_gastos.Size = New System.Drawing.Size(86, 44)
+        Me.btcargar_gastos.Size = New System.Drawing.Size(123, 73)
         Me.btcargar_gastos.TabIndex = 4
         Me.btcargar_gastos.Text = "Cargar Gastos"
-        Me.btcargar_gastos.UseVisualStyleBackColor = True
+        Me.btcargar_gastos.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 80)
+        Me.GroupBox1.Controls.Add(Me.txt_total_gastos)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox1.Location = New System.Drawing.Point(1016, 164)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(570, 242)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(678, 621)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Gastos"
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(5, 19)
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DataGridView1.Location = New System.Drawing.Point(19, 34)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(560, 217)
+        Me.DataGridView1.Size = New System.Drawing.Size(641, 362)
         Me.DataGridView1.TabIndex = 0
+        '
+        'txt_total_gastos
+        '
+        Me.txt_total_gastos.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txt_total_gastos.Enabled = False
+        Me.txt_total_gastos.Location = New System.Drawing.Point(383, 479)
+        Me.txt_total_gastos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_total_gastos.Name = "txt_total_gastos"
+        Me.txt_total_gastos.Size = New System.Drawing.Size(124, 30)
+        Me.txt_total_gastos.TabIndex = 8
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(215, 482)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(160, 30)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Total gastos:"
+        '
+        'txt_costo_compra
+        '
+        Me.txt_costo_compra.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txt_costo_compra.Enabled = False
+        Me.txt_costo_compra.Location = New System.Drawing.Point(838, 190)
+        Me.txt_costo_compra.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_costo_compra.Name = "txt_costo_compra"
+        Me.txt_costo_compra.Size = New System.Drawing.Size(124, 30)
+        Me.txt_costo_compra.TabIndex = 34
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(539, 190)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(291, 30)
+        Me.Label6.TabIndex = 33
+        Me.Label6.Text = "Total costo de compra:"
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.DataGridView_venta)
-        Me.GroupBox2.Location = New System.Drawing.Point(606, 80)
+        Me.GroupBox2.Controls.Add(Me.txt_totalventa)
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox2.Location = New System.Drawing.Point(32, 577)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(570, 242)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox2.Size = New System.Drawing.Size(976, 416)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Venta"
         '
         'DataGridView_venta
         '
+        Me.DataGridView_venta.AllowUserToResizeColumns = False
+        Me.DataGridView_venta.AllowUserToResizeRows = False
         Me.DataGridView_venta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_venta.Location = New System.Drawing.Point(5, 19)
+        Me.DataGridView_venta.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DataGridView_venta.Location = New System.Drawing.Point(19, 40)
+        Me.DataGridView_venta.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataGridView_venta.Name = "DataGridView_venta"
+        Me.DataGridView_venta.ReadOnly = True
         Me.DataGridView_venta.RowHeadersWidth = 51
         Me.DataGridView_venta.RowTemplate.Height = 24
-        Me.DataGridView_venta.Size = New System.Drawing.Size(560, 217)
+        Me.DataGridView_venta.Size = New System.Drawing.Size(503, 349)
         Me.DataGridView_venta.TabIndex = 7
         '
-        'txt_total_gastos
+        'txt_totalventa
         '
-        Me.txt_total_gastos.Location = New System.Drawing.Point(103, 327)
-        Me.txt_total_gastos.Name = "txt_total_gastos"
-        Me.txt_total_gastos.Size = New System.Drawing.Size(88, 23)
-        Me.txt_total_gastos.TabIndex = 8
+        Me.txt_totalventa.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txt_totalventa.Enabled = False
+        Me.txt_totalventa.Location = New System.Drawing.Point(838, 188)
+        Me.txt_totalventa.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_totalventa.Name = "txt_totalventa"
+        Me.txt_totalventa.Size = New System.Drawing.Size(124, 30)
+        Me.txt_totalventa.TabIndex = 32
         '
-        'Label3
+        'Label5
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(18, 327)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(64, 15)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Total gasto"
-        '
-        'txtcod_venta
-        '
-        Me.txtcod_venta.Location = New System.Drawing.Point(792, 32)
-        Me.txtcod_venta.Name = "txtcod_venta"
-        Me.txtcod_venta.Size = New System.Drawing.Size(88, 23)
-        Me.txtcod_venta.TabIndex = 28
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(694, 32)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 15)
-        Me.Label4.TabIndex = 27
-        Me.Label4.Text = "Codigo venta"
-        '
-        'btcargar_venta
-        '
-        Me.btcargar_venta.Location = New System.Drawing.Point(992, 20)
-        Me.btcargar_venta.Name = "btcargar_venta"
-        Me.btcargar_venta.Size = New System.Drawing.Size(86, 44)
-        Me.btcargar_venta.TabIndex = 29
-        Me.btcargar_venta.Text = "Cargar Venta"
-        Me.btcargar_venta.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(676, 191)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(154, 30)
+        Me.Label5.TabIndex = 31
+        Me.Label5.Text = "Total venta:"
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.DataGridView_animales)
-        Me.GroupBox3.Location = New System.Drawing.Point(20, 377)
+        Me.GroupBox3.Controls.Add(Me.txt_costo_compra)
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.GroupBox3.Location = New System.Drawing.Point(32, 164)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(570, 242)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox3.Size = New System.Drawing.Size(976, 403)
         Me.GroupBox3.TabIndex = 30
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Grupo"
         '
         'DataGridView_animales
         '
+        Me.DataGridView_animales.AllowUserToResizeColumns = False
+        Me.DataGridView_animales.AllowUserToResizeRows = False
         Me.DataGridView_animales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_animales.Location = New System.Drawing.Point(5, 21)
+        Me.DataGridView_animales.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.DataGridView_animales.Location = New System.Drawing.Point(19, 34)
+        Me.DataGridView_animales.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataGridView_animales.Name = "DataGridView_animales"
+        Me.DataGridView_animales.ReadOnly = True
         Me.DataGridView_animales.RowHeadersWidth = 51
         Me.DataGridView_animales.RowTemplate.Height = 24
-        Me.DataGridView_animales.Size = New System.Drawing.Size(555, 208)
+        Me.DataGridView_animales.Size = New System.Drawing.Size(503, 347)
         Me.DataGridView_animales.TabIndex = 7
-        '
-        'txt_totalventa
-        '
-        Me.txt_totalventa.Location = New System.Drawing.Point(710, 327)
-        Me.txt_totalventa.Name = "txt_totalventa"
-        Me.txt_totalventa.Size = New System.Drawing.Size(88, 23)
-        Me.txt_totalventa.TabIndex = 32
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(625, 327)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(64, 15)
-        Me.Label5.TabIndex = 31
-        Me.Label5.Text = "Total venta"
-        '
-        'txt_costo_compra
-        '
-        Me.txt_costo_compra.Location = New System.Drawing.Point(176, 622)
-        Me.txt_costo_compra.Name = "txt_costo_compra"
-        Me.txt_costo_compra.Size = New System.Drawing.Size(88, 23)
-        Me.txt_costo_compra.TabIndex = 34
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(31, 625)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(126, 15)
-        Me.Label6.TabIndex = 33
-        Me.Label6.Text = "Total Costo de compra"
         '
         'txtganacia
         '
-        Me.txtganacia.Location = New System.Drawing.Point(809, 488)
+        Me.txtganacia.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtganacia.Enabled = False
+        Me.txtganacia.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtganacia.Location = New System.Drawing.Point(1399, 790)
+        Me.txtganacia.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtganacia.Name = "txtganacia"
-        Me.txtganacia.Size = New System.Drawing.Size(88, 23)
+        Me.txtganacia.Size = New System.Drawing.Size(124, 30)
         Me.txtganacia.TabIndex = 36
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(773, 470)
+        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label7.Location = New System.Drawing.Point(1068, 797)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(137, 15)
+        Me.Label7.Size = New System.Drawing.Size(323, 30)
         Me.Label7.TabIndex = 35
-        Me.Label7.Text = "Total Ganancia o perdida"
+        Me.Label7.Text = "Total ganancia o perdida:"
         '
         'btcalcular
         '
-        Me.btcalcular.Location = New System.Drawing.Point(809, 525)
+        Me.btcalcular.BackColor = System.Drawing.Color.BurlyWood
+        Me.btcalcular.Enabled = False
+        Me.btcalcular.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btcalcular.Location = New System.Drawing.Point(1400, 857)
+        Me.btcalcular.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btcalcular.Name = "btcalcular"
-        Me.btcalcular.Size = New System.Drawing.Size(86, 44)
+        Me.btcalcular.Size = New System.Drawing.Size(123, 73)
         Me.btcalcular.TabIndex = 37
         Me.btcalcular.Text = "Calcular"
-        Me.btcalcular.UseVisualStyleBackColor = True
+        Me.btcalcular.UseVisualStyleBackColor = False
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(954, 525)
+        Me.Button1.Location = New System.Drawing.Point(1561, 857)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(86, 44)
+        Me.Button1.Size = New System.Drawing.Size(123, 73)
         Me.Button1.TabIndex = 38
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.Location = New System.Drawing.Point(610, 30)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(295, 34)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Estado de Resultado"
+        '
         'estado_resultados
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(1187, 562)
+        Me.ClientSize = New System.Drawing.Size(1720, 1050)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.btcalcular)
-        Me.Controls.Add(Me.txtganacia)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txt_costo_compra)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txt_totalventa)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.btcargar_venta)
-        Me.Controls.Add(Me.txtcod_venta)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txt_total_gastos)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.btcargar_gastos)
-        Me.Controls.Add(Me.txt_cod_gastos)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtgrupo)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btcalcular)
+        Me.Controls.Add(Me.txtganacia)
+        Me.Controls.Add(Me.btcargar_gastos)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Label2)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "estado_resultados"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "estado_resultados"
+        Me.Text = "Balance"
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         CType(Me.DataGridView_venta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.DataGridView_animales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -307,8 +328,6 @@ Partial Class estado_resultados
 
     Friend WithEvents Label1 As Label
     Friend WithEvents txtgrupo As TextBox
-    Friend WithEvents txt_cod_gastos As TextBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents btcargar_gastos As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
@@ -316,9 +335,6 @@ Partial Class estado_resultados
     Friend WithEvents DataGridView_venta As DataGridView
     Friend WithEvents txt_total_gastos As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtcod_venta As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents btcargar_venta As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents DataGridView_animales As DataGridView
     Friend WithEvents txt_totalventa As TextBox
@@ -329,4 +345,5 @@ Partial Class estado_resultados
     Friend WithEvents Label7 As Label
     Friend WithEvents btcalcular As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label2 As Label
 End Class

@@ -12,7 +12,7 @@ Public Class estado_resultados
         conecta()
 
 
-        Dim cargar_datos_venta As String = "select cod_cliente,fecha,cantidad_libras,precio_libra,cod_grupo from venta_animales where cod_grupo=" & txtgrupo.Text
+        Dim cargar_datos_venta As String = "select cod_cliente 'Codigo Cliente',fecha Fecha,cantidad_libras 'Cantidad en libras',precio_libra 'Precio por libra',cod_grupo 'Codigo de grupo' from venta_animales where cod_grupo=" & txtgrupo.Text
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(cargar_datos_venta, conectar)
@@ -105,7 +105,7 @@ Public Class estado_resultados
         conecta()
 
 
-        Dim cargar_datos_detalle As String = "select  cod_detalle_gastos,b.cod_gastos,cod_ingrediente,cantidad,precio,subtotal from detalle_gastos a join  gastos b on a.cod_gastos = b.cod_gastos where cod_grupo=" & txtgrupo.Text
+        Dim cargar_datos_detalle As String = "select  cod_detalle_gastos 'Detalle Gastos',b.cod_gastos 'Codigo Gastos',cod_ingrediente 'Codigo Ingredientes',cantidad Cantidad,precio Precio ,subtotal  Subtotal from detalle_gastos a join  gastos b on a.cod_gastos = b.cod_gastos where cod_grupo=" & txtgrupo.Text
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(cargar_datos_detalle, conectar)
@@ -126,22 +126,26 @@ Public Class estado_resultados
 
 
     Private Sub cargargrid_grupo()
+        Try
+            conecta()
 
+
+            Dim cargar_datos_detalle As String = "select cod_animal 'Codigo Animal',peso_4 'Peso Final',precio_compra 'Precio de Compra' from animales where cod_grupo=" & txtgrupo.Text
+            Dim mostrar As New DataTable
+
+            Using adpmostrar As New SqlDataAdapter(cargar_datos_detalle, conectar)
+
+                adpmostrar.Fill(mostrar)
+
+            End Using
+            DataGridView_animales.DataSource = mostrar
+
+            conectar.Close()
+        Catch ex As Exception
+
+        End Try
         '/// Esto Carga el detalle de la factura pero se pone bien lenta la pc si se ejecuata
-        conecta()
 
-
-        Dim cargar_datos_detalle As String = "select cod_animal,peso_4,precio_compra from animales where cod_grupo=" & txtgrupo.Text
-        Dim mostrar As New DataTable
-
-        Using adpmostrar As New SqlDataAdapter(cargar_datos_detalle, conectar)
-
-            adpmostrar.Fill(mostrar)
-
-        End Using
-        DataGridView_animales.DataSource = mostrar
-
-        conectar.Close()
 
 
 
@@ -214,7 +218,7 @@ Public Class estado_resultados
         End If
     End Sub
 
-    Private Sub txt_cod_gastos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_cod_gastos.KeyPress
+    Private Sub txt_cod_gastos_KeyPress(sender As Object, e As KeyPressEventArgs) 
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -227,7 +231,7 @@ Public Class estado_resultados
         End If
     End Sub
 
-    Private Sub txtcod_venta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcod_venta.KeyPress
+    Private Sub txtcod_venta_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -284,12 +288,16 @@ Public Class estado_resultados
         Form3.Show()
     End Sub
 
-    Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btcargar_gastos.Click
+    Private Sub Label4_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btcargar_gastos.Click
+        btcalcular.Enabled = True
         cargar_gasto_total()
         cargargrid_detalle()
         cargargrid_grupo()
-
+        cargargrid_venta()
 
 
 
@@ -299,7 +307,7 @@ Public Class estado_resultados
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btcargar_venta.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
 
         cargargrid_venta()
 

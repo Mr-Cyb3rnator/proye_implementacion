@@ -107,15 +107,21 @@ Partial Class Dieta
         '
         'dgdieta
         '
+        Me.dgdieta.AllowUserToDeleteRows = False
+        Me.dgdieta.AllowUserToResizeColumns = False
+        Me.dgdieta.AllowUserToResizeRows = False
         Me.dgdieta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgdieta.Enabled = False
+        Me.dgdieta.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgdieta.EnableHeadersVisualStyles = False
         Me.dgdieta.Location = New System.Drawing.Point(396, 47)
         Me.dgdieta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.dgdieta.Name = "dgdieta"
+        Me.dgdieta.ReadOnly = True
+        Me.dgdieta.RowHeadersVisible = False
         Me.dgdieta.RowHeadersWidth = 51
         Me.dgdieta.RowTemplate.Height = 28
-        Me.dgdieta.Size = New System.Drawing.Size(501, 442)
+        Me.dgdieta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.dgdieta.Size = New System.Drawing.Size(469, 442)
         Me.dgdieta.TabIndex = 9
         '
         'btnguardar
@@ -157,10 +163,10 @@ Partial Class Dieta
         '
         Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnatras.Image = CType(resources.GetObject("btnatras.Image"), System.Drawing.Image)
-        Me.btnatras.Location = New System.Drawing.Point(1369, 619)
+        Me.btnatras.Location = New System.Drawing.Point(1301, 621)
         Me.btnatras.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(111, 50)
+        Me.btnatras.Size = New System.Drawing.Size(111, 59)
         Me.btnatras.TabIndex = 26
         Me.btnatras.UseVisualStyleBackColor = False
         '
@@ -178,15 +184,19 @@ Partial Class Dieta
         '
         'dgingredientes_dieta
         '
+        Me.dgingredientes_dieta.AllowUserToDeleteRows = False
+        Me.dgingredientes_dieta.AllowUserToResizeColumns = False
+        Me.dgingredientes_dieta.AllowUserToResizeRows = False
         Me.dgingredientes_dieta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgingredientes_dieta.Enabled = False
+        Me.dgingredientes_dieta.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgingredientes_dieta.EnableHeadersVisualStyles = False
         Me.dgingredientes_dieta.Location = New System.Drawing.Point(85, 47)
         Me.dgingredientes_dieta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.dgingredientes_dieta.Name = "dgingredientes_dieta"
+        Me.dgingredientes_dieta.ReadOnly = True
         Me.dgingredientes_dieta.RowHeadersWidth = 51
         Me.dgingredientes_dieta.RowTemplate.Height = 29
-        Me.dgingredientes_dieta.Size = New System.Drawing.Size(360, 230)
+        Me.dgingredientes_dieta.Size = New System.Drawing.Size(367, 230)
         Me.dgingredientes_dieta.TabIndex = 28
         '
         'btselecionar_dierta
@@ -198,7 +208,7 @@ Partial Class Dieta
         Me.btselecionar_dierta.Name = "btselecionar_dierta"
         Me.btselecionar_dierta.Size = New System.Drawing.Size(378, 50)
         Me.btselecionar_dierta.TabIndex = 29
-        Me.btselecionar_dierta.Text = "Seleccionar dieta"
+        Me.btselecionar_dierta.Text = "Seleccionar codigo dieta"
         Me.btselecionar_dierta.UseVisualStyleBackColor = False
         '
         'Label5
@@ -231,7 +241,7 @@ Partial Class Dieta
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.btagregar)
         Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox1.Location = New System.Drawing.Point(955, 78)
+        Me.GroupBox1.Location = New System.Drawing.Point(919, 78)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(525, 525)
         Me.GroupBox1.TabIndex = 33
@@ -240,12 +250,12 @@ Partial Class Dieta
         '
         'cmbcodingre
         '
+        Me.cmbcodingre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbcodingre.FormattingEnabled = True
         Me.cmbcodingre.Location = New System.Drawing.Point(305, 306)
         Me.cmbcodingre.Name = "cmbcodingre"
         Me.cmbcodingre.Size = New System.Drawing.Size(164, 38)
         Me.cmbcodingre.TabIndex = 35
-        Me.cmbcodingre.Text = "0"
         '
         'GroupBox2
         '
@@ -262,7 +272,7 @@ Partial Class Dieta
         Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.GroupBox2.Location = New System.Drawing.Point(23, 78)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(910, 525)
+        Me.GroupBox2.Size = New System.Drawing.Size(890, 525)
         Me.GroupBox2.TabIndex = 34
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Dietas establecidas"
@@ -271,9 +281,10 @@ Partial Class Dieta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(1581, 719)
+        Me.ClientSize = New System.Drawing.Size(1442, 719)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label5)
@@ -281,7 +292,7 @@ Partial Class Dieta
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Name = "Dieta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DIETA"
+        Me.Text = "Dieta"
         CType(Me.dgdieta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgingredientes_dieta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -299,7 +310,6 @@ Partial Class Dieta
     Friend WithEvents txtcantidad As TextBox
     Friend WithEvents txtcomidaxdia As TextBox
     Friend WithEvents txtcoddieta As TextBox
-    Friend WithEvents dgdieta As DataGridView
     Friend WithEvents btnguardar As Button
     Friend WithEvents btneliminar As Button
     Friend WithEvents Label4 As Label
@@ -312,4 +322,5 @@ Partial Class Dieta
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents cmbcodingre As ComboBox
+    Friend WithEvents dgdieta As DataGridView
 End Class
