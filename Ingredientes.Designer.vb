@@ -56,7 +56,7 @@ Partial Class Ingredientes
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(80, 30)
         Me.btnguardar.TabIndex = 19
-        Me.btnguardar.Text = "Guardaaar"
+        Me.btnguardar.Text = "Guardar"
         Me.btnguardar.UseVisualStyleBackColor = True
         '
         'dgingredientes
@@ -111,7 +111,7 @@ Partial Class Ingredientes
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(72, 15)
         Me.Label2.TabIndex = 13
-        Me.Label2.Text = "Descripcion:"
+        Me.Label2.Text = "Descripción:"
         '
         'Label1
         '
@@ -120,7 +120,7 @@ Partial Class Ingredientes
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(112, 15)
         Me.Label1.TabIndex = 12
-        Me.Label1.Text = "Codigo Ingrediente:"
+        Me.Label1.Text = "Código Ingrediente:"
         '
         'txtcoddieta
         '
@@ -137,7 +137,7 @@ Partial Class Ingredientes
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(79, 15)
         Me.Label4.TabIndex = 21
-        Me.Label4.Text = "Codigo Dieta:"
+        Me.Label4.Text = "Código Dieta:"
         '
         'btnatras
         '

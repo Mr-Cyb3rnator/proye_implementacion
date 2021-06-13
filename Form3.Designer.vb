@@ -151,7 +151,7 @@ Partial Class Form3
         'Button9
         '
         Me.Button9.BackColor = System.Drawing.Color.BurlyWood
-        Me.Button9.Image = Global.proye.My.Resources.Resources.pagar
+        Me.Button9.Image = Global.proye.My.Resources.Resources.pagar1
         Me.Button9.Location = New System.Drawing.Point(470, 339)
         Me.Button9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button9.Name = "Button9"
@@ -289,7 +289,7 @@ Partial Class Form3
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Form3"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Men"
+        Me.Text = "Menú"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
