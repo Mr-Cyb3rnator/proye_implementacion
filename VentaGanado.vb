@@ -71,7 +71,7 @@ Public Class VentaGanado
 
         conecta()
 
-        Dim Cargar_Grupos As String = "Select cod_grupo As 'Grupos', numero_animales 'Cantidad' from grupos "
+        Dim Cargar_Grupos As String = "SELECT DISTINCT cod_grupo AS 'Grupos', raza AS 'Raza' from animales where estado is null and peso_4 is not null"
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(Cargar_Grupos, conectar)
@@ -116,6 +116,25 @@ Public Class VentaGanado
         registrar_estado.Parameters.AddWithValue("@estado", estado)
         registrar_estado.ExecuteNonQuery()
 
+        MsgBox("Venta Efectuada", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Venta Ganado")
+        txtcodgrupo.Text = ""
+        txtlibras_totales.Text = ""
+        txt_preciolibra.Text = ""
+        txttotalventa.Text = ""
+        txtcodcliente.Text = " "
+        dgventaganado.DataSource = Nothing
+
+        Dim Cargar_Grupos As String = "SELECT DISTINCT cod_grupo AS 'Grupos', raza AS 'Raza' from animales where estado is null and peso_4 is not null"
+        Dim mostrar As New DataTable
+
+        Using adpmostrar As New SqlDataAdapter(Cargar_Grupos, conectar)
+
+            adpmostrar.Fill(mostrar)
+
+        End Using
+        dgvGrupos.DataSource = mostrar
+
+
 
 
 
@@ -135,13 +154,41 @@ Public Class VentaGanado
 
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btcargar_grupo.Click
         'dgventaganado.Rows.Remove(dgventaganado.CurrentRow)
-        Dim total_venta As Integer
 
-        cargar_peso_total()
-        cargargrid_grupo()
 
-        total_venta = Val(txtlibras_totales.Text) * Val(txt_preciolibra.Text)
-        txttotalventa.Text = total_venta
+
+        'Recorrer el Data Grid View Cargado de Grupos'
+        'Dim getValue As String'
+        Dim grupopresente As Boolean
+
+        For Each row As DataGridViewRow In dgvGrupos.Rows
+            If row.Cells("Grupos").Value = txtcodgrupo.Text Then
+
+                'getValue = "Todo normal"'
+                grupopresente = 1
+                Exit For
+            Else
+                'getValue = "No Existe"'
+                grupopresente = 0
+
+            End If
+        Next
+        'MsgBox(getValue)'
+        If (grupopresente) Then
+            cargar_peso_total()
+            cargargrid_grupo()
+
+            txt_preciolibra.Enabled = True
+            txt_preciolibra.Select()
+
+        Else
+            MsgBox("Grupo No Forma Parte de la Lista")
+
+            txtcodgrupo.Text = ""
+            txtcodgrupo.Select()
+
+
+        End If
 
 
 
@@ -188,7 +235,7 @@ Public Class VentaGanado
         ElseIf Char.IsControl(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
+            e.Handled = True
         Else
             e.Handled = True
 
@@ -213,7 +260,8 @@ Public Class VentaGanado
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
             e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
+        ElseIf Char.IsPunctuation(e.KeyChar) And txt_preciolibra.Text.IndexOf(".") <= 0 Then
+
             e.Handled = False
         Else
             e.Handled = True
@@ -231,6 +279,40 @@ Public Class VentaGanado
         Else
             e.Handled = True
 
+        End If
+    End Sub
+
+    Private Sub txtcodgrupo_TextChanged(sender As Object, e As EventArgs) Handles txtcodgrupo.TextChanged
+        btcargar_grupo.Enabled = True
+
+        If (txtcodgrupo.Text = "") Then
+            btcargar_grupo.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub txt_preciolibra_TextChanged(sender As Object, e As EventArgs) Handles txt_preciolibra.TextChanged
+        Dim total_venta As Integer
+
+        If (txt_preciolibra.Text IsNot "") Then
+
+            total_venta = Val(txtlibras_totales.Text) * Val(txt_preciolibra.Text)
+            txttotalventa.Text = total_venta
+
+            txtcodcliente.Enabled = True
+
+        Else
+            txttotalventa.Text = ""
+            txtcodcliente.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcodcliente.TextChanged
+        If (txtcodcliente.Text IsNot "") Then
+            btnguardar.Enabled = True
+        Else
+            btnguardar.Enabled = False
         End If
     End Sub
 End Class

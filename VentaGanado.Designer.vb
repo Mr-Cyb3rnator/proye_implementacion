@@ -41,8 +41,9 @@ Partial Class VentaGanado
         Me.btnatras = New System.Windows.Forms.Button()
         Me.txttotalventa = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.mensajeprueba = New System.Windows.Forms.Label()
+        Me.lb_Grupos = New System.Windows.Forms.Label()
         Me.dgvGrupos = New System.Windows.Forms.DataGridView()
+        Me.lb_Animales = New System.Windows.Forms.Label()
         CType(Me.dgventaganado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvGrupos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -50,7 +51,7 @@ Partial Class VentaGanado
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(33, 45)
+        Me.Label1.Location = New System.Drawing.Point(33, 336)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(154, 23)
@@ -60,7 +61,7 @@ Partial Class VentaGanado
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(33, 215)
+        Me.Label2.Location = New System.Drawing.Point(33, 103)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(210, 23)
@@ -70,7 +71,7 @@ Partial Class VentaGanado
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(33, 275)
+        Me.Label3.Location = New System.Drawing.Point(33, 157)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(143, 23)
@@ -80,7 +81,7 @@ Partial Class VentaGanado
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(33, 100)
+        Me.Label4.Location = New System.Drawing.Point(33, 278)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(168, 23)
@@ -90,7 +91,7 @@ Partial Class VentaGanado
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(33, 158)
+        Me.Label5.Location = New System.Drawing.Point(33, 42)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(155, 23)
@@ -109,7 +110,8 @@ Partial Class VentaGanado
         '
         'txtcodventa
         '
-        Me.txtcodventa.Location = New System.Drawing.Point(251, 42)
+        Me.txtcodventa.Enabled = False
+        Me.txtcodventa.Location = New System.Drawing.Point(251, 333)
         Me.txtcodventa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtcodventa.Name = "txtcodventa"
         Me.txtcodventa.Size = New System.Drawing.Size(132, 32)
@@ -117,7 +119,8 @@ Partial Class VentaGanado
         '
         'txtcodcliente
         '
-        Me.txtcodcliente.Location = New System.Drawing.Point(251, 97)
+        Me.txtcodcliente.Enabled = False
+        Me.txtcodcliente.Location = New System.Drawing.Point(251, 275)
         Me.txtcodcliente.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtcodcliente.Name = "txtcodcliente"
         Me.txtcodcliente.Size = New System.Drawing.Size(132, 32)
@@ -125,7 +128,8 @@ Partial Class VentaGanado
         '
         'txtlibras_totales
         '
-        Me.txtlibras_totales.Location = New System.Drawing.Point(251, 212)
+        Me.txtlibras_totales.Enabled = False
+        Me.txtlibras_totales.Location = New System.Drawing.Point(251, 100)
         Me.txtlibras_totales.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtlibras_totales.Name = "txtlibras_totales"
         Me.txtlibras_totales.Size = New System.Drawing.Size(132, 32)
@@ -133,15 +137,17 @@ Partial Class VentaGanado
         '
         'txtcodgrupo
         '
-        Me.txtcodgrupo.Location = New System.Drawing.Point(251, 155)
+        Me.txtcodgrupo.Location = New System.Drawing.Point(251, 39)
         Me.txtcodgrupo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtcodgrupo.MaxLength = 7
         Me.txtcodgrupo.Name = "txtcodgrupo"
         Me.txtcodgrupo.Size = New System.Drawing.Size(132, 32)
         Me.txtcodgrupo.TabIndex = 9
         '
         'txt_preciolibra
         '
-        Me.txt_preciolibra.Location = New System.Drawing.Point(251, 272)
+        Me.txt_preciolibra.Enabled = False
+        Me.txt_preciolibra.Location = New System.Drawing.Point(251, 154)
         Me.txt_preciolibra.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txt_preciolibra.Name = "txt_preciolibra"
         Me.txt_preciolibra.Size = New System.Drawing.Size(132, 32)
@@ -150,38 +156,49 @@ Partial Class VentaGanado
         'dgventaganado
         '
         Me.dgventaganado.AllowUserToAddRows = False
+        Me.dgventaganado.AllowUserToDeleteRows = False
+        Me.dgventaganado.AllowUserToResizeColumns = False
+        Me.dgventaganado.AllowUserToResizeRows = False
         Me.dgventaganado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgventaganado.Location = New System.Drawing.Point(863, 100)
+        Me.dgventaganado.Location = New System.Drawing.Point(777, 103)
         Me.dgventaganado.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.dgventaganado.MultiSelect = False
         Me.dgventaganado.Name = "dgventaganado"
+        Me.dgventaganado.ReadOnly = True
+        Me.dgventaganado.RowHeadersVisible = False
         Me.dgventaganado.RowHeadersWidth = 51
         Me.dgventaganado.RowTemplate.Height = 28
-        Me.dgventaganado.Size = New System.Drawing.Size(300, 207)
+        Me.dgventaganado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgventaganado.Size = New System.Drawing.Size(302, 204)
         Me.dgventaganado.TabIndex = 19
         '
         'btcargar_grupo
         '
-        Me.btcargar_grupo.Location = New System.Drawing.Point(824, 346)
+        Me.btcargar_grupo.BackColor = System.Drawing.Color.BurlyWood
+        Me.btcargar_grupo.Enabled = False
+        Me.btcargar_grupo.Location = New System.Drawing.Point(508, 313)
         Me.btcargar_grupo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btcargar_grupo.Name = "btcargar_grupo"
         Me.btcargar_grupo.Size = New System.Drawing.Size(160, 70)
         Me.btcargar_grupo.TabIndex = 22
         Me.btcargar_grupo.Text = "Cargar Grupo"
-        Me.btcargar_grupo.UseVisualStyleBackColor = True
+        Me.btcargar_grupo.UseVisualStyleBackColor = False
         '
         'btnguardar
         '
+        Me.btnguardar.BackColor = System.Drawing.Color.BurlyWood
         Me.btnguardar.Enabled = False
-        Me.btnguardar.Location = New System.Drawing.Point(562, 344)
+        Me.btnguardar.Location = New System.Drawing.Point(848, 313)
         Me.btnguardar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(166, 70)
         Me.btnguardar.TabIndex = 21
         Me.btnguardar.Text = "Guardar"
-        Me.btnguardar.UseVisualStyleBackColor = True
+        Me.btnguardar.UseVisualStyleBackColor = False
         '
         'dtpfecha
         '
+        Me.dtpfecha.Enabled = False
         Me.dtpfecha.Location = New System.Drawing.Point(173, 391)
         Me.dtpfecha.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.dtpfecha.Name = "dtpfecha"
@@ -192,7 +209,7 @@ Partial Class VentaGanado
         '
         Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnatras.Image = CType(resources.GetObject("btnatras.Image"), System.Drawing.Image)
-        Me.btnatras.Location = New System.Drawing.Point(1098, 351)
+        Me.btnatras.Location = New System.Drawing.Point(1108, 322)
         Me.btnatras.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnatras.Name = "btnatras"
         Me.btnatras.Size = New System.Drawing.Size(153, 61)
@@ -201,7 +218,8 @@ Partial Class VentaGanado
         '
         'txttotalventa
         '
-        Me.txttotalventa.Location = New System.Drawing.Point(251, 332)
+        Me.txttotalventa.Enabled = False
+        Me.txttotalventa.Location = New System.Drawing.Point(251, 213)
         Me.txttotalventa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txttotalventa.Name = "txttotalventa"
         Me.txttotalventa.Size = New System.Drawing.Size(132, 32)
@@ -210,21 +228,21 @@ Partial Class VentaGanado
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(33, 335)
+        Me.Label8.Location = New System.Drawing.Point(33, 216)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(124, 23)
         Me.Label8.TabIndex = 26
         Me.Label8.Text = "Total Venta"
         '
-        'mensajeprueba
+        'lb_Grupos
         '
-        Me.mensajeprueba.AutoSize = True
-        Me.mensajeprueba.Location = New System.Drawing.Point(550, 48)
-        Me.mensajeprueba.Name = "mensajeprueba"
-        Me.mensajeprueba.Size = New System.Drawing.Size(76, 23)
-        Me.mensajeprueba.TabIndex = 28
-        Me.mensajeprueba.Text = "Label7"
+        Me.lb_Grupos.AutoSize = True
+        Me.lb_Grupos.Location = New System.Drawing.Point(556, 59)
+        Me.lb_Grupos.Name = "lb_Grupos"
+        Me.lb_Grupos.Size = New System.Drawing.Size(80, 23)
+        Me.lb_Grupos.TabIndex = 28
+        Me.lb_Grupos.Text = "Grupos"
         '
         'dgvGrupos
         '
@@ -237,10 +255,21 @@ Partial Class VentaGanado
         Me.dgvGrupos.MultiSelect = False
         Me.dgvGrupos.Name = "dgvGrupos"
         Me.dgvGrupos.ReadOnly = True
+        Me.dgvGrupos.RowHeadersVisible = False
         Me.dgvGrupos.RowHeadersWidth = 51
         Me.dgvGrupos.RowTemplate.Height = 29
-        Me.dgvGrupos.Size = New System.Drawing.Size(300, 207)
+        Me.dgvGrupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvGrupos.Size = New System.Drawing.Size(231, 207)
         Me.dgvGrupos.TabIndex = 29
+        '
+        'lb_Animales
+        '
+        Me.lb_Animales.AutoSize = True
+        Me.lb_Animales.Location = New System.Drawing.Point(837, 59)
+        Me.lb_Animales.Name = "lb_Animales"
+        Me.lb_Animales.Size = New System.Drawing.Size(200, 23)
+        Me.lb_Animales.TabIndex = 30
+        Me.lb_Animales.Text = "Animales de Grupo"
         '
         'VentaGanado
         '
@@ -248,8 +277,9 @@ Partial Class VentaGanado
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(1295, 493)
+        Me.Controls.Add(Me.lb_Animales)
         Me.Controls.Add(Me.dgvGrupos)
-        Me.Controls.Add(Me.mensajeprueba)
+        Me.Controls.Add(Me.lb_Grupos)
         Me.Controls.Add(Me.txttotalventa)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.btnatras)
@@ -298,6 +328,7 @@ Partial Class VentaGanado
     Friend WithEvents btnatras As Button
     Friend WithEvents txttotalventa As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents mensajeprueba As Label
+    Friend WithEvents lb_Grupos As Label
     Friend WithEvents dgvGrupos As DataGridView
+    Friend WithEvents lb_Animales As Label
 End Class
