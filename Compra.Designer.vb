@@ -22,7 +22,6 @@ Partial Class Compra
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Compra))
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -37,6 +36,11 @@ Partial Class Compra
         Me.btsalir = New System.Windows.Forms.Button()
         Me.btguardar = New System.Windows.Forms.Button()
         Me.dgv_Compra = New System.Windows.Forms.DataGridView()
+        Me.cPesoini = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.craza = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cprecio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Obs = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.txtcod_cliente = New System.Windows.Forms.TextBox()
@@ -47,10 +51,6 @@ Partial Class Compra
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtcodgrupo = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.cPesoini = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cedad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.craza = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cprecio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_Compra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -179,7 +179,7 @@ Partial Class Compra
         '
         Me.dgv_Compra.AllowUserToAddRows = False
         Me.dgv_Compra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_Compra.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cPesoini, Me.cedad, Me.craza, Me.cprecio_compra})
+        Me.dgv_Compra.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cPesoini, Me.cedad, Me.craza, Me.cprecio_compra, Me.Obs})
         Me.dgv_Compra.Location = New System.Drawing.Point(306, 170)
         Me.dgv_Compra.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dgv_Compra.Name = "dgv_Compra"
@@ -187,6 +187,42 @@ Partial Class Compra
         Me.dgv_Compra.RowTemplate.Height = 24
         Me.dgv_Compra.Size = New System.Drawing.Size(554, 342)
         Me.dgv_Compra.TabIndex = 22
+        '
+        'cPesoini
+        '
+        Me.cPesoini.HeaderText = "Peso Inicial"
+        Me.cPesoini.MinimumWidth = 6
+        Me.cPesoini.Name = "cPesoini"
+        Me.cPesoini.Width = 125
+        '
+        'cedad
+        '
+        Me.cedad.HeaderText = "Edad"
+        Me.cedad.MinimumWidth = 6
+        Me.cedad.Name = "cedad"
+        Me.cedad.Width = 125
+        '
+        'craza
+        '
+        Me.craza.HeaderText = "Raza"
+        Me.craza.MinimumWidth = 6
+        Me.craza.Name = "craza"
+        Me.craza.Width = 125
+        '
+        'cprecio_compra
+        '
+        Me.cprecio_compra.HeaderText = "Precio Compra"
+        Me.cprecio_compra.MinimumWidth = 6
+        Me.cprecio_compra.Name = "cprecio_compra"
+        Me.cprecio_compra.Width = 125
+        '
+        'Obs
+        '
+        Me.Obs.HeaderText = "obs"
+        Me.Obs.MinimumWidth = 6
+        Me.Obs.Name = "Obs"
+        Me.Obs.Visible = False
+        Me.Obs.Width = 125
         '
         'GroupBox1
         '
@@ -280,41 +316,12 @@ Partial Class Compra
         '
         'Button1
         '
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.Location = New System.Drawing.Point(853, 544)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(164, 59)
         Me.Button1.TabIndex = 39
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'cPesoini
-        '
-        Me.cPesoini.HeaderText = "Peso Inicial"
-        Me.cPesoini.MinimumWidth = 6
-        Me.cPesoini.Name = "cPesoini"
-        Me.cPesoini.Width = 125
-        '
-        'cedad
-        '
-        Me.cedad.HeaderText = "Edad"
-        Me.cedad.MinimumWidth = 6
-        Me.cedad.Name = "cedad"
-        Me.cedad.Width = 125
-        '
-        'craza
-        '
-        Me.craza.HeaderText = "Raza"
-        Me.craza.MinimumWidth = 6
-        Me.craza.Name = "craza"
-        Me.craza.Width = 125
-        '
-        'cprecio_compra
-        '
-        Me.cprecio_compra.HeaderText = "Precio Compra"
-        Me.cprecio_compra.MinimumWidth = 6
-        Me.cprecio_compra.Name = "cprecio_compra"
-        Me.cprecio_compra.Width = 125
         '
         'Compra
         '
@@ -380,4 +387,5 @@ Partial Class Compra
     Friend WithEvents cedad As DataGridViewTextBoxColumn
     Friend WithEvents craza As DataGridViewTextBoxColumn
     Friend WithEvents cprecio_compra As DataGridViewTextBoxColumn
+    Friend WithEvents Obs As DataGridViewTextBoxColumn
 End Class

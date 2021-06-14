@@ -69,7 +69,7 @@ Public Class Grupos
 
         conectar.Close()
         cargargrid()
-
+        MsgBox("Grupo creado satisfactoriamente ")
 
 
 

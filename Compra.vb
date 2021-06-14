@@ -122,7 +122,8 @@ Public Class Compra
     Private Sub btguardar_Click(sender As Object, e As EventArgs) Handles btguardar.Click
 
         Dim codigofactura, contador As Integer
-
+        Dim compra_ini As String
+        compra_ini = "compra inicial"
         conecta()
         Dim datosfactura As String = "insert into compra_animales(cod_cliente,total,fecha,cantidad_animales)values(@cod_cliente,@total,@fecha,@cantidad_animales)"
         Dim registrar As New SqlCommand(datosfactura, conectar)
@@ -169,7 +170,7 @@ Public Class Compra
 
         Dim fila As DataGridViewRow = New DataGridViewRow()
 
-        Dim datos_animales As String = "insert into animales(peso_inicial,raza,cod_grupo,precio_compra) values(@peso_inicial,@raza,@cod_grupo,@precio_compra)"
+        Dim datos_animales As String = "insert into animales(peso_inicial,raza,cod_grupo,precio_compra,edad) values(@peso_inicial,@raza,@cod_grupo,@precio_compra,@edad)"
         Dim registrar_a As New SqlCommand(datos_animales, conectar)
 
         Dim fila_a As DataGridViewRow = New DataGridViewRow()
@@ -182,13 +183,16 @@ Public Class Compra
             registrard.Parameters.AddWithValue("@peso_inicial", fila.Cells("cpesoini").Value)
             registrard.Parameters.AddWithValue("@raza", fila.Cells("craza").Value)
             registrard.Parameters.AddWithValue("@precio_compra", fila.Cells("cprecio_compra").Value)
+
             registrard.ExecuteNonQuery()
 
             registrar_a.Parameters.Clear()
             registrar_a.Parameters.AddWithValue("@peso_inicial", fila.Cells("cpesoini").Value)
+            registrar_a.Parameters.AddWithValue("@edad", fila.Cells("cedad").Value)
             registrar_a.Parameters.AddWithValue("@raza", fila.Cells("craza").Value)
             registrar_a.Parameters.AddWithValue("@cod_grupo", txtcodgrupo.Text)
             registrar_a.Parameters.AddWithValue("@precio_compra", fila.Cells("cprecio_compra").Value)
+            'registrar_a.Parameters.AddWithValue("@observaciones", co)
             registrar_a.ExecuteNonQuery()
 
             contador = contador + 1

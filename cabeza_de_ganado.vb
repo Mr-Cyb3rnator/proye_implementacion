@@ -2,6 +2,26 @@
 Imports System.Data.SqlClient
 Public Class Cabeza_ganado
 
+
+
+
+    Public Sub cargar_combo_grupos()
+
+        Try
+            cn.Open()
+            sql = "select  cod_grupo from grupos "
+            adt = New SqlDataAdapter(sql, cn)
+            ds = New DataSet
+            adt.Fill(ds)
+
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+
+
     Private Sub cargargrid()
 
         conecta()
@@ -20,6 +40,8 @@ Public Class Cabeza_ganado
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        bteditar.Enabled = False
+        bteliminar.Enabled = False
 
         cargargrid()
 
@@ -39,7 +61,7 @@ Public Class Cabeza_ganado
         insertar.Parameters.AddWithValue("@peso_objetivo", txtpesoobj.Text)
         insertar.Parameters.AddWithValue("@edad", txtedad.Text)
         insertar.Parameters.AddWithValue("@raza", txtraza.Text)
-        insertar.Parameters.AddWithValue("@observaciones", txtobs.Text)
+        insertar.Parameters.AddWithValue("@observaciones", rtxtobs.Text)
         insertar.Parameters.AddWithValue("@cod_grupo", txtcod_grup.Text)
 
 
@@ -89,8 +111,8 @@ Public Class Cabeza_ganado
         actualizar.Parameters.AddWithValue("@peso_objetivo", txtpesoobj.Text)
         actualizar.Parameters.AddWithValue("@edad", txtedad.Text)
         actualizar.Parameters.AddWithValue("@raza", txtraza.Text)
-        actualizar.Parameters.AddWithValue("@observaciones", txtobs.Text)
-        actualizar.Parameters.AddWithValue("@cod_grupo", txtcod_grup.Text)
+        actualizar.Parameters.AddWithValue("@observaciones", rtxtobs.Text)
+        actualizar.Parameters.AddWithValue("@cod_grupo", combo_grupos.Text)
         actualizar.ExecuteNonQuery()
         conectar.Close()
         cargargrid()
@@ -228,7 +250,7 @@ Public Class Cabeza_ganado
         End If
     End Sub
 
-    Private Sub txtobs_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtobs.KeyPress
+    Private Sub txtobs_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -244,5 +266,85 @@ Public Class Cabeza_ganado
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Hide()
         Form3.Show()
+    End Sub
+
+    Private Sub rtxtobs_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rtxtobs.KeyPress
+
+    End Sub
+
+    Private Sub DGcabezas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGcabezas.CellContentClick
+
+        conecta()
+        Dim fila_actual As Integer
+        fila_actual = DGcabezas.CurrentRow.Index
+        txtcodigoanimal.Text = DGcabezas.Rows(fila_actual).Cells(0).Value
+        'txtcodgrup.Text = DGgrupos.CurrentRow.Cells(0).Value
+        Dim recuperar As String = "select * from animales where cod_animal=" & txtcodigoanimal.Text
+        Dim mostrar As SqlDataReader
+        Dim ejecutar As New SqlCommand
+
+        ejecutar = New SqlCommand(recuperar, conectar)
+        mostrar = ejecutar.ExecuteReader
+
+        Dim estado As String
+
+        estado = mostrar.Read
+
+        If (estado = True) Then
+
+            txtcodigoanimal.Text = mostrar(0)
+            txtpesoini.Text = mostrar(1)
+            txtpeso1.Text = mostrar(2)
+            txtpeso2.Text = mostrar(3)
+            txtpeso3.Text = mostrar(4)
+            txtpeso4.Text = mostrar(5)
+            txtpesoobj.Text = mostrar(6)
+            txtedad.Text = mostrar(7)
+            txtraza.Text = mostrar(8)
+
+            combo_grupos.Text = mostrar(10)
+            rtxtobs.Text = mostrar(9)
+
+        Else
+
+
+
+
+        End If
+
+        mostrar.Close()
+        conectar.Close()
+        bteditar.Enabled = True
+        bteliminar.Enabled = True
+
+
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles combo_grupos.SelectedIndexChanged
+        txtcod_grup.Text = combo_grupos.Text
+
+
+
+
+
+    End Sub
+
+    Private Sub combo_grupos_Click(sender As Object, e As EventArgs) Handles combo_grupos.Click
+
+
+        cargar_combo_grupos()
+
+        Try
+            combo_grupos.DataSource = ds.Tables(0)
+            combo_grupos.DisplayMember = "cod_grupo"
+
+
+
+
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

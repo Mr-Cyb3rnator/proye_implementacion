@@ -41,7 +41,6 @@ Partial Class Cabeza_ganado
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtraza = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtobs = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtcod_grup = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -50,20 +49,24 @@ Partial Class Cabeza_ganado
         Me.bteliminar = New System.Windows.Forms.Button()
         Me.btnatras = New System.Windows.Forms.Button()
         Me.bteditar = New System.Windows.Forms.Button()
+        Me.rtxtobs = New System.Windows.Forms.RichTextBox()
+        Me.combo_grupos = New System.Windows.Forms.ComboBox()
         CType(Me.DGcabezas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(261, 59)
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Location = New System.Drawing.Point(213, 59)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 20)
+        Me.Label1.Size = New System.Drawing.Size(155, 23)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Codigo animal"
         '
         'txtcodigoanimal
         '
+        Me.txtcodigoanimal.Enabled = False
         Me.txtcodigoanimal.Location = New System.Drawing.Point(374, 55)
         Me.txtcodigoanimal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcodigoanimal.Name = "txtcodigoanimal"
@@ -81,9 +84,10 @@ Partial Class Cabeza_ganado
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label2.Location = New System.Drawing.Point(534, 59)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 20)
+        Me.Label2.Size = New System.Drawing.Size(115, 23)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Peso inicial"
         '
@@ -98,9 +102,10 @@ Partial Class Cabeza_ganado
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label3.Location = New System.Drawing.Point(534, 107)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 20)
+        Me.Label3.Size = New System.Drawing.Size(73, 23)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Peso 1"
         '
@@ -115,9 +120,10 @@ Partial Class Cabeza_ganado
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label4.Location = New System.Drawing.Point(534, 152)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(51, 20)
+        Me.Label4.Size = New System.Drawing.Size(73, 23)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Peso 2"
         '
@@ -132,9 +138,10 @@ Partial Class Cabeza_ganado
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label5.Location = New System.Drawing.Point(534, 205)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(51, 20)
+        Me.Label5.Size = New System.Drawing.Size(73, 23)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Peso 3"
         '
@@ -149,9 +156,10 @@ Partial Class Cabeza_ganado
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label6.Location = New System.Drawing.Point(534, 268)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(51, 20)
+        Me.Label6.Size = New System.Drawing.Size(73, 23)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Peso 4"
         '
@@ -166,9 +174,10 @@ Partial Class Cabeza_ganado
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(261, 127)
+        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label7.Location = New System.Drawing.Point(213, 128)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(100, 20)
+        Me.Label7.Size = New System.Drawing.Size(145, 23)
         Me.Label7.TabIndex = 12
         Me.Label7.Text = "Peso Objetivo"
         '
@@ -183,9 +192,10 @@ Partial Class Cabeza_ganado
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label8.Location = New System.Drawing.Point(261, 203)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(43, 20)
+        Me.Label8.Size = New System.Drawing.Size(63, 23)
         Me.Label8.TabIndex = 14
         Me.Label8.Text = "Edad"
         '
@@ -200,53 +210,51 @@ Partial Class Cabeza_ganado
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label9.Location = New System.Drawing.Point(261, 277)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(41, 20)
+        Me.Label9.Size = New System.Drawing.Size(59, 23)
         Me.Label9.TabIndex = 16
         Me.Label9.Text = "Raza"
-        '
-        'txtobs
-        '
-        Me.txtobs.Location = New System.Drawing.Point(902, 51)
-        Me.txtobs.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtobs.Name = "txtobs"
-        Me.txtobs.Size = New System.Drawing.Size(100, 27)
-        Me.txtobs.TabIndex = 19
         '
         'Label10
         '
         Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label10.Location = New System.Drawing.Point(789, 55)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(105, 20)
+        Me.Label10.Size = New System.Drawing.Size(157, 23)
         Me.Label10.TabIndex = 18
         Me.Label10.Text = "Observaciones"
         '
         'txtcod_grup
         '
-        Me.txtcod_grup.Location = New System.Drawing.Point(942, 101)
+        Me.txtcod_grup.Location = New System.Drawing.Point(17, 13)
         Me.txtcod_grup.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcod_grup.Name = "txtcod_grup"
         Me.txtcod_grup.Size = New System.Drawing.Size(100, 27)
         Me.txtcod_grup.TabIndex = 21
+        Me.txtcod_grup.Visible = False
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(789, 109)
+        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label11.Location = New System.Drawing.Point(170, 333)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(124, 20)
+        Me.Label11.Size = New System.Drawing.Size(183, 23)
         Me.Label11.TabIndex = 20
         Me.Label11.Text = "Codigo de Grupo"
         '
         'DGcabezas
         '
         Me.DGcabezas.AllowUserToAddRows = False
+        Me.DGcabezas.AllowUserToDeleteRows = False
         Me.DGcabezas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGcabezas.Location = New System.Drawing.Point(17, 373)
         Me.DGcabezas.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DGcabezas.Name = "DGcabezas"
+        Me.DGcabezas.ReadOnly = True
         Me.DGcabezas.RowHeadersWidth = 51
         Me.DGcabezas.RowTemplate.Height = 24
         Me.DGcabezas.Size = New System.Drawing.Size(1373, 509)
@@ -254,23 +262,27 @@ Partial Class Cabeza_ganado
         '
         'btagregar
         '
+        Me.btagregar.BackColor = System.Drawing.Color.BurlyWood
+        Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btagregar.Location = New System.Drawing.Point(867, 231)
         Me.btagregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btagregar.Name = "btagregar"
         Me.btagregar.Size = New System.Drawing.Size(113, 69)
         Me.btagregar.TabIndex = 23
         Me.btagregar.Text = "Agregar "
-        Me.btagregar.UseVisualStyleBackColor = True
+        Me.btagregar.UseVisualStyleBackColor = False
         '
         'bteliminar
         '
+        Me.bteliminar.BackColor = System.Drawing.Color.BurlyWood
+        Me.bteliminar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.bteliminar.Location = New System.Drawing.Point(1043, 231)
         Me.bteliminar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.bteliminar.Name = "bteliminar"
         Me.bteliminar.Size = New System.Drawing.Size(113, 69)
         Me.bteliminar.TabIndex = 24
         Me.bteliminar.Text = "Eliminar"
-        Me.bteliminar.UseVisualStyleBackColor = True
+        Me.bteliminar.UseVisualStyleBackColor = False
         '
         'btnatras
         '
@@ -283,13 +295,32 @@ Partial Class Cabeza_ganado
         '
         'bteditar
         '
+        Me.bteditar.BackColor = System.Drawing.Color.BurlyWood
+        Me.bteditar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.bteditar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.bteditar.Location = New System.Drawing.Point(1205, 231)
         Me.bteditar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.bteditar.Name = "bteditar"
         Me.bteditar.Size = New System.Drawing.Size(113, 69)
         Me.bteditar.TabIndex = 27
         Me.bteditar.Text = "Editar"
-        Me.bteditar.UseVisualStyleBackColor = True
+        Me.bteditar.UseVisualStyleBackColor = False
+        '
+        'rtxtobs
+        '
+        Me.rtxtobs.Location = New System.Drawing.Point(952, 59)
+        Me.rtxtobs.Name = "rtxtobs"
+        Me.rtxtobs.Size = New System.Drawing.Size(125, 120)
+        Me.rtxtobs.TabIndex = 28
+        Me.rtxtobs.Text = ""
+        '
+        'combo_grupos
+        '
+        Me.combo_grupos.FormattingEnabled = True
+        Me.combo_grupos.Location = New System.Drawing.Point(374, 328)
+        Me.combo_grupos.Name = "combo_grupos"
+        Me.combo_grupos.Size = New System.Drawing.Size(151, 28)
+        Me.combo_grupos.TabIndex = 29
         '
         'Cabeza_ganado
         '
@@ -297,6 +328,8 @@ Partial Class Cabeza_ganado
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(1409, 749)
+        Me.Controls.Add(Me.combo_grupos)
+        Me.Controls.Add(Me.rtxtobs)
         Me.Controls.Add(Me.bteditar)
         Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.bteliminar)
@@ -304,7 +337,6 @@ Partial Class Cabeza_ganado
         Me.Controls.Add(Me.DGcabezas)
         Me.Controls.Add(Me.txtcod_grup)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.txtobs)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.txtraza)
         Me.Controls.Add(Me.Label9)
@@ -352,7 +384,6 @@ Partial Class Cabeza_ganado
     Friend WithEvents Label8 As Label
     Friend WithEvents txtraza As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents txtobs As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents txtcod_grup As TextBox
     Friend WithEvents Label11 As Label
@@ -361,4 +392,6 @@ Partial Class Cabeza_ganado
     Friend WithEvents bteliminar As Button
     Friend WithEvents btnatras As Button
     Friend WithEvents bteditar As Button
+    Friend WithEvents rtxtobs As RichTextBox
+    Friend WithEvents combo_grupos As ComboBox
 End Class
