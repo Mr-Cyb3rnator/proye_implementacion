@@ -1,14 +1,14 @@
 ﻿Public Class Form3
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If (lblprivilegio.Text <> "luis") Then
-            Button1.Enabled = False
-            Button3.Enabled = False
-            Button4.Enabled = False
-            Button5.Enabled = False
-            Button6.Enabled = False
-            Button7.Enabled = False
-            Button8.Enabled = False
-            Button9.Enabled = False
+            Button1.Enabled = True
+            Button3.Enabled = True
+            Button4.Enabled = True
+            Button5.Enabled = True
+            Button6.Enabled = True
+            Button7.Enabled = True
+            Button8.Enabled = True
+            Button9.Enabled = True
 
         End If
     End Sub
@@ -56,5 +56,9 @@
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Me.Hide()
         compra.Show()
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 End Class

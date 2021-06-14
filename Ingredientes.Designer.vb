@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Ingredientes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Ingredientes
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btneliminar = New System.Windows.Forms.Button()
         Me.btnguardar = New System.Windows.Forms.Button()
@@ -34,7 +34,6 @@ Partial Class Ingredientes
         Me.txtcoddieta = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.bteditar = New System.Windows.Forms.Button()
-        Me.btnatras = New System.Windows.Forms.Button()
         CType(Me.dgingredientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -170,25 +169,12 @@ Partial Class Ingredientes
         Me.bteditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.bteditar.UseVisualStyleBackColor = False
         '
-        'btnatras
-        '
-        Me.btnatras.BackColor = System.Drawing.Color.BurlyWood
-        Me.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnatras.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btnatras.Location = New System.Drawing.Point(691, 224)
-        Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(118, 49)
-        Me.btnatras.TabIndex = 28
-        Me.btnatras.Text = "Regresar"
-        Me.btnatras.UseVisualStyleBackColor = False
-        '
         'Ingredientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(844, 309)
-        Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.bteditar)
         Me.Controls.Add(Me.txtcoddieta)
         Me.Controls.Add(Me.Label4)
@@ -223,5 +209,4 @@ Partial Class Ingredientes
     Friend WithEvents txtcoddieta As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents bteditar As Button
-    Friend WithEvents btnatras As Button
 End Class

@@ -5,7 +5,7 @@ Public Class Clientes
     Private Sub cargargrid()
 
         conecta()
-        Dim cargar_datos_clientes As String = "select * from clientes "
+        Dim cargar_datos_clientes As String = "select cod_cliente as 'Código de cliente' , nombre as 'Nombre' , direcion as 'Dirección', telefono as 'Teléfono' from clientes"
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(cargar_datos_clientes, conectar)
@@ -134,9 +134,32 @@ Public Class Clientes
             e.Handled = True
 
         End If
+
     End Sub
 
     Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcodcliente.TextChanged
+
+    End Sub
+
+    Private Sub DGclientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGclientes.CellContentClick
+        Dim fila As Integer = DGclientes.CurrentCell.RowIndex
+
+        txtcodcliente.Text = DGclientes(0, fila).Value.ToString()
+        txtnombre.Text = DGclientes(1, fila).Value.ToString()
+        txtdireccion.Text = DGclientes(2, fila).Value.ToString()
+        txttelefono.Text = DGclientes(3, fila).Value.ToString()
+
+
+
+
+
+
+
+
+
+
+
+
 
     End Sub
 End Class

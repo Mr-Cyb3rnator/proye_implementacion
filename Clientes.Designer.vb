@@ -92,6 +92,7 @@ Partial Class Clientes
         'txttelefono
         '
         Me.txttelefono.Location = New System.Drawing.Point(164, 194)
+        Me.txttelefono.MaxLength = 8
         Me.txttelefono.Name = "txttelefono"
         Me.txttelefono.Size = New System.Drawing.Size(113, 23)
         Me.txttelefono.TabIndex = 7
@@ -111,7 +112,9 @@ Partial Class Clientes
         Me.DGclientes.AllowUserToAddRows = False
         Me.DGclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGclientes.Location = New System.Drawing.Point(358, 68)
+        Me.DGclientes.MultiSelect = False
         Me.DGclientes.Name = "DGclientes"
+        Me.DGclientes.ReadOnly = True
         Me.DGclientes.RowHeadersWidth = 51
         Me.DGclientes.RowTemplate.Height = 24
         Me.DGclientes.Size = New System.Drawing.Size(520, 247)

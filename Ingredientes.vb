@@ -106,10 +106,10 @@ Public Class Ingredientes
 
 
 
-    Private Sub btnatras_Click(sender As Object, e As EventArgs)
-        Me.Hide()
-        Form3.Show()
-    End Sub
+    'Private Sub btnatras_Click(sender As Object, e As EventArgs)
+    'Me.Hide()
+    '    Form3.Show()
+    'End Sub
 
     Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodingre.KeyPress
         If Char.IsNumber(e.KeyChar) Then
@@ -167,7 +167,7 @@ Public Class Ingredientes
 
     End Sub
 
-    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
+    Private Sub btnatras_Click(sender As Object, e As EventArgs)
         Me.Hide()
         Form3.Show()
     End Sub
