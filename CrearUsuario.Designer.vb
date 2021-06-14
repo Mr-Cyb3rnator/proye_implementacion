@@ -109,7 +109,7 @@ Partial Class CrearUsuario
         Me.Button1.Location = New System.Drawing.Point(725, 26)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 46)
+        Me.Button1.Size = New System.Drawing.Size(118, 46)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "     Guardar"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -125,7 +125,7 @@ Partial Class CrearUsuario
         Me.Button2.Location = New System.Drawing.Point(725, 78)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(103, 46)
+        Me.Button2.Size = New System.Drawing.Size(118, 46)
         Me.Button2.TabIndex = 8
         Me.Button2.Text = "   Modificar"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -142,7 +142,7 @@ Partial Class CrearUsuario
         Me.Button3.Location = New System.Drawing.Point(725, 128)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(103, 46)
+        Me.Button3.Size = New System.Drawing.Size(118, 46)
         Me.Button3.TabIndex = 9
         Me.Button3.Text = "Eliminar"
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -158,7 +158,7 @@ Partial Class CrearUsuario
         Me.Button4.Location = New System.Drawing.Point(725, 178)
         Me.Button4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(103, 49)
+        Me.Button4.Size = New System.Drawing.Size(118, 49)
         Me.Button4.TabIndex = 10
         Me.Button4.Text = "   Salir"
         Me.Button4.UseVisualStyleBackColor = False
