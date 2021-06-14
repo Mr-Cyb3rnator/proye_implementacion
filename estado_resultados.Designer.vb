@@ -74,11 +74,11 @@ Partial Class estado_resultados
         'btcargar_gastos
         '
         Me.btcargar_gastos.BackColor = System.Drawing.Color.BurlyWood
-        Me.btcargar_gastos.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btcargar_gastos.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btcargar_gastos.Location = New System.Drawing.Point(498, 99)
         Me.btcargar_gastos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btcargar_gastos.Name = "btcargar_gastos"
-        Me.btcargar_gastos.Size = New System.Drawing.Size(123, 73)
+        Me.btcargar_gastos.Size = New System.Drawing.Size(146, 73)
         Me.btcargar_gastos.TabIndex = 4
         Me.btcargar_gastos.Text = "Cargar Gastos"
         Me.btcargar_gastos.UseVisualStyleBackColor = False
@@ -238,7 +238,7 @@ Partial Class estado_resultados
         Me.txtganacia.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtganacia.Enabled = False
         Me.txtganacia.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtganacia.Location = New System.Drawing.Point(1399, 790)
+        Me.txtganacia.Location = New System.Drawing.Point(1399, 815)
         Me.txtganacia.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtganacia.Name = "txtganacia"
         Me.txtganacia.Size = New System.Drawing.Size(124, 30)
@@ -248,7 +248,7 @@ Partial Class estado_resultados
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(1068, 797)
+        Me.Label7.Location = New System.Drawing.Point(1068, 815)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(323, 30)
@@ -259,11 +259,11 @@ Partial Class estado_resultados
         '
         Me.btcalcular.BackColor = System.Drawing.Color.BurlyWood
         Me.btcalcular.Enabled = False
-        Me.btcalcular.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btcalcular.Location = New System.Drawing.Point(1400, 857)
+        Me.btcalcular.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btcalcular.Location = New System.Drawing.Point(1231, 893)
         Me.btcalcular.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btcalcular.Name = "btcalcular"
-        Me.btcalcular.Size = New System.Drawing.Size(123, 73)
+        Me.btcalcular.Size = New System.Drawing.Size(146, 73)
         Me.btcalcular.TabIndex = 37
         Me.btcalcular.Text = "Calcular"
         Me.btcalcular.UseVisualStyleBackColor = False
@@ -272,7 +272,7 @@ Partial Class estado_resultados
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(1561, 857)
+        Me.Button1.Location = New System.Drawing.Point(1553, 893)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(123, 73)
