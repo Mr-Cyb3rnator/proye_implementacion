@@ -117,7 +117,7 @@ Partial Class Clientes
         Me.DGclientes.ReadOnly = True
         Me.DGclientes.RowHeadersWidth = 51
         Me.DGclientes.RowTemplate.Height = 24
-        Me.DGclientes.Size = New System.Drawing.Size(520, 247)
+        Me.DGclientes.Size = New System.Drawing.Size(474, 231)
         Me.DGclientes.TabIndex = 8
         '
         'bteliminar
@@ -151,12 +151,18 @@ Partial Class Clientes
         '
         'bteditar
         '
+        Me.bteditar.BackColor = System.Drawing.Color.BurlyWood
+        Me.bteditar.BackgroundImage = Global.proye.My.Resources.Resources.iconfinder_185042_edit_modify_icon_32px2
+        Me.bteditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.bteditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bteditar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.bteditar.Location = New System.Drawing.Point(31, 263)
         Me.bteditar.Name = "bteditar"
-        Me.bteditar.Size = New System.Drawing.Size(99, 52)
+        Me.bteditar.Size = New System.Drawing.Size(99, 36)
         Me.bteditar.TabIndex = 30
         Me.bteditar.Text = "Editar"
-        Me.bteditar.UseVisualStyleBackColor = True
+        Me.bteditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bteditar.UseVisualStyleBackColor = False
         '
         'Clientes
         '
