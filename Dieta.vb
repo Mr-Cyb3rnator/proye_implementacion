@@ -108,7 +108,13 @@ Public Class Dieta
     End Sub
 
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
-        dgdieta.Rows.Remove(dgdieta.CurrentRow)
+        Dim opcion As DialogResult
+        opcion = MessageBox.Show("Seguro que quiere eliminar el Registro?", "Eliminar Registro", MessageBoxButtons.YesNo)
+        If (opcion = Windows.Forms.DialogResult.Yes) Then
+
+            dgdieta.Rows.Remove(dgdieta.CurrentRow)
+        End If
+
     End Sub
 
     Private Sub dgdieta_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgdieta.CellContentClick

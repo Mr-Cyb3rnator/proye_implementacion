@@ -127,11 +127,11 @@ Partial Class Dieta
         'btnguardar
         '
         Me.btnguardar.BackColor = System.Drawing.Color.BurlyWood
-        Me.btnguardar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btnguardar.Location = New System.Drawing.Point(7, 348)
+        Me.btnguardar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnguardar.Location = New System.Drawing.Point(49, 333)
         Me.btnguardar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(139, 50)
+        Me.btnguardar.Size = New System.Drawing.Size(194, 75)
         Me.btnguardar.TabIndex = 10
         Me.btnguardar.Text = "Guardar"
         Me.btnguardar.UseVisualStyleBackColor = False
@@ -139,11 +139,11 @@ Partial Class Dieta
         'btneliminar
         '
         Me.btneliminar.BackColor = System.Drawing.Color.BurlyWood
-        Me.btneliminar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btneliminar.Location = New System.Drawing.Point(246, 348)
+        Me.btneliminar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btneliminar.Location = New System.Drawing.Point(49, 423)
         Me.btneliminar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btneliminar.Name = "btneliminar"
-        Me.btneliminar.Size = New System.Drawing.Size(139, 50)
+        Me.btneliminar.Size = New System.Drawing.Size(191, 75)
         Me.btneliminar.TabIndex = 11
         Me.btneliminar.Text = "Eliminar"
         Me.btneliminar.UseVisualStyleBackColor = False
@@ -173,7 +173,7 @@ Partial Class Dieta
         'btagregar
         '
         Me.btagregar.BackColor = System.Drawing.Color.BurlyWood
-        Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btagregar.Location = New System.Drawing.Point(44, 423)
         Me.btagregar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btagregar.Name = "btagregar"
@@ -202,7 +202,7 @@ Partial Class Dieta
         'btselecionar_dierta
         '
         Me.btselecionar_dierta.BackColor = System.Drawing.Color.BurlyWood
-        Me.btselecionar_dierta.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btselecionar_dierta.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btselecionar_dierta.Location = New System.Drawing.Point(7, 266)
         Me.btselecionar_dierta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btselecionar_dierta.Name = "btselecionar_dierta"
