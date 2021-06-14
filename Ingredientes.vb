@@ -167,8 +167,12 @@ Public Class Ingredientes
 
     End Sub
 
-    Private Sub btnentrar_Click(sender As Object, e As EventArgs) Handles btnentrar.Click
+    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
         Me.Hide()
         Form3.Show()
+    End Sub
+
+    Private Sub txtcodingre_TextChanged(sender As Object, e As EventArgs) Handles txtcodingre.TextChanged
+
     End Sub
 End Class

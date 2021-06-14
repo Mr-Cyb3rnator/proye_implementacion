@@ -34,7 +34,7 @@ Partial Class Ingredientes
         Me.txtcoddieta = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.bteditar = New System.Windows.Forms.Button()
-        Me.btnentrar = New System.Windows.Forms.Button()
+        Me.btnatras = New System.Windows.Forms.Button()
         CType(Me.dgingredientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -170,21 +170,25 @@ Partial Class Ingredientes
         Me.bteditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.bteditar.UseVisualStyleBackColor = False
         '
-        'btnentrar
+        'btnatras
         '
-        Me.btnentrar.Location = New System.Drawing.Point(622, 217)
-        Me.btnentrar.Name = "btnentrar"
-        Me.btnentrar.Size = New System.Drawing.Size(97, 63)
-        Me.btnentrar.TabIndex = 28
-        Me.btnentrar.UseVisualStyleBackColor = True
+        Me.btnatras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnatras.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnatras.Location = New System.Drawing.Point(691, 224)
+        Me.btnatras.Name = "btnatras"
+        Me.btnatras.Size = New System.Drawing.Size(118, 49)
+        Me.btnatras.TabIndex = 28
+        Me.btnatras.Text = "Regresar"
+        Me.btnatras.UseVisualStyleBackColor = False
         '
         'Ingredientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(855, 393)
-        Me.Controls.Add(Me.btnentrar)
+        Me.ClientSize = New System.Drawing.Size(844, 309)
+        Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.bteditar)
         Me.Controls.Add(Me.txtcoddieta)
         Me.Controls.Add(Me.Label4)
@@ -219,5 +223,5 @@ Partial Class Ingredientes
     Friend WithEvents txtcoddieta As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents bteditar As Button
-    Friend WithEvents btnentrar As Button
+    Friend WithEvents btnatras As Button
 End Class
