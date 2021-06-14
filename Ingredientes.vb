@@ -106,7 +106,7 @@ Public Class Ingredientes
 
 
 
-    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
+    Private Sub btnatras_Click(sender As Object, e As EventArgs)
         Me.Hide()
         Form3.Show()
     End Sub
@@ -165,5 +165,10 @@ Public Class Ingredientes
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
 
+    End Sub
+
+    Private Sub btnentrar_Click(sender As Object, e As EventArgs) Handles btnentrar.Click
+        Me.Hide()
+        Form3.Show()
     End Sub
 End Class

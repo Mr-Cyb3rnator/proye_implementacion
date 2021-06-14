@@ -22,7 +22,6 @@ Partial Class Ingredientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Ingredientes))
         Me.btneliminar = New System.Windows.Forms.Button()
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.dgingredientes = New System.Windows.Forms.DataGridView()
@@ -34,30 +33,42 @@ Partial Class Ingredientes
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtcoddieta = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnatras = New System.Windows.Forms.Button()
         Me.bteditar = New System.Windows.Forms.Button()
+        Me.btnentrar = New System.Windows.Forms.Button()
         CType(Me.dgingredientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btneliminar
         '
-        Me.btneliminar.Location = New System.Drawing.Point(290, 224)
+        Me.btneliminar.BackColor = System.Drawing.Color.BurlyWood
+        Me.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btneliminar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btneliminar.Image = Global.proye.My.Resources.Resources.iconfinder_4781838_cancel_close_delete_exit_logout_icon_32px1
+        Me.btneliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btneliminar.Location = New System.Drawing.Point(328, 224)
         Me.btneliminar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btneliminar.Name = "btneliminar"
-        Me.btneliminar.Size = New System.Drawing.Size(70, 30)
+        Me.btneliminar.Size = New System.Drawing.Size(118, 49)
         Me.btneliminar.TabIndex = 20
         Me.btneliminar.Text = "Eliminar"
-        Me.btneliminar.UseVisualStyleBackColor = True
+        Me.btneliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btneliminar.UseVisualStyleBackColor = False
         '
         'btnguardar
         '
+        Me.btnguardar.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnguardar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnguardar.Image = Global.proye.My.Resources.Resources.iconfinder_1031520_arrow_download_save_guardar_icon_32px1
+        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnguardar.Location = New System.Drawing.Point(80, 224)
         Me.btnguardar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(80, 30)
+        Me.btnguardar.Size = New System.Drawing.Size(118, 49)
         Me.btnguardar.TabIndex = 19
         Me.btnguardar.Text = "Guardar"
-        Me.btnguardar.UseVisualStyleBackColor = True
+        Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnguardar.UseVisualStyleBackColor = False
         '
         'dgingredientes
         '
@@ -143,26 +154,29 @@ Partial Class Ingredientes
         Me.Label4.TabIndex = 21
         Me.Label4.Text = "Código Dieta:"
         '
-        'btnatras
-        '
-        Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnatras.Image = CType(resources.GetObject("btnatras.Image"), System.Drawing.Image)
-        Me.btnatras.Location = New System.Drawing.Point(566, 221)
-        Me.btnatras.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(94, 33)
-        Me.btnatras.TabIndex = 26
-        Me.btnatras.UseVisualStyleBackColor = False
-        '
         'bteditar
         '
-        Me.bteditar.Location = New System.Drawing.Point(186, 224)
+        Me.bteditar.BackColor = System.Drawing.Color.BurlyWood
+        Me.bteditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bteditar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.bteditar.Image = Global.proye.My.Resources.Resources.iconfinder_185042_edit_modify_icon_32px1
+        Me.bteditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.bteditar.Location = New System.Drawing.Point(204, 224)
         Me.bteditar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bteditar.Name = "bteditar"
-        Me.bteditar.Size = New System.Drawing.Size(80, 30)
+        Me.bteditar.Size = New System.Drawing.Size(118, 49)
         Me.bteditar.TabIndex = 27
         Me.bteditar.Text = "Editar"
-        Me.bteditar.UseVisualStyleBackColor = True
+        Me.bteditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bteditar.UseVisualStyleBackColor = False
+        '
+        'btnentrar
+        '
+        Me.btnentrar.Location = New System.Drawing.Point(622, 217)
+        Me.btnentrar.Name = "btnentrar"
+        Me.btnentrar.Size = New System.Drawing.Size(97, 63)
+        Me.btnentrar.TabIndex = 28
+        Me.btnentrar.UseVisualStyleBackColor = True
         '
         'Ingredientes
         '
@@ -170,8 +184,8 @@ Partial Class Ingredientes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(855, 393)
+        Me.Controls.Add(Me.btnentrar)
         Me.Controls.Add(Me.bteditar)
-        Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.txtcoddieta)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btneliminar)
@@ -204,6 +218,6 @@ Partial Class Ingredientes
     Friend WithEvents Label1 As Label
     Friend WithEvents txtcoddieta As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents btnatras As Button
     Friend WithEvents bteditar As Button
+    Friend WithEvents btnentrar As Button
 End Class
