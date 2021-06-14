@@ -50,7 +50,7 @@ Partial Class Form3
         '
         Me.lblprivilegio.AutoSize = True
         Me.lblprivilegio.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.lblprivilegio.Location = New System.Drawing.Point(295, 9)
+        Me.lblprivilegio.Location = New System.Drawing.Point(295, 6)
         Me.lblprivilegio.Name = "lblprivilegio"
         Me.lblprivilegio.Size = New System.Drawing.Size(63, 22)
         Me.lblprivilegio.TabIndex = 9
@@ -192,7 +192,7 @@ Partial Class Form3
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label9.Location = New System.Drawing.Point(498, 316)
+        Me.Label9.Location = New System.Drawing.Point(498, 313)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(81, 21)
         Me.Label9.TabIndex = 23
@@ -252,7 +252,7 @@ Partial Class Form3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(502, 18)
+        Me.Label3.Location = New System.Drawing.Point(502, 16)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(59, 21)
         Me.Label3.TabIndex = 17

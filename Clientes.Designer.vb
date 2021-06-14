@@ -22,7 +22,6 @@ Partial Class Clientes
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtcodcliente = New System.Windows.Forms.TextBox()
         Me.txtnombre = New System.Windows.Forms.TextBox()
@@ -139,11 +138,11 @@ Partial Class Clientes
         'btnatras
         '
         Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnatras.Image = CType(resources.GetObject("btnatras.Image"), System.Drawing.Image)
-        Me.btnatras.Location = New System.Drawing.Point(809, 331)
+        Me.btnatras.Image = Global.proye.My.Resources.Resources.iconfinder_326518_arrow_back_icon_64px1
+        Me.btnatras.Location = New System.Drawing.Point(769, 331)
         Me.btnatras.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(94, 52)
+        Me.btnatras.Size = New System.Drawing.Size(134, 80)
         Me.btnatras.TabIndex = 29
         Me.btnatras.UseVisualStyleBackColor = False
         '

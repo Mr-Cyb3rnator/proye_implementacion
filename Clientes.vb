@@ -135,4 +135,8 @@ Public Class Clientes
 
         End If
     End Sub
+
+    Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcodcliente.TextChanged
+
+    End Sub
 End Class
