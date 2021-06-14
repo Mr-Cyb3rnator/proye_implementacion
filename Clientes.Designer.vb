@@ -122,12 +122,18 @@ Partial Class Clientes
         '
         'bteliminar
         '
+        Me.bteliminar.BackColor = System.Drawing.Color.BurlyWood
+        Me.bteliminar.BackgroundImage = Global.proye.My.Resources.Resources.iconfinder_4781838_cancel_close_delete_exit_logout_icon_32px2
+        Me.bteliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.bteliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bteliminar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.bteliminar.Location = New System.Drawing.Point(241, 263)
         Me.bteliminar.Name = "bteliminar"
-        Me.bteliminar.Size = New System.Drawing.Size(99, 52)
+        Me.bteliminar.Size = New System.Drawing.Size(99, 36)
         Me.bteliminar.TabIndex = 28
         Me.bteliminar.Text = "Eliminar"
-        Me.bteliminar.UseVisualStyleBackColor = True
+        Me.bteliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.bteliminar.UseVisualStyleBackColor = False
         '
         'btagregar
         '
