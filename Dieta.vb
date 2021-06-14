@@ -62,6 +62,7 @@ Public Class Dieta
         Try
             cmbcodingre.DataSource = ds.Tables(0)
             cmbcodingre.ValueMember = "cod_ingredientes"
+            cmbcodingre.DisplayMember = "descripcion"
         Catch ex As Exception
 
         End Try
@@ -75,7 +76,7 @@ Public Class Dieta
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
 
 
-        If txtcoddieta.Text = "" Or txtcantidad.Text = "" Or txtcomidaxdia.Text = "" Then
+        If txtcantidad.Text = "" Or txtcomidaxdia.Text = "" Then
 
             MessageBox.Show("Llene todos los campos", "Error")
 
@@ -83,11 +84,11 @@ Public Class Dieta
         Else
 
             conecta()
-            Dim insertar_dieta As String = "insert into dieta(cod_dieta,cantidad_libras,comidas_al_dia)values(@cod_dieta,@cantidad_libras,@comidas_al_dia)"
+            Dim insertar_dieta As String = "insert into dieta(cantidad_libras,comidas_al_dia)values(@cantidad_libras,@comidas_al_dia)"
             Dim insertar As New SqlCommand(insertar_dieta, conectar)
 
             'insertar.Parameters.AddWithValue("@cod_dieta", fila.Cells("ccodigod").Value)
-            insertar.Parameters.AddWithValue("@cod_dieta", txtcoddieta.Text)
+            'insertar.Parameters.AddWithValue("@cod_dieta", txtcoddieta.Text)
             insertar.Parameters.AddWithValue("@cantidad_libras", txtcantidad.Text)
             insertar.Parameters.AddWithValue("@comidas_al_dia", txtcomidaxdia.Text)
 
@@ -171,14 +172,14 @@ Public Class Dieta
 
 
 
-        If cmbcodingre.Text = 0 Then
+        If lblcodingre.Text = 0 Then
             MessageBox.Show("No puede ser 0", "Error")
         Else
             conecta()
 
             Dim datos As String = "update ingredientes set cod_dieta=@cod_dieta where cod_ingredientes=@cod_ingredientes "
             Dim actualizar As New SqlCommand(datos, conectar)
-            actualizar.Parameters.AddWithValue("@cod_ingredientes", cmbcodingre.Text)
+            actualizar.Parameters.AddWithValue("@cod_ingredientes", lblcodingre.Text)
             actualizar.Parameters.AddWithValue("@cod_dieta", txtcoddieta.Text)
             cmbcodingre.Text = 0
             actualizar.ExecuteNonQuery()
@@ -212,7 +213,7 @@ Public Class Dieta
         End If
     End Sub
 
-    Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs) 
+    Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -255,7 +256,7 @@ Public Class Dieta
 
     End Sub
 
-    Private Sub txtcodingre_TextChanged(sender As Object, e As EventArgs) 
+    Private Sub txtcodingre_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -265,5 +266,12 @@ Public Class Dieta
 
     Private Sub cmbcodingre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbcodingre.SelectedIndexChanged
 
+        lblcodingre.Text = cmbcodingre.SelectedIndex
+
+
+
+
     End Sub
+
+
 End Class

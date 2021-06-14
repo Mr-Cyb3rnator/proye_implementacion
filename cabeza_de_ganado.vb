@@ -40,6 +40,9 @@ Public Class Cabeza_ganado
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.AutoSize = True
+
+        Me.AutoScroll = True
         bteditar.Enabled = False
         bteliminar.Enabled = False
 
@@ -345,6 +348,10 @@ Public Class Cabeza_ganado
         Catch ex As Exception
 
         End Try
+
+    End Sub
+
+    Private Sub VScrollBar1_Scroll(sender As Object, e As ScrollEventArgs)
 
     End Sub
 End Class
