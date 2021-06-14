@@ -131,12 +131,19 @@ Partial Class Clientes
         '
         'btagregar
         '
+        Me.btagregar.BackColor = System.Drawing.Color.BurlyWood
+        Me.btagregar.BackgroundImage = Global.proye.My.Resources.Resources.agregar
+        Me.btagregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btagregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btagregar.Location = New System.Drawing.Point(136, 263)
         Me.btagregar.Name = "btagregar"
-        Me.btagregar.Size = New System.Drawing.Size(99, 52)
+        Me.btagregar.Size = New System.Drawing.Size(99, 36)
         Me.btagregar.TabIndex = 27
         Me.btagregar.Text = "Agregar "
-        Me.btagregar.UseVisualStyleBackColor = True
+        Me.btagregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btagregar.UseVisualStyleBackColor = False
         '
         'btnatras
         '
