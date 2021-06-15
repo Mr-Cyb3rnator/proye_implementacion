@@ -95,8 +95,19 @@ Public Class Cabeza_ganado
     End Sub
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
-        Me.Hide()
+        Me.Close()
         Form3.Show()
+
+
+        'ESTE CODIGO SIRVE PARA CERRAR COMPLETAMENTE TODO EL PROGRAMA 
+        'Dim Msg As MsgBoxResult
+        'Msg = MsgBox("Cerrar el modulo, ¿Desea salir?", vbYesNo, "Salir del Modulo")
+        'If Msg = MsgBoxResult.Yes Then
+        '    Application.ExitThread()
+        'Else
+        '    Exit Sub
+        'End If
+
     End Sub
 
     Private Sub bteditar_Click(sender As Object, e As EventArgs) Handles bteditar.Click
@@ -354,4 +365,5 @@ Public Class Cabeza_ganado
     Private Sub VScrollBar1_Scroll(sender As Object, e As ScrollEventArgs)
 
     End Sub
+
 End Class
