@@ -170,14 +170,16 @@ Public Class estado_resultados
 
         If (estado = True) Then
 
-            txt_total_gastos.Text = recuperar(0)
+
+            If IsDBNull(recuperar(0)) Then
+
+                MsgBox("este grupo no tiene gastos")
+            Else
+
+                txt_total_gastos.Text = recuperar(0)
 
 
-
-        Else
-
-
-
+            End If
 
         End If
 

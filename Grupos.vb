@@ -129,7 +129,7 @@ Public Class Grupos
     End Sub
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
-        Me.Hide()
+        Me.Close()
         Form3.Show()
     End Sub
 
