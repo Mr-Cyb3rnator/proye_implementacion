@@ -22,6 +22,7 @@ Partial Class Clientes
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtcodcliente = New System.Windows.Forms.TextBox()
         Me.txtnombre = New System.Windows.Forms.TextBox()
@@ -35,6 +36,7 @@ Partial Class Clientes
         Me.btagregar = New System.Windows.Forms.Button()
         Me.btnatras = New System.Windows.Forms.Button()
         Me.bteditar = New System.Windows.Forms.Button()
+        Me.tt_cliente = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.DGclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -218,4 +220,5 @@ Partial Class Clientes
     Friend WithEvents btagregar As Button
     Friend WithEvents btnatras As Button
     Friend WithEvents bteditar As Button
+    Friend WithEvents tt_cliente As ToolTip
 End Class

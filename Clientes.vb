@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Clientes
+    Dim loadingForm As Boolean
 
     Private Sub cargargrid()
 
@@ -51,6 +52,20 @@ Public Class Clientes
         conectar.Close()
         cargargrid()
 
+        loadingForm = False
+        cargargrid()
+        DGclientes.ClearSelection()
+
+        txtcodcliente.Text = ""
+        txtnombre.Text = ""
+        txtdireccion.Text = ""
+        txttelefono.Text = ""
+
+        loadingForm = True
+
+        bteliminar.Enabled = False
+        bteditar.Enabled = False
+
 
 
 
@@ -79,8 +94,13 @@ Public Class Clientes
     End Sub
 
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        loadingForm = False
         cargargrid()
+        DGclientes.ClearSelection()
+        loadingForm = True
+
+        tt_cliente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
+        tt_cliente.SetToolTip(bteliminar, "Seleccione una Fila para Eliminar")
 
     End Sub
 
@@ -126,14 +146,33 @@ Public Class Clientes
     Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodcliente.KeyPress
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
+            tt_cliente.SetToolTip(txtcodcliente, "")
         ElseIf Char.IsControl(e.KeyChar) Then
             e.Handled = False
+            tt_cliente.SetToolTip(txtcodcliente, "")
         ElseIf Char.IsSeparator(e.KeyChar) Then
             e.Handled = False
+            tt_cliente.SetToolTip(txtcodcliente, "")
         Else
             e.Handled = True
+            tt_cliente.SetToolTip(txtcodcliente, "Solo Acepta Numeros")
+
 
         End If
+
+
+
+
+        'If Char.IsNumber(e.KeyChar) Then
+        '    e.Handled = False
+        'ElseIf Char.IsControl(e.KeyChar) Then
+        '    e.Handled = False
+        'ElseIf Char.IsSeparator(e.KeyChar) Then
+        '    e.Handled = False
+        'Else
+        '    e.Handled = True
+
+        'End If
 
     End Sub
 

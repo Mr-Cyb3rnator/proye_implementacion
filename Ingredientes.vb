@@ -87,6 +87,7 @@ Public Class Ingredientes
     End Sub
 
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
+
         tt_Ingrediente.SetToolTip(btneliminar, "")
         conecta()
         Dim eliminar As String = "delete from ingredientes  where cod_ingredientes=@cod_ingredientes"
@@ -109,8 +110,6 @@ Public Class Ingredientes
 
         btneliminar.Enabled = False
         bteditar.Enabled = False
-
-
 
         'dgingredientes.Rows.Remove(dgingredientes.CurrentRow)
     End Sub
