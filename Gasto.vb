@@ -39,12 +39,13 @@ Public Class Gasto
         End Try
 
 
-
+        'Carga de Codigo de Grupo en Combobox'
         sql = "SELECT distinct cod_grupo AS 'Grupo' FROM animales where estado is null"
         adt = New SqlDataAdapter(sql, cn)
         ds = New DataSet
         adt.Fill(ds)
 
+        'Combobox'
         cb_Grupo.DataSource = ds.Tables(0)
         cb_Grupo.SelectedIndex = -1
         cb_Grupo.DisplayMember = "Grupo"
