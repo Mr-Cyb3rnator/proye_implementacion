@@ -52,6 +52,7 @@ Partial Class Clientes
         '
         'txtcodcliente
         '
+        Me.txtcodcliente.Enabled = False
         Me.txtcodcliente.Location = New System.Drawing.Point(164, 41)
         Me.txtcodcliente.Name = "txtcodcliente"
         Me.txtcodcliente.Size = New System.Drawing.Size(113, 23)
@@ -145,7 +146,7 @@ Partial Class Clientes
         Me.btagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btagregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btagregar.Location = New System.Drawing.Point(136, 263)
+        Me.btagregar.Location = New System.Drawing.Point(31, 263)
         Me.btagregar.Name = "btagregar"
         Me.btagregar.Size = New System.Drawing.Size(99, 36)
         Me.btagregar.TabIndex = 27
@@ -171,7 +172,7 @@ Partial Class Clientes
         Me.bteditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.bteditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bteditar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.bteditar.Location = New System.Drawing.Point(31, 263)
+        Me.bteditar.Location = New System.Drawing.Point(136, 263)
         Me.bteditar.Name = "bteditar"
         Me.bteditar.Size = New System.Drawing.Size(99, 36)
         Me.bteditar.TabIndex = 30

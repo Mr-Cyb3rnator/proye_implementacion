@@ -6,7 +6,7 @@ Public Class Clientes
     Private Sub cargargrid()
 
         conecta()
-        Dim cargar_datos_clientes As String = "select cod_cliente as 'Código de cliente' , nombre as 'Nombre' , direcion as 'Dirección', telefono as 'Teléfono' from clientes"
+        Dim cargar_datos_clientes As String = "select cod_cliente as 'Código cliente' , nombre as 'Nombre' , direcion as 'Dirección', telefono as 'Teléfono' from clientes"
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(cargar_datos_clientes, conectar)
@@ -23,21 +23,57 @@ Public Class Clientes
 
     Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btagregar.Click
         'DGclientes.Rows.Add(txtcodcliente.Text, txtnombre.Text, txtdireccion.Text, txttelefono.Text)
+        If (txtnombre.Text IsNot "" And txttelefono.Text IsNot "" And txtdireccion.Text IsNot "") Then
+
+            Try
+                conecta()
+                Dim insertar_cliente As String = "insert into cliente (nombre,telefono,direccion)values(@nombre,@telefono,@direccion)"
+                Dim insertar As New SqlCommand(insertar_cliente, conectar)
+                insertar.Parameters.AddWithValue("@nombre", txtnombre.Text)
+                insertar.Parameters.AddWithValue("@telefono", txttelefono.Text)
+                insertar.Parameters.AddWithValue("@direccion", txtdireccion.Text)
+                insertar.ExecuteNonQuery()
+
+                conectar.Close()
+            Catch ex As Exception
+                MsgBox("Revise los Valores")
+                conectar.Close()
+            End Try
 
 
-        conecta()
-        Dim insertar_clientes As String = "insert into clientes(nombre,direcion,telefono)values(@nombre,@direcion,@telefono)"
-        Dim insertar As New SqlCommand(insertar_clientes, conectar)
-        insertar.Parameters.AddWithValue("@nombre", txtnombre.Text)
-        insertar.Parameters.AddWithValue("@direcion", txtdireccion.Text)
-        insertar.Parameters.AddWithValue("@telefono", txttelefono.Text)
+            loadingForm = False
+            cargargrid()
 
-        insertar.ExecuteNonQuery()
+            DGclientes.ClearSelection()
+            txtcodcliente.Text = ""
+            txtnombre.Text = ""
+            txtdireccion.Text = ""
+            txttelefono.Text = ""
+            loadingForm = True
+        Else
+            MsgBox("Campos no pueden quedar vacios")
+        End If
 
 
 
-        conectar.Close()
-        cargargrid()
+
+
+
+
+
+        'conecta()
+        'Dim insertar_clientes As String = "insert into clientes(nombre,direcion,telefono)values(@nombre,@direcion,@telefono)"
+        'Dim insertar As New SqlCommand(insertar_clientes, conectar)
+        'insertar.Parameters.AddWithValue("@nombre", txtnombre.Text)
+        'insertar.Parameters.AddWithValue("@direcion", txtdireccion.Text)
+        'insertar.Parameters.AddWithValue("@telefono", txttelefono.Text)
+
+        'insertar.ExecuteNonQuery()
+
+
+
+        'conectar.Close()
+        'cargargrid()
 
     End Sub
 
@@ -200,5 +236,29 @@ Public Class Clientes
 
 
 
+    End Sub
+
+    Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtnombre.TextChanged
+        If (txtnombre.Text IsNot "") Then
+            txtdireccion.Enabled = True
+        Else
+            txtdireccion.Enabled = False
+        End If
+    End Sub
+
+    Private Sub txtdireccion_TextChanged(sender As Object, e As EventArgs) Handles txtdireccion.TextChanged
+        If (txtdireccion.Text IsNot "") Then
+            txttelefono.Enabled = True
+        Else
+            txttelefono.Enabled = False
+        End If
+    End Sub
+
+    Private Sub txttelefono_TextChanged(sender As Object, e As EventArgs) Handles txttelefono.TextChanged
+        If (txttelefono.Text IsNot "") Then
+            btagregar.Enabled = True
+        Else
+            btagregar.Enabled = False
+        End If
     End Sub
 End Class
