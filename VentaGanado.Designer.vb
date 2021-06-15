@@ -193,7 +193,7 @@ Partial Class VentaGanado
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(166, 70)
         Me.btnguardar.TabIndex = 21
-        Me.btnguardar.Text = "Guardar"
+        Me.btnguardar.Text = "Vender"
         Me.btnguardar.UseVisualStyleBackColor = False
         '
         'dtpfecha

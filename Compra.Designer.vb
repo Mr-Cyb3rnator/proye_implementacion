@@ -163,7 +163,7 @@ Partial Class Compra
         Me.btguardar.Name = "btguardar"
         Me.btguardar.Size = New System.Drawing.Size(208, 89)
         Me.btguardar.TabIndex = 23
-        Me.btguardar.Text = "Guardar"
+        Me.btguardar.Text = "Comprar"
         Me.btguardar.UseVisualStyleBackColor = False
         '
         'dgv_Compra

@@ -384,7 +384,7 @@ Public Class Compra
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Hide()
+        Me.Close()
         Form3.Show()
     End Sub
 
