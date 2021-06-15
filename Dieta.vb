@@ -52,7 +52,7 @@ Public Class Dieta
 
     Private Sub Dieta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgdieta.ClearSelection()
-        GroupBox1.Enabled = False
+        'GroupBox1.Enabled = False
 
         cargargrid()
         cargargrid_dieta()
@@ -113,7 +113,20 @@ Public Class Dieta
         opcion = MessageBox.Show("Seguro que quiere eliminar el Registro?", "Eliminar Registro", MessageBoxButtons.YesNo)
         If (opcion = Windows.Forms.DialogResult.Yes) Then
 
-            dgdieta.Rows.Remove(dgdieta.CurrentRow)
+            Try
+                conecta()
+                Dim eliminar As String = "delete from dieta where cod_dieta=@cod_dieta"
+                Dim procesar As New SqlCommand(eliminar, conectar)
+                procesar.Parameters.AddWithValue("@cod_dieta", txtcoddieta.Text)
+                procesar.ExecuteNonQuery()
+
+                conectar.Close()
+                cargargrid()
+            Catch ex As Exception
+                conectar.Close()
+                MessageBox.Show("Ocurrio un error en la coneccion con la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+            'dgdieta.Rows.Remove(dgdieta.CurrentRow)
         End If
 
     End Sub
@@ -169,7 +182,12 @@ Public Class Dieta
     End Sub
 
     Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btagregar.Click
-
+        Label1.Enabled = False
+        txtcoddieta.Enabled = False
+        btselecionar_dierta.Enabled = False
+        txtcantidad.Enabled = True
+        txtcomidaxdia.Enabled = True
+        btnguardar.Enabled = True
 
 
         If lblcodingre.Text = 0 Then
@@ -273,5 +291,22 @@ Public Class Dieta
 
     End Sub
 
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Label1.Enabled = True
+        txtcoddieta.Enabled = True
+        txtcoddieta.Text = ""
+        btselecionar_dierta.Enabled = True
+        txtcomidaxdia.Enabled = False
+        txtcantidad.Enabled = False
+        btnguardar.Enabled = False
 
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
