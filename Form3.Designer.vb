@@ -281,7 +281,7 @@ Partial Class Form3
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(57, 18)
+        Me.Label1.Location = New System.Drawing.Point(57, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 21)
         Me.Label1.TabIndex = 15
