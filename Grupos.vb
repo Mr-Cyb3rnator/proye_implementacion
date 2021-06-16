@@ -107,9 +107,48 @@ Public Class Grupos
 
         If (estado = True) Then
 
+            If IsDBNull(mostrar(4)) Then
+
+                MsgBox("este grupo no tiene fecha final de engorde")
+
+                DTfechafin.Value = Date.Now
+            Else
+
+                DTfechafin.Value = mostrar(4)
+
+            End If
+
+
+            If IsDBNull(mostrar(3)) Then
+
+                MsgBox("este grupo no tiene fecha inicial de engorde")
+                DTfechaini.Value = Date.Now
+            Else
+
+                DTfechaini.Value = mostrar(3)
+
+            End If
+
+
+            If IsDBNull(mostrar(2)) Then
+
+                MsgBox("este grupo no tiene dieta ")
+                txtcodigodieta.Text = ""
+            Else
+
+                txtcodigodieta.Text = mostrar(2)
+
+            End If
+
+
+
             txtnumanimales.Text = mostrar(1)
-            txtcodigodieta.Text = mostrar(2)
-            rtxtobs.Text = mostrar(5)
+
+
+            'txtcodigodieta.Text = mostrar(2)
+            'rtxtobs.Text = mostrar(5)
+
+
 
         Else
 
@@ -135,6 +174,8 @@ Public Class Grupos
 
     Private Sub Grupos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargargrid()
+
+        DTfechaini.Value = Date.Now
         txtcodgrup.Enabled = False
 
         btnedi.Enabled = False
@@ -149,24 +190,29 @@ Public Class Grupos
 
     Private Sub btnedi_Click(sender As Object, e As EventArgs) Handles btnedi.Click
 
+        If ((DTfechafin.Value <= DTfechaini.Value) And txtcodigodieta.Text Is "") Then
+
+            MsgBox("ERROR La fecha Final no puede ser la misma que la de inicio")
+
+        Else
+
+            conecta()
+
+            Dim datos As String = "update grupos set numero_animales=@nanimal,fecha_inicial=@fecha1,fecha_final=@fecha2,cod_dieta=@dieta,observaciones=@obser where cod_grupo=@cod_gr "
+            Dim actualizar As New SqlCommand(datos, conectar)
+            actualizar.Parameters.AddWithValue("@cod_gr", txtcodgrup.Text)
+            actualizar.Parameters.AddWithValue("@nanimal", txtnumanimales.Text)
+            actualizar.Parameters.AddWithValue("@fecha1", DTfechaini.Value)
+            actualizar.Parameters.AddWithValue("@fecha2", DTfechafin.Value)
+            actualizar.Parameters.AddWithValue("@obser", rtxtobs.Text)
+            actualizar.Parameters.AddWithValue("@dieta", txtcodigodieta.Text)
+
+            actualizar.ExecuteNonQuery()
+            conectar.Close()
+            cargargrid()
 
 
-
-
-        conecta()
-
-        Dim datos As String = "update grupos set numero_animales=@nanimal,fecha_inicial=@fecha1,fecha_final=@fecha2,cod_dieta=@dieta,observaciones=@obser where cod_grupo=@cod_gr "
-        Dim actualizar As New SqlCommand(datos, conectar)
-        actualizar.Parameters.AddWithValue("@cod_gr", txtcodgrup.Text)
-        actualizar.Parameters.AddWithValue("@nanimal", txtnumanimales.Text)
-        actualizar.Parameters.AddWithValue("@fecha1", DTfechaini.Value)
-        actualizar.Parameters.AddWithValue("@fecha2", DTfechafin.Value)
-        actualizar.Parameters.AddWithValue("@obser", rtxtobs.Text)
-        actualizar.Parameters.AddWithValue("@dieta", txtcodigodieta.Text)
-
-        actualizar.ExecuteNonQuery()
-        conectar.Close()
-        cargargrid()
+        End If
     End Sub
 
     Private Sub txtcodgrup_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodgrup.KeyPress

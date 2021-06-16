@@ -46,34 +46,64 @@ Public Class Cabeza_ganado
         bteditar.Enabled = False
         bteliminar.Enabled = False
 
+
+
+
+
+
         cargargrid()
 
     End Sub
 
     Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btagregar.Click
-        'DGcabezas.Rows.Add(txtcodigoanimal.Text, txtpesoini.Text, txtpeso1.Text, txtpeso2.Text, txtpeso3.Text, txtpeso4.Text, txtpesoobj.Text, txtedad.Text, txtraza.Text, txtobs.Text, txtcod_grup.Text)
 
-        conecta()
-        Dim insertar_cabezas As String = "insert into animales(peso_inicial,peso_1,peso_2,peso_3,peso_4,peso_objetivo,edad,raza,observaciones,cod_grupo)values(@peso_inicial,@peso_1,@peso_2,@peso_3,@peso_4,@peso_objetivo,@edad,@raza,@observaciones,@cod_grupo)"
-        Dim insertar As New SqlCommand(insertar_cabezas, conectar)
-        insertar.Parameters.AddWithValue("@peso_inicial", txtpesoini.Text)
-        insertar.Parameters.AddWithValue("@peso_1", txtpeso1.Text)
-        insertar.Parameters.AddWithValue("@peso_2", txtpeso2.Text)
-        insertar.Parameters.AddWithValue("@peso_3", txtpeso3.Text)
-        insertar.Parameters.AddWithValue("@peso_4", txtpeso4.Text)
-        insertar.Parameters.AddWithValue("@peso_objetivo", txtpesoobj.Text)
-        insertar.Parameters.AddWithValue("@edad", txtedad.Text)
-        insertar.Parameters.AddWithValue("@raza", txtraza.Text)
-        insertar.Parameters.AddWithValue("@observaciones", rtxtobs.Text)
-        insertar.Parameters.AddWithValue("@cod_grupo", txtcod_grup.Text)
+        If (txtpesoini.Text IsNot "" And txtedad.Text IsNot "" And txtraza.Text IsNot "" And combo_grupos.Text IsNot "" And txtpesoini IsNot "") Then
+            'subtotal = Val(txtprecio.Text) * Val(txtcantidad.Text)
 
 
-        insertar.ExecuteNonQuery()
+            'DataGridView1.Rows.Add(txtcod_ingre.Text, txtcantidad.Text, txtprecio.Text, subtotal)
+            'totald = totald + subtotal
+            'txttotal.Text = totald
+
+            'cb_Ingredientes.SelectedIndex = -1
+            'txtprecio.Enabled = False
+            'txtcantidad.Enabled = False
+            'btagregar.Enabled = False
+            'txtcantidad.Text = ""
+            'txtcod_ingre.Text = ""
+            'txtprecio.Text = ""
 
 
 
-        conectar.Close()
-        cargargrid()
+
+
+            'DGcabezas.Rows.Add(txtcodigoanimal.Text, txtpesoini.Text, txtpeso1.Text, txtpeso2.Text, txtpeso3.Text, txtpeso4.Text, txtpesoobj.Text, txtedad.Text, txtraza.Text, txtobs.Text, txtcod_grup.Text)
+
+            conecta()
+            Dim insertar_cabezas As String = "insert into animales(peso_inicial,peso_1,peso_2,peso_3,peso_4,peso_objetivo,edad,raza,observaciones,cod_grupo,precio_compra)values(@peso_inicial,@peso_1,@peso_2,@peso_3,@peso_4,@peso_objetivo,@edad,@raza,@observaciones,@cod_grupo,@precio_compra)"
+            Dim insertar As New SqlCommand(insertar_cabezas, conectar)
+            insertar.Parameters.AddWithValue("@peso_inicial", txtpesoini.Text)
+            insertar.Parameters.AddWithValue("@peso_1", txtpeso1.Text)
+            insertar.Parameters.AddWithValue("@peso_2", txtpeso2.Text)
+            insertar.Parameters.AddWithValue("@peso_3", txtpeso3.Text)
+            insertar.Parameters.AddWithValue("@peso_4", txtpeso4.Text)
+            insertar.Parameters.AddWithValue("@peso_objetivo", txtpesoobj.Text)
+            insertar.Parameters.AddWithValue("@edad", txtedad.Text)
+            insertar.Parameters.AddWithValue("@raza", txtraza.Text)
+            insertar.Parameters.AddWithValue("@observaciones", rtxtobs.Text)
+            insertar.Parameters.AddWithValue("@cod_grupo", txtcod_grup.Text)
+            insertar.Parameters.AddWithValue("@precio_compra", txtprecio.Text)
+
+
+            insertar.ExecuteNonQuery()
+
+
+
+            conectar.Close()
+            cargargrid()
+        Else
+            MsgBox("Rellene toodos los campos")
+        End If
 
 
 
@@ -315,6 +345,7 @@ Public Class Cabeza_ganado
             txtpesoobj.Text = mostrar(6)
             txtedad.Text = mostrar(7)
             txtraza.Text = mostrar(8)
+            txtprecio.Text = mostrar(11)
 
             combo_grupos.Text = mostrar(10)
             rtxtobs.Text = mostrar(9)
@@ -366,4 +397,9 @@ Public Class Cabeza_ganado
 
     End Sub
 
+    Private Sub btnatras_Click_1(sender As Object, e As EventArgs) Handles btnatras.Click
+        Me.Close()
+        Form3.Show()
+
+    End Sub
 End Class

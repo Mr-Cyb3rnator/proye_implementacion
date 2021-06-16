@@ -66,6 +66,9 @@
 
         If MsgBox("Deseas terminar la aplicación?", vbYesNo Or vbQuestion) = vbYes Then
             End
+        Else
+
+            Me.Show()
         End If
 
     End Sub

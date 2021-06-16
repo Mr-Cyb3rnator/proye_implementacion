@@ -68,7 +68,7 @@ Partial Class Grupos
         Me.DTfechaini.MaxDate = New Date(4029, 12, 6, 0, 0, 0, 0)
         Me.DTfechaini.MinDate = New Date(2021, 6, 13, 0, 0, 0, 0)
         Me.DTfechaini.Name = "DTfechaini"
-        Me.DTfechaini.Size = New System.Drawing.Size(201, 27)
+        Me.DTfechaini.Size = New System.Drawing.Size(262, 27)
         Me.DTfechaini.TabIndex = 2
         Me.DTfechaini.Value = New Date(2021, 6, 13, 0, 0, 0, 0)
         '
@@ -76,15 +76,16 @@ Partial Class Grupos
         '
         Me.DTfechafin.Location = New System.Drawing.Point(263, 265)
         Me.DTfechafin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.DTfechafin.MinDate = New Date(2021, 6, 16, 0, 0, 0, 0)
         Me.DTfechafin.Name = "DTfechafin"
-        Me.DTfechafin.Size = New System.Drawing.Size(201, 27)
+        Me.DTfechafin.Size = New System.Drawing.Size(262, 27)
         Me.DTfechafin.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(3, 211)
+        Me.Label2.Location = New System.Drawing.Point(-2, 211)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(259, 23)
         Me.Label2.TabIndex = 4
@@ -94,7 +95,7 @@ Partial Class Grupos
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(4, 269)
+        Me.Label3.Location = New System.Drawing.Point(-2, 269)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(250, 23)
         Me.Label3.TabIndex = 5
@@ -104,7 +105,7 @@ Partial Class Grupos
         '
         Me.DGgrupos.AllowUserToAddRows = False
         Me.DGgrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGgrupos.Location = New System.Drawing.Point(480, 55)
+        Me.DGgrupos.Location = New System.Drawing.Point(531, 55)
         Me.DGgrupos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DGgrupos.Name = "DGgrupos"
         Me.DGgrupos.RowHeadersWidth = 51
@@ -221,7 +222,7 @@ Partial Class Grupos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(1382, 725)
+        Me.ClientSize = New System.Drawing.Size(1413, 725)
         Me.Controls.Add(Me.btnedi)
         Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.bteliminar)
