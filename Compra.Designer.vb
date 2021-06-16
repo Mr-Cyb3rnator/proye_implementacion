@@ -45,10 +45,10 @@ Partial Class Compra
         Me.txtcod_cliente = New System.Windows.Forms.TextBox()
         Me.lb_CodigoCliente = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.tooltip_Compra = New System.Windows.Forms.ToolTip(Me.components)
         Me.b_Limpiar = New System.Windows.Forms.Button()
         Me.cb_Raza = New System.Windows.Forms.ComboBox()
+        Me.btnatras = New System.Windows.Forms.Button()
         CType(Me.dgv_Compra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -59,7 +59,7 @@ Partial Class Compra
         Me.Label11.Location = New System.Drawing.Point(48, 435)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(191, 23)
+        Me.Label11.Size = New System.Drawing.Size(151, 21)
         Me.Label11.TabIndex = 36
         Me.Label11.Text = "Precio de Compra"
         '
@@ -69,7 +69,7 @@ Partial Class Compra
         Me.Label10.Location = New System.Drawing.Point(112, 345)
         Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(59, 23)
+        Me.Label10.Size = New System.Drawing.Size(49, 21)
         Me.Label10.TabIndex = 35
         Me.Label10.Text = "Raza"
         '
@@ -79,7 +79,7 @@ Partial Class Compra
         Me.Label9.Location = New System.Drawing.Point(112, 256)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(63, 23)
+        Me.Label9.Size = New System.Drawing.Size(52, 21)
         Me.Label9.TabIndex = 34
         Me.Label9.Text = "Edad"
         '
@@ -89,7 +89,7 @@ Partial Class Compra
         Me.Label8.Location = New System.Drawing.Point(82, 170)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(117, 23)
+        Me.Label8.Size = New System.Drawing.Size(94, 21)
         Me.Label8.TabIndex = 33
         Me.Label8.Text = "Peso Inicial"
         '
@@ -112,7 +112,7 @@ Partial Class Compra
         Me.txtprecio.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtprecio.MaxLength = 7
         Me.txtprecio.Name = "txtprecio"
-        Me.txtprecio.Size = New System.Drawing.Size(148, 32)
+        Me.txtprecio.Size = New System.Drawing.Size(148, 27)
         Me.txtprecio.TabIndex = 30
         '
         'txtedad
@@ -122,7 +122,7 @@ Partial Class Compra
         Me.txtedad.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtedad.MaxLength = 2
         Me.txtedad.Name = "txtedad"
-        Me.txtedad.Size = New System.Drawing.Size(148, 32)
+        Me.txtedad.Size = New System.Drawing.Size(148, 27)
         Me.txtedad.TabIndex = 28
         '
         'txtpesoini
@@ -132,7 +132,7 @@ Partial Class Compra
         Me.txtpesoini.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtpesoini.MaxLength = 4
         Me.txtpesoini.Name = "txtpesoini"
-        Me.txtpesoini.Size = New System.Drawing.Size(148, 32)
+        Me.txtpesoini.Size = New System.Drawing.Size(148, 27)
         Me.txtpesoini.TabIndex = 27
         '
         'txttotal
@@ -141,7 +141,7 @@ Partial Class Compra
         Me.txttotal.Location = New System.Drawing.Point(537, 559)
         Me.txttotal.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txttotal.Name = "txttotal"
-        Me.txttotal.Size = New System.Drawing.Size(148, 32)
+        Me.txttotal.Size = New System.Drawing.Size(148, 27)
         Me.txttotal.TabIndex = 26
         '
         'Label5
@@ -150,7 +150,7 @@ Partial Class Compra
         Me.Label5.Location = New System.Drawing.Point(434, 566)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(67, 23)
+        Me.Label5.Size = New System.Drawing.Size(60, 21)
         Me.Label5.TabIndex = 25
         Me.Label5.Text = "TOTAL"
         '
@@ -236,7 +236,7 @@ Partial Class Compra
         Me.DateTimePicker1.Location = New System.Drawing.Point(433, 45)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(344, 32)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(344, 27)
         Me.DateTimePicker1.TabIndex = 14
         '
         'txtcod_cliente
@@ -244,7 +244,7 @@ Partial Class Compra
         Me.txtcod_cliente.Location = New System.Drawing.Point(152, 49)
         Me.txtcod_cliente.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtcod_cliente.Name = "txtcod_cliente"
-        Me.txtcod_cliente.Size = New System.Drawing.Size(148, 32)
+        Me.txtcod_cliente.Size = New System.Drawing.Size(148, 27)
         Me.txtcod_cliente.TabIndex = 11
         '
         'lb_CodigoCliente
@@ -253,7 +253,7 @@ Partial Class Compra
         Me.lb_CodigoCliente.Location = New System.Drawing.Point(17, 53)
         Me.lb_CodigoCliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lb_CodigoCliente.Name = "lb_CodigoCliente"
-        Me.lb_CodigoCliente.Size = New System.Drawing.Size(133, 23)
+        Me.lb_CodigoCliente.Size = New System.Drawing.Size(108, 21)
         Me.lb_CodigoCliente.TabIndex = 10
         Me.lb_CodigoCliente.Text = "Cod. Cliente"
         '
@@ -263,20 +263,9 @@ Partial Class Compra
         Me.Label4.Location = New System.Drawing.Point(361, 48)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(72, 23)
+        Me.Label4.Size = New System.Drawing.Size(59, 21)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Fecha"
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = Global.proye.My.Resources.Resources.icons8_flecha_responder_a_todos_48
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.Location = New System.Drawing.Point(853, 544)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(164, 59)
-        Me.Button1.TabIndex = 39
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'tooltip_Compra
         '
@@ -304,18 +293,30 @@ Partial Class Compra
         Me.cb_Raza.Items.AddRange(New Object() {"Brahman", "Holstein", "Jersey", "Pardo Suizo"})
         Me.cb_Raza.Location = New System.Drawing.Point(65, 383)
         Me.cb_Raza.Name = "cb_Raza"
-        Me.cb_Raza.Size = New System.Drawing.Size(151, 31)
+        Me.cb_Raza.Size = New System.Drawing.Size(151, 29)
         Me.cb_Raza.TabIndex = 41
+        '
+        'btnatras
+        '
+        Me.btnatras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnatras.Image = Global.proye.My.Resources.Resources.atras__2_
+        Me.btnatras.Location = New System.Drawing.Point(1011, 547)
+        Me.btnatras.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnatras.Name = "btnatras"
+        Me.btnatras.Size = New System.Drawing.Size(90, 51)
+        Me.btnatras.TabIndex = 42
+        Me.btnatras.UseVisualStyleBackColor = False
         '
         'Compra
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 23.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 21.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(1165, 645)
+        Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.cb_Raza)
         Me.Controls.Add(Me.b_Limpiar)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
@@ -359,7 +360,6 @@ Partial Class Compra
     Friend WithEvents lb_CodigoCliente As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Button1 As Button
     Friend WithEvents cPesoini As DataGridViewTextBoxColumn
     Friend WithEvents cedad As DataGridViewTextBoxColumn
     Friend WithEvents craza As DataGridViewTextBoxColumn
@@ -368,4 +368,5 @@ Partial Class Compra
     Friend WithEvents tooltip_Compra As ToolTip
     Friend WithEvents b_Limpiar As Button
     Friend WithEvents cb_Raza As ComboBox
+    Friend WithEvents btnatras As Button
 End Class
