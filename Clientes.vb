@@ -163,6 +163,7 @@ Public Class Clientes
             e.Handled = False
         Else
             e.Handled = True
+            tt_cliente.SetToolTip(txtdireccion, "Acepta Caracteres")
 
         End If
     End Sub
@@ -176,6 +177,7 @@ Public Class Clientes
             e.Handled = False
         Else
             e.Handled = True
+            tt_cliente.SetToolTip(txtdescripingre, "Solo Acepta Numeros")
 
         End If
     End Sub
