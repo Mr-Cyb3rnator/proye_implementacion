@@ -50,7 +50,7 @@ Partial Class Form3
         '
         Me.lblprivilegio.AutoSize = True
         Me.lblprivilegio.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.lblprivilegio.Location = New System.Drawing.Point(295, 6)
+        Me.lblprivilegio.Location = New System.Drawing.Point(295, 5)
         Me.lblprivilegio.Name = "lblprivilegio"
         Me.lblprivilegio.Size = New System.Drawing.Size(63, 22)
         Me.lblprivilegio.TabIndex = 9
