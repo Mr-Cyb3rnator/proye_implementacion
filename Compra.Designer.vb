@@ -56,40 +56,40 @@ Partial Class Compra
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label11.Location = New System.Drawing.Point(38, 352)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(128, 17)
+        Me.Label11.Size = New System.Drawing.Size(151, 21)
         Me.Label11.TabIndex = 36
         Me.Label11.Text = "Precio de Compra"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label10.Location = New System.Drawing.Point(90, 279)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(40, 17)
+        Me.Label10.Size = New System.Drawing.Size(49, 21)
         Me.Label10.TabIndex = 35
         Me.Label10.Text = "Raza"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label9.Location = New System.Drawing.Point(90, 207)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(42, 17)
+        Me.Label9.Size = New System.Drawing.Size(52, 21)
         Me.Label9.TabIndex = 34
         Me.Label9.Text = "Edad"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label8.Location = New System.Drawing.Point(66, 138)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(79, 17)
+        Me.Label8.Size = New System.Drawing.Size(94, 21)
         Me.Label8.TabIndex = 33
         Me.Label8.Text = "Peso Inicial"
         '
@@ -97,7 +97,7 @@ Partial Class Compra
         '
         Me.btagregar.BackColor = System.Drawing.Color.BurlyWood
         Me.btagregar.Enabled = False
-        Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btagregar.Location = New System.Drawing.Point(14, 446)
         Me.btagregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btagregar.Name = "btagregar"
@@ -148,10 +148,10 @@ Partial Class Compra
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label5.Location = New System.Drawing.Point(376, 478)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(44, 17)
+        Me.Label5.Size = New System.Drawing.Size(60, 21)
         Me.Label5.TabIndex = 25
         Me.Label5.Text = "TOTAL"
         '
@@ -159,7 +159,7 @@ Partial Class Compra
         '
         Me.btguardar.BackColor = System.Drawing.Color.BurlyWood
         Me.btguardar.Enabled = False
-        Me.btguardar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btguardar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btguardar.Location = New System.Drawing.Point(805, 138)
         Me.btguardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btguardar.Name = "btguardar"
@@ -223,6 +223,7 @@ Partial Class Compra
         Me.GroupBox1.Controls.Add(Me.txtcod_cliente)
         Me.GroupBox1.Controls.Add(Me.lb_CodigoCliente)
         Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.GroupBox1.Location = New System.Drawing.Point(46, 11)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
@@ -235,10 +236,11 @@ Partial Class Compra
         'DateTimePicker1
         '
         Me.DateTimePicker1.Enabled = False
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.DateTimePicker1.Location = New System.Drawing.Point(346, 36)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(276, 23)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(276, 27)
         Me.DateTimePicker1.TabIndex = 14
         '
         'txtcod_cliente
@@ -246,24 +248,26 @@ Partial Class Compra
         Me.txtcod_cliente.Location = New System.Drawing.Point(122, 40)
         Me.txtcod_cliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcod_cliente.Name = "txtcod_cliente"
-        Me.txtcod_cliente.Size = New System.Drawing.Size(119, 23)
+        Me.txtcod_cliente.Size = New System.Drawing.Size(119, 27)
         Me.txtcod_cliente.TabIndex = 11
         '
         'lb_CodigoCliente
         '
         Me.lb_CodigoCliente.AutoSize = True
+        Me.lb_CodigoCliente.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.lb_CodigoCliente.Location = New System.Drawing.Point(14, 43)
         Me.lb_CodigoCliente.Name = "lb_CodigoCliente"
-        Me.lb_CodigoCliente.Size = New System.Drawing.Size(91, 17)
+        Me.lb_CodigoCliente.Size = New System.Drawing.Size(108, 21)
         Me.lb_CodigoCliente.TabIndex = 10
         Me.lb_CodigoCliente.Text = "Cod. Cliente"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label4.Location = New System.Drawing.Point(289, 39)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(47, 17)
+        Me.Label4.Size = New System.Drawing.Size(59, 21)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Fecha"
         '
@@ -277,7 +281,7 @@ Partial Class Compra
         '
         Me.b_Limpiar.BackColor = System.Drawing.Color.BurlyWood
         Me.b_Limpiar.Enabled = False
-        Me.b_Limpiar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.b_Limpiar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.b_Limpiar.Location = New System.Drawing.Point(124, 447)
         Me.b_Limpiar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.b_Limpiar.Name = "b_Limpiar"
