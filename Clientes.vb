@@ -28,11 +28,11 @@ Public Class Clientes
 
             Try
                 conecta()
-                Dim insertar_cliente As String = "insert into cliente (nombre,telefono,direccion)values(@nombre,@telefono,@direccion)"
+                Dim insertar_cliente As String = "insert into clientes (nombre,telefono,direcion)values(@nombre,@telefono,@direcion)"
                 Dim insertar As New SqlCommand(insertar_cliente, conectar)
                 insertar.Parameters.AddWithValue("@nombre", txtnombre.Text)
                 insertar.Parameters.AddWithValue("@telefono", txttelefono.Text)
-                insertar.Parameters.AddWithValue("@direccion", txtdireccion.Text)
+                insertar.Parameters.AddWithValue("@direcion", txtdireccion.Text)
                 insertar.ExecuteNonQuery()
 
                 conectar.Close()
