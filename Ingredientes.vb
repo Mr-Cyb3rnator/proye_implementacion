@@ -8,11 +8,10 @@ Public Class Ingredientes
     Private Sub cargargrid()
 
         conecta()
-        Dim cargar_datos_clientes As String = "SELECT cod_ingredientes AS 'Código', descripcion AS 'Ingrediente', costo AS 'Costo', cod_dieta AS '# Dieta' FROM ingredientes "
+        Dim cargar_datos_ingredientes As String = "SELECT cod_ingredientes AS 'Código', descripcion AS 'Ingrediente', costo AS 'Costo', cod_dieta AS '# Dieta' FROM ingredientes "
         Dim mostrar As New DataTable
 
-        Using adpmostrar As New SqlDataAdapter(cargar_datos_clientes, conectar)
-
+        Using adpmostrar As New SqlDataAdapter(cargar_datos_ingredientes, conectar)
             adpmostrar.Fill(mostrar)
 
         End Using
@@ -87,6 +86,7 @@ Public Class Ingredientes
     End Sub
 
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
+
         tt_Ingrediente.SetToolTip(btneliminar, "")
         conecta()
         Dim eliminar As String = "delete from ingredientes  where cod_ingredientes=@cod_ingredientes"
@@ -109,8 +109,6 @@ Public Class Ingredientes
 
         btneliminar.Enabled = False
         bteditar.Enabled = False
-
-
 
         'dgingredientes.Rows.Remove(dgingredientes.CurrentRow)
     End Sub
@@ -151,7 +149,16 @@ Public Class Ingredientes
 
 
     Private Sub dgingredientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgingredientes.CellContentClick
+
         ' Dim row As DataGridViewRow = dgingredientes.CurrentRow
+
+        Dim fila As Integer = dgingredientes.CurrentCell.RowIndex
+
+        txtcodingre.Text = dgingredientes(0, fila).Value.ToString()
+        txtdescripingre.Text = dgingredientes(1, fila).Value.ToString()
+        txtcoddieta.Text = dgingredientes(2, fila).Value.ToString()
+        txtcosto.Text = dgingredientes(3, fila).Value.ToString()
+
 
     End Sub
 
@@ -230,7 +237,7 @@ Public Class Ingredientes
 
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
-        Me.Close()
+        Me.Hide()
         Form3.Show()
     End Sub
 
@@ -350,5 +357,13 @@ Public Class Ingredientes
         Else
             tt_Ingrediente.SetToolTip(bteditar, "")
         End If
+    End Sub
+
+    Private Sub tt_Ingrediente_Popup(sender As Object, e As PopupEventArgs) Handles tt_Ingrediente.Popup
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
     End Sub
 End Class

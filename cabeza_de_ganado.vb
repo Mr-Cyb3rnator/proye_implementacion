@@ -94,7 +94,7 @@ Public Class Cabeza_ganado
 
     End Sub
 
-    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
+    Private Sub btnatras_Click(sender As Object, e As EventArgs)
         Me.Close()
         Form3.Show()
 

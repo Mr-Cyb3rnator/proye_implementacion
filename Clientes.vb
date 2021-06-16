@@ -1,11 +1,13 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.ComponentModel
+Imports System.Data.SqlClient
 
 Public Class Clientes
+    Dim loadingForm As Boolean
 
     Private Sub cargargrid()
 
         conecta()
-        Dim cargar_datos_clientes As String = "select cod_cliente as 'Código de cliente' , nombre as 'Nombre' , direcion as 'Dirección', telefono as 'Teléfono' from clientes"
+        Dim cargar_datos_clientes As String = "select cod_cliente as 'Código cliente' , nombre as 'Nombre' , direcion as 'Dirección', telefono as 'Teléfono' from clientes"
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(cargar_datos_clientes, conectar)
@@ -22,21 +24,57 @@ Public Class Clientes
 
     Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btagregar.Click
         'DGclientes.Rows.Add(txtcodcliente.Text, txtnombre.Text, txtdireccion.Text, txttelefono.Text)
+        If (txtnombre.Text IsNot "" And txttelefono.Text IsNot "" And txtdireccion.Text IsNot "") Then
+
+            Try
+                conecta()
+                Dim insertar_cliente As String = "insert into cliente (nombre,telefono,direccion)values(@nombre,@telefono,@direccion)"
+                Dim insertar As New SqlCommand(insertar_cliente, conectar)
+                insertar.Parameters.AddWithValue("@nombre", txtnombre.Text)
+                insertar.Parameters.AddWithValue("@telefono", txttelefono.Text)
+                insertar.Parameters.AddWithValue("@direccion", txtdireccion.Text)
+                insertar.ExecuteNonQuery()
+
+                conectar.Close()
+            Catch ex As Exception
+                MsgBox("Revise los Valores")
+                conectar.Close()
+            End Try
 
 
-        conecta()
-        Dim insertar_clientes As String = "insert into clientes(nombre,direcion,telefono)values(@nombre,@direcion,@telefono)"
-        Dim insertar As New SqlCommand(insertar_clientes, conectar)
-        insertar.Parameters.AddWithValue("@nombre", txtnombre.Text)
-        insertar.Parameters.AddWithValue("@direcion", txtdireccion.Text)
-        insertar.Parameters.AddWithValue("@telefono", txttelefono.Text)
+            loadingForm = False
+            cargargrid()
 
-        insertar.ExecuteNonQuery()
+            DGclientes.ClearSelection()
+            txtcodcliente.Text = ""
+            txtnombre.Text = ""
+            txtdireccion.Text = ""
+            txttelefono.Text = ""
+            loadingForm = True
+        Else
+            MsgBox("Campos no pueden quedar vacios")
+        End If
 
 
 
-        conectar.Close()
-        cargargrid()
+
+
+
+
+
+        'conecta()
+        'Dim insertar_clientes As String = "insert into clientes(nombre,direcion,telefono)values(@nombre,@direcion,@telefono)"
+        'Dim insertar As New SqlCommand(insertar_clientes, conectar)
+        'insertar.Parameters.AddWithValue("@nombre", txtnombre.Text)
+        'insertar.Parameters.AddWithValue("@direcion", txtdireccion.Text)
+        'insertar.Parameters.AddWithValue("@telefono", txttelefono.Text)
+
+        'insertar.ExecuteNonQuery()
+
+
+
+        'conectar.Close()
+        'cargargrid()
 
     End Sub
 
@@ -50,6 +88,20 @@ Public Class Clientes
         procesar.ExecuteNonQuery()
         conectar.Close()
         cargargrid()
+
+        loadingForm = False
+        cargargrid()
+        DGclientes.ClearSelection()
+
+        txtcodcliente.Text = ""
+        txtnombre.Text = ""
+        txtdireccion.Text = ""
+        txttelefono.Text = ""
+
+        loadingForm = True
+
+        bteliminar.Enabled = False
+        bteditar.Enabled = False
 
 
 
@@ -79,8 +131,13 @@ Public Class Clientes
     End Sub
 
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        loadingForm = False
         cargargrid()
+        DGclientes.ClearSelection()
+        loadingForm = True
+
+        tt_cliente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
+        tt_cliente.SetToolTip(bteliminar, "Seleccione una Fila para Eliminar")
 
     End Sub
 
@@ -106,6 +163,7 @@ Public Class Clientes
             e.Handled = False
         Else
             e.Handled = True
+            tt_cliente.SetToolTip(txtdireccion, "Acepta Caracteres")
 
         End If
     End Sub
@@ -119,6 +177,7 @@ Public Class Clientes
             e.Handled = False
         Else
             e.Handled = True
+            tt_cliente.SetToolTip(txtdescripingre, "Solo Acepta Numeros")
 
         End If
     End Sub
@@ -126,14 +185,33 @@ Public Class Clientes
     Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodcliente.KeyPress
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
+            tt_cliente.SetToolTip(txtcodcliente, "")
         ElseIf Char.IsControl(e.KeyChar) Then
             e.Handled = False
+            tt_cliente.SetToolTip(txtcodcliente, "")
         ElseIf Char.IsSeparator(e.KeyChar) Then
             e.Handled = False
+            tt_cliente.SetToolTip(txtcodcliente, "")
         Else
             e.Handled = True
+            tt_cliente.SetToolTip(txtcodcliente, "Solo Acepta Numeros")
+
 
         End If
+
+
+
+
+        'If Char.IsNumber(e.KeyChar) Then
+        '    e.Handled = False
+        'ElseIf Char.IsControl(e.KeyChar) Then
+        '    e.Handled = False
+        'ElseIf Char.IsSeparator(e.KeyChar) Then
+        '    e.Handled = False
+        'Else
+        '    e.Handled = True
+
+        'End If
 
     End Sub
 
@@ -152,14 +230,78 @@ Public Class Clientes
 
 
 
+    End Sub
+    Private Sub DGclientes_SelectionChanged(sender As Object, e As EventArgs) Handles DGclientes.SelectionChanged
+        If (loadingForm) Then
+
+            Dim fila As Integer
+            fila = DGclientes.CurrentRow.Index
 
 
+            bteditar.Enabled = True
+            bteliminar.Enabled = True
+
+            txtcodcliente.Text = DGclientes.Rows(fila).Cells(0).Value
+            txtnombre.Text = DGclientes.Rows(fila).Cells(1).Value
+            txttelefono.Text = DGclientes.Rows(fila).Cells(2).Value
+            txtdireccion.Text = DGclientes.Rows(fila).Cells(3).Value
+
+            btagregar.Enabled = False
+            txtnombre.Enabled = True
+            txttelefono.Enabled = True
+            txtdireccion.Enabled = True
 
 
+        End If
 
 
+    End Sub
 
+    Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtnombre.TextChanged
+        If (txtnombre.Text IsNot "") Then
+            txtdireccion.Enabled = True
+        Else
+            txtdireccion.Enabled = False
+        End If
+    End Sub
 
+    Private Sub txtdireccion_TextChanged(sender As Object, e As EventArgs) Handles txtdireccion.TextChanged
+        If (txtdireccion.Text IsNot "") Then
+            txttelefono.Enabled = True
+        Else
+            txttelefono.Enabled = False
+        End If
+    End Sub
 
+    Private Sub txttelefono_TextChanged(sender As Object, e As EventArgs) Handles txttelefono.TextChanged
+        If (txttelefono.Text IsNot "") Then
+            btagregar.Enabled = True
+        Else
+            btagregar.Enabled = False
+        End If
+    End Sub
+
+    Private Sub txtnombre_Validating(sender As Object, e As CancelEventArgs) Handles txtnombre.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.erroricono.SetError(sender, "")
+        Else
+            Me.erroricono.SetError(sender, "Ingrese el nombre")
+        End If
+    End Sub
+
+    Private Sub txtdireccion_Validating(sender As Object, e As CancelEventArgs) Handles txtdireccion.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.erroricono.SetError(sender, "")
+        Else
+            Me.erroricono.SetError(sender, "Ingrese la direccion")
+        End If
+    End Sub
+
+    Private Sub txttelefono_Validating(sender As Object, e As CancelEventArgs) Handles txttelefono.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.erroricono.SetError(sender, "")
+        Else
+            Me.erroricono.SetError(sender, "Ingrese el Telefono")
+        End If
     End Sub
 End Class

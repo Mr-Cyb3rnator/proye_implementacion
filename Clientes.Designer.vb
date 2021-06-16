@@ -22,6 +22,8 @@ Partial Class Clientes
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtcodcliente = New System.Windows.Forms.TextBox()
         Me.txtnombre = New System.Windows.Forms.TextBox()
@@ -35,7 +37,10 @@ Partial Class Clientes
         Me.btagregar = New System.Windows.Forms.Button()
         Me.btnatras = New System.Windows.Forms.Button()
         Me.bteditar = New System.Windows.Forms.Button()
+        Me.tt_cliente = New System.Windows.Forms.ToolTip(Me.components)
+        Me.erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
         CType(Me.DGclientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -50,6 +55,7 @@ Partial Class Clientes
         '
         'txtcodcliente
         '
+        Me.txtcodcliente.Enabled = False
         Me.txtcodcliente.Location = New System.Drawing.Point(164, 41)
         Me.txtcodcliente.Name = "txtcodcliente"
         Me.txtcodcliente.Size = New System.Drawing.Size(113, 23)
@@ -111,7 +117,7 @@ Partial Class Clientes
         '
         Me.DGclientes.AllowUserToAddRows = False
         Me.DGclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGclientes.Location = New System.Drawing.Point(358, 68)
+        Me.DGclientes.Location = New System.Drawing.Point(359, 39)
         Me.DGclientes.MultiSelect = False
         Me.DGclientes.Name = "DGclientes"
         Me.DGclientes.ReadOnly = True
@@ -143,7 +149,7 @@ Partial Class Clientes
         Me.btagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btagregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btagregar.Location = New System.Drawing.Point(136, 263)
+        Me.btagregar.Location = New System.Drawing.Point(31, 263)
         Me.btagregar.Name = "btagregar"
         Me.btagregar.Size = New System.Drawing.Size(99, 36)
         Me.btagregar.TabIndex = 27
@@ -153,12 +159,13 @@ Partial Class Clientes
         '
         'btnatras
         '
-        Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnatras.Image = Global.proye.My.Resources.Resources.iconfinder_326518_arrow_back_icon_64px1
-        Me.btnatras.Location = New System.Drawing.Point(769, 331)
+        Me.btnatras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnatras.Image = Global.proye.My.Resources.Resources.atras__2_
+        Me.btnatras.Location = New System.Drawing.Point(743, 275)
         Me.btnatras.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(134, 80)
+        Me.btnatras.Size = New System.Drawing.Size(90, 51)
         Me.btnatras.TabIndex = 29
         Me.btnatras.UseVisualStyleBackColor = False
         '
@@ -169,7 +176,7 @@ Partial Class Clientes
         Me.bteditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.bteditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bteditar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.bteditar.Location = New System.Drawing.Point(31, 263)
+        Me.bteditar.Location = New System.Drawing.Point(136, 263)
         Me.bteditar.Name = "bteditar"
         Me.bteditar.Size = New System.Drawing.Size(99, 36)
         Me.bteditar.TabIndex = 30
@@ -177,12 +184,16 @@ Partial Class Clientes
         Me.bteditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.bteditar.UseVisualStyleBackColor = False
         '
+        'erroricono
+        '
+        Me.erroricono.ContainerControl = Me
+        '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(925, 422)
+        Me.ClientSize = New System.Drawing.Size(925, 343)
         Me.Controls.Add(Me.bteditar)
         Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.bteliminar)
@@ -196,10 +207,12 @@ Partial Class Clientes
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtcodcliente)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
         CType(Me.DGclientes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.erroricono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -218,4 +231,6 @@ Partial Class Clientes
     Friend WithEvents btagregar As Button
     Friend WithEvents btnatras As Button
     Friend WithEvents bteditar As Button
+    Friend WithEvents tt_cliente As ToolTip
+    Friend WithEvents erroricono As ErrorProvider
 End Class
