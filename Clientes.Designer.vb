@@ -116,7 +116,7 @@ Partial Class Clientes
         '
         Me.DGclientes.AllowUserToAddRows = False
         Me.DGclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGclientes.Location = New System.Drawing.Point(358, 68)
+        Me.DGclientes.Location = New System.Drawing.Point(359, 39)
         Me.DGclientes.MultiSelect = False
         Me.DGclientes.Name = "DGclientes"
         Me.DGclientes.ReadOnly = True
@@ -158,12 +158,13 @@ Partial Class Clientes
         '
         'btnatras
         '
-        Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnatras.Image = Global.proye.My.Resources.Resources.iconfinder_326518_arrow_back_icon_64px1
-        Me.btnatras.Location = New System.Drawing.Point(769, 331)
+        Me.btnatras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnatras.Image = Global.proye.My.Resources.Resources.atras__2_
+        Me.btnatras.Location = New System.Drawing.Point(743, 275)
         Me.btnatras.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(134, 80)
+        Me.btnatras.Size = New System.Drawing.Size(90, 51)
         Me.btnatras.TabIndex = 29
         Me.btnatras.UseVisualStyleBackColor = False
         '
@@ -191,7 +192,7 @@ Partial Class Clientes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(925, 422)
+        Me.ClientSize = New System.Drawing.Size(925, 343)
         Me.Controls.Add(Me.bteditar)
         Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.bteliminar)
