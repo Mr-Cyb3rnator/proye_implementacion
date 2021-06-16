@@ -67,10 +67,10 @@ Public Class Ingredientes
     End Sub
 
     Private Sub Ingredientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadingForm = False
+        loadingForm = True
         cargargrid()
         dgingredientes.ClearSelection()
-        loadingForm = True
+        loadingForm = False
 
         tt_Ingrediente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
         tt_Ingrediente.SetToolTip(btneliminar, "Seleccione una Fila para Eliminar")
@@ -96,7 +96,7 @@ Public Class Ingredientes
         conectar.Close()
 
 
-        loadingForm = False
+        loadingForm = True
         cargargrid()
         dgingredientes.ClearSelection()
 
@@ -105,7 +105,7 @@ Public Class Ingredientes
         txtcoddieta.Text = ""
         txtcosto.Text = ""
 
-        loadingForm = True
+        loadingForm = False
 
         btneliminar.Enabled = False
         bteditar.Enabled = False
@@ -129,7 +129,7 @@ Public Class Ingredientes
         actualizar.ExecuteNonQuery()
         conectar.Close()
 
-        loadingForm = False
+        loadingForm = True
         cargargrid()
         dgingredientes.ClearSelection()
 
@@ -138,7 +138,7 @@ Public Class Ingredientes
         txtcoddieta.Text = ""
         txtcosto.Text = ""
 
-        loadingForm = True
+        loadingForm = False
 
 
         bteditar.Enabled = False
@@ -234,9 +234,6 @@ Public Class Ingredientes
         Form3.Show()
     End Sub
 
-    Private Sub txtcodingre_TextChanged(sender As Object, e As EventArgs) Handles txtcodingre.TextChanged
-
-    End Sub
 
     Private Sub txtdescripingre_TextChanged(sender As Object, e As EventArgs) Handles txtdescripingre.TextChanged
         If (txtdescripingre.Text IsNot "") Then
@@ -309,7 +306,8 @@ Public Class Ingredientes
     End Sub
 
     Private Sub dgingredientes_SelectionChanged(sender As Object, e As EventArgs) Handles dgingredientes.SelectionChanged
-        If (loadingForm) Then
+
+        If (Not loadingForm) Then
 
             Dim fila As Integer
             fila = dgingredientes.CurrentRow.Index

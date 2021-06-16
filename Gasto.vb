@@ -3,6 +3,7 @@
 Public Class Gasto
 
     Dim totald As Integer
+    Dim loadingform As Boolean
 
     Public Sub cargar_combo()
 
@@ -27,6 +28,7 @@ Public Class Gasto
 
     Private Sub Gasto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        loadingform = True
         '/////////////////////////////////// Esto Llena el ComboBox de ingredientes
         cargar_combo()
         Try
@@ -50,6 +52,7 @@ Public Class Gasto
         cb_Grupo.SelectedIndex = -1
         cb_Grupo.DisplayMember = "Grupo"
         cn.Close()
+        loadingform = False
 
 
 
@@ -178,7 +181,7 @@ Public Class Gasto
             txtprecio.Text = ""
 
         Else
-            MsgBox("Rellene toodos los campos")
+            MsgBox("Rellene todos los campos")
         End If
 
 
@@ -192,63 +195,35 @@ Public Class Gasto
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_Ingredientes.SelectedIndexChanged
 
-        txtcod_ingre.Text = (cb_Ingredientes.SelectedIndex) + 1
-        txtcantidad.Enabled = True
-        txtprecio.Enabled = True
+        If (Not loadingform) Then
+            txtcantidad.Enabled = True
+            txtprecio.Enabled = True
 
-        conecta()
-        Dim recuperar_ingrediente As String = "select * from ingredientes where cod_ingredientes= " & txtcod_ingre.Text
-        Dim mostrar_ingre As SqlDataReader
-        Dim ejecutar As New SqlCommand
+            conecta()
+            Dim recuperar_ingrediente As String = "select * from ingredientes where descripcion = '" & cb_Ingredientes.Text & "'"
 
-        ejecutar = New SqlCommand(recuperar_ingrediente, conectar)
-        mostrar_ingre = ejecutar.ExecuteReader
+            Dim mostrar_ingre As SqlDataReader
+            Dim ejecutar As New SqlCommand
 
-        Dim estado As String
-        estado = mostrar_ingre.Read
+            ejecutar = New SqlCommand(recuperar_ingrediente, conectar)
+            mostrar_ingre = ejecutar.ExecuteReader
 
-        If (estado = True) Then
+            Dim estado As String
+            estado = mostrar_ingre.Read
 
-            txtprecio.Text = mostrar_ingre(2)
+            If (estado = True) Then
 
+                txtcod_ingre.Text = mostrar_ingre(0)
+                txtprecio.Text = mostrar_ingre(2)
+
+            End If
+
+
+            mostrar_ingre.Close()
+
+            conectar.Close()
         End If
 
-
-        mostrar_ingre.Close()
-
-        conectar.Close()
-
-
-
-
-        'conecta()
-        'Dim recuperar_ingrediente As String = "select * from ingredientes where cod_ingredientes= " & txtcod_ingre.Text
-        'Dim mostrar_ingre As SqlDataReader
-        'Dim ejecutar As New SqlCommand
-
-        'ejecutar = New SqlCommand(recuperar_ingrediente, conectar)
-        'mostrar_ingre = ejecutar.ExecuteReader
-
-        'Dim estado As String
-        'estado = mostrar_ingre.Read
-
-        'If (estado = True) Then
-
-        '    txtprecio.Text = mostrar_ingre(2)
-
-
-
-        'Else
-
-        '    'txtnombre_empleado.Text = ""
-
-
-        'End If
-
-
-        'mostrar_ingre.Close()
-
-        'conectar.Close()
 
     End Sub
 
