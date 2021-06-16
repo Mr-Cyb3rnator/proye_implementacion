@@ -131,6 +131,7 @@ Partial Class Clientes
         Me.bteliminar.BackColor = System.Drawing.Color.BurlyWood
         Me.bteliminar.BackgroundImage = Global.proye.My.Resources.Resources.iconfinder_4781838_cancel_close_delete_exit_logout_icon_32px2
         Me.bteliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.bteliminar.Enabled = False
         Me.bteliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bteliminar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.bteliminar.Location = New System.Drawing.Point(241, 263)
@@ -146,6 +147,7 @@ Partial Class Clientes
         Me.btagregar.BackColor = System.Drawing.Color.BurlyWood
         Me.btagregar.BackgroundImage = Global.proye.My.Resources.Resources.agregar
         Me.btagregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btagregar.Enabled = False
         Me.btagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btagregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -174,6 +176,7 @@ Partial Class Clientes
         Me.bteditar.BackColor = System.Drawing.Color.BurlyWood
         Me.bteditar.BackgroundImage = Global.proye.My.Resources.Resources.iconfinder_185042_edit_modify_icon_32px2
         Me.bteditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.bteditar.Enabled = False
         Me.bteditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bteditar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.bteditar.Location = New System.Drawing.Point(136, 263)

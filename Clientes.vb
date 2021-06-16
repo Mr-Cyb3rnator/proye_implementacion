@@ -177,7 +177,7 @@ Public Class Clientes
             e.Handled = False
         Else
             e.Handled = True
-            tt_cliente.SetToolTip(txtdescripingre, "Solo Acepta Numeros")
+            tt_cliente.SetToolTip(txttelefono, "Solo Acepta Numeros")
 
         End If
     End Sub
@@ -302,6 +302,22 @@ Public Class Clientes
             Me.erroricono.SetError(sender, "")
         Else
             Me.erroricono.SetError(sender, "Ingrese el Telefono")
+        End If
+    End Sub
+
+    Private Sub bteditar_MouseMove(sender As Object, e As MouseEventArgs) Handles bteditar.MouseMove
+        If (bteditar.Enabled <> True) Then
+            tt_cliente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
+        Else
+            tt_cliente.SetToolTip(bteditar, "")
+        End If
+    End Sub
+
+    Private Sub bteditar_MouseUp(sender As Object, e As MouseEventArgs) Handles bteditar.MouseUp
+        If (bteditar.Enabled <> True) Then
+            tt_cliente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
+        Else
+            tt_cliente.SetToolTip(bteditar, "")
         End If
     End Sub
 End Class

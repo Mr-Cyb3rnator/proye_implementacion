@@ -213,7 +213,7 @@ Public Class Compra
             For Each fila In dgv_Compra.Rows
 
                 registrard.Parameters.Clear()
-                registrard.Parameters.AddWithValue("@cod_detalle_compra", num_Factura)
+                registrard.Parameters.AddWithValue("@cod_detalle_compra", num_Grupo)
                 registrard.Parameters.AddWithValue("@peso_inicial", fila.Cells("cpesoini").Value)
                 registrard.Parameters.AddWithValue("@raza", fila.Cells("craza").Value)
                 registrard.Parameters.AddWithValue("@precio_compra", fila.Cells("cprecio_compra").Value)
