@@ -37,7 +37,9 @@ Partial Class Clientes
         Me.btnatras = New System.Windows.Forms.Button()
         Me.bteditar = New System.Windows.Forms.Button()
         Me.tt_cliente = New System.Windows.Forms.ToolTip(Me.components)
+        Me.erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
         CType(Me.DGclientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -180,6 +182,10 @@ Partial Class Clientes
         Me.bteditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.bteditar.UseVisualStyleBackColor = False
         '
+        'erroricono
+        '
+        Me.erroricono.ContainerControl = Me
+        '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -203,6 +209,7 @@ Partial Class Clientes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
         CType(Me.DGclientes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.erroricono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -222,4 +229,5 @@ Partial Class Clientes
     Friend WithEvents btnatras As Button
     Friend WithEvents bteditar As Button
     Friend WithEvents tt_cliente As ToolTip
+    Friend WithEvents erroricono As ErrorProvider
 End Class

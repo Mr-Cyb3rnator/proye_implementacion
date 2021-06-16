@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.ComponentModel
+Imports System.Data.SqlClient
 
 Public Class Clientes
     Dim loadingForm As Boolean
@@ -227,13 +228,29 @@ Public Class Clientes
 
 
 
+    End Sub
+    Private Sub DGclientes_SelectionChanged(sender As Object, e As EventArgs) Handles DGclientes.SelectionChanged
+        If (loadingForm) Then
+
+            Dim fila As Integer
+            fila = DGclientes.CurrentRow.Index
 
 
+            bteditar.Enabled = True
+            bteliminar.Enabled = True
+
+            txtcodcliente.Text = DGclientes.Rows(fila).Cells(0).Value
+            txtnombre.Text = DGclientes.Rows(fila).Cells(1).Value
+            txttelefono.Text = DGclientes.Rows(fila).Cells(2).Value
+            txtdireccion.Text = DGclientes.Rows(fila).Cells(3).Value
+
+            btagregar.Enabled = False
+            txtnombre.Enabled = True
+            txttelefono.Enabled = True
+            txtdireccion.Enabled = True
 
 
-
-
-
+        End If
 
 
     End Sub
@@ -259,6 +276,30 @@ Public Class Clientes
             btagregar.Enabled = True
         Else
             btagregar.Enabled = False
+        End If
+    End Sub
+
+    Private Sub txtnombre_Validating(sender As Object, e As CancelEventArgs) Handles txtnombre.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.erroricono.SetError(sender, "")
+        Else
+            Me.erroricono.SetError(sender, "Ingrese el nombre")
+        End If
+    End Sub
+
+    Private Sub txtdireccion_Validating(sender As Object, e As CancelEventArgs) Handles txtdireccion.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.erroricono.SetError(sender, "")
+        Else
+            Me.erroricono.SetError(sender, "Ingrese la direccion")
+        End If
+    End Sub
+
+    Private Sub txttelefono_Validating(sender As Object, e As CancelEventArgs) Handles txttelefono.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.erroricono.SetError(sender, "")
+        Else
+            Me.erroricono.SetError(sender, "Ingrese el Telefono")
         End If
     End Sub
 End Class
