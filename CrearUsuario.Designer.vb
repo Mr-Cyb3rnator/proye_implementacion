@@ -215,7 +215,7 @@ Partial Class CrearUsuario
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "CrearUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "crearusuario"
+        Me.Text = "Crear Usuario"
         CType(Me.dtgcrear, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
