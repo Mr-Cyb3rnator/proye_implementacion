@@ -285,13 +285,10 @@ Public Class estado_resultados
         End If
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
-        Me.Hide()
+
+    Private Sub btnatras_Click_1(sender As Object, e As EventArgs) Handles btnatras.Click
+        Me.Close()
         Form3.Show()
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs)
-
     End Sub
 
     Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btcargar_gastos.Click

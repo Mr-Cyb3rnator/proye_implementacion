@@ -176,6 +176,7 @@ Partial Class Compra
         Me.dgv_Compra.Location = New System.Drawing.Point(245, 138)
         Me.dgv_Compra.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgv_Compra.Name = "dgv_Compra"
+        Me.dgv_Compra.ReadOnly = True
         Me.dgv_Compra.RowHeadersWidth = 51
         Me.dgv_Compra.RowTemplate.Height = 24
         Me.dgv_Compra.Size = New System.Drawing.Size(554, 277)
@@ -186,6 +187,7 @@ Partial Class Compra
         Me.cPesoini.HeaderText = "Peso Inicial"
         Me.cPesoini.MinimumWidth = 6
         Me.cPesoini.Name = "cPesoini"
+        Me.cPesoini.ReadOnly = True
         Me.cPesoini.Width = 125
         '
         'cedad
@@ -193,6 +195,7 @@ Partial Class Compra
         Me.cedad.HeaderText = "Edad"
         Me.cedad.MinimumWidth = 6
         Me.cedad.Name = "cedad"
+        Me.cedad.ReadOnly = True
         Me.cedad.Width = 125
         '
         'craza
@@ -200,6 +203,7 @@ Partial Class Compra
         Me.craza.HeaderText = "Raza"
         Me.craza.MinimumWidth = 6
         Me.craza.Name = "craza"
+        Me.craza.ReadOnly = True
         Me.craza.Width = 125
         '
         'cprecio_compra
@@ -207,6 +211,7 @@ Partial Class Compra
         Me.cprecio_compra.HeaderText = "Precio Compra"
         Me.cprecio_compra.MinimumWidth = 6
         Me.cprecio_compra.Name = "cprecio_compra"
+        Me.cprecio_compra.ReadOnly = True
         Me.cprecio_compra.Width = 125
         '
         'Obs
@@ -214,6 +219,7 @@ Partial Class Compra
         Me.Obs.HeaderText = "obs"
         Me.Obs.MinimumWidth = 6
         Me.Obs.Name = "Obs"
+        Me.Obs.ReadOnly = True
         Me.Obs.Visible = False
         Me.Obs.Width = 125
         '

@@ -71,7 +71,7 @@ Public Class VentaGanado
 
         conecta()
 
-        Dim Cargar_Grupos As String = "SELECT DISTINCT cod_grupo AS 'Grupos', raza AS 'Raza' from animales where estado is null and peso_4 is not null"
+        Dim Cargar_Grupos As String = "SELECT DISTINCT cod_grupo AS 'Grupos', raza AS 'Raza' from animales where estado is null and peso_4 != 0"
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(Cargar_Grupos, conectar)
@@ -124,7 +124,7 @@ Public Class VentaGanado
         txtcodcliente.Text = " "
         dgventaganado.DataSource = Nothing
 
-        Dim Cargar_Grupos As String = "SELECT DISTINCT cod_grupo AS 'Grupos', raza AS 'Raza' from animales where estado is null and peso_4 is not null"
+        Dim Cargar_Grupos As String = "SELECT DISTINCT cod_grupo AS 'Grupos', raza AS 'Raza' from animales where estado is null and peso_4 != 0"
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(Cargar_Grupos, conectar)
