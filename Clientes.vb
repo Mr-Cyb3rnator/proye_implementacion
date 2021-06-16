@@ -177,7 +177,7 @@ Public Class Clientes
             e.Handled = False
         Else
             e.Handled = True
-            tt_cliente.SetToolTip(txtdescripingre, "Solo Acepta Numeros")
+            tt_cliente.SetToolTip(txttelefono, "Solo Acepta Numeros")
 
         End If
     End Sub

@@ -3,6 +3,7 @@
 Public Class Ingredientes
 
     Dim loadingForm As Boolean
+    Dim fillingtxt As Boolean
 
 
     Private Sub cargargrid()
@@ -51,22 +52,23 @@ Public Class Ingredientes
             txtdescripingre.Text = ""
             txtcoddieta.Text = ""
             txtcosto.Text = ""
-            loadingForm = True
+
+            bteditar.Enabled = False
+            btneliminar.Enabled = False
+
+
+            'loadingForm = True
         Else
             MsgBox("Campos no pueden quedar vacios")
         End If
 
 
-        'dgingredientes.Rows.Add(txtcodingre.Text, txtdescripingre.Text, txtcoddieta.Text, txtcosto.Text)
-        'txtcodingre.Text = ""
-        'txtdescripingre.Text = ""
-        'txtcoddieta.Text = ""
-        'txtcosto.Text = ""
 
     End Sub
 
     Private Sub Ingredientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadingForm = True
+
         cargargrid()
         dgingredientes.ClearSelection()
         loadingForm = False
@@ -87,7 +89,7 @@ Public Class Ingredientes
 
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
 
-        tt_Ingrediente.SetToolTip(btneliminar, "")
+        'tt_Ingrediente.SetToolTip(btneliminar, "")
         conecta()
         Dim eliminar As String = "delete from ingredientes  where cod_ingredientes=@cod_ingredientes"
         Dim procesar As New SqlCommand(eliminar, conectar)
@@ -114,7 +116,7 @@ Public Class Ingredientes
     End Sub
 
     Private Sub bteditar_Click(sender As Object, e As EventArgs) Handles bteditar.Click
-        tt_Ingrediente.SetToolTip(bteditar, "")
+        'tt_Ingrediente.SetToolTip(bteditar, "")
         conecta()
 
         Dim datos_ingredientes As String = "update ingredientes set descripcion=@descripcion,costo=@costo,cod_dieta=@cod_dieta where cod_ingredientes=@cod_ingredientes"
@@ -237,7 +239,7 @@ Public Class Ingredientes
 
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
-        Me.Hide()
+        Me.Close()
         Form3.Show()
     End Sub
 
@@ -245,88 +247,70 @@ Public Class Ingredientes
     Private Sub txtdescripingre_TextChanged(sender As Object, e As EventArgs) Handles txtdescripingre.TextChanged
         If (txtdescripingre.Text IsNot "") Then
             txtcoddieta.Enabled = True
+            ep_Ingredientes.SetError(txtdescripingre, "")
         Else
             txtcoddieta.Enabled = False
+
+            If (Not bteditar.Enabled) Then
+
+                ep_Ingredientes.SetError(txtdescripingre, "Campo No Puede Quedar Vacio")
+            End If
         End If
+
     End Sub
 
     Private Sub txtcoddieta_TextChanged(sender As Object, e As EventArgs) Handles txtcoddieta.TextChanged
         If (txtcoddieta.Text IsNot "") Then
             txtcosto.Enabled = True
+            ep_Ingredientes.SetError(txtcoddieta, "")
         Else
             txtcosto.Enabled = False
+            If (Not bteditar.Enabled) Then
+                ep_Ingredientes.SetError(txtcoddieta, "Campo No Puede Quedar Vacio")
+            End If
         End If
+
     End Sub
 
     Private Sub txtcosto_TextChanged(sender As Object, e As EventArgs) Handles txtcosto.TextChanged
         If (txtcosto.Text IsNot "") Then
             btnguardar.Enabled = True
+            ep_Ingredientes.SetError(txtcosto, "")
         Else
             btnguardar.Enabled = False
-        End If
-    End Sub
-
-
-
-    Private Sub txtdescripingre_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtdescripingre.Validating
-        Dim estado As Boolean
-
-        estado = String.IsNullOrEmpty(txtdescripingre.Text)
-        If (estado) Then
-
-            ' e.Cancel = True
-            ep_Ingredientes.SetError(txtdescripingre, "Campo No Puede Quedar Vacio")
-
-        Else
-
-            ' e.Cancel = False
-            ep_Ingredientes.SetError(txtdescripingre, "")
-
+            If (Not bteditar.Enabled) Then
+                ep_Ingredientes.SetError(txtcosto, "Campo No Puede Quedar Vacio")
+            End If
         End If
 
     End Sub
 
-    Private Sub txtcoddieta_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtcoddieta.Validating
-        Dim estado As Boolean
 
-        estado = String.IsNullOrEmpty(txtcoddieta.Text)
-        If (estado) Then
-            '  e.Cancel = True
-            ep_Ingredientes.SetError(txtcoddieta, "Campo No Puede Quedar Vacio")
-        Else
-            ' e.Cancel = False
-            ep_Ingredientes.SetError(txtcoddieta, "")
-        End If
-    End Sub
 
-    Private Sub txtcosto_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtcosto.Validating
-        Dim estado As Boolean
 
-        estado = String.IsNullOrEmpty(txtcosto.Text)
-        If (estado) Then
-            ' e.Cancel = True
-            ep_Ingredientes.SetError(txtcosto, "Campo No Puede Quedar Vacio")
-        Else
-            ' e.Cancel = False
-            ep_Ingredientes.SetError(txtcosto, "")
-        End If
-    End Sub
+
+
 
     Private Sub dgingredientes_SelectionChanged(sender As Object, e As EventArgs) Handles dgingredientes.SelectionChanged
 
         If (Not loadingForm) Then
 
             Dim fila As Integer
+
             fila = dgingredientes.CurrentRow.Index
 
 
             bteditar.Enabled = True
             btneliminar.Enabled = True
 
+
+            ' fillingtxt = True
             txtcodingre.Text = dgingredientes.Rows(fila).Cells(0).Value
             txtdescripingre.Text = dgingredientes.Rows(fila).Cells(1).Value
             txtcosto.Text = dgingredientes.Rows(fila).Cells(2).Value
             txtcoddieta.Text = dgingredientes.Rows(fila).Cells(3).Value
+            'fillingtxt = False
+
 
             btnguardar.Enabled = False
             txtdescripingre.Enabled = True
@@ -339,31 +323,55 @@ Public Class Ingredientes
 
     End Sub
 
-    Private Sub bteditar_MouseHover(sender As Object, e As EventArgs) Handles bteditar.MouseHover
 
-    End Sub
 
-    Private Sub bteditar_MouseMove(sender As Object, e As MouseEventArgs) Handles bteditar.MouseMove
-        If (bteditar.Enabled <> True) Then
-            tt_Ingrediente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
+
+
+
+
+
+
+
+    Private Sub txtdescripingre_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtdescripingre.Validating
+        Dim estado As Boolean
+
+        estado = String.IsNullOrEmpty(txtdescripingre.Text)
+        If (estado) Then
+
+            e.Cancel = True
+            ep_Ingredientes.SetError(txtdescripingre, "Campo No Puede Quedar Vacio")
         Else
-            tt_Ingrediente.SetToolTip(bteditar, "")
+            e.Cancel = False
+            ep_Ingredientes.SetError(txtdescripingre, "")
         End If
     End Sub
 
-    Private Sub bteditar_MouseUp(sender As Object, e As MouseEventArgs) Handles bteditar.MouseUp
-        If (bteditar.Enabled <> True) Then
-            tt_Ingrediente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
+    Private Sub txtcoddieta_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtcoddieta.Validating
+        Dim estado As Boolean
+
+        estado = String.IsNullOrEmpty(txtcoddieta.Text)
+        If (estado And Not fillingtxt) Then
+
+            e.Cancel = True
+            ep_Ingredientes.SetError(txtcoddieta, "Campo No Puede Quedar Vacio")
         Else
-            tt_Ingrediente.SetToolTip(bteditar, "")
+            e.Cancel = False
+            ep_Ingredientes.SetError(txtcoddieta, "")
         End If
     End Sub
 
-    Private Sub tt_Ingrediente_Popup(sender As Object, e As PopupEventArgs) Handles tt_Ingrediente.Popup
+    Private Sub txtcosto_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtcosto.Validating
+        Dim estado As Boolean
 
+        estado = String.IsNullOrEmpty(txtcosto.Text)
+        If (estado And Not fillingtxt) Then
+
+            e.Cancel = True
+            ep_Ingredientes.SetError(txtcosto, "Campo No Puede Quedar Vacio")
+        Else
+            e.Cancel = False
+            ep_Ingredientes.SetError(txtcosto, "")
+        End If
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
 End Class
