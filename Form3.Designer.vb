@@ -60,6 +60,7 @@ Partial Class Form3
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.Color.BurlyWood
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.Location = New System.Drawing.Point(28, 190)
         Me.Button4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -73,6 +74,7 @@ Partial Class Form3
         Me.Button3.BackColor = System.Drawing.Color.BurlyWood
         Me.Button3.BackgroundImage = Global.proye.My.Resources.Resources.dieta
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Location = New System.Drawing.Point(470, 41)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
@@ -83,6 +85,7 @@ Partial Class Form3
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.BurlyWood
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Image = Global.proye.My.Resources.Resources.icons8_año_del_buey_48
         Me.Button2.Location = New System.Drawing.Point(248, 41)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -96,6 +99,7 @@ Partial Class Form3
         Me.Button1.BackColor = System.Drawing.Color.BurlyWood
         Me.Button1.BackgroundImage = Global.proye.My.Resources.Resources.vaca__6_
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(28, 41)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -107,6 +111,7 @@ Partial Class Form3
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.Color.BurlyWood
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Image = Global.proye.My.Resources.Resources.ventas
         Me.Button5.Location = New System.Drawing.Point(248, 190)
         Me.Button5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -118,6 +123,7 @@ Partial Class Form3
         'Button6
         '
         Me.Button6.BackColor = System.Drawing.Color.BurlyWood
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
         Me.Button6.Location = New System.Drawing.Point(470, 190)
         Me.Button6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -129,6 +135,7 @@ Partial Class Form3
         'Button7
         '
         Me.Button7.BackColor = System.Drawing.Color.BurlyWood
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
         Me.Button7.Location = New System.Drawing.Point(28, 339)
         Me.Button7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -140,6 +147,7 @@ Partial Class Form3
         'Button8
         '
         Me.Button8.BackColor = System.Drawing.Color.BurlyWood
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
         Me.Button8.Location = New System.Drawing.Point(248, 339)
         Me.Button8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -151,6 +159,7 @@ Partial Class Form3
         'Button9
         '
         Me.Button9.BackColor = System.Drawing.Color.BurlyWood
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.Image = Global.proye.My.Resources.Resources.pagar1
         Me.Button9.Location = New System.Drawing.Point(470, 339)
         Me.Button9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
