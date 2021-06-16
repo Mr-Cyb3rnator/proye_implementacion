@@ -36,9 +36,11 @@ Public Class Clientes
                 insertar.ExecuteNonQuery()
 
                 conectar.Close()
+
             Catch ex As Exception
                 MsgBox("Revise los Valores")
                 conectar.Close()
+
             End Try
 
 
@@ -110,18 +112,45 @@ Public Class Clientes
 
 
     Private Sub bteditar_Click(sender As Object, e As EventArgs) Handles bteditar.Click
-
+        tt_cliente.SetToolTip(bteditar, "")
         conecta()
 
-        Dim datos As String = "update clientes set nombre=@nombre,telefono=@telefono where cod_cliente=@cod_cliente "
-        Dim actualizar As New SqlCommand(datos, conectar)
+        Dim datos_clientes As String = "update clientes set nombre=@nombre,telefono=@telefono,direccion=@direccion where cod_cliente=@cod_cliente"
+        Dim actualizar As New SqlCommand(datos_clientes, conectar)
         actualizar.Parameters.AddWithValue("@cod_cliente", txtcodcliente.Text)
         actualizar.Parameters.AddWithValue("@nombre", txtnombre.Text)
-        actualizar.Parameters.AddWithValue("@Telefono", txttelefono.Text)
+        actualizar.Parameters.AddWithValue("@telefono", txttelefono.Text)
+        actualizar.Parameters.AddWithValue("@direccion", txtdireccion.Text)
 
         actualizar.ExecuteNonQuery()
         conectar.Close()
+
+        loadingForm = False
         cargargrid()
+        DGclientes.ClearSelection()
+
+        txtcodcliente.Text = ""
+        txtnombre.Text = ""
+        txttelefono.Text = ""
+        txtdireccion.Text = ""
+
+        loadingForm = True
+
+
+        bteditar.Enabled = False
+        bteliminar.Enabled = False
+
+        'conecta()
+
+        'Dim datos As String = "update clientes set nombre=@nombre,telefono=@telefono where cod_cliente=@cod_cliente "
+        'Dim actualizar As New SqlCommand(datos, conectar)
+        'actualizar.Parameters.AddWithValue("@cod_cliente", txtcodcliente.Text)
+        'actualizar.Parameters.AddWithValue("@nombre", txtnombre.Text)
+        'actualizar.Parameters.AddWithValue("@Telefono", txttelefono.Text)
+
+        'actualizar.ExecuteNonQuery()
+        'conectar.Close()
+        'cargargrid()
 
     End Sub
 

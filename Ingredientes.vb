@@ -241,9 +241,6 @@ Public Class Ingredientes
         Form3.Show()
     End Sub
 
-    Private Sub txtcodingre_TextChanged(sender As Object, e As EventArgs) Handles txtcodingre.TextChanged
-
-    End Sub
 
     Private Sub txtdescripingre_TextChanged(sender As Object, e As EventArgs) Handles txtdescripingre.TextChanged
         If (txtdescripingre.Text IsNot "") Then
@@ -341,9 +338,6 @@ Public Class Ingredientes
 
     End Sub
 
-    Private Sub bteditar_MouseHover(sender As Object, e As EventArgs) Handles bteditar.MouseHover
-
-    End Sub
 
     Private Sub bteditar_MouseMove(sender As Object, e As MouseEventArgs) Handles bteditar.MouseMove
         If (bteditar.Enabled <> True) Then
@@ -365,7 +359,4 @@ Public Class Ingredientes
 
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
 End Class
