@@ -239,6 +239,7 @@ Public Class Ingredientes
 
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
+
         Me.Close()
         Form3.Show()
     End Sub
@@ -325,18 +326,11 @@ Public Class Ingredientes
 
 
 
-
-
-
-
-
-
-
     Private Sub txtdescripingre_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtdescripingre.Validating
         Dim estado As Boolean
 
         estado = String.IsNullOrEmpty(txtdescripingre.Text)
-        If (estado) Then
+        If (estado And Not fillingtxt) Then
 
             e.Cancel = True
             ep_Ingredientes.SetError(txtdescripingre, "Campo No Puede Quedar Vacio")

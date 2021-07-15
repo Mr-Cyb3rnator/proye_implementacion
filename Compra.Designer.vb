@@ -41,7 +41,7 @@ Partial Class Compra
         Me.cprecio_compra = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Obs = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtp_fecha = New System.Windows.Forms.DateTimePicker()
         Me.txtcod_cliente = New System.Windows.Forms.TextBox()
         Me.lb_CodigoCliente = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -225,7 +225,7 @@ Partial Class Compra
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.dtp_fecha)
         Me.GroupBox1.Controls.Add(Me.txtcod_cliente)
         Me.GroupBox1.Controls.Add(Me.lb_CodigoCliente)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -239,15 +239,15 @@ Partial Class Compra
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Encabezado"
         '
-        'DateTimePicker1
+        'dtp_fecha
         '
-        Me.DateTimePicker1.Enabled = False
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.DateTimePicker1.Location = New System.Drawing.Point(346, 36)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(276, 32)
-        Me.DateTimePicker1.TabIndex = 14
+        Me.dtp_fecha.Enabled = False
+        Me.dtp_fecha.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.dtp_fecha.Location = New System.Drawing.Point(346, 36)
+        Me.dtp_fecha.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.dtp_fecha.Name = "dtp_fecha"
+        Me.dtp_fecha.Size = New System.Drawing.Size(276, 32)
+        Me.dtp_fecha.TabIndex = 14
         '
         'txtcod_cliente
         '
@@ -371,7 +371,7 @@ Partial Class Compra
     Friend WithEvents txtcod_cliente As TextBox
     Friend WithEvents lb_CodigoCliente As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtp_fecha As DateTimePicker
     Friend WithEvents cPesoini As DataGridViewTextBoxColumn
     Friend WithEvents cedad As DataGridViewTextBoxColumn
     Friend WithEvents craza As DataGridViewTextBoxColumn
