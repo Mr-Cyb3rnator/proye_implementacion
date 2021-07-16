@@ -1,14 +1,14 @@
-﻿Public Class Form3
+﻿Public Class frm_Menu
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If (lblprivilegio.Text <> "luis") Then
             Button1.Enabled = True
             Button3.Enabled = True
             Button4.Enabled = True
-            Button5.Enabled = True
+            btn_VentaGanado.Enabled = True
             Button6.Enabled = True
             Button7.Enabled = True
-            Button8.Enabled = True
-            Button9.Enabled = True
+            btn_Gasto.Enabled = True
+            btn_Compra.Enabled = True
 
         End If
     End Sub
@@ -28,7 +28,7 @@
         Ingredientes.Show()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btn_VentaGanado.Click
         Me.Hide()
         VentaGanado.Show()
     End Sub
@@ -48,19 +48,16 @@
         Cabeza_ganado.Show()
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles btn_Gasto.Click
         Me.Hide()
         Gasto.Show()
     End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles btn_Compra.Click
         Me.Hide()
-        compra.Show()
+        Compra.Show()
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
-
-    End Sub
 
     Private Sub Form3_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 

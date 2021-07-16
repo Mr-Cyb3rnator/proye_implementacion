@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class Form1
+Public Class frm_InicioSesion
     Dim pri As String
     Private Sub btncrear_Click(sender As Object, e As EventArgs) Handles btncrear.Click
         Me.Hide()
@@ -20,22 +20,22 @@ Public Class Form1
         If txtusu1.Text = "luis" And txtpass.Text = "123" Then
             MessageBox.Show("BIENVENIDO AL SISTEMA")
             pri = txtusu1.Text
-            Form3.lblprivilegio.Text = pri
+            frm_Menu.lblprivilegio.Text = pri
             Me.Hide()
-            Form3.Show()
+            frm_Menu.Show()
         ElseIf txtusu1.Text = "Dilcia" And txtpass.Text = "123" Then
             MessageBox.Show("BIENVENIDO AL SISTEMA")
             pri = txtusu1.Text
-            Form3.lblprivilegio.Text = pri
+            frm_Menu.lblprivilegio.Text = pri
             Me.Hide()
-            Form3.Show()
+            frm_Menu.Show()
 
         ElseIf txtusu1.Text = "eduar" And txtpass.Text = "12" Then
             MessageBox.Show("BIENVENIDO AL SISTEMA USUARIO")
             pri = txtusu1.Text
-            Form3.lblprivilegio.Text = pri
+            frm_Menu.lblprivilegio.Text = pri
             Me.Hide()
-            Form3.Show()
+            frm_Menu.Show()
         Else
             MessageBox.Show("Error")
             txtusu1.Text = ""

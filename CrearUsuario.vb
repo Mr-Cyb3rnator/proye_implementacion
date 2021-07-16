@@ -58,7 +58,7 @@ Public Class CrearUsuario
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Me.Close()
-        Form1.Show()
+        frm_InicioSesion.Show()
     End Sub
 
     Private Sub txtusuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtusuario.KeyPress

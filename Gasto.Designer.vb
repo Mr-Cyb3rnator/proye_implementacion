@@ -39,10 +39,10 @@ Partial Class Gasto
         Me.txtcantidad = New System.Windows.Forms.TextBox()
         Me.txtcod_ingre = New System.Windows.Forms.TextBox()
         Me.btnatras = New System.Windows.Forms.Button()
-        Me.btcrear = New System.Windows.Forms.Button()
+        Me.btn_Facturar = New System.Windows.Forms.Button()
         Me.txttotal = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgv_IngredientesUtilizados = New System.Windows.Forms.DataGridView()
         Me.ccodigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ccantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,7 +50,7 @@ Partial Class Gasto
         Me.b_Eliminar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_IngredientesUtilizados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -226,16 +226,16 @@ Partial Class Gasto
         Me.btnatras.TabIndex = 26
         Me.btnatras.UseVisualStyleBackColor = False
         '
-        'btcrear
+        'btn_Facturar
         '
-        Me.btcrear.Enabled = False
-        Me.btcrear.Location = New System.Drawing.Point(594, 388)
-        Me.btcrear.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.btcrear.Name = "btcrear"
-        Me.btcrear.Size = New System.Drawing.Size(109, 84)
-        Me.btcrear.TabIndex = 27
-        Me.btcrear.Text = "Facturar"
-        Me.btcrear.UseVisualStyleBackColor = True
+        Me.btn_Facturar.Enabled = False
+        Me.btn_Facturar.Location = New System.Drawing.Point(594, 388)
+        Me.btn_Facturar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.btn_Facturar.Name = "btn_Facturar"
+        Me.btn_Facturar.Size = New System.Drawing.Size(109, 84)
+        Me.btn_Facturar.TabIndex = 27
+        Me.btn_Facturar.Text = "Facturar"
+        Me.btn_Facturar.UseVisualStyleBackColor = True
         '
         'txttotal
         '
@@ -256,19 +256,19 @@ Partial Class Gasto
         Me.Label10.TabIndex = 28
         Me.Label10.Text = "TOTAL"
         '
-        'DataGridView1
+        'dgv_IngredientesUtilizados
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ccodigo, Me.ccantidad, Me.cprecio, Me.csubtotal})
-        Me.DataGridView1.Location = New System.Drawing.Point(26, 334)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 29
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(555, 240)
-        Me.DataGridView1.TabIndex = 30
+        Me.dgv_IngredientesUtilizados.AllowUserToAddRows = False
+        Me.dgv_IngredientesUtilizados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_IngredientesUtilizados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ccodigo, Me.ccantidad, Me.cprecio, Me.csubtotal})
+        Me.dgv_IngredientesUtilizados.Location = New System.Drawing.Point(26, 334)
+        Me.dgv_IngredientesUtilizados.Name = "dgv_IngredientesUtilizados"
+        Me.dgv_IngredientesUtilizados.ReadOnly = True
+        Me.dgv_IngredientesUtilizados.RowHeadersWidth = 51
+        Me.dgv_IngredientesUtilizados.RowTemplate.Height = 29
+        Me.dgv_IngredientesUtilizados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgv_IngredientesUtilizados.Size = New System.Drawing.Size(555, 240)
+        Me.dgv_IngredientesUtilizados.TabIndex = 30
         '
         'ccodigo
         '
@@ -319,10 +319,10 @@ Partial Class Gasto
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(911, 601)
         Me.Controls.Add(Me.b_Eliminar)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgv_IngredientesUtilizados)
         Me.Controls.Add(Me.txttotal)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.btcrear)
+        Me.Controls.Add(Me.btn_Facturar)
         Me.Controls.Add(Me.btnatras)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -336,7 +336,7 @@ Partial Class Gasto
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_IngredientesUtilizados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -351,7 +351,7 @@ Partial Class Gasto
     Friend WithEvents txtcod_ingre As TextBox
     Friend WithEvents btagregar As Button
     Friend WithEvents btnatras As Button
-    Friend WithEvents btcrear As Button
+    Friend WithEvents btn_Facturar As Button
     Friend WithEvents Label8 As Label
     Friend WithEvents cb_Ingredientes As ComboBox
     Friend WithEvents txtprecio As TextBox
@@ -360,7 +360,7 @@ Partial Class Gasto
     Friend WithEvents Label10 As Label
     Friend WithEvents dt_fecha As DateTimePicker
     Friend WithEvents cb_Grupo As ComboBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgv_IngredientesUtilizados As DataGridView
     Friend WithEvents b_Eliminar As Button
     Friend WithEvents ccodigo As DataGridViewTextBoxColumn
     Friend WithEvents ccantidad As DataGridViewTextBoxColumn

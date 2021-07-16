@@ -214,7 +214,7 @@ Public Class Compra
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
         Me.Close()
-        Form3.Show()
+        frm_Menu.Show()
 
     End Sub
 End Class

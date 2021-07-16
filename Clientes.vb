@@ -156,7 +156,7 @@ Public Class Clientes
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
         Me.Hide()
-        Form3.Show()
+        frm_Menu.Show()
     End Sub
 
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load

@@ -66,6 +66,18 @@ Module condb
     End Function
 
 
+    Public Function ObtenerDataSet(instrucciones As String) As DataSet
+        Dim data As New DataSet
+
+        Dim adp As New SqlDataAdapter(instrucciones, conectar)
+
+        adp.Fill(data)
+
+        Return data
+
+    End Function
+
+
 
 
 
