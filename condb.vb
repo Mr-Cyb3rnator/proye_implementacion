@@ -52,6 +52,19 @@ Module condb
 
     End Function
 
+    Public Function CargarDatosGrid(instruccion As String) As DataTable
+        Dim tabla As New DataTable
+
+        Using adpmostrar As New SqlDataAdapter(instruccion, conectar)
+
+            adpmostrar.Fill(tabla)
+
+        End Using
+
+        Return tabla
+
+    End Function
+
 
 
 

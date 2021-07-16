@@ -120,22 +120,13 @@ Public Class Compra
     End Sub
 
 
-    Private Sub txtcod_cliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcod_cliente.KeyPress
-        CampoValidacionNumeros(e)
 
-        'If Char.IsNumber(e.KeyChar) Then
-        'e.Handled = False
-        'ElseIf Char.IsControl(e.KeyChar) Then
-        'e.Handled = False
-        'ElseIf Char.IsSeparator(e.KeyChar) Then
-        'e.Handled = False
-        'Else
-        'e.Handled = True
-
-        'End If
-    End Sub
 
 #Region "EventoValidacion"
+
+    Private Sub txtcod_cliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcod_cliente.KeyPress
+        CampoValidacionNumeros(e)
+    End Sub
     Private Sub txtpesoini_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpesoini.KeyPress
         Dim estado As Boolean
         estado = CampoValidacionNumeros(e)
@@ -153,8 +144,6 @@ Public Class Compra
             tooltip_Compra.SetToolTip(txtedad, "Solo Permite Numeros, máximo 2 digitos")
         End If
     End Sub
-
-
 
     Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
         CampoValidacionNumeros(e)

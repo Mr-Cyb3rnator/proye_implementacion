@@ -2,121 +2,79 @@
 Public Class VentaGanado
 
 
+#Region "Funciones"
+
     Private Sub cargargrid_grupo()
 
-        '/// Esto Carga el detalle de la factura 
         conecta()
 
-
-        Dim cargar_datos_detalle As String = "select cod_grupo AS 'Grupo', cod_animal AS 'Codigo Animal', peso_4 AS 'Peso Final' from animales where cod_grupo =" & txtcodgrupo.Text
-        Dim mostrar As New DataTable
-
-        Using adpmostrar As New SqlDataAdapter(cargar_datos_detalle, conectar)
-
-            adpmostrar.Fill(mostrar)
-
-        End Using
-        dgventaganado.DataSource = mostrar
+        'Listar los animales listos para la venta de acuerdo al grupo
+        dgventaganado.DataSource = CargarDatosGrid("exec MostrarAnimales_GrupoListos " & txtcodgrupo.Text)
 
         conectar.Close()
 
-
-
-
-
     End Sub
-
-
-
 
     Private Sub cargar_peso_total()
 
         conecta()
 
-        Dim recuperar_total As String = "select sum(peso_4) from animales where cod_grupo =" & txtcodgrupo.Text
+
         Dim recuperar As SqlDataReader
-        Dim ejecutar As New SqlCommand
-
-        ejecutar = New SqlCommand(recuperar_total, conectar)
-        recuperar = ejecutar.ExecuteReader
-
         Dim estado As String
 
+        'Procedimiento que calcula el peso total del grupo de animales escogido para la venta
+        recuperar = LecturaBD("exec CalcularPesoTotalAnimales " & txtcodgrupo.Text)
 
         estado = recuperar.Read
 
         If (estado = True) Then
 
             txtlibras_totales.Text = recuperar(0)
-
-
-
         Else
-
-
-
-
+            MsgBox("No hay datos que se puedan mostrar")
         End If
 
         recuperar.Close()
-
-        conectar.Close()
-
+        CerrarConexion()
 
     End Sub
 
+#End Region
 
-
+#Region "EventosBotones"
     Private Sub VentaGanado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        'Muestra todos los grupos listos para la venta
         conecta()
 
-        Dim Cargar_Grupos As String = "SELECT DISTINCT cod_grupo AS 'Grupos', raza AS 'Raza' from animales where estado is null and peso_4 != 0"
-        Dim mostrar As New DataTable
+        dgvGrupos.DataSource = CargarDatosGrid("exec MostrarAnimales_DistintosGrupos")
 
-        Using adpmostrar As New SqlDataAdapter(Cargar_Grupos, conectar)
-
-            adpmostrar.Fill(mostrar)
-
-        End Using
-        dgvGrupos.DataSource = mostrar
-
-        conectar.Close()
-
-        'dgventaganado.Columns.Add("Cod.Venta", "Cod.Venta")
-        'dgventaganado.Columns.Add("Cod.Cliente", "Cod.Cliente")
-        'dgventaganado.Columns.Add("Cod.Animal", "Cod.Animal")
-        'dgventaganado.Columns.Add("Cod.Grupo", "Cod.Grupo")
-        'dgventaganado.Columns.Add("Costo", "Costo")
-        'dgventaganado.Columns.Add("Fecha", "Fecha")
+        CerrarConexion()
 
 
     End Sub
 
-    Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
-
-        Dim estado As String
-
-        estado = "vendido"
-
+    Private Sub btnVender_Click(sender As Object, e As EventArgs) Handles btnVender.Click
         conecta()
-        Dim datosfactura_venta As String = "insert into venta_animales(cod_cliente,fecha,cantidad_libras,precio_libra,cod_grupo)values(@cod_cliente,@fecha,@cantidad_libras,@precio_libra,@cod_grupo)"
-        Dim registrar As New SqlCommand(datosfactura_venta, conectar)
-        registrar.Parameters.AddWithValue("@cod_cliente", txtcodcliente.Text)
-        registrar.Parameters.AddWithValue("@fecha", dtpfecha.Value)
-        registrar.Parameters.AddWithValue("@cantidad_libras", txtlibras_totales.Text)
-        registrar.Parameters.AddWithValue("@precio_libra", txt_preciolibra.Text)
-        registrar.Parameters.AddWithValue("@cod_grupo", txtcodgrupo.Text)
 
-        registrar.ExecuteNonQuery()
+        'Procedimiento para el registro de la venta de animales
+        Try
+            ModificarBD("exec InsertarVentaAnimales " & txtcodcliente.Text & ",'" & dtpfecha.Value.Date.ToString("yyyy-MM-dd") & "'," & txtlibras_totales.Text & "," & txt_preciolibra.Text & "," & txtcodgrupo.Text)
+        Catch ex As Exception
+            MsgBox("Revisar la conexión a la BD y/o el procedimiento de ventas junto a sus parametros")
+        End Try
 
-        Dim actualizar_estado As String = "update animales set estado=@estado where cod_grupo= " & txtcodgrupo.Text
-        Dim registrar_estado As New SqlCommand(actualizar_estado, conectar)
-        registrar_estado.Parameters.AddWithValue("@cod_grupo", txtcodgrupo.Text)
-        registrar_estado.Parameters.AddWithValue("@estado", estado)
-        registrar_estado.ExecuteNonQuery()
 
-        MsgBox("Venta Efectuada", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Venta Ganado")
+        'Procedimiento para actualizar el estado de los diferentes animales de un grupo determinado'
+        Try
+            ModificarBD("exec ActualizacionAnimalesVendidos " & "vendido" & "," & txtcodgrupo.Text)
+            MsgBox("Venta Efectuada", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Venta Ganado")
+        Catch ex As Exception
+            MsgBox("Revisar la conexión a la BD y/o el procedimiento de actualizacion de animales junto a sus parametros")
+        End Try
+
+        'Limpieza de Campos'
         txtcodgrupo.Text = ""
         txtlibras_totales.Text = ""
         txt_preciolibra.Text = ""
@@ -124,38 +82,14 @@ Public Class VentaGanado
         txtcodcliente.Text = " "
         dgventaganado.DataSource = Nothing
 
-        Dim Cargar_Grupos As String = "SELECT DISTINCT cod_grupo AS 'Grupos', raza AS 'Raza' from animales where estado is null and peso_4 != 0"
-        Dim mostrar As New DataTable
+        'Muestra todos los grupos listos para la venta
+        dgvGrupos.DataSource = CargarDatosGrid("exec MostrarAnimales_DistintosGrupos")
 
-        Using adpmostrar As New SqlDataAdapter(Cargar_Grupos, conectar)
+        CerrarConexion()
 
-            adpmostrar.Fill(mostrar)
-
-        End Using
-        dgvGrupos.DataSource = mostrar
-
-
-
-
-
-        conectar.Close()
-
-        'dgventaganado.Rows.Add(txtcodventa.Text, txtcodcliente.Text, txtcodanimal.Text, txtcodgrupo.Text, Val(txt_preciolibra.Text), dtpfecha.Text)
-        'txtcodventa.Text = ""
-        'txtcodcliente.Text = ""
-        'txtcodanimal.Text = ""
-        'txtcodgrupo.Text = ""
-        'txt_preciolibra.Text = ""
     End Sub
 
-    Private Sub dgventaganado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgventaganado.CellContentClick
-        'Dim row As DataGridViewRow = dgventaganado.CurrentRow
-    End Sub
-
-    Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btcargar_grupo.Click
-        'dgventaganado.Rows.Remove(dgventaganado.CurrentRow)
-
-
+    Private Sub btnCargarGrupo_Click(sender As Object, e As EventArgs) Handles btcargar_grupo.Click
 
         'Recorrer el Data Grid View Cargado de Grupos'
         'Dim getValue As String'
@@ -187,102 +121,34 @@ Public Class VentaGanado
             txtcodgrupo.Text = ""
             txtcodgrupo.Select()
 
-
         End If
 
-
-
-
-
     End Sub
-
-
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnatras.Click
         Me.Close()
-
         Form3.Show()
     End Sub
 
-    Private Sub txtcodventa_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodventa.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
+#End Region
 
-        End If
-    End Sub
-
+#Region "Validaciones"
     Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodcliente.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
-
-        End If
+        CampoValidacionNumeros(e)
     End Sub
 
     Private Sub txtcodgrupo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodgrupo.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = True
-        Else
-            e.Handled = True
+        CampoValidacionNumeros(e)
 
-        End If
-    End Sub
-
-    Private Sub txtlibras_totales_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtlibras_totales.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
-
-        End If
     End Sub
 
     Private Sub txt_preciolibra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_preciolibra.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsPunctuation(e.KeyChar) And txt_preciolibra.Text.IndexOf(".") <= 0 Then
-
-            e.Handled = False
-        Else
-            e.Handled = True
-
-        End If
+        CampoValidacionNumeros(e)
     End Sub
 
-    Private Sub txttotalventa_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttotalventa.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
+#End Region
 
-        End If
-    End Sub
-
+#Region "HabilitandoBotones"
     Private Sub txtcodgrupo_TextChanged(sender As Object, e As EventArgs) Handles txtcodgrupo.TextChanged
         btcargar_grupo.Enabled = True
 
@@ -311,9 +177,11 @@ Public Class VentaGanado
 
     Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcodcliente.TextChanged
         If (txtcodcliente.Text IsNot "") Then
-            btnguardar.Enabled = True
+            btnVender.Enabled = True
         Else
-            btnguardar.Enabled = False
+            btnVender.Enabled = False
         End If
     End Sub
+#End Region
+
 End Class
