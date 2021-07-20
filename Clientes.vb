@@ -9,14 +9,14 @@ Public Class Clientes
         conecta()
         Dim cargar_datos_clientes As String = "select cod_cliente as 'Código cliente' , nombre as 'Nombre' , direcion as 'Dirección', telefono as 'Teléfono' from clientes"
         Dim mostrar As New DataTable
-
         Using adpmostrar As New SqlDataAdapter(cargar_datos_clientes, conectar)
 
             adpmostrar.Fill(mostrar)
 
         End Using
         DGclientes.DataSource = mostrar
-        conectar.Close()
+        CerrarConexion()
+
 
 
     End Sub

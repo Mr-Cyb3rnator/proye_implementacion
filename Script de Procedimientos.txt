@@ -1,6 +1,34 @@
 USE [base_proyecto]
 GO
 
+
+/****** Object:  Table [dbo].[usuarios]    Script Date: 20/7/2021 15:17:27 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usuarios]') AND type in (N'U'))
+DROP TABLE [dbo].[usuarios]
+GO
+
+/****** Object:  Table [dbo].[usuarios]    Script Date: 20/7/2021 15:17:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[usuarios](
+	[cod_usuario] [int] NOT NULL,
+	[usuario] [nvarchar](15) NOT NULL,
+	[contrasenia] [nvarchar](255) NOT NULL,
+	[tipo_usuario] [nvarchar](20) NULL,
+ CONSTRAINT [PK_usuarios] PRIMARY KEY CLUSTERED 
+(
+	[cod_usuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
 /****** Object:  StoredProcedure [dbo].[ActualizacionAnimalesVendidos]    Script Date: 16/7/2021 10:08:37 ******/
 DROP PROCEDURE [dbo].[ActualizacionAnimalesVendidos]
 GO
@@ -456,3 +484,172 @@ BEGIN
 	SELECT distinct cod_grupo AS 'Grupo' FROM animales where estado is null 
 END
 GO
+
+/****** Object:  StoredProcedure [dbo].[ActualizarUsuarios]    Script Date: 20/7/2021 15:15:43 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio de 2021
+-- Description:	Actualizar los usuarios de la BD
+-- =============================================
+CREATE PROCEDURE [dbo].[ActualizarUsuarios] 
+	-- Add the parameters for the stored procedure here
+	@cod_usuario int,
+	@usuario nvarchar(15),
+	@contrasenia nvarchar(255),
+	@tipousuario nvarchar(20)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	update usuarios 
+		set usuario = @usuario,
+		contrasenia= @contrasenia,
+		tipo_usuario = @tipousuario 
+	where cod_usuario= @cod_usuario
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[EliminarUsuarios]    Script Date: 20/7/2021 15:16:09 ******/
+DROP PROCEDURE [dbo].[EliminarUsuarios]
+GO
+
+/****** Object:  StoredProcedure [dbo].[EliminarUsuarios]    Script Date: 20/7/2021 15:16:09 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Eliminar usuarios de la BD
+-- =============================================
+CREATE PROCEDURE [dbo].[EliminarUsuarios] 
+	-- Add the parameters for the stored procedure here
+	@codusuario int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	delete from usuarios where cod_usuario = @codusuario 
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[Insertar_Usuarios]    Script Date: 20/7/2021 15:16:28 ******/
+DROP PROCEDURE [dbo].[Insertar_Usuarios]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Insertar_Usuarios]    Script Date: 20/7/2021 15:16:28 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Ingresar nuevos usuarios al sistema
+-- =============================================
+CREATE PROCEDURE [dbo].[Insertar_Usuarios]
+	-- Add the parameters for the stored procedure here
+	@cod_usuario int,
+	@usuario nvarchar(15),
+	@contrasenia nvarchar(255),
+	@tipousuario nvarchar(20)	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	insert into usuarios(cod_usuario,usuario,contrasenia,tipo_usuario) 
+	values(@cod_usuario,@usuario,@contrasenia,@tipousuario)
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[LecturaUsuarios_BD]    Script Date: 20/7/2021 15:16:49 ******/
+DROP PROCEDURE [dbo].[LecturaUsuarios_BD]
+GO
+
+/****** Object:  StoredProcedure [dbo].[LecturaUsuarios_BD]    Script Date: 20/7/2021 15:16:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date:	20 de julio del 2021
+-- Description:	Lectura de los Usuarios en BD
+-- =============================================
+CREATE PROCEDURE [dbo].[LecturaUsuarios_BD] 
+	-- Add the parameters for the stored procedure here
+	@nombre nvarchar(15)
+	
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT
+		usuario AS 'Usuario',
+		contrasenia AS 'Password',
+		tipo_usuario as 'Nivel'
+	FROM usuarios
+	WHERE usuario = @nombre
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[Lista_Usuarios]    Script Date: 20/7/2021 15:17:03 ******/
+DROP PROCEDURE [dbo].[Lista_Usuarios]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Lista_Usuarios]    Script Date: 20/7/2021 15:17:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Lista de todos los usuarios en la BD
+-- =============================================
+CREATE PROCEDURE [dbo].[Lista_Usuarios]
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select 
+		cod_usuario as 'Codigo',
+		usuario as 'Usuario',
+		contrasenia as 'Password',
+		tipo_usuario as 'Nivel'
+	From usuarios
+END
+GO
+

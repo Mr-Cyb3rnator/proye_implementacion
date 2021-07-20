@@ -41,7 +41,6 @@ Partial Class Cabeza_ganado
         Me.txtraza = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtcod_grup = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DGcabezas = New System.Windows.Forms.DataGridView()
         Me.btagregar = New System.Windows.Forms.Button()
@@ -50,10 +49,11 @@ Partial Class Cabeza_ganado
         Me.rtxtobs = New System.Windows.Forms.RichTextBox()
         Me.combo_grupos = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnatras = New System.Windows.Forms.Button()
         Me.txtprecio = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnatras = New System.Windows.Forms.Button()
+        Me.txtcod_grup = New System.Windows.Forms.TextBox()
         CType(Me.DGcabezas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -239,15 +239,6 @@ Partial Class Cabeza_ganado
         Me.Label10.TabIndex = 18
         Me.Label10.Text = "Observaciones"
         '
-        'txtcod_grup
-        '
-        Me.txtcod_grup.Location = New System.Drawing.Point(17, 13)
-        Me.txtcod_grup.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtcod_grup.Name = "txtcod_grup"
-        Me.txtcod_grup.Size = New System.Drawing.Size(100, 27)
-        Me.txtcod_grup.TabIndex = 21
-        Me.txtcod_grup.Visible = False
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -361,6 +352,25 @@ Partial Class Cabeza_ganado
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos Animal"
         '
+        'txtprecio
+        '
+        Me.txtprecio.Location = New System.Drawing.Point(222, 220)
+        Me.txtprecio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtprecio.MaxLength = 4
+        Me.txtprecio.Name = "txtprecio"
+        Me.txtprecio.Size = New System.Drawing.Size(100, 28)
+        Me.txtprecio.TabIndex = 31
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label12.Location = New System.Drawing.Point(15, 225)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(188, 23)
+        Me.Label12.TabIndex = 30
+        Me.Label12.Text = "Precio de compra"
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label7)
@@ -392,24 +402,14 @@ Partial Class Cabeza_ganado
         Me.btnatras.TabIndex = 32
         Me.btnatras.UseVisualStyleBackColor = False
         '
-        'txtprecio
+        'txtcod_grup
         '
-        Me.txtprecio.Location = New System.Drawing.Point(222, 220)
-        Me.txtprecio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtprecio.MaxLength = 4
-        Me.txtprecio.Name = "txtprecio"
-        Me.txtprecio.Size = New System.Drawing.Size(100, 28)
-        Me.txtprecio.TabIndex = 31
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label12.Location = New System.Drawing.Point(15, 225)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(188, 23)
-        Me.Label12.TabIndex = 30
-        Me.Label12.Text = "Precio de compra"
+        Me.txtcod_grup.Location = New System.Drawing.Point(17, 13)
+        Me.txtcod_grup.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtcod_grup.Name = "txtcod_grup"
+        Me.txtcod_grup.Size = New System.Drawing.Size(100, 27)
+        Me.txtcod_grup.TabIndex = 21
+        Me.txtcod_grup.Visible = False
         '
         'Cabeza_ganado
         '
@@ -460,7 +460,6 @@ Partial Class Cabeza_ganado
     Friend WithEvents txtraza As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents txtcod_grup As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents DGcabezas As DataGridView
     Friend WithEvents btagregar As Button
@@ -473,4 +472,5 @@ Partial Class Cabeza_ganado
     Friend WithEvents btnatras As Button
     Friend WithEvents txtprecio As TextBox
     Friend WithEvents Label12 As Label
+    Friend WithEvents txtcod_grup As TextBox
 End Class

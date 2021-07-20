@@ -11,6 +11,8 @@ Module condb
     Public ds As New DataSet
     Public sql As String
 
+    Public nivel As Integer
+
     Public Sub conecta()
 
         conectar.ConnectionString = ("Data Source=localhost;Initial Catalog=base_proyecto;Integrated Security=True")
@@ -64,6 +66,7 @@ Module condb
         Return tabla
 
     End Function
+
 
 
     Public Function ObtenerDataSet(instrucciones As String) As DataSet

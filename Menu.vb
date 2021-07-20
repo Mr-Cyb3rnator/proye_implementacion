@@ -1,29 +1,40 @@
 ﻿Public Class frm_Menu
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If (lblprivilegio.Text <> "luis") Then
-            Button1.Enabled = True
-            Button3.Enabled = True
-            Button4.Enabled = True
+        If (nivel = 1) Then
+            btn_Grupo.Enabled = True
+            btn_Dietas.Enabled = True
+            btn_Ingredientes.Enabled = True
             btn_VentaGanado.Enabled = True
-            Button6.Enabled = True
-            Button7.Enabled = True
+            btn_Clientes.Enabled = True
+            btn_Balance.Enabled = True
             btn_Gasto.Enabled = True
             btn_Compra.Enabled = True
+            btn_CabezaGanado.Enabled = True
 
+        Else
+            btn_Grupo.Enabled = True
+            btn_Dietas.Enabled = True
+            btn_CabezaGanado.Enabled = True
+            btn_Ingredientes.Enabled = False
+            btn_VentaGanado.Enabled = False
+            btn_Clientes.Enabled = False
+            btn_Balance.Enabled = False
+            btn_Gasto.Enabled = False
+            btn_Compra.Enabled = False
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_Grupo.Click
         Me.Hide()
         Grupos.Show()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btn_Dietas.Click
         Me.Hide()
         Dieta.Show()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btn_Ingredientes.Click
         Me.Hide()
         Ingredientes.Show()
     End Sub
@@ -33,17 +44,17 @@
         VentaGanado.Show()
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btn_Clientes.Click
         Me.Hide()
         Clientes.Show()
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles btn_Balance.Click
         Me.Hide()
         estado_resultados.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_CabezaGanado.Click
         Me.Hide()
         Cabeza_ganado.Show()
     End Sub
