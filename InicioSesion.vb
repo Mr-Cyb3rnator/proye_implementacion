@@ -1,56 +1,57 @@
 ﻿Imports System.Data.SqlClient
-Public Class Form1
-    Dim pri As String
+Imports proye.Encriptacion
+Public Class frm_InicioSesion
+
+
+
     Private Sub btncrear_Click(sender As Object, e As EventArgs) Handles btncrear.Click
         Me.Hide()
         CrearUsuario.Show()
+
     End Sub
 
     Private Sub btnentrar_Click(sender As Object, e As EventArgs) Handles btnentrar.Click
-        Dim conc As New SqlClient.SqlConnection
-        conc.ConnectionString = "Data Source=localhost;Initial Catalog=base_proyecto;Integrated Security=True "
-        conc.Open()
-
-        Dim sql As String = "select * from usuarios where usuario='" & txtusu1.Text & "'and contrasenia='" & txtpass.Text & "'"
-
-        Dim cmd As New SqlCommand(sql, conc)
         Dim dr As SqlDataReader
-        dr = cmd.ExecuteReader
+        Dim nombreusuario As String
+        Dim estado As String
+        Dim token As New Encriptacion()
+        Dim cifrado As String
 
-        If txtusu1.Text = "luis" And txtpass.Text = "123" Then
-            MessageBox.Show("BIENVENIDO AL SISTEMA")
-            pri = txtusu1.Text
-            Form3.lblprivilegio.Text = pri
-            Me.Hide()
-            Form3.Show()
-        ElseIf txtusu1.Text = "Dilcia" And txtpass.Text = "123" Then
-            MessageBox.Show("BIENVENIDO AL SISTEMA")
-            pri = txtusu1.Text
-            Form3.lblprivilegio.Text = pri
-            Me.Hide()
-            Form3.Show()
+        conecta()
+        'Uso de la funcion encriptacion de la Clase Encriptacion, la clave de llave es "Implementacion"
+        cifrado = token.encriptar128BitRijndael(txtpass.Text, "Implementacion")
 
-        ElseIf txtusu1.Text = "eduar" And txtpass.Text = "12" Then
-            MessageBox.Show("BIENVENIDO AL SISTEMA USUARIO")
-            pri = txtusu1.Text
-            Form3.lblprivilegio.Text = pri
-            Me.Hide()
-            Form3.Show()
-        Else
-            MessageBox.Show("Error")
-            txtusu1.Text = ""
-            txtpass.Text = ""
-            txtusu1.Text = ""
-        End If
+        Try
+            'Busqueda de que el usuario existe en la BD
+            dr = LecturaBD("exec LecturaUsuarios_BD " & txtusu1.Text)
+            estado = dr.Read
 
+            'Comprobacion de que el Password introducido es el mismo que el BD
+            If (estado) And (dr("Password") = cifrado) Then
+
+
+                nivel = dr("Nivel")
+                nombreusuario = dr("Usuario")
+                frm_Menu.lb_Usuario.Text = nombreusuario
+                MessageBox.Show("BIENVENIDO AL SISTEMA")
+                Me.Hide()
+                frm_Menu.Show()
+            Else
+
+                MsgBox("Usuario y/o Pass no existe y/o incorrecto")
+            End If
+
+        Catch ex As Exception
+            MsgBox("Revisar conexion a BD y/o Procedimiento con sus parametros")
+        End Try
+
+        txtpass.Text = ""
+        txtusu1.Text = ""
+
+        CerrarConexion()
 
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim conc As New SqlClient.SqlConnection
-        conc.ConnectionString = " Data Source = localhost;Initial Catalog=base_proyecto;Integrated Security=True "
-        conc.Open()
-    End Sub
 
     Private Sub btnsalir_Click(sender As Object, e As EventArgs) Handles btnsalir.Click
         Me.Close()
@@ -58,45 +59,17 @@ Public Class Form1
 
     Private Sub txtusu1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtusu1.KeyPress
 
-        If Char.IsLetter(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
+        CampoValidacionLetras(e)
+
+    End Sub
+
+    Private Sub frm_InicioSesion_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If MsgBox("Deseas terminar la aplicación?", vbYesNo) = vbYes Then
+            End
         Else
-            e.Handled = True
+
+            Me.Show()
 
         End If
-
-
-    End Sub
-
-    Private Sub txtpass_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpass.KeyPress
-
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
-
-        End If
-
-
-    End Sub
-
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-
-    End Sub
-
-    Private Sub txtpass_TextChanged(sender As Object, e As EventArgs) Handles txtpass.TextChanged
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
     End Sub
 End Class
