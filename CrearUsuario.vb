@@ -9,7 +9,7 @@ Public Class CrearUsuario
         conecta()
         Try
             ModificarBD("exec ActualizarUsuarios " & txtcod.Text & "," & txtusuario.Text & ",'" & cifrado & "'," & txttipo.Text)
-
+            MsgBox("Datos del Usuario Actualizado Correctamente", MsgBoxResult.Ok, "Estado")
         Catch ex As Exception
             MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
         End Try
@@ -32,7 +32,7 @@ Public Class CrearUsuario
 
         Try
             ModificarBD("exec Insertar_Usuarios " & txtcod.Text & "," & txtusuario.Text & ",'" & cifrado & "'," & txttipo.Text)
-
+            MsgBox("Datos del Usuario Ingresados Correctamente", MsgBoxResult.Ok, "Estado")
         Catch ex As Exception
             MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
         End Try
@@ -62,6 +62,7 @@ Public Class CrearUsuario
 
         Try
             ModificarBD("exec EliminarUsuarios " & txtcod.Text)
+            MsgBox("Datos del Usuario Eliminados Correctamente", MsgBoxResult.Ok, "Estado")
         Catch ex As Exception
             MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
         End Try

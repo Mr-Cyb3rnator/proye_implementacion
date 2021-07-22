@@ -43,6 +43,8 @@ Partial Class frm_Menu
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.btn_Reportes = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -162,6 +164,8 @@ Partial Class frm_Menu
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.btn_Reportes)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label7)
@@ -182,7 +186,7 @@ Partial Class frm_Menu
         Me.GroupBox1.Controls.Add(Me.btn_Ingredientes)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 44)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(720, 615)
+        Me.GroupBox1.Size = New System.Drawing.Size(900, 615)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         '
@@ -276,12 +280,33 @@ Partial Class frm_Menu
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Grupos"
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label10.Location = New System.Drawing.Point(762, 215)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(96, 23)
+        Me.Label10.TabIndex = 25
+        Me.Label10.Text = "Reportes"
+        '
+        'btn_Reportes
+        '
+        Me.btn_Reportes.BackColor = System.Drawing.Color.BurlyWood
+        Me.btn_Reportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Reportes.Image = Global.proye.My.Resources.Resources.granja
+        Me.btn_Reportes.Location = New System.Drawing.Point(730, 253)
+        Me.btn_Reportes.Name = "btn_Reportes"
+        Me.btn_Reportes.Size = New System.Drawing.Size(145, 147)
+        Me.btn_Reportes.TabIndex = 24
+        Me.btn_Reportes.UseVisualStyleBackColor = False
+        '
         'frm_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BurlyWood
-        Me.ClientSize = New System.Drawing.Size(747, 673)
+        Me.ClientSize = New System.Drawing.Size(926, 670)
         Me.Controls.Add(Me.lb_Usuario)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -315,4 +340,6 @@ Partial Class frm_Menu
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents btn_Reportes As Button
 End Class

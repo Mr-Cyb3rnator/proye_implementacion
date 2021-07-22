@@ -69,6 +69,11 @@
         Compra.Show()
     End Sub
 
+    Private Sub btn_Reportes_Click(sender As Object, e As EventArgs) Handles btn_Reportes.Click
+        Me.Hide()
+        Reportes.Show()
+    End Sub
+
 
     Private Sub Form3_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
@@ -80,4 +85,6 @@
         End If
 
     End Sub
+
+
 End Class
