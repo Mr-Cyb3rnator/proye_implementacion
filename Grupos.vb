@@ -3,7 +3,7 @@ Public Class Grupos
     Private Sub cargargrid()
 
         conecta()
-        Dim cargar_datos_grupos As String = "select * from grupos "
+        Dim cargar_datos_grupos As String = "select cod_grupo as 'Codigo grupo', numero_animales as 'Cantidad de animales', cod_dieta as 'Codigo de dieta', fecha_inicial as 'Fecha de inicio', fecha_final as 'Fecha final',observaciones as 'Observaciones' from grupos "
         Dim mostrar As New DataTable
 
         Using adpmostrar As New SqlDataAdapter(cargar_datos_grupos, conectar)
@@ -21,58 +21,59 @@ Public Class Grupos
 
 
 
-        If (txtnumanimales.Text = "" And txtcodigodieta.Text = "" And rtxtobs.Text = "") Then
-            btagregar.Enabled = False
-        End If
+        If (txtnumanimales.Text IsNot "" And txtcodigodieta.Text IsNot "" And rtxtobs.Text IsNot "") Then
 
-        conecta()
-        Dim insertar_grupos As String = "insert into grupos(numero_animales,cod_dieta,fecha_inicial,fecha_final,observaciones) values(@nanimal,@cod_dieta,@fecha1,@fecha2,@obser)"
-        Dim insertar_gr As New SqlCommand(insertar_grupos, conectar)
-        insertar_gr.Parameters.AddWithValue("@cod_grup", txtcodgrup.Text)
-        insertar_gr.Parameters.AddWithValue("@nanimal", txtnumanimales.Text)
-        insertar_gr.Parameters.AddWithValue("@cod_dieta", txtcodigodieta.Text)
-        insertar_gr.Parameters.AddWithValue("@fecha1", DTfechaini.Value)
-        insertar_gr.Parameters.AddWithValue("@fecha2", DTfechafin.Value)
-        insertar_gr.Parameters.AddWithValue("@obser", rtxtobs.Text)
+            conecta()
+            Dim insertar_grupos As String = "insert into grupos(numero_animales,cod_dieta,fecha_inicial,fecha_final,observaciones) values(@nanimal,@cod_dieta,@fecha1,@fecha2,@obser)"
+            Dim insertar_gr As New SqlCommand(insertar_grupos, conectar)
+            insertar_gr.Parameters.AddWithValue("@cod_grup", txtcodgrup.Text)
+            insertar_gr.Parameters.AddWithValue("@nanimal", txtnumanimales.Text)
+            insertar_gr.Parameters.AddWithValue("@cod_dieta", txtcodigodieta.Text)
+            insertar_gr.Parameters.AddWithValue("@fecha1", DTfechaini.Value)
+            insertar_gr.Parameters.AddWithValue("@fecha2", DTfechafin.Value)
+            insertar_gr.Parameters.AddWithValue("@obser", rtxtobs.Text)
 
-        insertar_gr.ExecuteNonQuery()
+            insertar_gr.ExecuteNonQuery()
 
 
-        Dim recuperar_cod As String = "select top 1 cod_grupo from grupos order by cod_grupo desc"
-        Dim recuperar As SqlDataReader
-        Dim ejecutar As New SqlCommand
+            Dim recuperar_cod As String = "select top 1 cod_grupo from grupos order by cod_grupo desc"
+            Dim recuperar As SqlDataReader
+            Dim ejecutar As New SqlCommand
 
-        ejecutar = New SqlCommand(recuperar_cod, conectar)
-        recuperar = ejecutar.ExecuteReader
+            ejecutar = New SqlCommand(recuperar_cod, conectar)
+            recuperar = ejecutar.ExecuteReader
 
-        Dim estado As String
-        estado = recuperar.Read
+            Dim estado As String
+            estado = recuperar.Read
 
-        If (estado = True) Then
+            If (estado = True) Then
 
-            txtcodgrup.Text = recuperar(0)
+                txtcodgrup.Text = recuperar(0)
 
+
+            Else
+
+                txtcodgrup.Text = ""
+
+
+            End If
+
+            recuperar.Close()
+
+
+
+
+
+
+            conectar.Close()
+            cargargrid()
+            MsgBox("Grupo creado satisfactoriamente ")
 
         Else
 
-            txtcodgrup.Text = ""
-
+            MsgBox("Rellene todos los campos")
 
         End If
-
-        recuperar.Close()
-
-
-
-
-
-
-        conectar.Close()
-        cargargrid()
-        MsgBox("Grupo creado satisfactoriamente ")
-
-
-
 
     End Sub
 
@@ -90,10 +91,10 @@ Public Class Grupos
 
 
         conecta()
+
         Dim fila_actual As Integer
         fila_actual = DGgrupos.CurrentRow.Index
         txtcodgrup.Text = DGgrupos.Rows(fila_actual).Cells(0).Value
-        'txtcodgrup.Text = DGgrupos.CurrentRow.Cells(0).Value
         Dim recuperar As String = "select * from grupos where cod_grupo=" & txtcodgrup.Text
         Dim mostrar As SqlDataReader
         Dim ejecutar As New SqlCommand
@@ -111,7 +112,6 @@ Public Class Grupos
 
                 MsgBox("este grupo no tiene fecha final de engorde")
 
-                DTfechafin.Value = Date.Now
             Else
 
                 DTfechafin.Value = mostrar(4)
@@ -141,12 +141,15 @@ Public Class Grupos
             End If
 
 
+            If IsDBNull(mostrar(1)) Then
 
-            txtnumanimales.Text = mostrar(1)
+                MsgBox("este grupo no tiene animales ")
+                txtnumanimales.Text = ""
+            Else
 
+                txtnumanimales.Text = mostrar(1)
 
-            'txtcodigodieta.Text = mostrar(2)
-            'rtxtobs.Text = mostrar(5)
+            End If
 
 
 
@@ -176,11 +179,13 @@ Public Class Grupos
         cargargrid()
 
         DTfechaini.Value = Date.Now
+        DTfechafin.Value = Date.Now
+        DTfechafin.Value = DTfechafin.Value.AddMonths(3)
         txtcodgrup.Enabled = False
 
         btnedi.Enabled = False
         bteliminar.Enabled = False
-        btagregar.Enabled = False
+        btagregar.Enabled = True
 
 
 
@@ -190,11 +195,11 @@ Public Class Grupos
 
     Private Sub btnedi_Click(sender As Object, e As EventArgs) Handles btnedi.Click
 
-        If ((DTfechafin.Value <= DTfechaini.Value) And txtcodigodieta.Text Is "") Then
 
-            MsgBox("ERROR La fecha Final no puede ser la misma que la de inicio")
 
-        Else
+        If ((DTfechafin.Value <= DTfechaini.Value) And txtnumanimales.Text IsNot "" And txtcodigodieta.Text IsNot "" And rtxtobs.Text IsNot "") Then
+
+
 
             conecta()
 
@@ -211,6 +216,16 @@ Public Class Grupos
             conectar.Close()
             cargargrid()
 
+
+
+
+
+        Else
+
+            MsgBox("ERROR La fecha Final no puede ser la misma que la de inicio")
+            If (txtnumanimales.Text = "" Or txtcodigodieta.Text = "" Or rtxtobs.Text = "") Then
+                MsgBox("ERROR Rellene todos los campos")
+            End If
 
         End If
     End Sub
@@ -262,8 +277,6 @@ Public Class Grupos
 
     Private Sub txtnumanimales_TextChanged(sender As Object, e As EventArgs) Handles txtnumanimales.TextChanged
 
-        'btagregar.Enabled = True
-
         If (txtnumanimales.Text = "") Then
             btagregar.Enabled = False
         End If
@@ -271,7 +284,6 @@ Public Class Grupos
     End Sub
 
     Private Sub txtcodigodieta_TextChanged(sender As Object, e As EventArgs) Handles txtcodigodieta.TextChanged
-        'btagregar.Enabled = True
 
         If (txtcodigodieta.Text = "") Then
             btagregar.Enabled = False
@@ -284,6 +296,12 @@ Public Class Grupos
         If (rtxtobs.Text = "") Then
             btagregar.Enabled = False
         End If
+
+    End Sub
+
+    Private Sub DTfechaini_ValueChanged(sender As Object, e As EventArgs) Handles DTfechaini.ValueChanged
+
+        DTfechafin.Value = DTfechaini.Value.AddMonths(3)
 
     End Sub
 End Class

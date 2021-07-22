@@ -74,6 +74,8 @@ Partial Class Grupos
         '
         'DTfechafin
         '
+        Me.DTfechafin.Checked = False
+        Me.DTfechafin.Enabled = False
         Me.DTfechafin.Location = New System.Drawing.Point(263, 265)
         Me.DTfechafin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DTfechafin.MinDate = New Date(2021, 6, 16, 0, 0, 0, 0)
