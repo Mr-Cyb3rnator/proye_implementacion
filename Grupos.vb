@@ -35,6 +35,7 @@ Public Class Grupos
         insertar_gr.Parameters.AddWithValue("@fecha2", DTfechafin.Value)
         insertar_gr.Parameters.AddWithValue("@obser", rtxtobs.Text)
 
+
         insertar_gr.ExecuteNonQuery()
 
 
