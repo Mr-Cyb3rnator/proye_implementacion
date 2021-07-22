@@ -48,18 +48,12 @@ Partial Class Cabeza_ganado
         Me.rtxtobs = New System.Windows.Forms.RichTextBox()
         Me.combo_grupos = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-<<<<<<< Updated upstream
-=======
         Me.cb_Raza = New System.Windows.Forms.ComboBox()
->>>>>>> Stashed changes
         Me.txtprecio = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnatras = New System.Windows.Forms.Button()
-<<<<<<< Updated upstream
         Me.txtcod_grup = New System.Windows.Forms.TextBox()
-=======
->>>>>>> Stashed changes
         CType(Me.DGcabezas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -350,8 +344,6 @@ Partial Class Cabeza_ganado
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos Animal"
         '
-<<<<<<< Updated upstream
-=======
         'cb_Raza
         '
         Me.cb_Raza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -363,7 +355,6 @@ Partial Class Cabeza_ganado
         Me.cb_Raza.Size = New System.Drawing.Size(122, 29)
         Me.cb_Raza.TabIndex = 42
         '
->>>>>>> Stashed changes
         'txtprecio
         '
         Me.txtprecio.Location = New System.Drawing.Point(222, 220)
@@ -414,7 +405,6 @@ Partial Class Cabeza_ganado
         Me.btnatras.TabIndex = 32
         Me.btnatras.UseVisualStyleBackColor = False
         '
-<<<<<<< Updated upstream
         'txtcod_grup
         '
         Me.txtcod_grup.Location = New System.Drawing.Point(17, 13)
@@ -424,8 +414,6 @@ Partial Class Cabeza_ganado
         Me.txtcod_grup.TabIndex = 21
         Me.txtcod_grup.Visible = False
         '
-=======
->>>>>>> Stashed changes
         'Cabeza_ganado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -486,9 +474,6 @@ Partial Class Cabeza_ganado
     Friend WithEvents btnatras As Button
     Friend WithEvents txtprecio As TextBox
     Friend WithEvents Label12 As Label
-<<<<<<< Updated upstream
     Friend WithEvents txtcod_grup As TextBox
-=======
     Friend WithEvents cb_Raza As ComboBox
->>>>>>> Stashed changes
 End Class
