@@ -22,7 +22,6 @@ Partial Class Dieta
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dieta))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -169,12 +168,12 @@ Partial Class Dieta
         '
         'btnAtras
         '
-        Me.btnAtras.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnAtras.Image = CType(resources.GetObject("btnAtras.Image"), System.Drawing.Image)
-        Me.btnAtras.Location = New System.Drawing.Point(1271, 648)
+        Me.btnAtras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnAtras.Image = Global.proye.My.Resources.Resources.atras__2_
+        Me.btnAtras.Location = New System.Drawing.Point(1246, 631)
         Me.btnAtras.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnAtras.Name = "btnAtras"
-        Me.btnAtras.Size = New System.Drawing.Size(111, 59)
+        Me.btnAtras.Size = New System.Drawing.Size(136, 85)
         Me.btnAtras.TabIndex = 26
         Me.btnAtras.UseVisualStyleBackColor = False
         '
@@ -256,7 +255,7 @@ Partial Class Dieta
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(512, 566)
+        Me.GroupBox1.Size = New System.Drawing.Size(512, 549)
         Me.GroupBox1.TabIndex = 33
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingredientes en la dieta"
@@ -296,7 +295,7 @@ Partial Class Dieta
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(890, 403)
+        Me.GroupBox2.Size = New System.Drawing.Size(890, 386)
         Me.GroupBox2.TabIndex = 34
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Crear dieta"
@@ -332,7 +331,7 @@ Partial Class Dieta
         Me.AutoSize = True
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(1442, 740)
+        Me.ClientSize = New System.Drawing.Size(1442, 786)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)

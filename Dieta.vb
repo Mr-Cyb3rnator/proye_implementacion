@@ -11,52 +11,55 @@ Public Class Dieta
         End Try
     End Sub
     Private Sub cargargrid()
-        conecta()
-        dgvDieta.DataSource = CargarDatosGrid("exec ListaDietas")
-        conectar.Close()
+        Try
+            conecta()
+            dgvDieta.DataSource = CargarDatosGrid("exec ListaDietas")
+            CerrarConexion()
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub cargargrid_dieta()
-        conecta()
-        Dim cod_dieta As Integer
-        Dim fila As DataGridViewRow = New DataGridViewRow()
-        cod_dieta = Val(txtCodDieta.Text)
-        Dim cargar_datos As String = "select descripcion Descripción,costo Precio from ingredientes where cod_dieta=" & Val(txtCodDieta.Text)
-        Dim mostrar As New DataTable
+        'cargar los ingredientes de la dieta seleccionada por el codigo
+        Try
+            conecta()
+            Dim cod_dieta As Integer
+            Dim fila As DataGridViewRow = New DataGridViewRow()
+            cod_dieta = Val(txtCodDieta.Text)
+            dgvIngredientesDieta.DataSource = CargarDatosGrid("exec ListaIngredientesxDieta " & Val(txtCodDieta.Text))
+            CerrarConexion()
+        Catch ex As Exception
 
-        Using adpmostrar As New SqlDataAdapter(cargar_datos, conectar)
-            adpmostrar.Fill(mostrar)
-        End Using
-        dgvIngredientesDieta.DataSource = mostrar
-        conectar.Close()
+        End Try
     End Sub
     Private Sub Dieta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvDieta.ClearSelection()
         cargargrid()
         cargargrid_dieta()
         cargarcmb()
-        btnEliminar.Enabled = False
+        btneliminar.Enabled = False
         Try
-            cmbCodIngre.DataSource = ds.Tables(0)
+            cmbcodingre.DataSource = ds.Tables(0)
             cmbCodIngre.ValueMember = "cod_ingredientes"
             cmbCodIngre.DisplayMember = "descripcion"
         Catch ex As Exception
         End Try
     End Sub
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        '-----aqui se guarda una nueva dieta en la base de datos 
         If txtCantidad.Text = "" Or txtComidaXDia.Text = "" Then
             MessageBox.Show("Llene todos los campos", "Error")
         Else
-            conecta()
-            Dim insertar_dieta As String = "insert into dieta(cantidad_libras,comidas_al_dia)values(@cantidad_libras,@comidas_al_dia)"
-            Dim insertar As New SqlCommand(insertar_dieta, conectar)
-            insertar.Parameters.AddWithValue("@cantidad_libras", txtCantidad.Text)
-            insertar.Parameters.AddWithValue("@comidas_al_dia", txtComidaXDia.Text)
-            insertar.ExecuteNonQuery()
-            conectar.Close()
-            cargargrid()
+            Try
+                conecta()
+                ModificarBD("exec InsertarDietas " & txtCantidad.Text & ", " & txtComidaXDia.Text)
+                conectar.Close()
+                cargargrid()
+            Catch ex As Exception
+            End Try
         End If
     End Sub
-    Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
         Dim opcion As DialogResult
         opcion = MessageBox.Show("Seguro que quiere eliminar el Registro?", "Eliminar Registro", MessageBoxButtons.YesNo)
         If (opcion = Windows.Forms.DialogResult.Yes) Then
@@ -77,39 +80,40 @@ Public Class Dieta
     Private Sub dgdieta_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDieta.CellContentClick
         Dim row As DataGridViewRow = dgvDieta.CurrentRow
     End Sub
-    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
-        Me.Close()
-        frm_Menu.Show()
-    End Sub
     Private Sub txtcoddieta_TextChanged(sender As Object, e As EventArgs) Handles txtCodDieta.TextChanged
-        conecta()
-        Dim recuperar As String = "select * from dieta where cod_dieta=' " & txtCodDieta.Text & " ' "
-        Dim mostrar As SqlDataReader
-        Dim ejecutar As New SqlCommand
-        Dim estado As String
-        ejecutar = New SqlCommand(recuperar, conectar)
-        mostrar = ejecutar.ExecuteReader
-        estado = mostrar.Read
-        If (estado = True) Then
-            txtCantidad.Text = mostrar(1)
-            txtComidaXDia.Text = mostrar(2)
-        Else
-            txtCantidad.Text = ""
-            txtComidaXDia.Text = ""
-        End If
-        mostrar.Close()
-        conectar.Close()
+        '-------buscador de la dieta por medio del codigo de la dieta en el textbox
+        Try
+            conecta()
+            Dim recuperar As String = "select * from dieta where cod_dieta=' " & txtCodDieta.Text & " ' "
+            Dim mostrar As SqlDataReader
+            Dim ejecutar As New SqlCommand
+            Dim estado As String
+            ejecutar = New SqlCommand(recuperar, conectar)
+            mostrar = ejecutar.ExecuteReader
+            estado = mostrar.Read
+            If (estado = True) Then
+                txtCantidad.Text = mostrar(1)
+                txtComidaXDia.Text = mostrar(2)
+            Else
+                txtCantidad.Text = ""
+                txtComidaXDia.Text = ""
+            End If
+            mostrar.Close()
+            conectar.Close()
+        Catch ex As Exception
+
+        End Try
     End Sub
-    Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+    Private Sub btAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        '-------activa y desactiva los textbox
         Label1.Enabled = False
         txtCodDieta.Enabled = False
         btnSelecionarDierta.Enabled = False
         txtCantidad.Enabled = True
         txtComidaXDia.Enabled = True
         btnGuardar.Enabled = True
-        If lblCodIngre.Text = 0 Then
-            MessageBox.Show("No puede ser 0", "Error")
-        Else
+        '--------actualiza la tabla ingredientes
+        Try
             conecta()
             Dim datos As String = "update ingredientes set cod_dieta=@cod_dieta where cod_ingredientes=@cod_ingredientes "
             Dim actualizar As New SqlCommand(datos, conectar)
@@ -119,35 +123,44 @@ Public Class Dieta
             actualizar.ExecuteNonQuery()
             conectar.Close()
             cargargrid_dieta()
-        End If
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSelecionarDierta.Click
         GroupBox1.Enabled = True
         cargargrid_dieta()
     End Sub
+    '---------validaciones de los textbox
     Private Sub txtcoddieta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodDieta.KeyPress
         CampoValidacionNumeros(e)
     End Sub
     Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs)
         CampoValidacionNumeros(e)
     End Sub
-    Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+    Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidad.KeyPress
         CampoValidacionNumeros(e)
     End Sub
-    Private Sub txtcomidaxdia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtComidaXDia.KeyPress
+    Private Sub txtcomidaxdia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcomidaxdia.KeyPress
         CampoValidacionNumeros(e)
     End Sub
-    Private Sub cmbcodingre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCodIngre.SelectedIndexChanged
-        lblCodIngre.Text = cmbCodIngre.SelectedIndex
+    Private Sub cmbcodingre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbcodingre.SelectedIndexChanged
+        'lblcodingre.Text = cmbcodingre.SelectedIndex
+        lblCodIngre.Text = cmbCodIngre.SelectedIndex + 1
     End Sub
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Label1.Enabled = True
         txtCodDieta.Enabled = True
         txtCodDieta.Text = ""
         btnSelecionarDierta.Enabled = True
-        txtComidaXDia.Enabled = False
-        txtCantidad.Enabled = False
-        btnGuardar.Enabled = False
-        btnEliminar.Enabled = True
+        txtcomidaxdia.Enabled = False
+        txtcantidad.Enabled = False
+        btnguardar.Enabled = False
+        btneliminar.Enabled = True
+    End Sub
+    '=======boton para regresar al menu
+    Private Sub btnAtras_Click_1(sender As Object, e As EventArgs) Handles btnAtras.Click
+        Me.Close()
+        frm_Menu.Show()
     End Sub
 End Class

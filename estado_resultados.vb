@@ -79,6 +79,7 @@ Public Class estado_resultados
         Me.Hide()
         frm_Menu.Show()
     End Sub
+    'validaciones de textboxs
     Private Sub btcalcular_Click(sender As Object, e As EventArgs) Handles btcalcular.Click
         txtganacia.Text = Val(txtTotalVenta.Text) - Val(txtTotalGastos.Text) - Val(txtCostoCompra.Text)
     End Sub
@@ -105,6 +106,7 @@ Public Class estado_resultados
         frm_Menu.Show()
     End Sub
     Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btcargar_gastos.Click
+        'boton de cargar gastos
         btcalcular.Enabled = True
         cargar_gasto_total()
         cargargrid_detalle()
