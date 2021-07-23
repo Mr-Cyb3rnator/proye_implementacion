@@ -95,7 +95,7 @@ Partial Class Clientes
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 21)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Direccion"
+        Me.Label3.Text = "Dirección"
         '
         'txttelefono
         '
