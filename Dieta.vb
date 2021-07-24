@@ -84,7 +84,6 @@ Public Class Dieta
             mostrar.Close()
             conectar.Close()
         Catch ex As Exception
-            Dim recuperar As SqlDataReader
         End Try
     End Sub
     Private Sub btAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
