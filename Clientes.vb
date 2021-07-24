@@ -14,7 +14,7 @@ Public Class Clientes
             adpmostrar.Fill(mostrar)
 
         End Using
-        DGclientes.DataSource = mostrar
+        dvgClientes.DataSource = mostrar
         CerrarConexion()
 
 
@@ -22,17 +22,17 @@ Public Class Clientes
     End Sub
 
 
-    Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btagregar.Click
+    Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         'DGclientes.Rows.Add(txtcodcliente.Text, txtnombre.Text, txtdireccion.Text, txttelefono.Text)
-        If (txtnombre.Text IsNot "" And txttelefono.Text IsNot "" And txtdireccion.Text IsNot "") Then
+        If (txtNombre.Text IsNot "" And txtTelefono.Text IsNot "" And txtDireccion.Text IsNot "") Then
 
             Try
                 conecta()
                 Dim insertar_cliente As String = "insert into clientes (nombre,telefono,direcion)values(@nombre,@telefono,@direcion)"
                 Dim insertar As New SqlCommand(insertar_cliente, conectar)
-                insertar.Parameters.AddWithValue("@nombre", txtnombre.Text)
-                insertar.Parameters.AddWithValue("@telefono", txttelefono.Text)
-                insertar.Parameters.AddWithValue("@direcion", txtdireccion.Text)
+                insertar.Parameters.AddWithValue("@nombre", txtNombre.Text)
+                insertar.Parameters.AddWithValue("@telefono", txtTelefono.Text)
+                insertar.Parameters.AddWithValue("@direcion", txtDireccion.Text)
                 insertar.ExecuteNonQuery()
 
                 conectar.Close()
@@ -47,11 +47,11 @@ Public Class Clientes
             loadingForm = False
             cargargrid()
 
-            DGclientes.ClearSelection()
-            txtcodcliente.Text = ""
-            txtnombre.Text = ""
-            txtdireccion.Text = ""
-            txttelefono.Text = ""
+            dvgClientes.ClearSelection()
+            txtCodCliente.Text = ""
+            txtNombre.Text = ""
+            txtDireccion.Text = ""
+            txtTelefono.Text = ""
             loadingForm = True
         Else
             MsgBox("Campos no pueden quedar vacios")
@@ -80,30 +80,30 @@ Public Class Clientes
 
     End Sub
 
-    Private Sub bteliminar_Click(sender As Object, e As EventArgs) Handles bteliminar.Click
+    Private Sub bteliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         'DGclientes.Rows.Remove(DGclientes.CurrentRow)
 
         conecta()
         Dim eliminar As String = "delete from clientes where cod_cliente=@cod_cliente "
         Dim procesar As New SqlCommand(eliminar, conectar)
-        procesar.Parameters.AddWithValue("@cod_cliente", txtcodcliente.Text)
+        procesar.Parameters.AddWithValue("@cod_cliente", txtCodCliente.Text)
         procesar.ExecuteNonQuery()
         conectar.Close()
         cargargrid()
 
         loadingForm = False
         cargargrid()
-        DGclientes.ClearSelection()
+        dvgClientes.ClearSelection()
 
-        txtcodcliente.Text = ""
-        txtnombre.Text = ""
-        txtdireccion.Text = ""
-        txttelefono.Text = ""
+        txtCodCliente.Text = ""
+        txtNombre.Text = ""
+        txtDireccion.Text = ""
+        txtTelefono.Text = ""
 
         loadingForm = True
 
-        bteliminar.Enabled = False
-        bteditar.Enabled = False
+        btnEliminar.Enabled = False
+        btnEditar.Enabled = False
 
 
 
@@ -111,34 +111,34 @@ Public Class Clientes
     End Sub
 
 
-    Private Sub bteditar_Click(sender As Object, e As EventArgs) Handles bteditar.Click
-        tt_cliente.SetToolTip(bteditar, "")
+    Private Sub bteditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        tt_cliente.SetToolTip(btnEditar, "")
         conecta()
 
         Dim datos_clientes As String = "update clientes set nombre=@nombre,telefono=@telefono,direccion=@direccion where cod_cliente=@cod_cliente"
         Dim actualizar As New SqlCommand(datos_clientes, conectar)
-        actualizar.Parameters.AddWithValue("@cod_cliente", txtcodcliente.Text)
-        actualizar.Parameters.AddWithValue("@nombre", txtnombre.Text)
-        actualizar.Parameters.AddWithValue("@telefono", txttelefono.Text)
-        actualizar.Parameters.AddWithValue("@direccion", txtdireccion.Text)
+        actualizar.Parameters.AddWithValue("@cod_cliente", txtCodCliente.Text)
+        actualizar.Parameters.AddWithValue("@nombre", txtNombre.Text)
+        actualizar.Parameters.AddWithValue("@telefono", txtTelefono.Text)
+        actualizar.Parameters.AddWithValue("@direccion", txtDireccion.Text)
 
         actualizar.ExecuteNonQuery()
         conectar.Close()
 
         loadingForm = False
         cargargrid()
-        DGclientes.ClearSelection()
+        dvgClientes.ClearSelection()
 
-        txtcodcliente.Text = ""
-        txtnombre.Text = ""
-        txttelefono.Text = ""
-        txtdireccion.Text = ""
+        txtCodCliente.Text = ""
+        txtNombre.Text = ""
+        txtTelefono.Text = ""
+        txtDireccion.Text = ""
 
         loadingForm = True
 
 
-        bteditar.Enabled = False
-        bteliminar.Enabled = False
+        btnEditar.Enabled = False
+        btnEliminar.Enabled = False
 
         'conecta()
 
@@ -154,7 +154,7 @@ Public Class Clientes
 
     End Sub
 
-    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
+    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
         Me.Hide()
         frm_Menu.Show()
     End Sub
@@ -162,15 +162,15 @@ Public Class Clientes
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadingForm = False
         cargargrid()
-        DGclientes.ClearSelection()
+        dvgClientes.ClearSelection()
         loadingForm = True
 
-        tt_cliente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
-        tt_cliente.SetToolTip(bteliminar, "Seleccione una Fila para Eliminar")
+        tt_cliente.SetToolTip(btnEditar, "Seleccione una Fila para Editar")
+        tt_cliente.SetToolTip(btnEliminar, "Seleccione una Fila para Eliminar")
 
     End Sub
 
-    Private Sub txtnombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnombre.KeyPress
+    Private Sub txtnombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre.KeyPress
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -183,7 +183,7 @@ Public Class Clientes
         End If
     End Sub
 
-    Private Sub txtdireccion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdireccion.KeyPress
+    Private Sub txtdireccion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDireccion.KeyPress
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -192,12 +192,12 @@ Public Class Clientes
             e.Handled = False
         Else
             e.Handled = True
-            tt_cliente.SetToolTip(txtdireccion, "Acepta Caracteres")
+            tt_cliente.SetToolTip(txtDireccion, "Acepta Caracteres")
 
         End If
     End Sub
 
-    Private Sub txttelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttelefono.KeyPress
+    Private Sub txttelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefono.KeyPress
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -206,24 +206,24 @@ Public Class Clientes
             e.Handled = False
         Else
             e.Handled = True
-            tt_cliente.SetToolTip(txttelefono, "Solo Acepta Numeros")
+            tt_cliente.SetToolTip(txtTelefono, "Solo Acepta Numeros")
 
         End If
     End Sub
 
-    Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodcliente.KeyPress
+    Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodCliente.KeyPress
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
-            tt_cliente.SetToolTip(txtcodcliente, "")
+            tt_cliente.SetToolTip(txtCodCliente, "")
         ElseIf Char.IsControl(e.KeyChar) Then
             e.Handled = False
-            tt_cliente.SetToolTip(txtcodcliente, "")
+            tt_cliente.SetToolTip(txtCodCliente, "")
         ElseIf Char.IsSeparator(e.KeyChar) Then
             e.Handled = False
-            tt_cliente.SetToolTip(txtcodcliente, "")
+            tt_cliente.SetToolTip(txtCodCliente, "")
         Else
             e.Handled = True
-            tt_cliente.SetToolTip(txtcodcliente, "Solo Acepta Numeros")
+            tt_cliente.SetToolTip(txtCodCliente, "Solo Acepta Numeros")
 
 
         End If
@@ -244,41 +244,41 @@ Public Class Clientes
 
     End Sub
 
-    Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcodcliente.TextChanged
+    Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtCodCliente.TextChanged
 
     End Sub
 
-    Private Sub DGclientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGclientes.CellContentClick
-        Dim fila As Integer = DGclientes.CurrentCell.RowIndex
+    Private Sub DGclientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dvgClientes.CellContentClick
+        Dim fila As Integer = dvgClientes.CurrentCell.RowIndex
 
-        txtcodcliente.Text = DGclientes(0, fila).Value.ToString()
-        txtnombre.Text = DGclientes(1, fila).Value.ToString()
-        txtdireccion.Text = DGclientes(2, fila).Value.ToString()
-        txttelefono.Text = DGclientes(3, fila).Value.ToString()
+        txtCodCliente.Text = dvgClientes(0, fila).Value.ToString()
+        txtNombre.Text = dvgClientes(1, fila).Value.ToString()
+        txtDireccion.Text = dvgClientes(2, fila).Value.ToString()
+        txtTelefono.Text = dvgClientes(3, fila).Value.ToString()
 
 
 
 
     End Sub
-    Private Sub DGclientes_SelectionChanged(sender As Object, e As EventArgs) Handles DGclientes.SelectionChanged
+    Private Sub DGclientes_SelectionChanged(sender As Object, e As EventArgs) Handles dvgClientes.SelectionChanged
         If (loadingForm) Then
 
             Dim fila As Integer
-            fila = DGclientes.CurrentRow.Index
+            fila = dvgClientes.CurrentRow.Index
 
 
-            bteditar.Enabled = True
-            bteliminar.Enabled = True
+            btnEditar.Enabled = True
+            btnEliminar.Enabled = True
 
-            txtcodcliente.Text = DGclientes.Rows(fila).Cells(0).Value
-            txtnombre.Text = DGclientes.Rows(fila).Cells(1).Value
-            txttelefono.Text = DGclientes.Rows(fila).Cells(2).Value
-            txtdireccion.Text = DGclientes.Rows(fila).Cells(3).Value
+            txtCodCliente.Text = dvgClientes.Rows(fila).Cells(0).Value
+            txtNombre.Text = dvgClientes.Rows(fila).Cells(1).Value
+            txtTelefono.Text = dvgClientes.Rows(fila).Cells(2).Value
+            txtDireccion.Text = dvgClientes.Rows(fila).Cells(3).Value
 
-            btagregar.Enabled = False
-            txtnombre.Enabled = True
-            txttelefono.Enabled = True
-            txtdireccion.Enabled = True
+            btnAgregar.Enabled = False
+            txtNombre.Enabled = True
+            txtTelefono.Enabled = True
+            txtDireccion.Enabled = True
 
 
         End If
@@ -286,31 +286,31 @@ Public Class Clientes
 
     End Sub
 
-    Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtnombre.TextChanged
-        If (txtnombre.Text IsNot "") Then
-            txtdireccion.Enabled = True
+    Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
+        If (txtNombre.Text IsNot "") Then
+            txtDireccion.Enabled = True
         Else
-            txtdireccion.Enabled = False
+            txtDireccion.Enabled = False
         End If
     End Sub
 
-    Private Sub txtdireccion_TextChanged(sender As Object, e As EventArgs) Handles txtdireccion.TextChanged
-        If (txtdireccion.Text IsNot "") Then
-            txttelefono.Enabled = True
+    Private Sub txtdireccion_TextChanged(sender As Object, e As EventArgs) Handles txtDireccion.TextChanged
+        If (txtDireccion.Text IsNot "") Then
+            txtTelefono.Enabled = True
         Else
-            txttelefono.Enabled = False
+            txtTelefono.Enabled = False
         End If
     End Sub
 
-    Private Sub txttelefono_TextChanged(sender As Object, e As EventArgs) Handles txttelefono.TextChanged
-        If (txttelefono.Text IsNot "") Then
-            btagregar.Enabled = True
+    Private Sub txttelefono_TextChanged(sender As Object, e As EventArgs) Handles txtTelefono.TextChanged
+        If (txtTelefono.Text IsNot "") Then
+            btnAgregar.Enabled = True
         Else
-            btagregar.Enabled = False
+            btnAgregar.Enabled = False
         End If
     End Sub
 
-    Private Sub txtnombre_Validating(sender As Object, e As CancelEventArgs) Handles txtnombre.Validating
+    Private Sub txtnombre_Validating(sender As Object, e As CancelEventArgs) Handles txtNombre.Validating
         If DirectCast(sender, TextBox).Text.Length > 0 Then
             Me.erroricono.SetError(sender, "")
         Else
@@ -318,7 +318,7 @@ Public Class Clientes
         End If
     End Sub
 
-    Private Sub txtdireccion_Validating(sender As Object, e As CancelEventArgs) Handles txtdireccion.Validating
+    Private Sub txtdireccion_Validating(sender As Object, e As CancelEventArgs) Handles txtDireccion.Validating
         If DirectCast(sender, TextBox).Text.Length > 0 Then
             Me.erroricono.SetError(sender, "")
         Else
@@ -326,7 +326,7 @@ Public Class Clientes
         End If
     End Sub
 
-    Private Sub txttelefono_Validating(sender As Object, e As CancelEventArgs) Handles txttelefono.Validating
+    Private Sub txttelefono_Validating(sender As Object, e As CancelEventArgs) Handles txtTelefono.Validating
         If DirectCast(sender, TextBox).Text.Length > 0 Then
             Me.erroricono.SetError(sender, "")
         Else
@@ -334,19 +334,19 @@ Public Class Clientes
         End If
     End Sub
 
-    Private Sub bteditar_MouseMove(sender As Object, e As MouseEventArgs) Handles bteditar.MouseMove
-        If (bteditar.Enabled <> True) Then
-            tt_cliente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
+    Private Sub bteditar_MouseMove(sender As Object, e As MouseEventArgs) Handles btnEditar.MouseMove
+        If (btnEditar.Enabled <> True) Then
+            tt_cliente.SetToolTip(btnEditar, "Seleccione una Fila para Editar")
         Else
-            tt_cliente.SetToolTip(bteditar, "")
+            tt_cliente.SetToolTip(btnEditar, "")
         End If
     End Sub
 
-    Private Sub bteditar_MouseUp(sender As Object, e As MouseEventArgs) Handles bteditar.MouseUp
-        If (bteditar.Enabled <> True) Then
-            tt_cliente.SetToolTip(bteditar, "Seleccione una Fila para Editar")
+    Private Sub bteditar_MouseUp(sender As Object, e As MouseEventArgs) Handles btnEditar.MouseUp
+        If (btnEditar.Enabled <> True) Then
+            tt_cliente.SetToolTip(btnEditar, "Seleccione una Fila para Editar")
         Else
-            tt_cliente.SetToolTip(bteditar, "")
+            tt_cliente.SetToolTip(btnEditar, "")
         End If
     End Sub
 End Class
