@@ -127,7 +127,7 @@ Partial Class Dieta
         Me.dgvDieta.RowHeadersVisible = False
         Me.dgvDieta.RowHeadersWidth = 51
         Me.dgvDieta.RowTemplate.Height = 28
-        Me.dgvDieta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.dgvDieta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvDieta.Size = New System.Drawing.Size(469, 340)
         Me.dgvDieta.TabIndex = 9
         '
@@ -331,7 +331,7 @@ Partial Class Dieta
         Me.AutoSize = True
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(1442, 786)
+        Me.ClientSize = New System.Drawing.Size(1442, 724)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)

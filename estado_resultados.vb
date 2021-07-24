@@ -22,8 +22,7 @@ Public Class estado_resultados
             '/// Esto Carga el Total del costo de compra
             Dim recuperar_g As SqlDataReader
             recuperar_g = LecturaBD("exec TotalCostoCompra " & txtGrupo.Text)
-            Dim estado_g As String
-            estado_g = recuperar_g.Read
+            recuperar_g.Read()
             If (estado = True) Then
                 txtCostoCompra.Text = recuperar_g(0)
             Else
@@ -55,11 +54,7 @@ Public Class estado_resultados
         '/// Esto Carga el Gasto total
         Try
             conecta()
-            Dim recuperar_total As String = "select sum(subtotal) from detalle_gastos a join  gastos b on a.cod_gastos = b.cod_gastos where cod_grupo=" & txtGrupo.Text
-            Dim recuperar As SqlDataReader
-            Dim ejecutar As New SqlCommand
-            ejecutar = New SqlCommand(recuperar_total, conectar)
-            recuperar = ejecutar.ExecuteReader
+            Dim recuperar As SqlDataReader = LecturaBD("exec CargarGastoTotal " & txtGrupo.Text)
             Dim estado As String
             estado = recuperar.Read
             If (estado = True) Then
@@ -106,7 +101,7 @@ Public Class estado_resultados
         frm_Menu.Show()
     End Sub
     Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btcargar_gastos.Click
-        'boton de cargar gastos
+        '------------boton de cargar gastos
         btcalcular.Enabled = True
         cargar_gasto_total()
         cargargrid_detalle()

@@ -843,6 +843,91 @@ BEGIN
 	FROM dieta 
 END
 GO
+
+--///////////////////////////////////////////////////// EDUARD
+
+USE [base_proyecto]
+GO
+
+/****** Object:  StoredProcedure [dbo].[ActualizarAnimales]    Script Date: 7/23/2021 4:01:25 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[ActualizarAnimales]
+	@cod_animal int,
+	@pesoinicial int,
+	@raza nvarchar(15),
+	@codgrupo int,
+	@preciocompra int,
+	@edad int,
+	@pesoobjetivo int,
+	@peso1 int,
+	@peso2 int,
+	@peso3 int,
+	@peso4 int,
+	@obs nvarchar(MAX)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	update animales
+		set peso_inicial=@pesoinicial,
+		raza=@raza,
+		cod_grupo=@codgrupo,
+		precio_compra=@preciocompra,
+		edad=@edad,
+		peso_objetivo= @pesoobjetivo,
+		peso_1=@peso1,
+		peso_2=@peso2,
+		peso_3=@peso3,
+		peso_4=@peso4,
+		observaciones=@obs
+	where cod_animal=@cod_animal
+END
+GO
+
+
+--proceso para actualizar datos de los animales 
+
+--////////////////////////////////
+USE [base_proyecto]
+GO
+
+/****** Object:  StoredProcedure [dbo].[InsertarAnimalesFormCabezas]    Script Date: 7/23/2021 4:04:03 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[InsertarAnimalesFormCabezas]
+	@pesoinicial int,
+	@raza nvarchar(15),
+	@codgrupo int,
+	@preciocompra int,
+	@edad int
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	insert into animales(peso_inicial,raza,cod_grupo,precio_compra,edad) 
+	values(@pesoinicial,@raza,@codgrupo,@preciocompra,@edad)
+END
+GO
+
+-- proceso para insertar animales en la base pero parahacerlo desde el  form de cabezas
+
+
 -- ================================================
 -- Template generated from Template Explorer using:
 -- Create Procedure (New Menu).SQL
@@ -863,8 +948,8 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[ListaIngredientesxDieta]
-	@dieta as int	
+CREATE PROCEDURE [dbo].[EliminarDieta]  
+	@coddieta as int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -872,7 +957,43 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT descripcion Descripción,costo Precio from ingredientes where cod_dieta=@dieta
+	DELETE FROM dieta where cod_dieta=@coddieta
+END
+GO
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[ActualizarIngredientes]  
+	-- Add the parameters for the stored procedure here
+	@coddieta as int,
+	@codingredientes as int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	UPDATE ingredientes 
+	set cod_dieta=@coddieta where 
+	cod_ingredientes=@codingredientes 
 END
 GO
 
@@ -897,9 +1018,8 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[InsertarDietas]
-	@cantidadlibras as int,
-	@comidasxdia as int
+CREATE PROCEDURE [dbo].[CargarGastoTotal]
+	@grupo as int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -907,7 +1027,42 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	INSERT INTO dieta(cantidad_libras,comidas_al_dia)
-	VALUES(@cantidadlibras,@comidasXdia)
+	select sum(subtotal) 
+	from detalle_gastos a join  gastos b on a.cod_gastos = b.cod_gastos 
+	where cod_grupo=@grupo
+END
+GO
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[CargarDietaXCodigo] 
+	@coddieta as int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * from dieta where cod_dieta=@coddieta 
 END
 GO
