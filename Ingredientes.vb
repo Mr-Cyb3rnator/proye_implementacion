@@ -6,6 +6,7 @@ Public Class Ingredientes
     Dim fillingtxt As Boolean
 
 
+
     Private Sub cargargrid()
 
         conecta()
