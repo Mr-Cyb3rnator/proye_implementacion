@@ -49,7 +49,7 @@ Public Class Ingredientes
             cargargrid()
 
             dvgIngredientes.ClearSelection()
-            txtCodIngredientes.Text = ""
+            txtCodigoIngredientes.Text = ""
             txtDescripcion.Text = ""
             txtCodDieta.Text = ""
             txtCosto.Text = ""
@@ -94,7 +94,7 @@ Public Class Ingredientes
         conecta()
         Dim eliminar As String = "delete from ingredientes  where cod_ingredientes=@cod_ingredientes"
         Dim procesar As New SqlCommand(eliminar, conectar)
-        procesar.Parameters.AddWithValue("@cod_ingredientes", txtCodIngredientes.Text)
+        procesar.Parameters.AddWithValue("@cod_ingredientes", txtCodigoIngredientes.Text)
         procesar.ExecuteNonQuery()
         conectar.Close()
 
@@ -103,7 +103,7 @@ Public Class Ingredientes
         cargargrid()
         dvgIngredientes.ClearSelection()
 
-        txtCodIngredientes.Text = ""
+        txtCodigoIngredientes.Text = ""
         txtDescripcion.Text = ""
         txtCodDieta.Text = ""
         txtCosto.Text = ""
@@ -122,7 +122,7 @@ Public Class Ingredientes
 
         Dim datos_ingredientes As String = "update ingredientes set descripcion=@descripcion,costo=@costo,cod_dieta=@cod_dieta where cod_ingredientes=@cod_ingredientes"
         Dim actualizar As New SqlCommand(datos_ingredientes, conectar)
-        actualizar.Parameters.AddWithValue("@cod_ingredientes", txtCodIngredientes.Text)
+        actualizar.Parameters.AddWithValue("@cod_ingredientes", txtCodigoIngredientes.Text)
         actualizar.Parameters.AddWithValue("@descripcion", txtDescripcion.Text)
         actualizar.Parameters.AddWithValue("@costo", txtCosto.Text)
         actualizar.Parameters.AddWithValue("@cod_dieta", txtCodDieta.Text)
@@ -134,7 +134,7 @@ Public Class Ingredientes
         cargargrid()
         dvgIngredientes.ClearSelection()
 
-        txtCodIngredientes.Text = ""
+        txtCodigoIngredientes.Text = ""
         txtDescripcion.Text = ""
         txtCodDieta.Text = ""
         txtCosto.Text = ""
@@ -157,7 +157,7 @@ Public Class Ingredientes
 
         Dim fila As Integer = dvgIngredientes.CurrentCell.RowIndex
 
-        txtCodIngredientes.Text = dvgIngredientes(0, fila).Value.ToString()
+        txtCodigoIngredientes.Text = dvgIngredientes(0, fila).Value.ToString()
         txtDescripcion.Text = dvgIngredientes(1, fila).Value.ToString()
         txtCodDieta.Text = dvgIngredientes(2, fila).Value.ToString()
         txtCosto.Text = dvgIngredientes(3, fila).Value.ToString()
@@ -169,19 +169,19 @@ Public Class Ingredientes
 
 
 
-    Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodIngredientes.KeyPress
+    Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodigoIngredientes.KeyPress
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
-            tt_Ingrediente.SetToolTip(txtCodIngredientes, "")
+            tt_Ingrediente.SetToolTip(txtCodigoIngredientes, "")
         ElseIf Char.IsControl(e.KeyChar) Then
             e.Handled = False
-            tt_Ingrediente.SetToolTip(txtCodIngredientes, "")
+            tt_Ingrediente.SetToolTip(txtCodigoIngredientes, "")
         ElseIf Char.IsSeparator(e.KeyChar) Then
             e.Handled = False
-            tt_Ingrediente.SetToolTip(txtCodIngredientes, "")
+            tt_Ingrediente.SetToolTip(txtCodigoIngredientes, "")
         Else
             e.Handled = True
-            tt_Ingrediente.SetToolTip(txtCodIngredientes, "Solo Acepta Numeros")
+            tt_Ingrediente.SetToolTip(txtCodigoIngredientes, "Solo Acepta Numeros")
 
 
         End If
@@ -307,7 +307,7 @@ Public Class Ingredientes
 
 
             ' fillingtxt = True
-            txtCodIngredientes.Text = dvgIngredientes.Rows(fila).Cells(0).Value
+            txtCodigoIngredientes.Text = dvgIngredientes.Rows(fila).Cells(0).Value
             txtDescripcion.Text = dvgIngredientes.Rows(fila).Cells(1).Value
             txtCosto.Text = dvgIngredientes.Rows(fila).Cells(2).Value
             txtCodDieta.Text = dvgIngredientes.Rows(fila).Cells(3).Value

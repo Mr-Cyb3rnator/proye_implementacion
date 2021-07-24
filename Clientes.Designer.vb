@@ -25,7 +25,7 @@ Partial Class Clientes
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtCodCliente = New System.Windows.Forms.TextBox()
+        Me.txtCodigoCliente = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
@@ -53,13 +53,13 @@ Partial Class Clientes
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Código cliente"
         '
-        'txtCodCliente
+        'txtCodigoCliente
         '
-        Me.txtCodCliente.Enabled = False
-        Me.txtCodCliente.Location = New System.Drawing.Point(164, 41)
-        Me.txtCodCliente.Name = "txtCodCliente"
-        Me.txtCodCliente.Size = New System.Drawing.Size(113, 23)
-        Me.txtCodCliente.TabIndex = 1
+        Me.txtCodigoCliente.Enabled = False
+        Me.txtCodigoCliente.Location = New System.Drawing.Point(164, 41)
+        Me.txtCodigoCliente.Name = "txtCodigoCliente"
+        Me.txtCodigoCliente.Size = New System.Drawing.Size(113, 23)
+        Me.txtCodigoCliente.TabIndex = 1
         '
         'txtNombre
         '
@@ -210,7 +210,7 @@ Partial Class Clientes
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtCodCliente)
+        Me.Controls.Add(Me.txtCodigoCliente)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Clientes"
@@ -224,7 +224,7 @@ Partial Class Clientes
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtCodCliente As TextBox
+    Friend WithEvents txtCodigoCliente As TextBox
     Friend WithEvents txtNombre As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtDireccion As TextBox

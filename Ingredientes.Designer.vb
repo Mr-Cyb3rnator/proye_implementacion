@@ -27,7 +27,7 @@ Partial Class Ingredientes
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.dvgIngredientes = New System.Windows.Forms.DataGridView()
-        Me.txtCodIngredientes = New System.Windows.Forms.TextBox()
+        Me.txtCodigoIngredientes = New System.Windows.Forms.TextBox()
         Me.txtCosto = New System.Windows.Forms.TextBox()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -92,14 +92,14 @@ Partial Class Ingredientes
         Me.dvgIngredientes.Size = New System.Drawing.Size(433, 160)
         Me.dvgIngredientes.TabIndex = 18
         '
-        'txtCodIngredientes
+        'txtCodigoIngredientes
         '
-        Me.txtCodIngredientes.Enabled = False
-        Me.txtCodIngredientes.Location = New System.Drawing.Point(186, 44)
-        Me.txtCodIngredientes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtCodIngredientes.Name = "txtCodIngredientes"
-        Me.txtCodIngredientes.Size = New System.Drawing.Size(107, 23)
-        Me.txtCodIngredientes.TabIndex = 17
+        Me.txtCodigoIngredientes.Enabled = False
+        Me.txtCodigoIngredientes.Location = New System.Drawing.Point(186, 44)
+        Me.txtCodigoIngredientes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtCodigoIngredientes.Name = "txtCodigoIngredientes"
+        Me.txtCodigoIngredientes.Size = New System.Drawing.Size(107, 23)
+        Me.txtCodigoIngredientes.TabIndex = 17
         '
         'txtCosto
         '
@@ -219,7 +219,7 @@ Partial Class Ingredientes
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.dvgIngredientes)
-        Me.Controls.Add(Me.txtCodIngredientes)
+        Me.Controls.Add(Me.txtCodigoIngredientes)
         Me.Controls.Add(Me.txtCosto)
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.Label3)
@@ -240,7 +240,7 @@ Partial Class Ingredientes
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnAgregar As Button
     Friend WithEvents dvgIngredientes As DataGridView
-    Friend WithEvents txtCodIngredientes As TextBox
+    Friend WithEvents txtCodigoIngredientes As TextBox
     Friend WithEvents txtCosto As TextBox
     Friend WithEvents txtDescripcion As TextBox
     Friend WithEvents Label3 As Label

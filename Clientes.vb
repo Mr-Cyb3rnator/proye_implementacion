@@ -48,7 +48,7 @@ Public Class Clientes
             cargargrid()
 
             dvgClientes.ClearSelection()
-            txtCodCliente.Text = ""
+            txtCodigoCliente.Text = ""
             txtNombre.Text = ""
             txtDireccion.Text = ""
             txtTelefono.Text = ""
@@ -86,7 +86,7 @@ Public Class Clientes
         conecta()
         Dim eliminar As String = "delete from clientes where cod_cliente=@cod_cliente "
         Dim procesar As New SqlCommand(eliminar, conectar)
-        procesar.Parameters.AddWithValue("@cod_cliente", txtCodCliente.Text)
+        procesar.Parameters.AddWithValue("@cod_cliente", txtCodigoCliente.Text)
         procesar.ExecuteNonQuery()
         conectar.Close()
         cargargrid()
@@ -95,7 +95,7 @@ Public Class Clientes
         cargargrid()
         dvgClientes.ClearSelection()
 
-        txtCodCliente.Text = ""
+        txtCodigoCliente.Text = ""
         txtNombre.Text = ""
         txtDireccion.Text = ""
         txtTelefono.Text = ""
@@ -117,7 +117,7 @@ Public Class Clientes
 
         Dim datos_clientes As String = "update clientes set nombre=@nombre,telefono=@telefono,direccion=@direccion where cod_cliente=@cod_cliente"
         Dim actualizar As New SqlCommand(datos_clientes, conectar)
-        actualizar.Parameters.AddWithValue("@cod_cliente", txtCodCliente.Text)
+        actualizar.Parameters.AddWithValue("@cod_cliente", txtCodigoCliente.Text)
         actualizar.Parameters.AddWithValue("@nombre", txtNombre.Text)
         actualizar.Parameters.AddWithValue("@telefono", txtTelefono.Text)
         actualizar.Parameters.AddWithValue("@direccion", txtDireccion.Text)
@@ -129,7 +129,7 @@ Public Class Clientes
         cargargrid()
         dvgClientes.ClearSelection()
 
-        txtCodCliente.Text = ""
+        txtCodigoCliente.Text = ""
         txtNombre.Text = ""
         txtTelefono.Text = ""
         txtDireccion.Text = ""
@@ -211,19 +211,19 @@ Public Class Clientes
         End If
     End Sub
 
-    Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodCliente.KeyPress
+    Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodigoCliente.KeyPress
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
-            tt_cliente.SetToolTip(txtCodCliente, "")
+            tt_cliente.SetToolTip(txtCodigoCliente, "")
         ElseIf Char.IsControl(e.KeyChar) Then
             e.Handled = False
-            tt_cliente.SetToolTip(txtCodCliente, "")
+            tt_cliente.SetToolTip(txtCodigoCliente, "")
         ElseIf Char.IsSeparator(e.KeyChar) Then
             e.Handled = False
-            tt_cliente.SetToolTip(txtCodCliente, "")
+            tt_cliente.SetToolTip(txtCodigoCliente, "")
         Else
             e.Handled = True
-            tt_cliente.SetToolTip(txtCodCliente, "Solo Acepta Numeros")
+            tt_cliente.SetToolTip(txtCodigoCliente, "Solo Acepta Numeros")
 
 
         End If
@@ -244,14 +244,14 @@ Public Class Clientes
 
     End Sub
 
-    Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtCodCliente.TextChanged
+    Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtCodigoCliente.TextChanged
 
     End Sub
 
     Private Sub DGclientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dvgClientes.CellContentClick
         Dim fila As Integer = dvgClientes.CurrentCell.RowIndex
 
-        txtCodCliente.Text = dvgClientes(0, fila).Value.ToString()
+        txtCodigoCliente.Text = dvgClientes(0, fila).Value.ToString()
         txtNombre.Text = dvgClientes(1, fila).Value.ToString()
         txtDireccion.Text = dvgClientes(2, fila).Value.ToString()
         txtTelefono.Text = dvgClientes(3, fila).Value.ToString()
@@ -270,7 +270,7 @@ Public Class Clientes
             btnEditar.Enabled = True
             btnEliminar.Enabled = True
 
-            txtCodCliente.Text = dvgClientes.Rows(fila).Cells(0).Value
+            txtCodigoCliente.Text = dvgClientes.Rows(fila).Cells(0).Value
             txtNombre.Text = dvgClientes.Rows(fila).Cells(1).Value
             txtTelefono.Text = dvgClientes.Rows(fila).Cells(2).Value
             txtDireccion.Text = dvgClientes.Rows(fila).Cells(3).Value
