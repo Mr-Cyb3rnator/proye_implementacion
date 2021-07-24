@@ -25,7 +25,7 @@ Partial Class estado_resultados
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(estado_resultados))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtGrupo = New System.Windows.Forms.TextBox()
-        Me.btcargar_gastos = New System.Windows.Forms.Button()
+        Me.btCargarGastos = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.dgvGastos = New System.Windows.Forms.DataGridView()
         Me.txtTotalGastos = New System.Windows.Forms.TextBox()
@@ -38,11 +38,11 @@ Partial Class estado_resultados
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dgvAnimales = New System.Windows.Forms.DataGridView()
-        Me.txtganacia = New System.Windows.Forms.TextBox()
+        Me.txtGanacia = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.btcalcular = New System.Windows.Forms.Button()
+        Me.btCalcular = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnatras = New System.Windows.Forms.Button()
+        Me.btnAtras = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvGastos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -71,20 +71,20 @@ Partial Class estado_resultados
         Me.txtGrupo.Size = New System.Drawing.Size(124, 37)
         Me.txtGrupo.TabIndex = 1
         '
-        'btcargar_gastos
+        'btCargarGastos
         '
-        Me.btcargar_gastos.BackColor = System.Drawing.Color.BurlyWood
-        Me.btcargar_gastos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btcargar_gastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btcargar_gastos.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btcargar_gastos.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btcargar_gastos.Location = New System.Drawing.Point(499, 71)
-        Me.btcargar_gastos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.btcargar_gastos.Name = "btcargar_gastos"
-        Me.btcargar_gastos.Size = New System.Drawing.Size(146, 100)
-        Me.btcargar_gastos.TabIndex = 4
-        Me.btcargar_gastos.Text = "Cargar Gastos"
-        Me.btcargar_gastos.UseVisualStyleBackColor = False
+        Me.btCargarGastos.BackColor = System.Drawing.Color.BurlyWood
+        Me.btCargarGastos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btCargarGastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btCargarGastos.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btCargarGastos.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btCargarGastos.Location = New System.Drawing.Point(499, 71)
+        Me.btCargarGastos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btCargarGastos.Name = "btCargarGastos"
+        Me.btCargarGastos.Size = New System.Drawing.Size(146, 100)
+        Me.btCargarGastos.TabIndex = 4
+        Me.btCargarGastos.Text = "Cargar Gastos"
+        Me.btCargarGastos.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -236,16 +236,16 @@ Partial Class estado_resultados
         Me.dgvAnimales.Size = New System.Drawing.Size(502, 346)
         Me.dgvAnimales.TabIndex = 7
         '
-        'txtganacia
+        'txtGanacia
         '
-        Me.txtganacia.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtganacia.Enabled = False
-        Me.txtganacia.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtganacia.Location = New System.Drawing.Point(1399, 815)
-        Me.txtganacia.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txtganacia.Name = "txtganacia"
-        Me.txtganacia.Size = New System.Drawing.Size(124, 30)
-        Me.txtganacia.TabIndex = 36
+        Me.txtGanacia.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtGanacia.Enabled = False
+        Me.txtGanacia.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtGanacia.Location = New System.Drawing.Point(1399, 815)
+        Me.txtGanacia.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtGanacia.Name = "txtGanacia"
+        Me.txtGanacia.Size = New System.Drawing.Size(124, 30)
+        Me.txtGanacia.TabIndex = 36
         '
         'Label7
         '
@@ -258,19 +258,19 @@ Partial Class estado_resultados
         Me.Label7.TabIndex = 35
         Me.Label7.Text = "Total ganancia o perdida:"
         '
-        'btcalcular
+        'btCalcular
         '
-        Me.btcalcular.BackColor = System.Drawing.Color.BurlyWood
-        Me.btcalcular.Enabled = False
-        Me.btcalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btcalcular.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btcalcular.Location = New System.Drawing.Point(1231, 894)
-        Me.btcalcular.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.btcalcular.Name = "btcalcular"
-        Me.btcalcular.Size = New System.Drawing.Size(146, 74)
-        Me.btcalcular.TabIndex = 37
-        Me.btcalcular.Text = "Calcular"
-        Me.btcalcular.UseVisualStyleBackColor = False
+        Me.btCalcular.BackColor = System.Drawing.Color.BurlyWood
+        Me.btCalcular.Enabled = False
+        Me.btCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btCalcular.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btCalcular.Location = New System.Drawing.Point(1231, 894)
+        Me.btCalcular.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btCalcular.Name = "btCalcular"
+        Me.btCalcular.Size = New System.Drawing.Size(146, 74)
+        Me.btCalcular.TabIndex = 37
+        Me.btCalcular.Text = "Calcular"
+        Me.btCalcular.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -283,17 +283,17 @@ Partial Class estado_resultados
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Estado de Resultado"
         '
-        'btnatras
+        'btnAtras
         '
-        Me.btnatras.BackColor = System.Drawing.Color.BurlyWood
-        Me.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnatras.Image = Global.proye.My.Resources.Resources.atras__2_
-        Me.btnatras.Location = New System.Drawing.Point(1566, 894)
-        Me.btnatras.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(129, 85)
-        Me.btnatras.TabIndex = 38
-        Me.btnatras.UseVisualStyleBackColor = False
+        Me.btnAtras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAtras.Image = Global.proye.My.Resources.Resources.atras__2_
+        Me.btnAtras.Location = New System.Drawing.Point(1566, 894)
+        Me.btnAtras.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAtras.Name = "btnAtras"
+        Me.btnAtras.Size = New System.Drawing.Size(129, 85)
+        Me.btnAtras.TabIndex = 38
+        Me.btnAtras.UseVisualStyleBackColor = False
         '
         'estado_resultados
         '
@@ -302,12 +302,12 @@ Partial Class estado_resultados
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(1729, 1030)
-        Me.Controls.Add(Me.btnatras)
+        Me.Controls.Add(Me.btnAtras)
         Me.Controls.Add(Me.txtGrupo)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btcalcular)
-        Me.Controls.Add(Me.txtganacia)
-        Me.Controls.Add(Me.btcargar_gastos)
+        Me.Controls.Add(Me.btCalcular)
+        Me.Controls.Add(Me.txtGanacia)
+        Me.Controls.Add(Me.btCargarGastos)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -334,7 +334,7 @@ Partial Class estado_resultados
 
     Friend WithEvents Label1 As Label
     Friend WithEvents txtGrupo As TextBox
-    Friend WithEvents btcargar_gastos As Button
+    Friend WithEvents btCargarGastos As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvGastos As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
@@ -347,9 +347,9 @@ Partial Class estado_resultados
     Friend WithEvents Label5 As Label
     Friend WithEvents txtCostoCompra As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtganacia As TextBox
+    Friend WithEvents txtGanacia As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents btcalcular As Button
+    Friend WithEvents btCalcular As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnatras As Button
+    Friend WithEvents btnAtras As Button
 End Class

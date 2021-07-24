@@ -75,8 +75,8 @@ Public Class estado_resultados
         frm_Menu.Show()
     End Sub
     'validaciones de textboxs
-    Private Sub btcalcular_Click(sender As Object, e As EventArgs) Handles btcalcular.Click
-        txtganacia.Text = Val(txtTotalVenta.Text) - Val(txtTotalGastos.Text) - Val(txtCostoCompra.Text)
+    Private Sub btcalcular_Click(sender As Object, e As EventArgs) Handles btCalcular.Click
+        txtGanacia.Text = Val(txtTotalVenta.Text) - Val(txtTotalGastos.Text) - Val(txtCostoCompra.Text)
     End Sub
     Private Sub txtgrupo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtGrupo.KeyPress
         CampoValidacionNumeros(e)
@@ -96,13 +96,13 @@ Public Class estado_resultados
     Private Sub txt_costo_compra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCostoCompra.KeyPress
         CampoValidacionNumeros(e)
     End Sub
-    Private Sub btnatras_Click_1(sender As Object, e As EventArgs) Handles btnatras.Click
+    Private Sub btnatras_Click_1(sender As Object, e As EventArgs) Handles btnAtras.Click
         Me.Close()
         frm_Menu.Show()
     End Sub
-    Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btcargar_gastos.Click
+    Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btCargarGastos.Click
         '------------boton de cargar gastos
-        btcalcular.Enabled = True
+        btCalcular.Enabled = True
         cargar_gasto_total()
         cargargrid_detalle()
         cargargrid_grupo()
