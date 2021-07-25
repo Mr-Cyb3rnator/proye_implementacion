@@ -93,6 +93,44 @@ BEGIN
 	END
 GO
 
+/****** Object:  StoredProcedure [dbo].[ActualizarUsuarios]    Script Date: 23/7/2021 22:27:55 ******/
+DROP PROCEDURE [dbo].[ActualizarUsuarios]
+GO
+
+/****** Object:  StoredProcedure [dbo].[ActualizarUsuarios]    Script Date: 23/7/2021 22:27:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio de 2021
+-- Description:	Actualizar los usuarios de la BD
+-- =============================================
+CREATE PROCEDURE [dbo].[ActualizarUsuarios] 
+	-- Add the parameters for the stored procedure here
+	@cod_usuario int,
+	@usuario nvarchar(15),
+	@contrasenia nvarchar(255),
+	@tipousuario nvarchar(20)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	update usuarios 
+		set usuario = @usuario,
+		contrasenia= @contrasenia,
+		tipo_usuario = @tipousuario 
+	where cod_usuario= @cod_usuario
+END
+GO
+
+
 /****** Object:  StoredProcedure [dbo].[CalcularPesoTotalAnimales]    Script Date: 16/7/2021 10:11:14 ******/
 DROP PROCEDURE [dbo].[CalcularPesoTotalAnimales]
 GO
@@ -124,6 +162,467 @@ BEGIN
 	where cod_grupo = @grupo
 END
 GO
+
+/****** Object:  StoredProcedure [dbo].[EliminarUsuarios]    Script Date: 23/7/2021 22:29:01 ******/
+DROP PROCEDURE [dbo].[EliminarUsuarios]
+GO
+
+/****** Object:  StoredProcedure [dbo].[EliminarUsuarios]    Script Date: 23/7/2021 22:29:01 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Eliminar usuarios de la BD
+-- =============================================
+CREATE PROCEDURE [dbo].[EliminarUsuarios] 
+	-- Add the parameters for the stored procedure here
+	@codusuario int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	delete from usuarios where cod_usuario = @codusuario 
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoCompra_General]    Script Date: 23/7/2021 22:29:19 ******/
+DROP PROCEDURE [dbo].[HistoricoCompra_General]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoCompra_General]    Script Date: 23/7/2021 22:29:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Historico de Compra de Animales
+-- =============================================
+CREATE PROCEDURE [dbo].[HistoricoCompra_General]
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT  
+	CA.fecha as 'Fecha',
+	CA.cod_compra as 'Grupo',
+	C.nombre as 'Cliente',
+	DCA.raza as 'Raza',
+	SUM(DCA.peso_inicial) as 'Peso Inicial',
+	SUM(DCA.precio_compra) as 'Total Precio'
+
+FROM compra_animales CA
+INNER JOIN clientes C ON CA.cod_cliente = C.cod_cliente
+INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_detalle_compra
+GROUP BY CA.fecha,CA.cod_compra,C.nombre,DCA.raza
+ORDER BY CA.fecha DESC
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoCliente]    Script Date: 23/7/2021 22:30:03 ******/
+DROP PROCEDURE [dbo].[HistoricoCompraFiltradoCliente]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoCliente]    Script Date: 23/7/2021 22:30:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Historico de Compra de Animales Filtrado x Cliente
+-- =============================================
+
+CREATE PROCEDURE [dbo].[HistoricoCompraFiltradoCliente] 
+	@cliente nvarchar(30),
+	@fechainicial date,
+	@fechafinal date
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT  
+	CA.fecha as 'Fecha',
+	CA.cod_compra as 'Grupo',
+	C.nombre as 'Cliente',
+	DCA.raza as 'Raza',
+	SUM(DCA.peso_inicial) as 'Peso Inicial',
+	SUM(DCA.precio_compra) as 'Total Precio'
+
+FROM compra_animales CA
+INNER JOIN clientes C ON CA.cod_cliente = C.cod_cliente
+INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_detalle_compra
+WHERE C.nombre like '%'+@cliente+'%' AND (CA.fecha between @fechainicial and @fechafinal) 
+GROUP BY CA.fecha,CA.cod_compra,C.nombre,DCA.raza
+ORDER BY CA.fecha DESC
+END
+GO
+
+
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoRaza]    Script Date: 23/7/2021 22:31:23 ******/
+DROP PROCEDURE [dbo].[HistoricoCompraFiltradoRaza]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoRaza]    Script Date: 23/7/2021 22:31:23 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 21 de julio del 2021
+-- Description:	Historico de Compra de Animales Filtrado x Raza
+-- =============================================
+CREATE PROCEDURE [dbo].[HistoricoCompraFiltradoRaza]
+	@raza nvarchar(30),
+	@fechainicial date,
+	@fechafinal date
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT  
+	CA.fecha as 'Fecha',
+	CA.cod_compra as 'Grupo',
+	C.nombre as 'Cliente',
+	DCA.raza as 'Raza',
+	SUM(DCA.peso_inicial) as 'Peso Inicial',
+	SUM(DCA.precio_compra) as 'Total Precio'
+
+FROM compra_animales CA
+INNER JOIN clientes C ON CA.cod_cliente = C.cod_cliente
+INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_detalle_compra
+WHERE DCA.raza like '%'+@raza+'%' AND (CA.fecha between @fechainicial and @fechafinal)
+GROUP BY CA.fecha,CA.cod_compra,C.nombre,DCA.raza
+ORDER BY CA.fecha DESC
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraxGrupo]    Script Date: 23/7/2021 22:31:46 ******/
+DROP PROCEDURE [dbo].[HistoricoCompraxGrupo]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraxGrupo]    Script Date: 23/7/2021 22:31:46 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Historico de Compra por Grupo en específico
+-- =============================================
+CREATE PROCEDURE [dbo].[HistoricoCompraxGrupo]
+	-- Add the parameters for the stored procedure here
+	@grupo int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT  
+	CA.fecha as 'Fecha',
+	CA.cod_compra as 'Grupo',
+	C.nombre as 'Cliente',
+	SUM(DCA.peso_inicial) as 'Peso Inicial',
+	SUM(DCA.precio_compra) as 'Total Precio'
+
+FROM compra_animales CA
+INNER JOIN clientes C ON CA.cod_cliente = C.cod_cliente
+INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_detalle_compra
+WHERE CA.cod_compra = @grupo
+GROUP BY CA.fecha,CA.cod_compra,C.nombre
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoVentas_FiltradoCliente]    Script Date: 23/7/2021 22:32:05 ******/
+DROP PROCEDURE [dbo].[HistoricoVentas_FiltradoCliente]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoVentas_FiltradoCliente]    Script Date: 23/7/2021 22:32:05 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 21 de julio del 2021
+-- Description:	Historico de Ventas de Animales Filtrado por Cliente
+-- =============================================
+CREATE PROCEDURE [dbo].[HistoricoVentas_FiltradoCliente]
+@cliente nvarchar(30),
+@fechainicial date,
+@fechafinal date
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT
+	VA.fecha as 'Fecha',
+	C.nombre as 'Cliente',
+	VA.cod_grupo as 'Grupo',
+	SUM(VA.cantidad_libras) as 'Total Lbs',
+	VA.precio_libra as 'Precio x Lb',
+	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	
+
+FROM animales A
+INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
+Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
+WHERE a.estado is not null and C.nombre like '%'+@cliente+'%' AND (VA.fecha between @fechainicial and @fechafinal)
+GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
+ORDER BY VA.fecha DESC
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoVentas_FiltradoPesoMayor]    Script Date: 23/7/2021 22:32:21 ******/
+DROP PROCEDURE [dbo].[HistoricoVentas_FiltradoPesoMayor]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoVentas_FiltradoPesoMayor]    Script Date: 23/7/2021 22:32:21 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 21 de julio del 2021
+-- Description:	Historico de Ventas de Animales Filtrado por Peso Mayor
+-- =============================================
+CREATE PROCEDURE [dbo].[HistoricoVentas_FiltradoPesoMayor]
+@peso int,
+@fechainicial date,
+@fechafinal date
+
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT
+	VA.fecha as 'Fecha',
+	C.nombre as 'Cliente',
+	VA.cod_grupo as 'Grupo',
+	SUM(VA.cantidad_libras) 'Total Lbs',
+	VA.precio_libra as 'Precio x Lb',
+	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	
+
+FROM animales A
+INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
+Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
+WHERE A.estado is not null AND (VA.fecha between @fechainicial and @fechafinal)
+GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
+HAVING SUM(VA.cantidad_libras) >= @peso
+ORDER BY VA.fecha DESC
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoVentas_FiltradoPesoMenor]    Script Date: 23/7/2021 22:32:49 ******/
+DROP PROCEDURE [dbo].[HistoricoVentas_FiltradoPesoMenor]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoVentas_FiltradoPesoMenor]    Script Date: 23/7/2021 22:32:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 21 de julio del 2021
+-- Description:	Historico de Ventas de Animales Filtrado por Peso Menor
+-- =============================================
+CREATE PROCEDURE [dbo].[HistoricoVentas_FiltradoPesoMenor]
+@peso int,
+@fechainicial date,
+@fechafinal date
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT
+	VA.fecha as 'Fecha',
+	C.nombre as 'Cliente',
+	VA.cod_grupo as 'Grupo',
+	SUM(VA.cantidad_libras) 'Total Lbs',
+	VA.precio_libra as 'Precio x Lb',
+	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	
+
+FROM animales A
+INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
+Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
+WHERE a.estado is not null AND (VA.fecha between @fechainicial and @fechafinal)   
+GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
+HAVING SUM(VA.cantidad_libras) <= @peso
+ORDER BY VA.fecha DESC
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoVentasxGrupo]    Script Date: 23/7/2021 22:33:04 ******/
+DROP PROCEDURE [dbo].[HistoricoVentasxGrupo]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistoricoVentasxGrupo]    Script Date: 23/7/2021 22:33:04 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 21 de julio del 2021
+-- Description:	Historico de Venta de Animales filtrado por Grupo
+-- =============================================
+CREATE PROCEDURE [dbo].[HistoricoVentasxGrupo]
+	@codgrupo int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT
+	
+	C.nombre as 'Cliente',
+	VA.cod_grupo as 'Grupo',
+	SUM(VA.cantidad_libras) as 'Total Lbs',
+	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	
+FROM animales A
+INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
+Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
+WHERE a.estado is not null and VA.cod_grupo = @codgrupo
+GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistorioVentas_General]    Script Date: 23/7/2021 22:33:19 ******/
+DROP PROCEDURE [dbo].[HistorioVentas_General]
+GO
+
+/****** Object:  StoredProcedure [dbo].[HistorioVentas_General]    Script Date: 23/7/2021 22:33:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 21 de julio del 2021
+-- Description:	Historico de Ventas de Animales
+-- =============================================
+CREATE PROCEDURE [dbo].[HistorioVentas_General]
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT
+	VA.fecha as 'Fecha',
+	C.nombre as 'Cliente',
+	VA.cod_grupo as 'Grupo',
+	SUM(VA.cantidad_libras) as 'Total Lbs',
+	VA.precio_libra as 'Precio x Lb',
+	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	
+
+FROM animales A
+INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
+Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
+WHERE a.estado is not null
+GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[Insertar_Usuarios]    Script Date: 23/7/2021 22:33:44 ******/
+DROP PROCEDURE [dbo].[Insertar_Usuarios]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Insertar_Usuarios]    Script Date: 23/7/2021 22:33:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Ingresar nuevos usuarios al sistema
+-- =============================================
+CREATE PROCEDURE [dbo].[Insertar_Usuarios]
+	-- Add the parameters for the stored procedure here
+	@cod_usuario int,
+	@usuario nvarchar(15),
+	@contrasenia nvarchar(255),
+	@tipousuario nvarchar(20)	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	insert into usuarios(cod_usuario,usuario,contrasenia,tipo_usuario) 
+	values(@cod_usuario,@usuario,@contrasenia,@tipousuario)
+END
+GO
+
+
 
 
 /****** Object:  StoredProcedure [dbo].[InsertarAnimales]    Script Date: 16/7/2021 10:13:56 ******/
@@ -358,6 +857,79 @@ BEGIN
 END
 GO
 
+/****** Object:  StoredProcedure [dbo].[LecturaUsuarios_BD]    Script Date: 23/7/2021 22:37:34 ******/
+DROP PROCEDURE [dbo].[LecturaUsuarios_BD]
+GO
+
+/****** Object:  StoredProcedure [dbo].[LecturaUsuarios_BD]    Script Date: 23/7/2021 22:37:34 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date:	20 de julio del 2021
+-- Description:	Lectura de los Usuarios en BD
+-- =============================================
+CREATE PROCEDURE [dbo].[LecturaUsuarios_BD] 
+	-- Add the parameters for the stored procedure here
+	@nombre nvarchar(15)
+	
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT
+		usuario AS 'Usuario',
+		contrasenia AS 'Password',
+		tipo_usuario as 'Nivel'
+	FROM usuarios
+	WHERE usuario = @nombre
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[Lista_Usuarios]    Script Date: 23/7/2021 22:37:53 ******/
+DROP PROCEDURE [dbo].[Lista_Usuarios]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Lista_Usuarios]    Script Date: 23/7/2021 22:37:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Oscar Andrade
+-- Create date: 20 de julio del 2021
+-- Description:	Lista de todos los usuarios en la BD
+-- =============================================
+CREATE PROCEDURE [dbo].[Lista_Usuarios]
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select 
+		cod_usuario as 'Codigo',
+		usuario as 'Usuario',
+		contrasenia as 'Password',
+		tipo_usuario as 'Nivel'
+	From usuarios
+END
+GO
+
+
+
 /****** Object:  StoredProcedure [dbo].[ListaIngredientes]    Script Date: 16/7/2021 10:17:01 ******/
 DROP PROCEDURE [dbo].[ListaIngredientes]
 GO
@@ -490,166 +1062,5 @@ SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
-GO
-
--- =============================================
--- Author:		Oscar Andrade
--- Create date: 20 de julio de 2021
--- Description:	Actualizar los usuarios de la BD
--- =============================================
-CREATE PROCEDURE [dbo].[ActualizarUsuarios] 
-	-- Add the parameters for the stored procedure here
-	@cod_usuario int,
-	@usuario nvarchar(15),
-	@contrasenia nvarchar(255),
-	@tipousuario nvarchar(20)
-AS
-BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	update usuarios 
-		set usuario = @usuario,
-		contrasenia= @contrasenia,
-		tipo_usuario = @tipousuario 
-	where cod_usuario= @cod_usuario
-END
-GO
-
-/****** Object:  StoredProcedure [dbo].[EliminarUsuarios]    Script Date: 20/7/2021 15:16:09 ******/
-DROP PROCEDURE [dbo].[EliminarUsuarios]
-GO
-
-/****** Object:  StoredProcedure [dbo].[EliminarUsuarios]    Script Date: 20/7/2021 15:16:09 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
--- =============================================
--- Author:		Oscar Andrade
--- Create date: 20 de julio del 2021
--- Description:	Eliminar usuarios de la BD
--- =============================================
-CREATE PROCEDURE [dbo].[EliminarUsuarios] 
-	-- Add the parameters for the stored procedure here
-	@codusuario int
-AS
-BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	delete from usuarios where cod_usuario = @codusuario 
-END
-GO
-
-/****** Object:  StoredProcedure [dbo].[Insertar_Usuarios]    Script Date: 20/7/2021 15:16:28 ******/
-DROP PROCEDURE [dbo].[Insertar_Usuarios]
-GO
-
-/****** Object:  StoredProcedure [dbo].[Insertar_Usuarios]    Script Date: 20/7/2021 15:16:28 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
--- =============================================
--- Author:		Oscar Andrade
--- Create date: 20 de julio del 2021
--- Description:	Ingresar nuevos usuarios al sistema
--- =============================================
-CREATE PROCEDURE [dbo].[Insertar_Usuarios]
-	-- Add the parameters for the stored procedure here
-	@cod_usuario int,
-	@usuario nvarchar(15),
-	@contrasenia nvarchar(255),
-	@tipousuario nvarchar(20)	
-AS
-BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	insert into usuarios(cod_usuario,usuario,contrasenia,tipo_usuario) 
-	values(@cod_usuario,@usuario,@contrasenia,@tipousuario)
-END
-GO
-
-/****** Object:  StoredProcedure [dbo].[LecturaUsuarios_BD]    Script Date: 20/7/2021 15:16:49 ******/
-DROP PROCEDURE [dbo].[LecturaUsuarios_BD]
-GO
-
-/****** Object:  StoredProcedure [dbo].[LecturaUsuarios_BD]    Script Date: 20/7/2021 15:16:49 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
--- =============================================
--- Author:		Oscar Andrade
--- Create date:	20 de julio del 2021
--- Description:	Lectura de los Usuarios en BD
--- =============================================
-CREATE PROCEDURE [dbo].[LecturaUsuarios_BD] 
-	-- Add the parameters for the stored procedure here
-	@nombre nvarchar(15)
-	
-	
-AS
-BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	SELECT
-		usuario AS 'Usuario',
-		contrasenia AS 'Password',
-		tipo_usuario as 'Nivel'
-	FROM usuarios
-	WHERE usuario = @nombre
-END
-GO
-
-/****** Object:  StoredProcedure [dbo].[Lista_Usuarios]    Script Date: 20/7/2021 15:17:03 ******/
-DROP PROCEDURE [dbo].[Lista_Usuarios]
-GO
-
-/****** Object:  StoredProcedure [dbo].[Lista_Usuarios]    Script Date: 20/7/2021 15:17:03 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
--- =============================================
--- Author:		Oscar Andrade
--- Create date: 20 de julio del 2021
--- Description:	Lista de todos los usuarios en la BD
--- =============================================
-CREATE PROCEDURE [dbo].[Lista_Usuarios]
-	
-AS
-BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	Select 
-		cod_usuario as 'Codigo',
-		usuario as 'Usuario',
-		contrasenia as 'Password',
-		tipo_usuario as 'Nivel'
-	From usuarios
-END
 GO
 

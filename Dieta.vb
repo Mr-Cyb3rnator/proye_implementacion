@@ -138,7 +138,7 @@ Public Class Dieta
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
 
     Private Sub txtcoddieta_TextChanged(sender As Object, e As EventArgs) Handles txtcoddieta.TextChanged

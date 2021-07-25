@@ -200,7 +200,7 @@ Public Class estado_resultados
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) 
         Me.Hide()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
 
     Private Sub btcalcular_Click(sender As Object, e As EventArgs) Handles btcalcular.Click
@@ -288,7 +288,7 @@ Public Class estado_resultados
 
     Private Sub btnatras_Click_1(sender As Object, e As EventArgs) Handles btnatras.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
 
     Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btcargar_gastos.Click

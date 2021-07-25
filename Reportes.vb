@@ -1,8 +1,10 @@
 ﻿Imports System.Data.SqlClient
+
+
 Public Class Reportes
     Private Sub btn_Regresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
 
     Private Sub Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -131,56 +133,72 @@ Public Class Reportes
         Dim fechaFinal As String
 
 
+        instruccion = " "
         fechaInicial = dtpInicio.Value.Date.ToString("yyyy-MM-dd")
         fechaFinal = dtpFinal.Value.Date.ToString("yyyy-MM-dd")
 
 
         If (txtFiltro.Text = "") Then
-            fechaInicial = DateTime.Now.AddYears(-1).ToString("yyyy-MM-dd")
+            fechaInicial = DateTime.Now.AddMonths(-1).ToString("yyyy-MM-dd")
 
             dtpInicio.Value = Convert.ToDateTime(fechaInicial)
+            If (rbCompra.Checked) Then
+                instruccion = "exec HistoricoCompra_General"
+            Else
+                instruccion = "exec HistorioVentas_General"
+            End If
+        Else
+            'Parametros de filtrado, dependiendo de la seleccion del combobox y transaccion animal
+            'compra o venta de animal sera el historico que estara mostrando
+            If (rbCompra.Checked) Then
+                Select Case (cbTipo.SelectedIndex)
+                    Case 0
+                        instruccion = "exec HistoricoCompraFiltradoCliente '" & txtFiltro.Text & "','" & fechaInicial & "','" & fechaFinal & "'"
 
+                    Case 1
+                        instruccion = "exec HistoricoCompraFiltradoRaza '" & txtFiltro.Text & "','" & fechaInicial & "','" & fechaFinal & "'"
+                End Select
+            Else
+                Select Case (cbTipo.SelectedIndex)
+                    Case 0
+                        instruccion = "exec HistoricoVentas_FiltradoCliente '" & txtFiltro.Text & "','" & fechaInicial & "','" & fechaFinal & "'"
+                    Case 1
+
+                        instruccion = "exec HistoricoVentas_FiltradoPesoMenor " & txtFiltro.Text & ",'" & fechaInicial & "','" & fechaFinal & "'"
+
+                    Case 2
+
+                        instruccion = "exec HistoricoVentas_FiltradoPesoMayor " & txtFiltro.Text & ",'" & fechaInicial & "','" & fechaFinal & "'"
+                End Select
+            End If
         End If
+
 
         conecta()
-        'Parametros de filtrado, dependiendo de la seleccion del combobox y transaccion animal
-        'compra o venta de animal sera el historico que estara mostrando
-        If (rbCompra.Checked) Then
-            Select Case (cbTipo.SelectedIndex)
-                Case 0
-                    instruccion = "exec HistoricoCompraFiltradoCliente '" & txtFiltro.Text & "','" & fechaInicial & "','" & fechaFinal & "'"
-
-                Case 1
-                    instruccion = "exec HistoricoCompraFiltradoRaza '" & txtFiltro.Text & "'"
-            End Select
-        Else
-            Select Case (cbTipo.SelectedIndex)
-                Case 0
-                    instruccion = "exec HistoricoVentas_FiltradoCliente '" & txtFiltro.Text & "'"
-                Case 1
-                    instruccion = "exec HistoricoVentas_FiltradoPesoMenor " & txtFiltro.Text
-                Case 2
-                    instruccion = "exec HistoricoVentas_FiltradoPesoMayor " & txtFiltro.Text
-            End Select
-        End If
-
-
+        'Se carga el datagridview de acuerdo a la instruccion pautada en los bloques anteriores
         Try
 
             datos = CargarDatosGrid(instruccion)
             dgvDatos.DataSource = datos
         Catch ex As Exception
-            MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
+            MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros que se estan ingresando")
         End Try
+
         CerrarConexion()
     End Sub
 
     Private Sub btn_ReportGenerator_Click(sender As Object, e As EventArgs) Handles btn_ReportGenerator.Click
 
-        Me.Hide()
-        ReporteHistorico.Show()
+        'Me.Hide()
+        'ReporteHistorico.Show()
+
+
+        'Dim ds As New DataSet("ReporteDataSet")
         'Dim dt As New DataTable
+
         'Dim ch As New List(Of String)
+
+        'dt = ds.Tables("DatosReporte")
 
         'Capturando las cabeceras del Data Grid View
         'For Each header As DataGridViewColumn In dgvDatos.Columns
@@ -189,8 +207,8 @@ Public Class Reportes
 
 
         'For i = 0 To ch.Count - 1 Step 1
-        'MsgBox(ch(i))
-        'dt.Columns.Add(ch(i))
+        'MsgBox(Chr(34) + ch(i) + Chr(34))
+        'dt.Columns.Add(Chr(34) + ch(i) + Chr(34))
         'Next i
 
         'For Each row As DataGridViewRow In dgvDatos.Rows
@@ -201,10 +219,13 @@ Public Class Reportes
         'Next
 
 
-
-        'ReportViewer1.LocalReport.DataSources.Clear();
-        'ReportViewer1.LocalReport.DataSources.Add(datasource);
-        'ReportViewer1.LocalReport.Refresh();
+        'ReportViewer1.LocalReport.ReportPath = "d:\universidad\estudios\implementación de software\proyectoganado\proye\Historico.rdlc"
+        'ReportViewer1.LocalReport.DataSources.Clear()
+        'ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("myDataSet", dt))
+        'ReportViewer1.LocalReport.Refresh()
+        'ReportViewer1.RefreshReport()
 
     End Sub
+
+
 End Class

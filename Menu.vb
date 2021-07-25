@@ -1,75 +1,78 @@
-﻿Public Class frm_Menu
+﻿Public Class frmMenu
+
+    Dim strHelpPath As String = System.IO.Path.Combine(Application.StartupPath, “HelpGanado.chm”)
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If (nivel = 1) Then
-            btn_Grupo.Enabled = True
-            btn_Dietas.Enabled = True
-            btn_Ingredientes.Enabled = True
-            btn_VentaGanado.Enabled = True
-            btn_Clientes.Enabled = True
-            btn_Balance.Enabled = True
-            btn_Gasto.Enabled = True
-            btn_Compra.Enabled = True
-            btn_CabezaGanado.Enabled = True
+            btnGrupo.Enabled = True
+            btnDietas.Enabled = True
+            btnIngredientes.Enabled = True
+            btnVentaGanado.Enabled = True
+            btnClientes.Enabled = True
+            btnBalance.Enabled = True
+            btnGasto.Enabled = True
+            btnCompra.Enabled = True
+            btnCabezaGanado.Enabled = True
 
         Else
-            btn_Grupo.Enabled = True
-            btn_Dietas.Enabled = True
-            btn_CabezaGanado.Enabled = True
-            btn_Ingredientes.Enabled = False
-            btn_VentaGanado.Enabled = False
-            btn_Clientes.Enabled = False
-            btn_Balance.Enabled = False
-            btn_Gasto.Enabled = False
-            btn_Compra.Enabled = False
+            btnGrupo.Enabled = True
+            btnDietas.Enabled = True
+            btnCabezaGanado.Enabled = True
+            btnIngredientes.Enabled = False
+            btnVentaGanado.Enabled = False
+            btnClientes.Enabled = False
+            btnBalance.Enabled = False
+            btnGasto.Enabled = False
+            btnCompra.Enabled = False
         End If
+        HelpProvider1.HelpNamespace = strHelpPath
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_Grupo.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnGrupo.Click
         Me.Hide()
         Grupos.Show()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btn_Dietas.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnDietas.Click
         Me.Hide()
         Dieta.Show()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btn_Ingredientes.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnIngredientes.Click
         Me.Hide()
         Ingredientes.Show()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btn_VentaGanado.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnVentaGanado.Click
         Me.Hide()
         VentaGanado.Show()
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btn_Clientes.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnClientes.Click
         Me.Hide()
         Clientes.Show()
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles btn_Balance.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles btnBalance.Click
         Me.Hide()
         estado_resultados.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_CabezaGanado.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnCabezaGanado.Click
         Me.Hide()
         Cabeza_ganado.Show()
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles btn_Gasto.Click
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles btnGasto.Click
         Me.Hide()
         Gasto.Show()
     End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles btn_Compra.Click
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles btnCompra.Click
         Me.Hide()
         Compra.Show()
     End Sub
 
-    Private Sub btn_Reportes_Click(sender As Object, e As EventArgs) Handles btn_Reportes.Click
+    Private Sub btn_Reportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
         Me.Hide()
         Reportes.Show()
     End Sub
@@ -86,5 +89,8 @@
 
     End Sub
 
+    Private Sub btnHelp_Click(sender As Object, e As EventArgs) Handles btnHelp.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
 
+    End Sub
 End Class

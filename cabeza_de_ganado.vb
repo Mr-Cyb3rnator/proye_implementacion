@@ -126,7 +126,7 @@ Public Class Cabeza_ganado
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs)
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
 
 
         'ESTE CODIGO SIRVE PARA CERRAR COMPLETAMENTE TODO EL PROGRAMA 
@@ -309,7 +309,7 @@ Public Class Cabeza_ganado
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Hide()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
 
     Private Sub rtxtobs_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rtxtobs.KeyPress
@@ -399,7 +399,7 @@ Public Class Cabeza_ganado
 
     Private Sub btnatras_Click_1(sender As Object, e As EventArgs) Handles btnatras.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
 
     End Sub
 End Class

@@ -26,10 +26,10 @@ Public Class frm_InicioSesion
 
         'Se hace el llamado a la funcion que valida si existe o no el usuario en la BD
         If (ComprobacionUsuario()) Then
-            frm_Menu.lb_Usuario.Text = nombreusuario
+            frmMenu.lb_Usuario.Text = nombreusuario
             MessageBox.Show("BIENVENIDO AL SISTEMA")
             Me.Hide()
-            frm_Menu.Show()
+            frmMenu.Show()
         End If
 
 
@@ -68,28 +68,33 @@ Public Class frm_InicioSesion
         'Uso de la funcion encriptacion de la Clase Encriptacion, la clave de llave es "Implementacion"
         cifrado = token.encriptar128BitRijndael(txtpass.Text, "Implementacion")
 
-        Try
-            'Busqueda de que el usuario existe en la BD
-            dr = LecturaBD("exec LecturaUsuarios_BD " & txtusu1.Text)
-            estado = dr.Read
-
-            'Comprobacion de que el Password introducido es el mismo que el BD
-            If (estado) And (dr("Password") = cifrado) Then
+        If (txtusu1.Text <> "") Then
 
 
-                nivel = dr("Nivel")
-                nombreusuario = dr("Usuario")
-                validacion = True
+            Try
+                'Busqueda de que el usuario existe en la BD
+                dr = LecturaBD("exec LecturaUsuarios_BD " & txtusu1.Text)
+                estado = dr.Read
 
-            Else
-                validacion = False
-                MsgBox("Usuario y/o Pass no existe y/o incorrecto")
-            End If
+                'Comprobacion de que el Password introducido es el mismo que el BD
+                If (estado) And (dr("Password") = cifrado) Then
 
-        Catch ex As Exception
-            MsgBox("Revisar conexion a BD y/o Procedimiento con sus parametros")
-        End Try
 
+                    nivel = dr("Nivel")
+                    nombreusuario = dr("Usuario")
+                    validacion = True
+
+                Else
+                    validacion = False
+                    MsgBox("Usuario y/o Pass no existe y/o incorrecto")
+                End If
+
+            Catch ex As Exception
+                MsgBox("Revisar conexion a BD y/o Procedimiento con sus parametros ingresados correctamente")
+            End Try
+        Else
+            MsgBox("Campos no pueden quedar vacios")
+        End If
         txtpass.Text = ""
         txtusu1.Text = ""
         CerrarConexion()
