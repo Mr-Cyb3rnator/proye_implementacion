@@ -22,25 +22,24 @@ Partial Class Grupos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Grupos))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtcodgrup = New System.Windows.Forms.TextBox()
+        Me.txtCodGrup = New System.Windows.Forms.TextBox()
         Me.DTfechaini = New System.Windows.Forms.DateTimePicker()
         Me.DTfechafin = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.DGgrupos = New System.Windows.Forms.DataGridView()
+        Me.dgvGrupos = New System.Windows.Forms.DataGridView()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.rtxtobs = New System.Windows.Forms.RichTextBox()
+        Me.rtxtObs = New System.Windows.Forms.RichTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtnumanimales = New System.Windows.Forms.TextBox()
-        Me.txtcodigodieta = New System.Windows.Forms.TextBox()
+        Me.txtNumAnimales = New System.Windows.Forms.TextBox()
+        Me.txtCodigoDieta = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.bteliminar = New System.Windows.Forms.Button()
-        Me.btagregar = New System.Windows.Forms.Button()
-        Me.btnatras = New System.Windows.Forms.Button()
-        Me.btnedi = New System.Windows.Forms.Button()
-        CType(Me.DGgrupos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnAtras = New System.Windows.Forms.Button()
+        Me.btnEdi = New System.Windows.Forms.Button()
+        CType(Me.dgvGrupos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -53,13 +52,13 @@ Partial Class Grupos
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Codigo de grupo:"
         '
-        'txtcodgrup
+        'txtCodGrup
         '
-        Me.txtcodgrup.Location = New System.Drawing.Point(260, 55)
-        Me.txtcodgrup.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtcodgrup.Name = "txtcodgrup"
-        Me.txtcodgrup.Size = New System.Drawing.Size(100, 27)
-        Me.txtcodgrup.TabIndex = 1
+        Me.txtCodGrup.Location = New System.Drawing.Point(260, 55)
+        Me.txtCodGrup.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtCodGrup.Name = "txtCodGrup"
+        Me.txtCodGrup.Size = New System.Drawing.Size(100, 27)
+        Me.txtCodGrup.TabIndex = 1
         '
         'DTfechaini
         '
@@ -74,6 +73,8 @@ Partial Class Grupos
         '
         'DTfechafin
         '
+        Me.DTfechafin.Checked = False
+        Me.DTfechafin.Enabled = False
         Me.DTfechafin.Location = New System.Drawing.Point(263, 265)
         Me.DTfechafin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DTfechafin.MinDate = New Date(2021, 6, 16, 0, 0, 0, 0)
@@ -101,17 +102,17 @@ Partial Class Grupos
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Fecha Final de engorde:"
         '
-        'DGgrupos
+        'dgvGrupos
         '
-        Me.DGgrupos.AllowUserToAddRows = False
-        Me.DGgrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGgrupos.Location = New System.Drawing.Point(531, 55)
-        Me.DGgrupos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.DGgrupos.Name = "DGgrupos"
-        Me.DGgrupos.RowHeadersWidth = 51
-        Me.DGgrupos.RowTemplate.Height = 24
-        Me.DGgrupos.Size = New System.Drawing.Size(870, 421)
-        Me.DGgrupos.TabIndex = 6
+        Me.dgvGrupos.AllowUserToAddRows = False
+        Me.dgvGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvGrupos.Location = New System.Drawing.Point(531, 55)
+        Me.dgvGrupos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dgvGrupos.Name = "dgvGrupos"
+        Me.dgvGrupos.RowHeadersWidth = 51
+        Me.dgvGrupos.RowTemplate.Height = 24
+        Me.dgvGrupos.Size = New System.Drawing.Size(870, 421)
+        Me.dgvGrupos.TabIndex = 6
         '
         'Label4
         '
@@ -124,14 +125,14 @@ Partial Class Grupos
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Observaciones:"
         '
-        'rtxtobs
+        'rtxtObs
         '
-        Me.rtxtobs.Location = New System.Drawing.Point(179, 365)
-        Me.rtxtobs.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.rtxtobs.Name = "rtxtobs"
-        Me.rtxtobs.Size = New System.Drawing.Size(201, 224)
-        Me.rtxtobs.TabIndex = 8
-        Me.rtxtobs.Text = ""
+        Me.rtxtObs.Location = New System.Drawing.Point(179, 365)
+        Me.rtxtObs.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.rtxtObs.Name = "rtxtObs"
+        Me.rtxtObs.Size = New System.Drawing.Size(201, 224)
+        Me.rtxtObs.TabIndex = 8
+        Me.rtxtObs.Text = ""
         '
         'Label5
         '
@@ -143,23 +144,23 @@ Partial Class Grupos
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "Numero  de animales:"
         '
-        'txtnumanimales
+        'txtNumAnimales
         '
-        Me.txtnumanimales.Location = New System.Drawing.Point(260, 96)
-        Me.txtnumanimales.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtnumanimales.MaxLength = 2
-        Me.txtnumanimales.Name = "txtnumanimales"
-        Me.txtnumanimales.Size = New System.Drawing.Size(100, 27)
-        Me.txtnumanimales.TabIndex = 10
+        Me.txtNumAnimales.Location = New System.Drawing.Point(260, 96)
+        Me.txtNumAnimales.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtNumAnimales.MaxLength = 2
+        Me.txtNumAnimales.Name = "txtNumAnimales"
+        Me.txtNumAnimales.Size = New System.Drawing.Size(100, 27)
+        Me.txtNumAnimales.TabIndex = 10
         '
-        'txtcodigodieta
+        'txtCodigoDieta
         '
-        Me.txtcodigodieta.Location = New System.Drawing.Point(260, 139)
-        Me.txtcodigodieta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtcodigodieta.MaxLength = 2
-        Me.txtcodigodieta.Name = "txtcodigodieta"
-        Me.txtcodigodieta.Size = New System.Drawing.Size(100, 27)
-        Me.txtcodigodieta.TabIndex = 12
+        Me.txtCodigoDieta.Location = New System.Drawing.Point(260, 139)
+        Me.txtCodigoDieta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtCodigoDieta.MaxLength = 2
+        Me.txtCodigoDieta.Name = "txtCodigoDieta"
+        Me.txtCodigoDieta.Size = New System.Drawing.Size(100, 27)
+        Me.txtCodigoDieta.TabIndex = 12
         '
         'Label6
         '
@@ -171,51 +172,51 @@ Partial Class Grupos
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Codigo Dieta:"
         '
-        'bteliminar
+        'btnEliminar
         '
-        Me.bteliminar.BackColor = System.Drawing.Color.BurlyWood
-        Me.bteliminar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.bteliminar.Location = New System.Drawing.Point(667, 560)
-        Me.bteliminar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.bteliminar.Name = "bteliminar"
-        Me.bteliminar.Size = New System.Drawing.Size(113, 69)
-        Me.bteliminar.TabIndex = 26
-        Me.bteliminar.Text = "Eliminar"
-        Me.bteliminar.UseVisualStyleBackColor = False
+        Me.btnEliminar.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnEliminar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnEliminar.Location = New System.Drawing.Point(667, 560)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(113, 69)
+        Me.btnEliminar.TabIndex = 26
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = False
         '
-        'btagregar
+        'btnAgregar
         '
-        Me.btagregar.BackColor = System.Drawing.Color.BurlyWood
-        Me.btagregar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btagregar.Location = New System.Drawing.Point(508, 560)
-        Me.btagregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btagregar.Name = "btagregar"
-        Me.btagregar.Size = New System.Drawing.Size(113, 69)
-        Me.btagregar.TabIndex = 25
-        Me.btagregar.Text = "Agregar "
-        Me.btagregar.UseVisualStyleBackColor = False
+        Me.btnAgregar.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnAgregar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnAgregar.Location = New System.Drawing.Point(508, 560)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(113, 69)
+        Me.btnAgregar.TabIndex = 25
+        Me.btnAgregar.Text = "Agregar "
+        Me.btnAgregar.UseVisualStyleBackColor = False
         '
-        'btnatras
+        'btnAtras
         '
-        Me.btnatras.BackColor = System.Drawing.SystemColors.Control
-        Me.btnatras.Image = CType(resources.GetObject("btnatras.Image"), System.Drawing.Image)
-        Me.btnatras.Location = New System.Drawing.Point(983, 560)
-        Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(107, 69)
-        Me.btnatras.TabIndex = 27
-        Me.btnatras.UseVisualStyleBackColor = False
+        Me.btnAtras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnAtras.Image = Global.proye.My.Resources.Resources.atras__2_
+        Me.btnAtras.Location = New System.Drawing.Point(983, 560)
+        Me.btnAtras.Name = "btnAtras"
+        Me.btnAtras.Size = New System.Drawing.Size(107, 69)
+        Me.btnAtras.TabIndex = 27
+        Me.btnAtras.UseVisualStyleBackColor = False
         '
-        'btnedi
+        'btnEdi
         '
-        Me.btnedi.BackColor = System.Drawing.Color.BurlyWood
-        Me.btnedi.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btnedi.Location = New System.Drawing.Point(824, 560)
-        Me.btnedi.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btnedi.Name = "btnedi"
-        Me.btnedi.Size = New System.Drawing.Size(113, 69)
-        Me.btnedi.TabIndex = 28
-        Me.btnedi.Text = "Editar"
-        Me.btnedi.UseVisualStyleBackColor = False
+        Me.btnEdi.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnEdi.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnEdi.Location = New System.Drawing.Point(824, 560)
+        Me.btnEdi.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnEdi.Name = "btnEdi"
+        Me.btnEdi.Size = New System.Drawing.Size(113, 69)
+        Me.btnEdi.TabIndex = 28
+        Me.btnEdi.Text = "Editar"
+        Me.btnEdi.UseVisualStyleBackColor = False
         '
         'Grupos
         '
@@ -223,48 +224,48 @@ Partial Class Grupos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(1413, 725)
-        Me.Controls.Add(Me.btnedi)
-        Me.Controls.Add(Me.btnatras)
-        Me.Controls.Add(Me.bteliminar)
-        Me.Controls.Add(Me.btagregar)
-        Me.Controls.Add(Me.txtcodigodieta)
+        Me.Controls.Add(Me.btnEdi)
+        Me.Controls.Add(Me.btnAtras)
+        Me.Controls.Add(Me.btnEliminar)
+        Me.Controls.Add(Me.btnAgregar)
+        Me.Controls.Add(Me.txtCodigoDieta)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtnumanimales)
+        Me.Controls.Add(Me.txtNumAnimales)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.rtxtobs)
+        Me.Controls.Add(Me.rtxtObs)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.DGgrupos)
+        Me.Controls.Add(Me.dgvGrupos)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DTfechafin)
         Me.Controls.Add(Me.DTfechaini)
-        Me.Controls.Add(Me.txtcodgrup)
+        Me.Controls.Add(Me.txtCodGrup)
         Me.Controls.Add(Me.Label1)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Grupos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Grupos"
-        CType(Me.DGgrupos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvGrupos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtcodgrup As TextBox
+    Friend WithEvents txtCodGrup As TextBox
     Friend WithEvents DTfechaini As DateTimePicker
     Friend WithEvents DTfechafin As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents DGgrupos As DataGridView
+    Friend WithEvents dgvGrupos As DataGridView
     Friend WithEvents Label4 As Label
-    Friend WithEvents rtxtobs As RichTextBox
+    Friend WithEvents rtxtObs As RichTextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents txtnumanimales As TextBox
-    Friend WithEvents txtcodigodieta As TextBox
+    Friend WithEvents txtNumAnimales As TextBox
+    Friend WithEvents txtCodigoDieta As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents bteliminar As Button
-    Friend WithEvents btagregar As Button
-    Friend WithEvents btnatras As Button
-    Friend WithEvents btnedi As Button
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents btnAtras As Button
+    Friend WithEvents btnEdi As Button
 End Class

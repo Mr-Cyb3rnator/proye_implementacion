@@ -4,20 +4,11 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>proye</RootNamespace>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>proye.Dieta</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="HelpGanado.chm" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="HelpGanado.chm">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />
@@ -26,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.14" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.14" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>

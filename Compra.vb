@@ -217,4 +217,8 @@ Public Class Compra
         frmMenu.Show()
 
     End Sub
+
+    Private Sub Compra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

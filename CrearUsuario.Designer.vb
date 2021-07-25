@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class CrearUsuario
     Inherits System.Windows.Forms.Form
 
@@ -43,9 +43,9 @@ Partial Class CrearUsuario
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(30, 123)
+        Me.Label1.Location = New System.Drawing.Point(26, 92)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 23)
+        Me.Label1.Size = New System.Drawing.Size(70, 21)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Usuario:"
         '
@@ -53,9 +53,9 @@ Partial Class CrearUsuario
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(24, 204)
+        Me.Label2.Location = New System.Drawing.Point(21, 153)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(130, 23)
+        Me.Label2.Size = New System.Drawing.Size(107, 21)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Contraseña:"
         '
@@ -63,9 +63,9 @@ Partial Class CrearUsuario
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(30, 275)
+        Me.Label3.Location = New System.Drawing.Point(26, 206)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 23)
+        Me.Label3.Size = New System.Drawing.Size(46, 21)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Tipo:"
         '
@@ -90,11 +90,12 @@ Partial Class CrearUsuario
         '
         Me.dtgcrear.AllowUserToAddRows = False
         Me.dtgcrear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgcrear.Location = New System.Drawing.Point(297, 39)
+        Me.dtgcrear.Location = New System.Drawing.Point(260, 29)
+        Me.dtgcrear.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dtgcrear.Name = "dtgcrear"
         Me.dtgcrear.RowHeadersWidth = 51
         Me.dtgcrear.RowTemplate.Height = 29
-        Me.dtgcrear.Size = New System.Drawing.Size(499, 264)
+        Me.dtgcrear.Size = New System.Drawing.Size(437, 198)
         Me.dtgcrear.TabIndex = 6
         '
         'btnGuardar
@@ -177,15 +178,15 @@ Partial Class CrearUsuario
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(30, 49)
+        Me.Label4.Location = New System.Drawing.Point(26, 37)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(87, 23)
+        Me.Label4.Size = New System.Drawing.Size(72, 21)
         Me.Label4.TabIndex = 12
         Me.Label4.Text = "Código:"
         '
         'CrearUsuario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(977, 348)
@@ -203,6 +204,7 @@ Partial Class CrearUsuario
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "CrearUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Crear Usuario"

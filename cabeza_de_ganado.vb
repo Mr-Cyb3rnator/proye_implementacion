@@ -2,9 +2,6 @@
 Imports System.Data.SqlClient
 Public Class Cabeza_ganado
 
-
-
-
     Public Sub cargar_combo_grupos()
 
         Try
@@ -25,15 +22,9 @@ Public Class Cabeza_ganado
     Private Sub cargargrid()
 
         conecta()
-        Dim cargar_datos_clientes As String = "select * from animales "
-        Dim mostrar As New DataTable
 
-        Using adpmostrar As New SqlDataAdapter(cargar_datos_clientes, conectar)
+        DGcabezas.DataSource = CargarDatosGrid("select cod_animal as 'Código', peso_inicial as 'Peso incial', peso_1 as 'Peso 1', peso_2 as 'Peso 2', peso_3 as 'Peso 3', peso_4 as 'Peso final', peso_objetivo as 'Peso Objetivo', edad as 'Edad', raza as 'Raza', observaciones as 'Observaciones', cod_grupo as 'Código Grupo',precio_compra as 'Precio de compra', estado as 'Estado' from animales ")
 
-            adpmostrar.Fill(mostrar)
-
-        End Using
-        DGcabezas.DataSource = mostrar
         conectar.Close()
 
 
@@ -46,58 +37,18 @@ Public Class Cabeza_ganado
         bteditar.Enabled = False
         bteliminar.Enabled = False
 
-
-
-
-
-
         cargargrid()
 
     End Sub
 
     Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btagregar.Click
 
-        If (txtpesoini.Text IsNot "" And txtedad.Text IsNot "" And txtraza.Text IsNot "" And combo_grupos.Text IsNot "" And txtpesoini IsNot "") Then
-            'subtotal = Val(txtprecio.Text) * Val(txtcantidad.Text)
-
-
-            'DataGridView1.Rows.Add(txtcod_ingre.Text, txtcantidad.Text, txtprecio.Text, subtotal)
-            'totald = totald + subtotal
-            'txttotal.Text = totald
-
-            'cb_Ingredientes.SelectedIndex = -1
-            'txtprecio.Enabled = False
-            'txtcantidad.Enabled = False
-            'btagregar.Enabled = False
-            'txtcantidad.Text = ""
-            'txtcod_ingre.Text = ""
-            'txtprecio.Text = ""
-
-
-
-
-
-            'DGcabezas.Rows.Add(txtcodigoanimal.Text, txtpesoini.Text, txtpeso1.Text, txtpeso2.Text, txtpeso3.Text, txtpeso4.Text, txtpesoobj.Text, txtedad.Text, txtraza.Text, txtobs.Text, txtcod_grup.Text)
+        If (txtpesoini.Text IsNot "" And txtedad.Text IsNot "" And cb_Raza.Text IsNot "" And combo_grupos.Text IsNot "" And txtpesoini IsNot "" And rtxtobs IsNot "" And txtprecio IsNot "") Then
 
             conecta()
-            Dim insertar_cabezas As String = "insert into animales(peso_inicial,peso_1,peso_2,peso_3,peso_4,peso_objetivo,edad,raza,observaciones,cod_grupo,precio_compra)values(@peso_inicial,@peso_1,@peso_2,@peso_3,@peso_4,@peso_objetivo,@edad,@raza,@observaciones,@cod_grupo,@precio_compra)"
-            Dim insertar As New SqlCommand(insertar_cabezas, conectar)
-            insertar.Parameters.AddWithValue("@peso_inicial", txtpesoini.Text)
-            insertar.Parameters.AddWithValue("@peso_1", txtpeso1.Text)
-            insertar.Parameters.AddWithValue("@peso_2", txtpeso2.Text)
-            insertar.Parameters.AddWithValue("@peso_3", txtpeso3.Text)
-            insertar.Parameters.AddWithValue("@peso_4", txtpeso4.Text)
-            insertar.Parameters.AddWithValue("@peso_objetivo", txtpesoobj.Text)
-            insertar.Parameters.AddWithValue("@edad", txtedad.Text)
-            insertar.Parameters.AddWithValue("@raza", txtraza.Text)
-            insertar.Parameters.AddWithValue("@observaciones", rtxtobs.Text)
-            insertar.Parameters.AddWithValue("@cod_grupo", txtcod_grup.Text)
-            insertar.Parameters.AddWithValue("@precio_compra", txtprecio.Text)
 
 
-            insertar.ExecuteNonQuery()
-
-
+            ModificarBD("exec InsertarAnimalesFormCabezas " & Val(txtpesoini.Text) & "," & "'" & cb_Raza.Text & "'" & "," & Val(combo_grupos.Text) & "," & Val(txtprecio.Text) & "," & Val(txtedad.Text))
 
             conectar.Close()
             cargargrid()
@@ -110,7 +61,6 @@ Public Class Cabeza_ganado
     End Sub
 
     Private Sub bteliminar_Click(sender As Object, e As EventArgs) Handles bteliminar.Click
-        'DGcabezas.Rows.Remove(DGcabezas.CurrentRow)
 
         conecta()
         Dim eliminar As String = "delete from animales where cod_animal=@cod_animal "
@@ -128,39 +78,34 @@ Public Class Cabeza_ganado
         Me.Close()
         frmMenu.Show()
 
-
-        'ESTE CODIGO SIRVE PARA CERRAR COMPLETAMENTE TODO EL PROGRAMA 
-        'Dim Msg As MsgBoxResult
-        'Msg = MsgBox("Cerrar el modulo, ¿Desea salir?", vbYesNo, "Salir del Modulo")
-        'If Msg = MsgBoxResult.Yes Then
-        '    Application.ExitThread()
-        'Else
-        '    Exit Sub
-        'End If
-
     End Sub
 
     Private Sub bteditar_Click(sender As Object, e As EventArgs) Handles bteditar.Click
 
-        conecta()
+        Dim pesoini, pesoboj As Integer
+        pesoini = (Val(txtpesoini.Text))
+        pesoboj = (Val(txtpesoobj.Text))
 
-        Dim datos_animales As String = "update animales set peso_inicial=@peso_inicial,peso_1=@peso_1,peso_2=@peso_2,peso_3=@peso_3,peso_4=@peso_4,peso_objetivo=@peso_objetivo,edad=@edad,raza=@raza,observaciones=@observaciones,cod_grupo=@cod_grupo where cod_animal=@cod_animal"
-        Dim actualizar As New SqlCommand(datos_animales, conectar)
-        actualizar.Parameters.AddWithValue("@cod_animal", txtcodigoanimal.Text)
-        actualizar.Parameters.AddWithValue("@peso_inicial", txtpesoini.Text)
-        actualizar.Parameters.AddWithValue("@peso_1", txtpeso1.Text)
-        actualizar.Parameters.AddWithValue("@peso_2", txtpeso2.Text)
-        actualizar.Parameters.AddWithValue("@peso_3", txtpeso3.Text)
-        actualizar.Parameters.AddWithValue("@peso_4", txtpeso4.Text)
-        actualizar.Parameters.AddWithValue("@peso_objetivo", txtpesoobj.Text)
-        actualizar.Parameters.AddWithValue("@edad", txtedad.Text)
-        actualizar.Parameters.AddWithValue("@raza", txtraza.Text)
-        actualizar.Parameters.AddWithValue("@observaciones", rtxtobs.Text)
-        actualizar.Parameters.AddWithValue("@cod_grupo", combo_grupos.Text)
-        actualizar.ExecuteNonQuery()
-        conectar.Close()
-        cargargrid()
+        If (pesoboj < Val(txtpesoini.Text)) Then
 
+            MsgBox("Peso objetivo no puede ser mas bajo que el inical ", Title:="Error")
+
+        Else
+
+            If (Val(txtpeso1.Text) >= 0 And Val(txtpeso1.Text) <= 5000) Then
+                conecta()
+
+                ModificarBD("exec ActualizarAnimales " & Val(txtcodigoanimal.Text) & "," & Val(txtpesoini.Text) & "," & "'" & cb_Raza.Text & "'" & "," & Val(combo_grupos.Text) & "," & Val(txtprecio.Text) & "," & Val(txtedad.Text) & "," & Val(txtpesoobj.Text) & "," & Val(txtpeso1.Text) & "," & Val(txtpeso2.Text) & "," & Val(txtpeso3.Text) & "," & Val(txtpeso4.Text) & "," & "'" & rtxtobs.Text & "'")
+
+                conectar.Close()
+                cargargrid()
+            Else
+                MsgBox("Peso 1 no puede ser mas alto de 5000 ", Title:="Error")
+            End If
+
+
+
+        End If
 
     End Sub
 
@@ -178,143 +123,68 @@ Public Class Cabeza_ganado
     End Sub
 
     Private Sub txtpesoobj_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpesoobj.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
+
+        CampoValidacionNumeros(e)
+
     End Sub
 
     Private Sub txtedad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtedad.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
+        CampoValidacionNumeros(e)
+
     End Sub
 
     Private Sub txtpesoini_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpesoini.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
+        CampoValidacionNumeros(e)
+
     End Sub
 
     Private Sub txtpeso1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpeso1.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
+        CampoValidacionNumeros(e)
+
+
     End Sub
 
     Private Sub txtpeso2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpeso2.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
+        CampoValidacionNumeros(e)
+
     End Sub
 
     Private Sub txtpeso3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpeso3.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
+        CampoValidacionNumeros(e)
+
     End Sub
 
     Private Sub txtpeso4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpeso4.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
+        CampoValidacionNumeros(e)
+
     End Sub
 
     Private Sub txtcod_grup_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcod_grup.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
+        CampoValidacionNumeros(e)
+
     End Sub
 
-    Private Sub txtraza_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtraza.KeyPress
-        If Char.IsLetter(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
+    Private Sub txtraza_KeyPress(sender As Object, e As KeyPressEventArgs)
 
-        End If
+        CampoValidacionLetras(e)
+
     End Sub
 
-    Private Sub txtobs_KeyPress(sender As Object, e As KeyPressEventArgs)
-        If Char.IsLetter(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
 
-        End If
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Hide()
         frmMenu.Show()
     End Sub
 
-    Private Sub rtxtobs_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rtxtobs.KeyPress
-
-    End Sub
 
     Private Sub DGcabezas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGcabezas.CellContentClick
 
@@ -322,7 +192,6 @@ Public Class Cabeza_ganado
         Dim fila_actual As Integer
         fila_actual = DGcabezas.CurrentRow.Index
         txtcodigoanimal.Text = DGcabezas.Rows(fila_actual).Cells(0).Value
-        'txtcodgrup.Text = DGgrupos.CurrentRow.Cells(0).Value
         Dim recuperar As String = "select * from animales where cod_animal=" & txtcodigoanimal.Text
         Dim mostrar As SqlDataReader
         Dim ejecutar As New SqlCommand
@@ -344,7 +213,7 @@ Public Class Cabeza_ganado
             txtpeso4.Text = mostrar(5)
             txtpesoobj.Text = mostrar(6)
             txtedad.Text = mostrar(7)
-            txtraza.Text = mostrar(8)
+            cb_Raza.SelectedItem = mostrar(8)
             txtprecio.Text = mostrar(11)
 
             combo_grupos.Text = mostrar(10)
@@ -369,10 +238,6 @@ Public Class Cabeza_ganado
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles combo_grupos.SelectedIndexChanged
         txtcod_grup.Text = combo_grupos.Text
 
-
-
-
-
     End Sub
 
     Private Sub combo_grupos_Click(sender As Object, e As EventArgs) Handles combo_grupos.Click
@@ -384,22 +249,22 @@ Public Class Cabeza_ganado
             combo_grupos.DataSource = ds.Tables(0)
             combo_grupos.DisplayMember = "cod_grupo"
 
-
-
-
         Catch ex As Exception
 
         End Try
 
     End Sub
 
-    Private Sub VScrollBar1_Scroll(sender As Object, e As ScrollEventArgs)
-
-    End Sub
 
     Private Sub btnatras_Click_1(sender As Object, e As EventArgs) Handles btnatras.Click
         Me.Close()
         frmMenu.Show()
+
+    End Sub
+
+    Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
+
+        CampoValidacionNumeros(e)
 
     End Sub
 End Class
