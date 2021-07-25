@@ -84,7 +84,7 @@ Public Class Dieta
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCargarIngredientes.Click
-        '---boton seleccionar dieta
+        '---boton cargar ingredientes de la dieta
         btnAgregar.Enabled = True
         GroupBox1.Enabled = True
         cargargrid_dieta()
@@ -104,14 +104,6 @@ Public Class Dieta
     End Sub
     Private Sub cmbcodingre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCodIngre.SelectedIndexChanged
         lblCodIngre.Text = cmbCodIngre.SelectedIndex
-    End Sub
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        txtCantidad.Text = ""
-        txtCodDieta.Text = ""
-        txtComidaXDia.Text = ""
-        btnAgregar.Enabled = False
-        lblCodIngre.Text = 0
-        cmbCodIngre.SelectedIndex = 0
     End Sub
     '=======boton para regresar al menu
     Private Sub btnAtras_Click_1(sender As Object, e As EventArgs) Handles btnAtras.Click

@@ -42,7 +42,6 @@ Partial Class Dieta
         Me.lbl_ingrediente = New System.Windows.Forms.Label()
         Me.cmbCodIngre = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         CType(Me.dgvDieta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvIngredientesDieta, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -135,7 +134,7 @@ Partial Class Dieta
         '
         Me.btnGuardar.BackColor = System.Drawing.Color.BurlyWood
         Me.btnGuardar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btnGuardar.Location = New System.Drawing.Point(19, 198)
+        Me.btnGuardar.Location = New System.Drawing.Point(95, 205)
         Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(194, 75)
@@ -147,7 +146,7 @@ Partial Class Dieta
         '
         Me.btnEliminar.BackColor = System.Drawing.Color.BurlyWood
         Me.btnEliminar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btnEliminar.Location = New System.Drawing.Point(19, 299)
+        Me.btnEliminar.Location = New System.Drawing.Point(98, 299)
         Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(191, 75)
@@ -285,7 +284,6 @@ Partial Class Dieta
         '
         Me.GroupBox2.Controls.Add(Me.txtComidaXDia)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.btnLimpiar)
         Me.GroupBox2.Controls.Add(Me.btnEliminar)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.btnGuardar)
@@ -299,18 +297,6 @@ Partial Class Dieta
         Me.GroupBox2.TabIndex = 34
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Crear dieta"
-        '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.BackColor = System.Drawing.Color.BurlyWood
-        Me.btnLimpiar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btnLimpiar.Location = New System.Drawing.Point(215, 299)
-        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(194, 75)
-        Me.btnLimpiar.TabIndex = 30
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
@@ -374,6 +360,5 @@ Partial Class Dieta
     Friend WithEvents cmbCodIngre As ComboBox
     Friend WithEvents dgvDieta As DataGridView
     Friend WithEvents lbl_ingrediente As Label
-    Friend WithEvents btnLimpiar As Button
     Friend WithEvents GroupBox3 As GroupBox
 End Class
