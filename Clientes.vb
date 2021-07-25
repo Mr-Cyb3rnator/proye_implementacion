@@ -12,7 +12,7 @@ Public Class Clientes
 
         Dim mostrar As New DataTable
 
-        mostrar = CargarDatosGrid("select cod_cliente as 'Código cliente' , nombre as 'Nombre' , direcion as 'Dirección', telefono as 'Teléfono' from clientes")
+        mostrar = CargarDatosGrid("select cod_cliente as 'Código cliente' , nombre as 'Nombre' , apellido as 'Apellido', identidad as 'Identidad' , direcion as 'Dirección', telefono as 'Teléfono' from clientes")
 
         'Using adpmostrar As New SqlDataAdapter(cargar_datos_clientes, conectar)
 
@@ -33,7 +33,7 @@ Public Class Clientes
 
         conecta()
         Try
-            ModificarBD("exec insertarClientes ' " & txtNombre.Text & "','" & txtDireccion.Text & "'," & txtTelefono.Text)
+            ModificarBD("exec insertarClientes ' " & txtNombre.Text & "','" & txtApellido.Text & "'," & txtIdentidad.Text & "'," & txtDireccion.Text & "'," & txtTelefono.Text)
 
 
 
@@ -107,6 +107,8 @@ Public Class Clientes
     Private Sub LimpiarCampos()
         txtCodigoCliente.Clear()
         txtNombre.Clear()
+        txtApellido.Clear()
+        txtIdentidad.Clear()
         txtDireccion.Clear()
         txtTelefono.Clear()
 
@@ -176,9 +178,8 @@ Public Class Clientes
         conecta()
 
         Try
-            ModificarBD("exec insertarClientes ' " & txtNombre.Text & "','" & txtDireccion.Text & "'," & txtTelefono.Text)
+            ModificarBD("exec insertarClientes ' " & txtNombre.Text & "','" & txtApellido.Text & "'," & txtIdentidad.Text & "'," & txtDireccion.Text & "'," & txtTelefono.Text)
 
-            'ModificarBD("exec ActualizaClientes " & txtCodigoCliente.Text & "," & txtNombre.Text & "," & txtDireccion.Text & "" & txtTelefono.Text)
 
         Catch ex As Exception
             MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
@@ -328,18 +329,24 @@ Public Class Clientes
     'End Sub
 
 
-    Private Sub txtusuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre.KeyPress
+    Private Sub txtnombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre.KeyPress
+        CampoValidacionLetras(e)
+
+    End Sub
+    Private Sub txtdapellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtApellido.KeyPress
+        CampoValidacionLetras(e)
+
+    End Sub
+    Private Sub txtidentidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtIdentidad.KeyPress
+        CampoValidacionNumeros(e)
+
+    End Sub
+    Private Sub txtdireccion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDireccion.KeyPress
         CampoValidacionLetras(e)
 
     End Sub
 
-
-    Private Sub txttipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDireccion.KeyPress
-        CampoValidacionLetras(e)
-
-    End Sub
-
-    Private Sub txtcontra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefono.KeyPress
+    Private Sub txttelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefono.KeyPress
         CampoValidacionNumeros(e)
     End Sub
 
@@ -367,6 +374,7 @@ Public Class Clientes
 
 
     'End Sub
+
     'Private Sub DGclientes_SelectionChanged(sender As Object, e As EventArgs) Handles dvgClientes.SelectionChanged
     '    If (loadingForm) Then
 
@@ -395,6 +403,22 @@ Public Class Clientes
 
     Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtNombre.TextChanged
         If (txtNombre.Text IsNot "") Then
+            txtApellido.Enabled = True
+        Else
+            txtApellido.Enabled = False
+        End If
+    End Sub
+
+    Private Sub txtapellido_TextChanged(sender As Object, e As EventArgs) Handles txtApellido.TextChanged
+        If (txtApellido.Text IsNot "") Then
+            txtIdentidad.Enabled = True
+        Else
+            txtIdentidad.Enabled = False
+        End If
+    End Sub
+
+    Private Sub txtidentidad_TextChanged(sender As Object, e As EventArgs) Handles txtIdentidad.TextChanged
+        If (txtIdentidad.Text IsNot "") Then
             txtDireccion.Enabled = True
         Else
             txtDireccion.Enabled = False
@@ -408,7 +432,6 @@ Public Class Clientes
             txtTelefono.Enabled = False
         End If
     End Sub
-
     Private Sub txttelefono_TextChanged(sender As Object, e As EventArgs) Handles txtTelefono.TextChanged
         If (txtTelefono.Text IsNot "") Then
             btnAgregar.Enabled = True
@@ -422,6 +445,20 @@ Public Class Clientes
             Me.erroricono.SetError(sender, "")
         Else
             Me.erroricono.SetError(sender, "Ingrese el nombre")
+        End If
+    End Sub
+    Private Sub txtApellido_Validating(sender As Object, e As CancelEventArgs) Handles txtApellido.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.erroricono.SetError(sender, "")
+        Else
+            Me.erroricono.SetError(sender, "Ingrese el Apellido")
+        End If
+    End Sub
+    Private Sub txtidentidad_Validating(sender As Object, e As CancelEventArgs) Handles txtIdentidad.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.erroricono.SetError(sender, "")
+        Else
+            Me.erroricono.SetError(sender, "Ingrese la identidad")
         End If
     End Sub
 
