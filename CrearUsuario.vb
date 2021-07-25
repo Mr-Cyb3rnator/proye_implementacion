@@ -53,7 +53,7 @@ Public Class CrearUsuario
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
-        frm_InicioSesion.Show()
+        frmInicioSesion.Show()
     End Sub
 
 

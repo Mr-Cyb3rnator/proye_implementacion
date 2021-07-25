@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports proye.Encriptacion
-Public Class frm_InicioSesion
+Public Class frmInicioSesion
 
     Dim nombreusuario As String
 
