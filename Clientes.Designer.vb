@@ -39,6 +39,10 @@ Partial Class Clientes
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.tt_cliente = New System.Windows.Forms.ToolTip(Me.components)
         Me.erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtApellido = New System.Windows.Forms.TextBox()
+        Me.txtIdentidad = New System.Windows.Forms.TextBox()
         CType(Me.dvgClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,7 +51,7 @@ Partial Class Clientes
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(31, 39)
+        Me.Label1.Location = New System.Drawing.Point(31, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(125, 21)
         Me.Label1.TabIndex = 0
@@ -56,14 +60,14 @@ Partial Class Clientes
         'txtCodigoCliente
         '
         Me.txtCodigoCliente.Enabled = False
-        Me.txtCodigoCliente.Location = New System.Drawing.Point(164, 41)
+        Me.txtCodigoCliente.Location = New System.Drawing.Point(164, 29)
         Me.txtCodigoCliente.Name = "txtCodigoCliente"
         Me.txtCodigoCliente.Size = New System.Drawing.Size(113, 23)
         Me.txtCodigoCliente.TabIndex = 1
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(164, 87)
+        Me.txtNombre.Location = New System.Drawing.Point(164, 64)
         Me.txtNombre.MaxLength = 25
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(113, 23)
@@ -73,7 +77,7 @@ Partial Class Clientes
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(31, 89)
+        Me.Label2.Location = New System.Drawing.Point(31, 64)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(73, 21)
         Me.Label2.TabIndex = 2
@@ -81,7 +85,7 @@ Partial Class Clientes
         '
         'txtDireccion
         '
-        Me.txtDireccion.Location = New System.Drawing.Point(164, 139)
+        Me.txtDireccion.Location = New System.Drawing.Point(164, 176)
         Me.txtDireccion.MaxLength = 50
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(113, 23)
@@ -91,7 +95,7 @@ Partial Class Clientes
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(31, 141)
+        Me.Label3.Location = New System.Drawing.Point(31, 176)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 21)
         Me.Label3.TabIndex = 4
@@ -99,7 +103,7 @@ Partial Class Clientes
         '
         'txtTelefono
         '
-        Me.txtTelefono.Location = New System.Drawing.Point(164, 194)
+        Me.txtTelefono.Location = New System.Drawing.Point(164, 207)
         Me.txtTelefono.MaxLength = 8
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(113, 23)
@@ -109,7 +113,7 @@ Partial Class Clientes
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(31, 194)
+        Me.Label4.Location = New System.Drawing.Point(30, 209)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(76, 21)
         Me.Label4.TabIndex = 6
@@ -191,12 +195,52 @@ Partial Class Clientes
         '
         Me.erroricono.ContainerControl = Me
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label5.Location = New System.Drawing.Point(30, 103)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(74, 21)
+        Me.Label5.TabIndex = 31
+        Me.Label5.Text = "Apellido"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label6.Location = New System.Drawing.Point(31, 141)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(89, 21)
+        Me.Label6.TabIndex = 32
+        Me.Label6.Text = "Identidad"
+        '
+        'txtApellido
+        '
+        Me.txtApellido.Location = New System.Drawing.Point(164, 103)
+        Me.txtApellido.MaxLength = 25
+        Me.txtApellido.Name = "txtApellido"
+        Me.txtApellido.Size = New System.Drawing.Size(113, 23)
+        Me.txtApellido.TabIndex = 33
+        '
+        'txtIdentidad
+        '
+        Me.txtIdentidad.Location = New System.Drawing.Point(164, 143)
+        Me.txtIdentidad.MaxLength = 50
+        Me.txtIdentidad.Name = "txtIdentidad"
+        Me.txtIdentidad.Size = New System.Drawing.Size(113, 23)
+        Me.txtIdentidad.TabIndex = 34
+        '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(925, 343)
+        Me.Controls.Add(Me.txtIdentidad)
+        Me.Controls.Add(Me.txtApellido)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnEditar)
         Me.Controls.Add(Me.btnAtras)
         Me.Controls.Add(Me.btnEliminar)
@@ -236,4 +280,8 @@ Partial Class Clientes
     Friend WithEvents btnEditar As Button
     Friend WithEvents tt_cliente As ToolTip
     Friend WithEvents erroricono As ErrorProvider
+    Friend WithEvents txtApellido As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtIdentidad As TextBox
 End Class

@@ -4,146 +4,218 @@ Public Class Ingredientes
 
     Dim loadingForm As Boolean
     Dim fillingtxt As Boolean
-
-
-
     Private Sub cargargrid()
 
         conecta()
-        Dim cargar_datos_ingredientes As String = "SELECT cod_ingredientes AS 'Código', descripcion AS 'Ingrediente', costo AS 'Costo', cod_dieta AS '# Dieta' FROM ingredientes "
+
         Dim mostrar As New DataTable
 
-        Using adpmostrar As New SqlDataAdapter(cargar_datos_ingredientes, conectar)
-            adpmostrar.Fill(mostrar)
+        mostrar = CargarDatosGrid("select cod_ingredientes AS 'Código', descripcion AS 'Ingrediente', costo AS 'Costo', cod_dieta AS 'Num Dieta' from ingredientes ")
 
-        End Using
         dvgIngredientes.DataSource = mostrar
-        conectar.Close()
+        CerrarConexion()
+
+
+        'conecta()
+        'Dim cargar_datos_ingredientes As String = "select cod_ingredientes AS 'Código', descripcion AS 'Ingrediente', costo AS 'Costo', cod_dieta AS '# Dieta' FROM ingredientes "
+        'Dim mostrar As New DataTable
+
+        'Using adpmostrar As New SqlDataAdapter(cargar_datos_ingredientes, conectar)
+        '    adpmostrar.Fill(mostrar)
+
+        'End Using
+        'dvgIngredientes.DataSource = mostrar
+        'conectar.Close()
 
 
     End Sub
-
-
-
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
 
-        If (txtDescripcion.Text IsNot "" And txtCosto.Text IsNot "" And txtCodDieta.Text IsNot "") Then
+        conecta()
+        Try
+            ModificarBD("exec insertarIngredientes ' " & txtDescripcion.Text & "','" & txtCodDieta.Text & "'," & txtCosto.Text)
 
-            Try
-                conecta()
-                Dim insertar_ingredientes As String = "insert into ingredientes(descripcion,costo,cod_dieta)values(@descripcion,@costo,@cod_dieta)"
-                Dim insertar As New SqlCommand(insertar_ingredientes, conectar)
-                insertar.Parameters.AddWithValue("@descripcion", txtDescripcion.Text)
-                insertar.Parameters.AddWithValue("@costo", txtCosto.Text)
-                insertar.Parameters.AddWithValue("@cod_dieta", txtCodDieta.Text)
-                insertar.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
+        End Try
 
-                conectar.Close()
-            Catch ex As Exception
-                MsgBox("Revise los Valores del Campo Dieta")
-                conectar.Close()
-            End Try
+        CerrarConexion()
+
+        RefrescarDataGrid()
 
 
-            loadingForm = False
-            cargargrid()
-
-            dvgIngredientes.ClearSelection()
-            txtCodigoIngredientes.Text = ""
-            txtDescripcion.Text = ""
-            txtCodDieta.Text = ""
-            txtCosto.Text = ""
-
-            btnEditar.Enabled = False
-            btnEliminar.Enabled = False
+        LimpiarCampos()
 
 
-            'loadingForm = True
-        Else
-            MsgBox("Campos no pueden quedar vacios")
-        End If
+        'If (txtDescripcion.Text IsNot "" And txtCosto.Text IsNot "" And txtCodDieta.Text IsNot "") Then
 
+        '    Try
+        '        conecta()
+        '        Dim insertar_ingredientes As String = "insert into ingredientes(descripcion,costo,cod_dieta)values(@descripcion,@costo,@cod_dieta)"
+        '        Dim insertar As New SqlCommand(insertar_ingredientes, conectar)
+        '        insertar.Parameters.AddWithValue("@descripcion", txtDescripcion.Text)
+        '        insertar.Parameters.AddWithValue("@costo", txtCosto.Text)
+        '        insertar.Parameters.AddWithValue("@cod_dieta", txtCodDieta.Text)
+        '        insertar.ExecuteNonQuery()
+
+        '        conectar.Close()
+        '    Catch ex As Exception
+        '        MsgBox("Revise los Valores del Campo Dieta")
+        '        conectar.Close()
+        '    End Try
+
+
+        '    loadingForm = False
+        '    cargargrid()
+
+        '    dvgIngredientes.ClearSelection()
+        '    txtCodigoIngredientes.Text = ""
+        '    txtDescripcion.Text = ""
+        '    txtCodDieta.Text = ""
+        '    txtCosto.Text = ""
+
+        '    btnEditar.Enabled = False
+        '    btnEliminar.Enabled = False
+
+
+        '    'loadingForm = True
+        'Else
+        '    MsgBox("Campos no pueden quedar vacios")
+        'End If
+
+
+
+    End Sub
+
+    Private Sub LimpiarCampos()
+        txtCodigoIngredientes.Clear()
+        txtDescripcion.Clear()
+        txtCodDieta.Clear()
+        txtCosto.Clear()
+    End Sub
+
+    Private Sub RefrescarDataGrid()
+        Dim datoingredientes As New DataTable
+        conecta()
+        Try
+            datoingredientes = CargarDatosGrid("exec ListaIngredientes")
+            dvgIngredientes.DataSource = datoingredientes
+        Catch ex As Exception
+            MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
+        End Try
+
+        CerrarConexion()
 
 
     End Sub
 
-    Private Sub Ingredientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadingForm = True
+    'Private Sub Ingredientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    '    loadingForm = True
 
-        cargargrid()
-        dvgIngredientes.ClearSelection()
-        loadingForm = False
+    '    cargargrid()
+    '    dvgIngredientes.ClearSelection()
+    '    loadingForm = False
 
-        tt_Ingrediente.SetToolTip(btnEditar, "Seleccione una Fila para Editar")
-        tt_Ingrediente.SetToolTip(btnEliminar, "Seleccione una Fila para Eliminar")
-
-
+    '    tt_Ingrediente.SetToolTip(btnEditar, "Seleccione una Fila para Editar")
+    '    tt_Ingrediente.SetToolTip(btnEliminar, "Seleccione una Fila para Eliminar")
 
 
 
-        'dgingredientes.Columns.Add("Cod.Ingrediente", "Cod.Ingrediente")
-        'dgingredientes.Columns.Add("Descripcion", "Descripcion")
-        'dgingredientes.Columns.Add("Cod.Dieta", "Cod.Dieta")
-        'dgingredientes.Columns.Add("Costo", "Costo")
 
-    End Sub
+
+    '    'dgingredientes.Columns.Add("Cod.Ingrediente", "Cod.Ingrediente")
+    '    'dgingredientes.Columns.Add("Descripcion", "Descripcion")
+    '    'dgingredientes.Columns.Add("Cod.Dieta", "Cod.Dieta")
+    '    'dgingredientes.Columns.Add("Costo", "Costo")
+
+    'End Sub
 
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
 
-        'tt_Ingrediente.SetToolTip(btneliminar, "")
+
         conecta()
-        Dim eliminar As String = "delete from ingredientes  where cod_ingredientes=@cod_ingredientes"
-        Dim procesar As New SqlCommand(eliminar, conectar)
-        procesar.Parameters.AddWithValue("@cod_ingredientes", txtCodigoIngredientes.Text)
-        procesar.ExecuteNonQuery()
-        conectar.Close()
+
+        Try
+            ModificarBD("exec EliminarIngredientes " & txtCodigoIngredientes.Text)
+        Catch ex As Exception
+            MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
+        End Try
+        CerrarConexion()
+
+        RefrescarDataGrid()
+        LimpiarCampos()
+
+        ''tt_Ingrediente.SetToolTip(btneliminar, "")
+        'conecta()
+        'Dim eliminar As String = "delete from ingredientes  where cod_ingredientes=@cod_ingredientes"
+        'Dim procesar As New SqlCommand(eliminar, conectar)
+        'procesar.Parameters.AddWithValue("@cod_ingredientes", txtCodigoIngredientes.Text)
+        'procesar.ExecuteNonQuery()
+        'conectar.Close()
 
 
-        loadingForm = True
-        cargargrid()
-        dvgIngredientes.ClearSelection()
+        'loadingForm = True
+        'cargargrid()
+        'dvgIngredientes.ClearSelection()
 
-        txtCodigoIngredientes.Text = ""
-        txtDescripcion.Text = ""
-        txtCodDieta.Text = ""
-        txtCosto.Text = ""
+        'txtCodigoIngredientes.Text = ""
+        'txtDescripcion.Text = ""
+        'txtCodDieta.Text = ""
+        'txtCosto.Text = ""
 
-        loadingForm = False
+        'loadingForm = False
 
-        btnEliminar.Enabled = False
-        btnEditar.Enabled = False
+        'btnEliminar.Enabled = False
+        'btnEditar.Enabled = False
 
-        'dgingredientes.Rows.Remove(dgingredientes.CurrentRow)
+        ''dgingredientes.Rows.Remove(dgingredientes.CurrentRow)
     End Sub
 
     Private Sub bteditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        'tt_Ingrediente.SetToolTip(bteditar, "")
+
         conecta()
 
-        Dim datos_ingredientes As String = "update ingredientes set descripcion=@descripcion,costo=@costo,cod_dieta=@cod_dieta where cod_ingredientes=@cod_ingredientes"
-        Dim actualizar As New SqlCommand(datos_ingredientes, conectar)
-        actualizar.Parameters.AddWithValue("@cod_ingredientes", txtCodigoIngredientes.Text)
-        actualizar.Parameters.AddWithValue("@descripcion", txtDescripcion.Text)
-        actualizar.Parameters.AddWithValue("@costo", txtCosto.Text)
-        actualizar.Parameters.AddWithValue("@cod_dieta", txtCodDieta.Text)
+        Try
+            ModificarBD("exec insertarIngredientes' " & txtDescripcion.Text & "','" & txtCodDieta.Text & "'," & txtCosto.Text)
 
-        actualizar.ExecuteNonQuery()
-        conectar.Close()
+            'ModificarBD("exec ActualizaClientes " & txtCodigoCliente.Text & "," & txtNombre.Text & "," & txtDireccion.Text & "" & txtTelefono.Text)
 
-        loadingForm = True
-        cargargrid()
-        dvgIngredientes.ClearSelection()
+        Catch ex As Exception
+            MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
+        End Try
 
-        txtCodigoIngredientes.Text = ""
-        txtDescripcion.Text = ""
-        txtCodDieta.Text = ""
-        txtCosto.Text = ""
+        CerrarConexion()
 
-        loadingForm = False
+        RefrescarDataGrid()
+
+        LimpiarCampos()
+        ''tt_Ingrediente.SetToolTip(bteditar, "")
+        'conecta()
+
+        'Dim datos_ingredientes As String = "update ingredientes set descripcion=@descripcion,costo=@costo,cod_dieta=@cod_dieta where cod_ingredientes=@cod_ingredientes"
+        'Dim actualizar As New SqlCommand(datos_ingredientes, conectar)
+        'actualizar.Parameters.AddWithValue("@cod_ingredientes", txtCodigoIngredientes.Text)
+        'actualizar.Parameters.AddWithValue("@descripcion", txtDescripcion.Text)
+        'actualizar.Parameters.AddWithValue("@costo", txtCosto.Text)
+        'actualizar.Parameters.AddWithValue("@cod_dieta", txtCodDieta.Text)
+
+        'actualizar.ExecuteNonQuery()
+        'conectar.Close()
+
+        'loadingForm = True
+        'cargargrid()
+        'dvgIngredientes.ClearSelection()
+
+        'txtCodigoIngredientes.Text = ""
+        'txtDescripcion.Text = ""
+        'txtCodDieta.Text = ""
+        'txtCosto.Text = ""
+
+        'loadingForm = False
 
 
-        btnEditar.Enabled = False
-        btnEliminar.Enabled = False
+        'btnEditar.Enabled = False
+        'btnEliminar.Enabled = False
 
 
 
@@ -293,37 +365,37 @@ Public Class Ingredientes
 
 
 
-    Private Sub dgingredientes_SelectionChanged(sender As Object, e As EventArgs) Handles dvgIngredientes.SelectionChanged
+    'Private Sub dgingredientes_SelectionChanged(sender As Object, e As EventArgs) Handles dvgIngredientes.SelectionChanged
 
-        If (Not loadingForm) Then
+    '    If (Not loadingForm) Then
 
-            Dim fila As Integer
+    '        Dim fila As Integer
 
-            fila = dvgIngredientes.CurrentRow.Index
-
-
-            btnEditar.Enabled = True
-            btnEliminar.Enabled = True
+    '        fila = dvgIngredientes.CurrentRow.Index
 
 
-            ' fillingtxt = True
-            txtCodigoIngredientes.Text = dvgIngredientes.Rows(fila).Cells(0).Value
-            txtDescripcion.Text = dvgIngredientes.Rows(fila).Cells(1).Value
-            txtCosto.Text = dvgIngredientes.Rows(fila).Cells(2).Value
-            txtCodDieta.Text = dvgIngredientes.Rows(fila).Cells(3).Value
-            'fillingtxt = False
+    '        btnEditar.Enabled = True
+    '        btnEliminar.Enabled = True
 
 
-            btnAgregar.Enabled = False
-            txtDescripcion.Enabled = True
-            txtCosto.Enabled = True
-            txtCodDieta.Enabled = True
+    '        ' fillingtxt = True
+    '        txtCodigoIngredientes.Text = dvgIngredientes.Rows(fila).Cells(0).Value
+    '        txtDescripcion.Text = dvgIngredientes.Rows(fila).Cells(1).Value
+    '        txtCosto.Text = dvgIngredientes.Rows(fila).Cells(2).Value
+    '        txtCodDieta.Text = dvgIngredientes.Rows(fila).Cells(3).Value
+    '        'fillingtxt = False
 
 
-        End If
+    '        btnAgregar.Enabled = False
+    '        txtDescripcion.Enabled = True
+    '        txtCosto.Enabled = True
+    '        txtCodDieta.Enabled = True
 
 
-    End Sub
+    '    End If
+
+
+    'End Sub
 
 
 
@@ -369,4 +441,8 @@ Public Class Ingredientes
         End If
     End Sub
 
+    Private Sub Ingredientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        RefrescarDataGrid()
+    End Sub
 End Class
