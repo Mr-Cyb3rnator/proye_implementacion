@@ -1,27 +1,27 @@
 ﻿Imports System.Data.SqlClient
 Public Class Compra
     Public contador2 As Integer
-    Dim totalf As Integer
+    Dim totalF As Integer
 
-    Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btagregar.Click
+    Private Sub btagregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
 
-        Dim subtotal As Integer
+        Dim subTotal As Integer
 
 
-        If (txtpesoini.Text IsNot "" And txtedad.Text IsNot "" And txtprecio.Text IsNot "") Then
+        If (txtPesoIni.Text IsNot "" And txtEdad.Text IsNot "" And txtPrecio.Text IsNot "") Then
 
 
             contador2 = contador2 + 1
-            subtotal = (Val(txtprecio.Text))
+            subTotal = (Val(txtPrecio.Text))
 
 
-            dgv_Compra.Rows.Add(txtpesoini.Text, txtedad.Text, cb_Raza.SelectedItem.ToString, subtotal)
-            totalf = totalf + subtotal
-            txttotal.Text = totalf
-            txtpesoini.Clear()
-            txtedad.Clear()
-            cb_Raza.SelectedIndex = -1
-            txtprecio.Clear()
+            dgvCompra.Rows.Add(txtPesoIni.Text, txtEdad.Text, cbRaza.SelectedItem.ToString, subTotal)
+            totalF = totalF + subTotal
+            txtTotal.Text = totalF
+            txtPesoIni.Clear()
+            txtEdad.Clear()
+            cbRaza.SelectedIndex = -1
+            txtPrecio.Clear()
         Else
             MsgBox("Llene todos los campos")
 
@@ -30,30 +30,30 @@ Public Class Compra
 
     End Sub
 
-    Private Sub btguardar_Click(sender As Object, e As EventArgs) Handles btguardar.Click
+    Private Sub btguardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Dim contador As Integer
 
 
-        If (txtcod_cliente.Text IsNot "") Then
+        If (txtCodCliente.Text IsNot "") Then
 
 
             conecta()
 
             'Insertando en tabla Compra Animales los animales que se compraron
-            ModificarBD("exec InsertarCompraAnimales " & txtcod_cliente.Text & "," & txttotal.Text & ",'" & dtp_fecha.Value.Date.ToString("yyyy-MM-dd") & "'," & contador2)
+            ModificarBD("exec InsertarCompraAnimales " & txtCodCliente.Text & "," & txtTotal.Text & ",'" & dtpFecha.Value.Date.ToString("yyyy-MM-dd") & "'," & contador2)
 
             'Se obtienen los datos del ultimo grupo generado por la compra de animales
             Dim recuperar As SqlDataReader
-            Dim num_Grupo As String
-            Dim num_Factura As String ' por qué el número de grupo es el el número de factura también
-
+            Dim numGrupo As String
+            Dim numFactura As String ' por qué el número de grupo es el el número de factura también
+            numGrupo = "1"
             Try
                 recuperar = LecturaBD("select top 1 cod_compra from compra_animales order by cod_compra desc")
                 recuperar.Read()
-                num_Grupo = recuperar(0)
-                num_Factura = recuperar(0)
-                MsgBox("Compra Efectuada Grupo# " + num_Grupo, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Compra Ganado #" + num_Factura)
+                numGrupo = recuperar(0)
+                numFactura = recuperar(0)
+                MsgBox("Compra Efectuada Grupo# " + numGrupo, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Compra Ganado #" + numFactura)
                 recuperar.Close()
             Catch ex As Exception
                 MsgBox("Revisar si se hizo lectura de la BD")
@@ -61,7 +61,7 @@ Public Class Compra
 
             'Insertar los datos del Grupo en BD
             Try
-                ModificarBD("exec InsertarGrupos " + num_Grupo)
+                ModificarBD("exec InsertarGrupos " + numGrupo)
             Catch ex As Exception
                 MsgBox("Revisar la conexión a la BD o si se asignó un número de Grupo")
 
@@ -71,16 +71,16 @@ Public Class Compra
             'Insertar los detalles de compra de animales en la BD
             'Se recorre el data grid view donde esta agrupada toda la compra de los animales
             Dim fila As DataGridViewRow = New DataGridViewRow()
-            For Each fila In dgv_Compra.Rows
+            For Each fila In dgvCompra.Rows
 
                 Try
-                    ModificarBD("exec InsertarDetalleCompraAnimales " + num_Grupo + "," & fila.Cells("cpesoini").Value & "," & fila.Cells("craza").Value & "," & fila.Cells("cprecio_compra").Value)
+                    ModificarBD("exec InsertarDetalleCompraAnimales " + numGrupo + "," & fila.Cells("cpesoini").Value & "," & fila.Cells("craza").Value & "," & fila.Cells("cprecio_compra").Value)
                 Catch ex As Exception
                     MsgBox("Revisar Conexion BD y/o Procedimiento para insertar detalles junto a sus parametros")
                 End Try
 
                 Try
-                    ModificarBD("exec InsertarAnimales " & fila.Cells("cpesoini").Value & "," & fila.Cells("craza").Value & "," & num_Grupo & "," & fila.Cells("cprecio_compra").Value & "," & fila.Cells("cedad").Value)
+                    ModificarBD("exec InsertarAnimales " & fila.Cells("cpesoini").Value & "," & fila.Cells("craza").Value & "," & numGrupo & "," & fila.Cells("cprecio_compra").Value & "," & fila.Cells("cedad").Value)
 
                 Catch ex As Exception
                     MsgBox("Revisar Conexion BD y/o Procedimiento para insertar Animales junto a sus parametros")
@@ -92,16 +92,16 @@ Public Class Compra
             Next
 
             Try
-                ModificarBD("exec ActualizarGrupos " & contador & "," & num_Grupo)
+                ModificarBD("exec ActualizarGrupos " & contador & "," & numGrupo)
             Catch ex As Exception
                 MsgBox("Revisar Conexion BD y/o Procedimiento para Actualizar los grupos junto a sus parametros")
             End Try
 
 
             conectar.Close()
-            dgv_Compra.Rows.Clear()
-            txttotal.Text = ""
-            txtcod_cliente.Text = ""
+            dgvCompra.Rows.Clear()
+            txtTotal.Text = ""
+            txtCodCliente.Text = ""
         Else
             MsgBox("Revise Todos Los Campos esten llenos")
 
@@ -110,12 +110,12 @@ Public Class Compra
     End Sub
 
 
-    Private Sub b_Limpiar_Click(sender As Object, e As EventArgs) Handles b_Limpiar.Click
-        txtpesoini.Text = ""
-        txtedad.Text = ""
-        cb_Raza.SelectedIndex = -1
-        txtprecio.Text = ""
-        b_Limpiar.Enabled = False
+    Private Sub b_Limpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        txtPesoIni.Text = ""
+        txtEdad.Text = ""
+        cbRaza.SelectedIndex = -1
+        txtPrecio.Text = ""
+        btnLimpiar.Enabled = False
 
     End Sub
 
@@ -124,28 +124,28 @@ Public Class Compra
 
 #Region "EventoValidacion"
 
-    Private Sub txtcod_cliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcod_cliente.KeyPress
+    Private Sub txtcod_cliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodCliente.KeyPress
         CampoValidacionNumeros(e)
     End Sub
-    Private Sub txtpesoini_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpesoini.KeyPress
+    Private Sub txtpesoini_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPesoIni.KeyPress
         Dim estado As Boolean
         estado = CampoValidacionNumeros(e)
 
         If (estado) Then
-            tooltip_Compra.SetToolTip(txtpesoini, "Solo Permite Numeros, máximo 4 digitos")
+            toolTipCompra.SetToolTip(txtPesoIni, "Solo Permite Numeros, máximo 4 digitos")
         End If
     End Sub
 
-    Private Sub txtedad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtedad.KeyPress
+    Private Sub txtedad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtEdad.KeyPress
         Dim estado As Boolean
         estado = CampoValidacionNumeros(e)
 
         If (estado) Then
-            tooltip_Compra.SetToolTip(txtedad, "Solo Permite Numeros, máximo 2 digitos")
+            toolTipCompra.SetToolTip(txtEdad, "Solo Permite Numeros, máximo 2 digitos")
         End If
     End Sub
 
-    Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
+    Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
         CampoValidacionNumeros(e)
     End Sub
 #End Region
@@ -154,67 +154,67 @@ Public Class Compra
 
 
 #Region "HabiltandoBotones"
-    Private Sub txtcodp_TextChanged(sender As Object, e As EventArgs) Handles txtpesoini.TextChanged
+    Private Sub txtcodp_TextChanged(sender As Object, e As EventArgs) Handles txtPesoIni.TextChanged
 
-        If (txtpesoini.Text IsNot "") Then
-            txtedad.Enabled = True
-            b_Limpiar.Enabled = True
+        If (txtPesoIni.Text IsNot "") Then
+            txtEdad.Enabled = True
+            btnLimpiar.Enabled = True
         Else
-            txtedad.Enabled = False
-            b_Limpiar.Enabled = False
+            txtEdad.Enabled = False
+            btnLimpiar.Enabled = False
 
         End If
 
     End Sub
 
-    Private Sub txtcod_cliente_TextChanged(sender As Object, e As EventArgs) Handles txtcod_cliente.TextChanged
+    Private Sub txtcod_cliente_TextChanged(sender As Object, e As EventArgs) Handles txtCodCliente.TextChanged
 
-        If (txtcod_cliente.Text IsNot "") Then
-            txtpesoini.Enabled = True
+        If (txtCodCliente.Text IsNot "") Then
+            txtPesoIni.Enabled = True
         Else
-            txtpesoini.Enabled = False
+            txtPesoIni.Enabled = False
         End If
 
     End Sub
-    Private Sub txtedad_TextChanged(sender As Object, e As EventArgs) Handles txtedad.TextChanged
-        If (txtedad.Text IsNot "") Then
-            cb_Raza.Enabled = True
-            cb_Raza.SelectedIndex = 0
+    Private Sub txtedad_TextChanged(sender As Object, e As EventArgs) Handles txtEdad.TextChanged
+        If (txtEdad.Text IsNot "") Then
+            cbRaza.Enabled = True
+            cbRaza.SelectedIndex = 0
         Else
-            cb_Raza.Enabled = False
-            cb_Raza.SelectedIndex = -1
+            cbRaza.Enabled = False
+            cbRaza.SelectedIndex = -1
         End If
     End Sub
 
-    Private Sub cb_Raza_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_Raza.SelectedIndexChanged
-        If (cb_Raza.SelectedIndex <> -1) Then
-            txtprecio.Enabled = True
+    Private Sub cb_Raza_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbRaza.SelectedIndexChanged
+        If (cbRaza.SelectedIndex <> -1) Then
+            txtPrecio.Enabled = True
         Else
-            txtprecio.Enabled = False
+            txtPrecio.Enabled = False
         End If
     End Sub
 
-    Private Sub txtprecio_TextChanged(sender As Object, e As EventArgs) Handles txtprecio.TextChanged
-        If (txtprecio.Text IsNot "") Then
-            btagregar.Enabled = True
+    Private Sub txtprecio_TextChanged(sender As Object, e As EventArgs) Handles txtPrecio.TextChanged
+        If (txtPrecio.Text IsNot "") Then
+            btnAgregar.Enabled = True
         Else
-            btagregar.Enabled = False
+            btnAgregar.Enabled = False
         End If
     End Sub
 
-    Private Sub txttotal_TextChanged(sender As Object, e As EventArgs) Handles txttotal.TextChanged
-        If (txttotal.Text IsNot "") Then
-            btguardar.Enabled = True
+    Private Sub txttotal_TextChanged(sender As Object, e As EventArgs) Handles txtTotal.TextChanged
+        If (txtTotal.Text IsNot "") Then
+            btnGuardar.Enabled = True
         Else
-            btguardar.Enabled = False
+            btnGuardar.Enabled = False
         End If
     End Sub
 
 #End Region
 
-    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnatras.Click
+    Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
 
     End Sub
 

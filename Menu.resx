@@ -58,7 +58,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_Ingredientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnIngredientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA81JREFUaEPt
         1WtMU2cYB/CjH1RITFrUCrQUo4mZ4CExfBgSzQTR0Bqu2tZbSTf9sC+aLJljus2wePukgle8u8m4xYwl
@@ -80,7 +80,7 @@
         SmQXhnkNkXd6scVtjrIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btn_Clientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnClientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAACElJREFUaEPt
         VXlUVOcVfz1tTlqMLMO8YRVlhh0RDUls0iXG2iSYpVYTEnY0xMQkp039o9r2nLTntEpiVHBBUYLIsEWN
@@ -121,7 +121,7 @@
         xfR22GGHHXZ8X+C4/wHVZ6C05N8iBQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btn_Balance.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBalance.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA/FJREFUaEPt
         WEtsVGUYPb4NSiChCsbEaFhgQJpoXODCBDYaQ9zoRlcmkiAs3EMgcWABlbkDETERFzQ27dQ0sLHFBBc2
@@ -144,7 +144,7 @@
         YII=
 </value>
   </data>
-  <data name="btn_Gasto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnGasto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAB4xJREFUaEPt
         VgtQlNcV/mOSthoV0rEx1tq8jEm0vkATUzEmoYpOxmiMJLxcHo4kKgKGRjHGdomaaBIDanyACALLLoo1
@@ -182,6 +182,9 @@
         uAMU5f+uQueYin6GhgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="HelpProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAABMLAAATCwAAAAAAAAAA

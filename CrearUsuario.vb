@@ -1,15 +1,15 @@
 ﻿Imports System.Data.SqlClient
 Public Class CrearUsuario
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_Modificar.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Dim token As New Encriptacion()
         Dim cifrado As String
 
 
-        cifrado = token.encriptar128BitRijndael(txtcontra.Text, "Implementacion")
+        cifrado = token.encriptar128BitRijndael(txtContra.Text, "Implementacion")
         conecta()
         Try
-            ModificarBD("exec ActualizarUsuarios " & txtcod.Text & "," & txtusuario.Text & ",'" & cifrado & "'," & txttipo.Text)
-
+            ModificarBD("exec ActualizarUsuarios " & txtCodigo.Text & "," & txtUsuario.Text & ",'" & cifrado & "'," & txtTipo.Text)
+            MsgBox("Datos del Usuario Actualizado Correctamente", MsgBoxResult.Ok, "Estado")
         Catch ex As Exception
             MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
         End Try
@@ -20,19 +20,19 @@ Public Class CrearUsuario
         LimpiarCampos()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_Guardar.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Dim token As New Encriptacion()
         Dim cifrado As String
 
 
-        cifrado = token.encriptar128BitRijndael(txtcontra.Text, "Implementacion")
+        cifrado = token.encriptar128BitRijndael(txtContra.Text, "Implementacion")
 
         conecta()
 
 
         Try
-            ModificarBD("exec Insertar_Usuarios " & txtcod.Text & "," & txtusuario.Text & ",'" & cifrado & "'," & txttipo.Text)
-
+            ModificarBD("exec Insertar_Usuarios " & txtCodigo.Text & "," & txtUsuario.Text & ",'" & cifrado & "'," & txtTipo.Text)
+            MsgBox("Datos del Usuario Ingresados Correctamente", MsgBoxResult.Ok, "Estado")
         Catch ex As Exception
             MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
         End Try
@@ -51,18 +51,19 @@ Public Class CrearUsuario
 
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btn_Salir.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
         frm_InicioSesion.Show()
     End Sub
 
 
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btn_Eliminar.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         conecta()
 
         Try
-            ModificarBD("exec EliminarUsuarios " & txtcod.Text)
+            ModificarBD("exec EliminarUsuarios " & txtCodigo.Text)
+            MsgBox("Datos del Usuario Eliminados Correctamente", MsgBoxResult.Ok, "Estado")
         Catch ex As Exception
             MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")
         End Try
@@ -73,10 +74,10 @@ Public Class CrearUsuario
     End Sub
 
     Private Sub LimpiarCampos()
-        txtcod.Clear()
-        txtusuario.Clear()
-        txtcontra.Clear()
-        txttipo.Clear()
+        txtCodigo.Clear()
+        txtUsuario.Clear()
+        txtContra.Clear()
+        txtTipo.Clear()
 
     End Sub
 
@@ -95,22 +96,20 @@ Public Class CrearUsuario
     End Sub
 
 #Region "Validaciones"
-    Private Sub txtusuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtusuario.KeyPress
+    Private Sub txtusuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUsuario.KeyPress
         CampoValidacionLetras(e)
 
     End Sub
 
 
-    Private Sub txttipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttipo.KeyPress
+    Private Sub txttipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTipo.KeyPress
         CampoValidacionNumeros(e)
 
     End Sub
 
-    Private Sub txtcontra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcontra.KeyPress
-        CampoValidacionNumeros(e)
-    End Sub
 
-    Private Sub txtcod_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcod.KeyPress
+
+    Private Sub txtcod_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodigo.KeyPress
         CampoValidacionNumeros(e)
     End Sub
 

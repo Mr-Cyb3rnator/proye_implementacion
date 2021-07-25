@@ -25,8 +25,8 @@ Public Class Dieta
             conecta()
             Dim cod_dieta As Integer
             Dim fila As DataGridViewRow = New DataGridViewRow()
-            cod_dieta = Val(txtCodDieta.Text)
-            dgvIngredientesDieta.DataSource = CargarDatosGrid("exec ListaIngredientesxDieta " & Val(txtCodDieta.Text))
+            cod_dieta = Convert.ToInt32(txtCodDieta.Text)
+            dgvIngredientesDieta.DataSource = CargarDatosGrid("select a.cod_ingrediente, b.descripcion from dietas_ingredientes a join  ingredientes b on a.cod_ingrediente = b.cod_ingredientes where a.cod_dieta= " & cod_dieta)
             CerrarConexion()
         Catch ex As Exception
         End Try
@@ -35,7 +35,7 @@ Public Class Dieta
         '-----carga lo primero que se ve al abrir el formulario
         dgvDieta.ClearSelection()
         cargargrid()
-        cargargrid_dieta()
+        'cargargrid_dieta()
         cargarcmb()
         Try
             cmbCodIngre.DataSource = ds.Tables(0)
@@ -67,25 +67,7 @@ Public Class Dieta
         txtCantidad.Text = dgvDieta(1, fila).Value.ToString()
         txtComidaXDia.Text = dgvDieta(2, fila).Value.ToString()
     End Sub
-    Private Sub txtcoddieta_TextChanged(sender As Object, e As EventArgs) Handles txtCodDieta.TextChanged
-        '-------buscador de la dieta por medio del codigo de la dieta en el textbox
-        Try
-            conecta()
-            Dim mostrar As SqlDataReader = LecturaBD("exec CargarDietaXCodigo " & txtCodDieta.Text)
-            Dim estado As String
-            estado = mostrar.Read
-            If (estado = True) Then
-                txtCantidad.Text = mostrar(1)
-                txtComidaXDia.Text = mostrar(2)
-            Else
-                txtCantidad.Text = ""
-                txtComidaXDia.Text = ""
-            End If
-            mostrar.Close()
-            conectar.Close()
-        Catch ex As Exception
-        End Try
-    End Sub
+
     Private Sub btAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         '-------activa y desactiva los textbox
         Label1.Enabled = False
@@ -98,7 +80,7 @@ Public Class Dieta
         Try
             conecta()
             cmbCodIngre.Text = 0
-            ModificarBD("exec ActualizarIngredientes " & txtCodDieta.Text & ", " & lblCodIngre.Text)
+            ModificarBD("exec InsertarIngredientesDietas " & txtCodDieta.Text & ", " & lblCodIngre.Text)
             CerrarConexion()
             cargargrid_dieta()
         Catch ex As Exception
@@ -106,6 +88,7 @@ Public Class Dieta
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSelecionarDierta.Click
         '---boton seleccionar dieta
+
         GroupBox1.Enabled = True
         cargargrid_dieta()
     End Sub
@@ -123,12 +106,12 @@ Public Class Dieta
         CampoValidacionNumeros(e)
     End Sub
     Private Sub cmbcodingre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbcodingre.SelectedIndexChanged
-        lblCodIngre.Text = cmbCodIngre.SelectedIndex + 1
+        lblCodIngre.Text = cmbCodIngre.SelectedIndex
     End Sub
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Label1.Enabled = True
         txtCodDieta.Enabled = True
-        txtCodDieta.Text = ""
+        'txtCodDieta.Text = ""
         btnSelecionarDierta.Enabled = True
         txtcomidaxdia.Enabled = False
         txtcantidad.Enabled = False

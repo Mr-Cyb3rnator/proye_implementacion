@@ -170,7 +170,7 @@ Public Class Grupos
 
     Private Sub btnatras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
 
     Private Sub Grupos_Load(sender As Object, e As EventArgs) Handles MyBase.Load

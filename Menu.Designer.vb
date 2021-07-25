@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frm_Menu
+Partial Class frmMenu
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,18 +22,20 @@ Partial Class frm_Menu
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Menu))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMenu))
         Me.lb_Usuario = New System.Windows.Forms.Label()
-        Me.btn_Ingredientes = New System.Windows.Forms.Button()
-        Me.btn_Dietas = New System.Windows.Forms.Button()
-        Me.btn_CabezaGanado = New System.Windows.Forms.Button()
-        Me.btn_Grupo = New System.Windows.Forms.Button()
-        Me.btn_VentaGanado = New System.Windows.Forms.Button()
-        Me.btn_Clientes = New System.Windows.Forms.Button()
-        Me.btn_Balance = New System.Windows.Forms.Button()
-        Me.btn_Gasto = New System.Windows.Forms.Button()
-        Me.btn_Compra = New System.Windows.Forms.Button()
+        Me.btnIngredientes = New System.Windows.Forms.Button()
+        Me.btnDietas = New System.Windows.Forms.Button()
+        Me.btnCabezaGanado = New System.Windows.Forms.Button()
+        Me.btnGrupo = New System.Windows.Forms.Button()
+        Me.btnVentaGanado = New System.Windows.Forms.Button()
+        Me.btnClientes = New System.Windows.Forms.Button()
+        Me.btnBalance = New System.Windows.Forms.Button()
+        Me.btnGasto = New System.Windows.Forms.Button()
+        Me.btnCompra = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.btnReportes = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -43,6 +45,8 @@ Partial Class frm_Menu
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.btnHelp = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -57,111 +61,114 @@ Partial Class frm_Menu
         Me.lb_Usuario.Text = "MENU"
         Me.lb_Usuario.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'btn_Ingredientes
+        'btnIngredientes
         '
-        Me.btn_Ingredientes.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_Ingredientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Ingredientes.Image = CType(resources.GetObject("btn_Ingredientes.Image"), System.Drawing.Image)
-        Me.btn_Ingredientes.Location = New System.Drawing.Point(32, 253)
-        Me.btn_Ingredientes.Name = "btn_Ingredientes"
-        Me.btn_Ingredientes.Size = New System.Drawing.Size(145, 147)
-        Me.btn_Ingredientes.TabIndex = 8
-        Me.btn_Ingredientes.UseVisualStyleBackColor = False
+        Me.btnIngredientes.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnIngredientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIngredientes.Image = CType(resources.GetObject("btnIngredientes.Image"), System.Drawing.Image)
+        Me.btnIngredientes.Location = New System.Drawing.Point(32, 253)
+        Me.btnIngredientes.Name = "btnIngredientes"
+        Me.btnIngredientes.Size = New System.Drawing.Size(145, 147)
+        Me.btnIngredientes.TabIndex = 8
+        Me.btnIngredientes.UseVisualStyleBackColor = False
         '
-        'btn_Dietas
+        'btnDietas
         '
-        Me.btn_Dietas.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_Dietas.BackgroundImage = Global.proye.My.Resources.Resources.dieta
-        Me.btn_Dietas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_Dietas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Dietas.Location = New System.Drawing.Point(537, 55)
-        Me.btn_Dietas.Name = "btn_Dietas"
-        Me.btn_Dietas.Size = New System.Drawing.Size(145, 147)
-        Me.btn_Dietas.TabIndex = 7
-        Me.btn_Dietas.UseVisualStyleBackColor = False
+        Me.btnDietas.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnDietas.BackgroundImage = Global.proye.My.Resources.Resources.dieta
+        Me.btnDietas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnDietas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDietas.Location = New System.Drawing.Point(537, 55)
+        Me.btnDietas.Name = "btnDietas"
+        Me.btnDietas.Size = New System.Drawing.Size(145, 147)
+        Me.btnDietas.TabIndex = 7
+        Me.btnDietas.UseVisualStyleBackColor = False
         '
-        'btn_CabezaGanado
+        'btnCabezaGanado
         '
-        Me.btn_CabezaGanado.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_CabezaGanado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_CabezaGanado.Image = Global.proye.My.Resources.Resources.icons8_año_del_buey_48
-        Me.btn_CabezaGanado.Location = New System.Drawing.Point(283, 55)
-        Me.btn_CabezaGanado.Name = "btn_CabezaGanado"
-        Me.btn_CabezaGanado.Size = New System.Drawing.Size(145, 147)
-        Me.btn_CabezaGanado.TabIndex = 6
-        Me.btn_CabezaGanado.UseVisualStyleBackColor = False
+        Me.btnCabezaGanado.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnCabezaGanado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCabezaGanado.Image = Global.proye.My.Resources.Resources.icons8_año_del_buey_48
+        Me.btnCabezaGanado.Location = New System.Drawing.Point(283, 55)
+        Me.btnCabezaGanado.Name = "btnCabezaGanado"
+        Me.btnCabezaGanado.Size = New System.Drawing.Size(145, 147)
+        Me.btnCabezaGanado.TabIndex = 6
+        Me.btnCabezaGanado.UseVisualStyleBackColor = False
         '
-        'btn_Grupo
+        'btnGrupo
         '
-        Me.btn_Grupo.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_Grupo.BackgroundImage = Global.proye.My.Resources.Resources.vaca__6_
-        Me.btn_Grupo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_Grupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Grupo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_Grupo.Location = New System.Drawing.Point(32, 55)
-        Me.btn_Grupo.Name = "btn_Grupo"
-        Me.btn_Grupo.Size = New System.Drawing.Size(145, 147)
-        Me.btn_Grupo.TabIndex = 5
-        Me.btn_Grupo.UseVisualStyleBackColor = False
+        Me.btnGrupo.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnGrupo.BackgroundImage = Global.proye.My.Resources.Resources.vaca__6_
+        Me.btnGrupo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGrupo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGrupo.Location = New System.Drawing.Point(32, 55)
+        Me.btnGrupo.Name = "btnGrupo"
+        Me.btnGrupo.Size = New System.Drawing.Size(145, 147)
+        Me.btnGrupo.TabIndex = 5
+        Me.btnGrupo.UseVisualStyleBackColor = False
         '
-        'btn_VentaGanado
+        'btnVentaGanado
         '
-        Me.btn_VentaGanado.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_VentaGanado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_VentaGanado.Image = Global.proye.My.Resources.Resources.ventas
-        Me.btn_VentaGanado.Location = New System.Drawing.Point(283, 253)
-        Me.btn_VentaGanado.Name = "btn_VentaGanado"
-        Me.btn_VentaGanado.Size = New System.Drawing.Size(145, 147)
-        Me.btn_VentaGanado.TabIndex = 10
-        Me.btn_VentaGanado.UseVisualStyleBackColor = False
+        Me.btnVentaGanado.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnVentaGanado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVentaGanado.Image = Global.proye.My.Resources.Resources.ventas
+        Me.btnVentaGanado.Location = New System.Drawing.Point(283, 253)
+        Me.btnVentaGanado.Name = "btnVentaGanado"
+        Me.btnVentaGanado.Size = New System.Drawing.Size(145, 147)
+        Me.btnVentaGanado.TabIndex = 10
+        Me.btnVentaGanado.UseVisualStyleBackColor = False
         '
-        'btn_Clientes
+        'btnClientes
         '
-        Me.btn_Clientes.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Clientes.Image = CType(resources.GetObject("btn_Clientes.Image"), System.Drawing.Image)
-        Me.btn_Clientes.Location = New System.Drawing.Point(537, 253)
-        Me.btn_Clientes.Name = "btn_Clientes"
-        Me.btn_Clientes.Size = New System.Drawing.Size(145, 147)
-        Me.btn_Clientes.TabIndex = 11
-        Me.btn_Clientes.UseVisualStyleBackColor = False
+        Me.btnClientes.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClientes.Image = CType(resources.GetObject("btnClientes.Image"), System.Drawing.Image)
+        Me.btnClientes.Location = New System.Drawing.Point(537, 253)
+        Me.btnClientes.Name = "btnClientes"
+        Me.btnClientes.Size = New System.Drawing.Size(145, 147)
+        Me.btnClientes.TabIndex = 11
+        Me.btnClientes.UseVisualStyleBackColor = False
         '
-        'btn_Balance
+        'btnBalance
         '
-        Me.btn_Balance.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_Balance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Balance.Image = CType(resources.GetObject("btn_Balance.Image"), System.Drawing.Image)
-        Me.btn_Balance.Location = New System.Drawing.Point(32, 452)
-        Me.btn_Balance.Name = "btn_Balance"
-        Me.btn_Balance.Size = New System.Drawing.Size(145, 147)
-        Me.btn_Balance.TabIndex = 12
-        Me.btn_Balance.UseVisualStyleBackColor = False
+        Me.btnBalance.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnBalance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBalance.Image = CType(resources.GetObject("btnBalance.Image"), System.Drawing.Image)
+        Me.btnBalance.Location = New System.Drawing.Point(32, 452)
+        Me.btnBalance.Name = "btnBalance"
+        Me.btnBalance.Size = New System.Drawing.Size(145, 147)
+        Me.btnBalance.TabIndex = 12
+        Me.btnBalance.UseVisualStyleBackColor = False
         '
-        'btn_Gasto
+        'btnGasto
         '
-        Me.btn_Gasto.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_Gasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Gasto.Image = CType(resources.GetObject("btn_Gasto.Image"), System.Drawing.Image)
-        Me.btn_Gasto.Location = New System.Drawing.Point(283, 452)
-        Me.btn_Gasto.Name = "btn_Gasto"
-        Me.btn_Gasto.Size = New System.Drawing.Size(145, 147)
-        Me.btn_Gasto.TabIndex = 13
-        Me.btn_Gasto.UseVisualStyleBackColor = False
+        Me.btnGasto.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnGasto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGasto.Image = CType(resources.GetObject("btnGasto.Image"), System.Drawing.Image)
+        Me.btnGasto.Location = New System.Drawing.Point(283, 452)
+        Me.btnGasto.Name = "btnGasto"
+        Me.btnGasto.Size = New System.Drawing.Size(145, 147)
+        Me.btnGasto.TabIndex = 13
+        Me.btnGasto.UseVisualStyleBackColor = False
         '
-        'btn_Compra
+        'btnCompra
         '
-        Me.btn_Compra.BackColor = System.Drawing.Color.BurlyWood
-        Me.btn_Compra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Compra.Image = Global.proye.My.Resources.Resources.pagar1
-        Me.btn_Compra.Location = New System.Drawing.Point(537, 452)
-        Me.btn_Compra.Name = "btn_Compra"
-        Me.btn_Compra.Size = New System.Drawing.Size(145, 147)
-        Me.btn_Compra.TabIndex = 14
-        Me.btn_Compra.UseVisualStyleBackColor = False
+        Me.btnCompra.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCompra.Image = Global.proye.My.Resources.Resources.pagar1
+        Me.btnCompra.Location = New System.Drawing.Point(537, 452)
+        Me.btnCompra.Name = "btnCompra"
+        Me.btnCompra.Size = New System.Drawing.Size(145, 147)
+        Me.btnCompra.TabIndex = 14
+        Me.btnCompra.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.GroupBox1.Controls.Add(Me.btnHelp)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.btnReportes)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label7)
@@ -171,20 +178,41 @@ Partial Class frm_Menu
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.btn_Compra)
-        Me.GroupBox1.Controls.Add(Me.btn_Grupo)
-        Me.GroupBox1.Controls.Add(Me.btn_Clientes)
-        Me.GroupBox1.Controls.Add(Me.btn_Gasto)
-        Me.GroupBox1.Controls.Add(Me.btn_CabezaGanado)
-        Me.GroupBox1.Controls.Add(Me.btn_Balance)
-        Me.GroupBox1.Controls.Add(Me.btn_VentaGanado)
-        Me.GroupBox1.Controls.Add(Me.btn_Dietas)
-        Me.GroupBox1.Controls.Add(Me.btn_Ingredientes)
+        Me.GroupBox1.Controls.Add(Me.btnCompra)
+        Me.GroupBox1.Controls.Add(Me.btnGrupo)
+        Me.GroupBox1.Controls.Add(Me.btnClientes)
+        Me.GroupBox1.Controls.Add(Me.btnGasto)
+        Me.GroupBox1.Controls.Add(Me.btnCabezaGanado)
+        Me.GroupBox1.Controls.Add(Me.btnBalance)
+        Me.GroupBox1.Controls.Add(Me.btnVentaGanado)
+        Me.GroupBox1.Controls.Add(Me.btnDietas)
+        Me.GroupBox1.Controls.Add(Me.btnIngredientes)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 44)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(720, 615)
+        Me.GroupBox1.Size = New System.Drawing.Size(900, 615)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label10.Location = New System.Drawing.Point(762, 215)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(96, 23)
+        Me.Label10.TabIndex = 25
+        Me.Label10.Text = "Reportes"
+        '
+        'btnReportes
+        '
+        Me.btnReportes.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnReportes.Image = Global.proye.My.Resources.Resources.granja
+        Me.btnReportes.Location = New System.Drawing.Point(730, 253)
+        Me.btnReportes.Name = "btnReportes"
+        Me.btnReportes.Size = New System.Drawing.Size(145, 147)
+        Me.btnReportes.TabIndex = 24
+        Me.btnReportes.UseVisualStyleBackColor = False
         '
         'Label9
         '
@@ -276,16 +304,25 @@ Partial Class frm_Menu
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Grupos"
         '
-        'frm_Menu
+        'btnHelp
+        '
+        Me.btnHelp.Location = New System.Drawing.Point(771, 82)
+        Me.btnHelp.Name = "btnHelp"
+        Me.btnHelp.Size = New System.Drawing.Size(94, 29)
+        Me.btnHelp.TabIndex = 26
+        Me.btnHelp.Text = "Help"
+        Me.btnHelp.UseVisualStyleBackColor = True
+        '
+        'frmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BurlyWood
-        Me.ClientSize = New System.Drawing.Size(747, 673)
+        Me.ClientSize = New System.Drawing.Size(926, 670)
         Me.Controls.Add(Me.lb_Usuario)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "frm_Menu"
+        Me.Name = "frmMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú"
         Me.GroupBox1.ResumeLayout(False)
@@ -296,15 +333,15 @@ Partial Class frm_Menu
     End Sub
 
     Friend WithEvents lb_Usuario As Label
-    Friend WithEvents btn_Ingredientes As Button
-    Friend WithEvents btn_Dietas As Button
-    Friend WithEvents btn_CabezaGanado As Button
-    Friend WithEvents btn_Grupo As Button
-    Friend WithEvents btn_VentaGanado As Button
-    Friend WithEvents btn_Clientes As Button
-    Friend WithEvents btn_Balance As Button
-    Friend WithEvents btn_Gasto As Button
-    Friend WithEvents btn_Compra As Button
+    Friend WithEvents btnIngredientes As Button
+    Friend WithEvents btnDietas As Button
+    Friend WithEvents btnCabezaGanado As Button
+    Friend WithEvents btnGrupo As Button
+    Friend WithEvents btnVentaGanado As Button
+    Friend WithEvents btnClientes As Button
+    Friend WithEvents btnBalance As Button
+    Friend WithEvents btnGasto As Button
+    Friend WithEvents btnCompra As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
@@ -315,4 +352,8 @@ Partial Class frm_Menu
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents btnReportes As Button
+    Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents btnHelp As Button
 End Class

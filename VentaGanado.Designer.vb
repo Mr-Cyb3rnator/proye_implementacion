@@ -22,27 +22,26 @@ Partial Class VentaGanado
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VentaGanado))
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtcodcliente = New System.Windows.Forms.TextBox()
-        Me.txtlibras_totales = New System.Windows.Forms.TextBox()
-        Me.txtcodgrupo = New System.Windows.Forms.TextBox()
-        Me.txt_preciolibra = New System.Windows.Forms.TextBox()
-        Me.dgventaganado = New System.Windows.Forms.DataGridView()
-        Me.btcargar_grupo = New System.Windows.Forms.Button()
+        Me.txtCodCliente = New System.Windows.Forms.TextBox()
+        Me.txtLibrasTotales = New System.Windows.Forms.TextBox()
+        Me.txtCodGrupo = New System.Windows.Forms.TextBox()
+        Me.txtPrecioLibra = New System.Windows.Forms.TextBox()
+        Me.dgvVentaGanado = New System.Windows.Forms.DataGridView()
+        Me.btnCargarGrupo = New System.Windows.Forms.Button()
         Me.btnVender = New System.Windows.Forms.Button()
-        Me.dtpfecha = New System.Windows.Forms.DateTimePicker()
-        Me.btnatras = New System.Windows.Forms.Button()
-        Me.txttotalventa = New System.Windows.Forms.TextBox()
+        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
+        Me.btnAtras = New System.Windows.Forms.Button()
+        Me.txtTotalVenta = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lb_Grupos = New System.Windows.Forms.Label()
         Me.dgvGrupos = New System.Windows.Forms.DataGridView()
         Me.lb_Animales = New System.Windows.Forms.Label()
-        CType(Me.dgventaganado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvVentaGanado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvGrupos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -96,72 +95,72 @@ Partial Class VentaGanado
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Fecha:"
         '
-        'txtcodcliente
+        'txtCodCliente
         '
-        Me.txtcodcliente.Enabled = False
-        Me.txtcodcliente.Location = New System.Drawing.Point(251, 306)
-        Me.txtcodcliente.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtcodcliente.Name = "txtcodcliente"
-        Me.txtcodcliente.Size = New System.Drawing.Size(132, 32)
-        Me.txtcodcliente.TabIndex = 7
+        Me.txtCodCliente.Enabled = False
+        Me.txtCodCliente.Location = New System.Drawing.Point(251, 306)
+        Me.txtCodCliente.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtCodCliente.Name = "txtCodCliente"
+        Me.txtCodCliente.Size = New System.Drawing.Size(132, 32)
+        Me.txtCodCliente.TabIndex = 7
         '
-        'txtlibras_totales
+        'txtLibrasTotales
         '
-        Me.txtlibras_totales.Enabled = False
-        Me.txtlibras_totales.Location = New System.Drawing.Point(251, 131)
-        Me.txtlibras_totales.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtlibras_totales.Name = "txtlibras_totales"
-        Me.txtlibras_totales.Size = New System.Drawing.Size(132, 32)
-        Me.txtlibras_totales.TabIndex = 8
+        Me.txtLibrasTotales.Enabled = False
+        Me.txtLibrasTotales.Location = New System.Drawing.Point(251, 131)
+        Me.txtLibrasTotales.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtLibrasTotales.Name = "txtLibrasTotales"
+        Me.txtLibrasTotales.Size = New System.Drawing.Size(132, 32)
+        Me.txtLibrasTotales.TabIndex = 8
         '
-        'txtcodgrupo
+        'txtCodGrupo
         '
-        Me.txtcodgrupo.Location = New System.Drawing.Point(251, 70)
-        Me.txtcodgrupo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtcodgrupo.MaxLength = 7
-        Me.txtcodgrupo.Name = "txtcodgrupo"
-        Me.txtcodgrupo.Size = New System.Drawing.Size(132, 32)
-        Me.txtcodgrupo.TabIndex = 9
+        Me.txtCodGrupo.Location = New System.Drawing.Point(251, 70)
+        Me.txtCodGrupo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtCodGrupo.MaxLength = 7
+        Me.txtCodGrupo.Name = "txtCodGrupo"
+        Me.txtCodGrupo.Size = New System.Drawing.Size(132, 32)
+        Me.txtCodGrupo.TabIndex = 9
         '
-        'txt_preciolibra
+        'txtPrecioLibra
         '
-        Me.txt_preciolibra.Enabled = False
-        Me.txt_preciolibra.Location = New System.Drawing.Point(251, 185)
-        Me.txt_preciolibra.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txt_preciolibra.Name = "txt_preciolibra"
-        Me.txt_preciolibra.Size = New System.Drawing.Size(132, 32)
-        Me.txt_preciolibra.TabIndex = 10
+        Me.txtPrecioLibra.Enabled = False
+        Me.txtPrecioLibra.Location = New System.Drawing.Point(251, 185)
+        Me.txtPrecioLibra.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtPrecioLibra.Name = "txtPrecioLibra"
+        Me.txtPrecioLibra.Size = New System.Drawing.Size(132, 32)
+        Me.txtPrecioLibra.TabIndex = 10
         '
-        'dgventaganado
+        'dgvVentaGanado
         '
-        Me.dgventaganado.AllowUserToAddRows = False
-        Me.dgventaganado.AllowUserToDeleteRows = False
-        Me.dgventaganado.AllowUserToResizeColumns = False
-        Me.dgventaganado.AllowUserToResizeRows = False
-        Me.dgventaganado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgventaganado.Location = New System.Drawing.Point(777, 103)
-        Me.dgventaganado.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.dgventaganado.MultiSelect = False
-        Me.dgventaganado.Name = "dgventaganado"
-        Me.dgventaganado.ReadOnly = True
-        Me.dgventaganado.RowHeadersVisible = False
-        Me.dgventaganado.RowHeadersWidth = 51
-        Me.dgventaganado.RowTemplate.Height = 28
-        Me.dgventaganado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgventaganado.Size = New System.Drawing.Size(317, 204)
-        Me.dgventaganado.TabIndex = 19
+        Me.dgvVentaGanado.AllowUserToAddRows = False
+        Me.dgvVentaGanado.AllowUserToDeleteRows = False
+        Me.dgvVentaGanado.AllowUserToResizeColumns = False
+        Me.dgvVentaGanado.AllowUserToResizeRows = False
+        Me.dgvVentaGanado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvVentaGanado.Location = New System.Drawing.Point(777, 103)
+        Me.dgvVentaGanado.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.dgvVentaGanado.MultiSelect = False
+        Me.dgvVentaGanado.Name = "dgvVentaGanado"
+        Me.dgvVentaGanado.ReadOnly = True
+        Me.dgvVentaGanado.RowHeadersVisible = False
+        Me.dgvVentaGanado.RowHeadersWidth = 51
+        Me.dgvVentaGanado.RowTemplate.Height = 28
+        Me.dgvVentaGanado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvVentaGanado.Size = New System.Drawing.Size(317, 204)
+        Me.dgvVentaGanado.TabIndex = 19
         '
-        'btcargar_grupo
+        'btnCargarGrupo
         '
-        Me.btcargar_grupo.BackColor = System.Drawing.Color.BurlyWood
-        Me.btcargar_grupo.Enabled = False
-        Me.btcargar_grupo.Location = New System.Drawing.Point(508, 313)
-        Me.btcargar_grupo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.btcargar_grupo.Name = "btcargar_grupo"
-        Me.btcargar_grupo.Size = New System.Drawing.Size(160, 70)
-        Me.btcargar_grupo.TabIndex = 22
-        Me.btcargar_grupo.Text = "Cargar Grupo"
-        Me.btcargar_grupo.UseVisualStyleBackColor = False
+        Me.btnCargarGrupo.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnCargarGrupo.Enabled = False
+        Me.btnCargarGrupo.Location = New System.Drawing.Point(508, 313)
+        Me.btnCargarGrupo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.btnCargarGrupo.Name = "btnCargarGrupo"
+        Me.btnCargarGrupo.Size = New System.Drawing.Size(160, 70)
+        Me.btnCargarGrupo.TabIndex = 22
+        Me.btnCargarGrupo.Text = "Cargar Grupo"
+        Me.btnCargarGrupo.UseVisualStyleBackColor = False
         '
         'btnVender
         '
@@ -175,34 +174,34 @@ Partial Class VentaGanado
         Me.btnVender.Text = "Vender"
         Me.btnVender.UseVisualStyleBackColor = False
         '
-        'dtpfecha
+        'dtpFecha
         '
-        Me.dtpfecha.Enabled = False
-        Me.dtpfecha.Location = New System.Drawing.Point(173, 391)
-        Me.dtpfecha.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.dtpfecha.Name = "dtpfecha"
-        Me.dtpfecha.Size = New System.Drawing.Size(265, 32)
-        Me.dtpfecha.TabIndex = 24
+        Me.dtpFecha.Enabled = False
+        Me.dtpFecha.Location = New System.Drawing.Point(173, 391)
+        Me.dtpFecha.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(265, 32)
+        Me.dtpFecha.TabIndex = 24
         '
-        'btnatras
+        'btnAtras
         '
-        Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnatras.Image = CType(resources.GetObject("btnatras.Image"), System.Drawing.Image)
-        Me.btnatras.Location = New System.Drawing.Point(681, 403)
-        Me.btnatras.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(153, 61)
-        Me.btnatras.TabIndex = 25
-        Me.btnatras.UseVisualStyleBackColor = False
+        Me.btnAtras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnAtras.Image = Global.proye.My.Resources.Resources.atras__2_
+        Me.btnAtras.Location = New System.Drawing.Point(991, 400)
+        Me.btnAtras.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.btnAtras.Name = "btnAtras"
+        Me.btnAtras.Size = New System.Drawing.Size(103, 61)
+        Me.btnAtras.TabIndex = 25
+        Me.btnAtras.UseVisualStyleBackColor = False
         '
-        'txttotalventa
+        'txtTotalVenta
         '
-        Me.txttotalventa.Enabled = False
-        Me.txttotalventa.Location = New System.Drawing.Point(251, 244)
-        Me.txttotalventa.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txttotalventa.Name = "txttotalventa"
-        Me.txttotalventa.Size = New System.Drawing.Size(132, 32)
-        Me.txttotalventa.TabIndex = 27
+        Me.txtTotalVenta.Enabled = False
+        Me.txtTotalVenta.Location = New System.Drawing.Point(251, 244)
+        Me.txtTotalVenta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtTotalVenta.Name = "txtTotalVenta"
+        Me.txtTotalVenta.Size = New System.Drawing.Size(132, 32)
+        Me.txtTotalVenta.TabIndex = 27
         '
         'Label8
         '
@@ -259,17 +258,17 @@ Partial Class VentaGanado
         Me.Controls.Add(Me.lb_Animales)
         Me.Controls.Add(Me.dgvGrupos)
         Me.Controls.Add(Me.lb_Grupos)
-        Me.Controls.Add(Me.txttotalventa)
+        Me.Controls.Add(Me.txtTotalVenta)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.btnatras)
-        Me.Controls.Add(Me.dtpfecha)
-        Me.Controls.Add(Me.btcargar_grupo)
+        Me.Controls.Add(Me.btnAtras)
+        Me.Controls.Add(Me.dtpFecha)
+        Me.Controls.Add(Me.btnCargarGrupo)
         Me.Controls.Add(Me.btnVender)
-        Me.Controls.Add(Me.dgventaganado)
-        Me.Controls.Add(Me.txt_preciolibra)
-        Me.Controls.Add(Me.txtcodgrupo)
-        Me.Controls.Add(Me.txtlibras_totales)
-        Me.Controls.Add(Me.txtcodcliente)
+        Me.Controls.Add(Me.dgvVentaGanado)
+        Me.Controls.Add(Me.txtPrecioLibra)
+        Me.Controls.Add(Me.txtCodGrupo)
+        Me.Controls.Add(Me.txtLibrasTotales)
+        Me.Controls.Add(Me.txtCodCliente)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -281,7 +280,7 @@ Partial Class VentaGanado
         Me.Name = "VentaGanado"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "VentaGanado"
-        CType(Me.dgventaganado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvVentaGanado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvGrupos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -292,16 +291,16 @@ Partial Class VentaGanado
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtcodcliente As TextBox
-    Friend WithEvents txtlibras_totales As TextBox
-    Friend WithEvents txtcodgrupo As TextBox
-    Friend WithEvents txt_preciolibra As TextBox
-    Friend WithEvents dgventaganado As DataGridView
-    Friend WithEvents btcargar_grupo As Button
+    Friend WithEvents txtCodCliente As TextBox
+    Friend WithEvents txtLibrasTotales As TextBox
+    Friend WithEvents txtCodGrupo As TextBox
+    Friend WithEvents txtPrecioLibra As TextBox
+    Friend WithEvents dgvVentaGanado As DataGridView
+    Friend WithEvents btnCargarGrupo As Button
     Friend WithEvents btnVender As Button
-    Friend WithEvents dtpfecha As DateTimePicker
-    Friend WithEvents btnatras As Button
-    Friend WithEvents txttotalventa As TextBox
+    Friend WithEvents dtpFecha As DateTimePicker
+    Friend WithEvents btnAtras As Button
+    Friend WithEvents txtTotalVenta As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents lb_Grupos As Label
     Friend WithEvents dgvGrupos As DataGridView

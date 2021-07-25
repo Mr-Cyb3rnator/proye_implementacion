@@ -4,12 +4,12 @@ Public Class VentaGanado
 
 #Region "Funciones"
 
-    Private Sub cargargrid_grupo()
+    Private Sub cargarGridGrupo()
 
         conecta()
 
         'Listar los animales listos para la venta de acuerdo al grupo
-        dgventaganado.DataSource = CargarDatosGrid("exec MostrarAnimales_GrupoListos " & txtcodgrupo.Text)
+        dgvVentaGanado.DataSource = CargarDatosGrid("exec MostrarAnimales_GrupoListos " & txtCodGrupo.Text)
 
         conectar.Close()
 
@@ -24,13 +24,13 @@ Public Class VentaGanado
         Dim estado As String
 
         'Procedimiento que calcula el peso total del grupo de animales escogido para la venta
-        recuperar = LecturaBD("exec CalcularPesoTotalAnimales " & txtcodgrupo.Text)
+        recuperar = LecturaBD("exec CalcularPesoTotalAnimales " & txtCodGrupo.Text)
 
         estado = recuperar.Read
 
         If (estado = True) Then
 
-            txtlibras_totales.Text = recuperar(0)
+            txtLibrasTotales.Text = recuperar(0)
         Else
             MsgBox("No hay datos que se puedan mostrar")
         End If
@@ -60,7 +60,7 @@ Public Class VentaGanado
 
         'Procedimiento para el registro de la venta de animales
         Try
-            ModificarBD("exec InsertarVentaAnimales " & txtcodcliente.Text & ",'" & dtpfecha.Value.Date.ToString("yyyy-MM-dd") & "'," & txtlibras_totales.Text & "," & txt_preciolibra.Text & "," & txtcodgrupo.Text)
+            ModificarBD("exec InsertarVentaAnimales " & txtCodCliente.Text & ",'" & dtpFecha.Value.Date.ToString("yyyy-MM-dd") & "'," & txtLibrasTotales.Text & "," & txtPrecioLibra.Text & "," & txtCodGrupo.Text)
         Catch ex As Exception
             MsgBox("Revisar la conexión a la BD y/o el procedimiento de ventas junto a sus parametros")
         End Try
@@ -68,19 +68,19 @@ Public Class VentaGanado
 
         'Procedimiento para actualizar el estado de los diferentes animales de un grupo determinado'
         Try
-            ModificarBD("exec ActualizacionAnimalesVendidos " & "vendido" & "," & txtcodgrupo.Text)
+            ModificarBD("exec ActualizacionAnimalesVendidos " & "vendido" & "," & txtCodGrupo.Text)
             MsgBox("Venta Efectuada", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Venta Ganado")
         Catch ex As Exception
             MsgBox("Revisar la conexión a la BD y/o el procedimiento de actualizacion de animales junto a sus parametros")
         End Try
 
         'Limpieza de Campos'
-        txtcodgrupo.Text = ""
-        txtlibras_totales.Text = ""
-        txt_preciolibra.Text = ""
-        txttotalventa.Text = ""
-        txtcodcliente.Text = " "
-        dgventaganado.DataSource = Nothing
+        txtCodGrupo.Text = ""
+        txtLibrasTotales.Text = ""
+        txtPrecioLibra.Text = ""
+        txtTotalVenta.Text = ""
+        txtCodCliente.Text = " "
+        dgvVentaGanado.DataSource = Nothing
 
         'Muestra todos los grupos listos para la venta
         dgvGrupos.DataSource = CargarDatosGrid("exec MostrarAnimales_DistintosGrupos")
@@ -89,94 +89,94 @@ Public Class VentaGanado
 
     End Sub
 
-    Private Sub btnCargarGrupo_Click(sender As Object, e As EventArgs) Handles btcargar_grupo.Click
+    Private Sub btnCargarGrupo_Click(sender As Object, e As EventArgs) Handles btnCargarGrupo.Click
 
         'Recorrer el Data Grid View Cargado de Grupos'
         'Dim getValue As String'
-        Dim grupopresente As Boolean
+        Dim grupoPresente As Boolean
 
         For Each row As DataGridViewRow In dgvGrupos.Rows
-            If row.Cells("Grupos").Value = txtcodgrupo.Text Then
+            If row.Cells("Grupos").Value = txtCodGrupo.Text Then
 
                 'getValue = "Todo normal"'
-                grupopresente = 1
+                grupoPresente = 1
                 Exit For
             Else
                 'getValue = "No Existe"'
-                grupopresente = 0
+                grupoPresente = 0
 
             End If
         Next
         'MsgBox(getValue)'
-        If (grupopresente) Then
+        If (grupoPresente) Then
             cargar_peso_total()
-            cargargrid_grupo()
+            cargarGridGrupo()
 
-            txt_preciolibra.Enabled = True
-            txt_preciolibra.Select()
+            txtPrecioLibra.Enabled = True
+            txtPrecioLibra.Select()
 
         Else
             MsgBox("Grupo No Forma Parte de la Lista")
 
-            txtcodgrupo.Text = ""
-            txtcodgrupo.Select()
+            txtCodGrupo.Text = ""
+            txtCodGrupo.Select()
 
         End If
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnatras.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
 
 #End Region
 
 #Region "Validaciones"
-    Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodcliente.KeyPress
+    Private Sub txtcodcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodCliente.KeyPress
         CampoValidacionNumeros(e)
     End Sub
 
-    Private Sub txtcodgrupo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodgrupo.KeyPress
+    Private Sub txtcodgrupo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodGrupo.KeyPress
         CampoValidacionNumeros(e)
 
     End Sub
 
-    Private Sub txt_preciolibra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_preciolibra.KeyPress
+    Private Sub txt_preciolibra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecioLibra.KeyPress
         CampoValidacionNumeros(e)
     End Sub
 
 #End Region
 
 #Region "HabilitandoBotones"
-    Private Sub txtcodgrupo_TextChanged(sender As Object, e As EventArgs) Handles txtcodgrupo.TextChanged
-        btcargar_grupo.Enabled = True
+    Private Sub txtcodgrupo_TextChanged(sender As Object, e As EventArgs) Handles txtCodGrupo.TextChanged
+        btnCargarGrupo.Enabled = True
 
-        If (txtcodgrupo.Text = "") Then
-            btcargar_grupo.Enabled = False
+        If (txtCodGrupo.Text = "") Then
+            btnCargarGrupo.Enabled = False
         End If
 
     End Sub
 
-    Private Sub txt_preciolibra_TextChanged(sender As Object, e As EventArgs) Handles txt_preciolibra.TextChanged
+    Private Sub txt_preciolibra_TextChanged(sender As Object, e As EventArgs) Handles txtPrecioLibra.TextChanged
         Dim total_venta As Integer
 
-        If (txt_preciolibra.Text IsNot "") Then
+        If (txtPrecioLibra.Text IsNot "") Then
 
-            total_venta = Val(txtlibras_totales.Text) * Val(txt_preciolibra.Text)
-            txttotalventa.Text = total_venta
+            total_venta = Val(txtLibrasTotales.Text) * Val(txtPrecioLibra.Text)
+            txtTotalVenta.Text = total_venta
 
-            txtcodcliente.Enabled = True
+            txtCodCliente.Enabled = True
 
         Else
-            txttotalventa.Text = ""
-            txtcodcliente.Enabled = False
+            txtTotalVenta.Text = ""
+            txtCodCliente.Enabled = False
         End If
 
     End Sub
 
-    Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcodcliente.TextChanged
-        If (txtcodcliente.Text IsNot "") Then
+    Private Sub txtcodcliente_TextChanged(sender As Object, e As EventArgs) Handles txtCodCliente.TextChanged
+        If (txtCodCliente.Text IsNot "") Then
             btnVender.Enabled = True
         Else
             btnVender.Enabled = False

@@ -22,7 +22,6 @@ Partial Class Gasto
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Gasto))
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -217,8 +216,8 @@ Partial Class Gasto
         '
         'btnatras
         '
-        Me.btnatras.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnatras.Image = CType(resources.GetObject("btnatras.Image"), System.Drawing.Image)
+        Me.btnatras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnatras.Image = Global.proye.My.Resources.Resources.atras__2_
         Me.btnatras.Location = New System.Drawing.Point(753, 464)
         Me.btnatras.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnatras.Name = "btnatras"

@@ -72,7 +72,7 @@ Public Class estado_resultados
     End Sub
     Private Sub btnatras_Click(sender As Object, e As EventArgs)
         Me.Hide()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
     'validaciones de textboxs
     Private Sub btcalcular_Click(sender As Object, e As EventArgs) Handles btCalcular.Click
@@ -98,7 +98,7 @@ Public Class estado_resultados
     End Sub
     Private Sub btnatras_Click_1(sender As Object, e As EventArgs) Handles btnAtras.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
     Private Sub btcargar_gastos_Click(sender As Object, e As EventArgs) Handles btCargarGastos.Click
         '------------boton de cargar gastos
