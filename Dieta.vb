@@ -69,26 +69,23 @@ Public Class Dieta
     End Sub
 
     Private Sub btAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        '-------activa y desactiva los textbox
-        Label1.Enabled = False
-        txtCodDieta.Enabled = False
-        btnSelecionarDierta.Enabled = False
-        txtCantidad.Enabled = True
-        txtComidaXDia.Enabled = True
-        btnGuardar.Enabled = True
         '--------actualiza la tabla ingredientes
-        Try
-            conecta()
-            cmbCodIngre.Text = 0
-            ModificarBD("exec InsertarIngredientesDietas " & txtCodDieta.Text & ", " & lblCodIngre.Text)
-            CerrarConexion()
-            cargargrid_dieta()
-        Catch ex As Exception
-        End Try
+        If (lblCodIngre.Text = 0) Then
+            MessageBox.Show("El codigo del ingrediente no puede ser 0, seleccione otro ingrediente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            Try
+                conecta()
+                cmbCodIngre.Text = 0
+                ModificarBD("exec InsertarIngredientesDietas " & txtCodDieta.Text & ", " & lblCodIngre.Text)
+                CerrarConexion()
+                cargargrid_dieta()
+            Catch ex As Exception
+            End Try
+        End If
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSelecionarDierta.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCargarIngredientes.Click
         '---boton seleccionar dieta
-
+        btnAgregar.Enabled = True
         GroupBox1.Enabled = True
         cargargrid_dieta()
     End Sub
@@ -99,24 +96,22 @@ Public Class Dieta
     Private Sub txtcodingre_KeyPress(sender As Object, e As KeyPressEventArgs)
         CampoValidacionNumeros(e)
     End Sub
-    Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidad.KeyPress
+    Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
         CampoValidacionNumeros(e)
     End Sub
-    Private Sub txtcomidaxdia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcomidaxdia.KeyPress
+    Private Sub txtcomidaxdia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtComidaXDia.KeyPress
         CampoValidacionNumeros(e)
     End Sub
-    Private Sub cmbcodingre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbcodingre.SelectedIndexChanged
+    Private Sub cmbcodingre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCodIngre.SelectedIndexChanged
         lblCodIngre.Text = cmbCodIngre.SelectedIndex
     End Sub
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        Label1.Enabled = True
-        txtCodDieta.Enabled = True
-        'txtCodDieta.Text = ""
-        btnSelecionarDierta.Enabled = True
-        txtcomidaxdia.Enabled = False
-        txtcantidad.Enabled = False
-        btnguardar.Enabled = False
-        btneliminar.Enabled = True
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        txtCantidad.Text = ""
+        txtCodDieta.Text = ""
+        txtComidaXDia.Text = ""
+        btnAgregar.Enabled = False
+        lblCodIngre.Text = 0
+        cmbCodIngre.SelectedIndex = 0
     End Sub
     '=======boton para regresar al menu
     Private Sub btnAtras_Click_1(sender As Object, e As EventArgs) Handles btnAtras.Click

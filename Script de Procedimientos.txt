@@ -1574,6 +1574,20 @@ BEGIN
 
 	where cod_grupo=@cod_grupo
 END
+/////////////////////////////////////////////////////////////////////////////////////////////
 GO
+CREATE PROCEDURE [dbo].[InsertarDietas]
+	@cantidadlibras as int,
+	@comidasxdia as int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
 
+    -- Insert statements for procedure here
+	INSERT INTO dieta(cantidad_libras,comidas_al_dia)
+	VALUES(@cantidadlibras,@comidasXdia)
+END
+GO
 

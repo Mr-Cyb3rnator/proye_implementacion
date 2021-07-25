@@ -35,14 +35,14 @@ Partial Class Dieta
         Me.btnAtras = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.dgvIngredientesDieta = New System.Windows.Forms.DataGridView()
-        Me.btnSelecionarDierta = New System.Windows.Forms.Button()
+        Me.btnCargarIngredientes = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblCodIngre = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lbl_ingrediente = New System.Windows.Forms.Label()
         Me.cmbCodIngre = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         CType(Me.dgvDieta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvIngredientesDieta, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,7 +56,7 @@ Partial Class Dieta
         Me.Label1.AutoSize = True
         Me.Label1.Enabled = False
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(395, 32)
+        Me.Label1.Location = New System.Drawing.Point(98, 52)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(179, 30)
@@ -106,7 +106,7 @@ Partial Class Dieta
         'txtCodDieta
         '
         Me.txtCodDieta.Enabled = False
-        Me.txtCodDieta.Location = New System.Drawing.Point(582, 29)
+        Me.txtCodDieta.Location = New System.Drawing.Point(285, 49)
         Me.txtCodDieta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.txtCodDieta.Name = "txtCodDieta"
         Me.txtCodDieta.Size = New System.Drawing.Size(110, 31)
@@ -120,7 +120,7 @@ Partial Class Dieta
         Me.dgvDieta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDieta.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgvDieta.EnableHeadersVisualStyles = False
-        Me.dgvDieta.Location = New System.Drawing.Point(405, 34)
+        Me.dgvDieta.Location = New System.Drawing.Point(445, 190)
         Me.dgvDieta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.dgvDieta.Name = "dgvDieta"
         Me.dgvDieta.ReadOnly = True
@@ -128,7 +128,7 @@ Partial Class Dieta
         Me.dgvDieta.RowHeadersWidth = 51
         Me.dgvDieta.RowTemplate.Height = 28
         Me.dgvDieta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvDieta.Size = New System.Drawing.Size(469, 340)
+        Me.dgvDieta.Size = New System.Drawing.Size(469, 362)
         Me.dgvDieta.TabIndex = 9
         '
         'btnGuardar
@@ -170,7 +170,7 @@ Partial Class Dieta
         '
         Me.btnAtras.BackColor = System.Drawing.Color.BurlyWood
         Me.btnAtras.Image = Global.proye.My.Resources.Resources.atras__2_
-        Me.btnAtras.Location = New System.Drawing.Point(1246, 631)
+        Me.btnAtras.Location = New System.Drawing.Point(1293, 568)
         Me.btnAtras.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(136, 85)
@@ -180,6 +180,7 @@ Partial Class Dieta
         'btnAgregar
         '
         Me.btnAgregar.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnAgregar.Enabled = False
         Me.btnAgregar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btnAgregar.Location = New System.Drawing.Point(44, 422)
         Me.btnAgregar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
@@ -206,18 +207,17 @@ Partial Class Dieta
         Me.dgvIngredientesDieta.Size = New System.Drawing.Size(434, 230)
         Me.dgvIngredientesDieta.TabIndex = 28
         '
-        'btnSelecionarDierta
+        'btnCargarIngredientes
         '
-        Me.btnSelecionarDierta.BackColor = System.Drawing.Color.BurlyWood
-        Me.btnSelecionarDierta.Enabled = False
-        Me.btnSelecionarDierta.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btnSelecionarDierta.Location = New System.Drawing.Point(372, 78)
-        Me.btnSelecionarDierta.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.btnSelecionarDierta.Name = "btnSelecionarDierta"
-        Me.btnSelecionarDierta.Size = New System.Drawing.Size(378, 50)
-        Me.btnSelecionarDierta.TabIndex = 29
-        Me.btnSelecionarDierta.Text = "Seleccionar codigo dieta"
-        Me.btnSelecionarDierta.UseVisualStyleBackColor = False
+        Me.btnCargarIngredientes.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnCargarIngredientes.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnCargarIngredientes.Location = New System.Drawing.Point(410, 39)
+        Me.btnCargarIngredientes.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.btnCargarIngredientes.Name = "btnCargarIngredientes"
+        Me.btnCargarIngredientes.Size = New System.Drawing.Size(378, 50)
+        Me.btnCargarIngredientes.TabIndex = 29
+        Me.btnCargarIngredientes.Text = "Cargar ingredientes"
+        Me.btnCargarIngredientes.UseVisualStyleBackColor = False
         '
         'Label5
         '
@@ -251,11 +251,11 @@ Partial Class Dieta
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.btnAgregar)
         Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox1.Location = New System.Drawing.Point(919, 78)
+        Me.GroupBox1.Location = New System.Drawing.Point(919, 67)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(512, 549)
+        Me.GroupBox1.Size = New System.Drawing.Size(512, 497)
         Me.GroupBox1.TabIndex = 33
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingredientes en la dieta"
@@ -283,44 +283,43 @@ Partial Class Dieta
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.dgvDieta)
         Me.GroupBox2.Controls.Add(Me.txtComidaXDia)
         Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.btnLimpiar)
         Me.GroupBox2.Controls.Add(Me.btnEliminar)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.btnGuardar)
         Me.GroupBox2.Controls.Add(Me.txtCantidad)
         Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox2.Location = New System.Drawing.Point(22, 241)
+        Me.GroupBox2.Location = New System.Drawing.Point(24, 178)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(890, 386)
+        Me.GroupBox2.Size = New System.Drawing.Size(415, 386)
         Me.GroupBox2.TabIndex = 34
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Crear dieta"
         '
-        'btnBuscar
+        'btnLimpiar
         '
-        Me.btnBuscar.BackColor = System.Drawing.Color.BurlyWood
-        Me.btnBuscar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btnBuscar.Location = New System.Drawing.Point(119, 41)
-        Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(194, 75)
-        Me.btnBuscar.TabIndex = 30
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.UseVisualStyleBackColor = False
+        Me.btnLimpiar.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnLimpiar.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.btnLimpiar.Location = New System.Drawing.Point(215, 299)
+        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(194, 75)
+        Me.btnLimpiar.TabIndex = 30
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.btnSelecionarDierta)
-        Me.GroupBox3.Controls.Add(Me.btnBuscar)
+        Me.GroupBox3.Controls.Add(Me.btnCargarIngredientes)
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Controls.Add(Me.txtCodDieta)
-        Me.GroupBox3.Location = New System.Drawing.Point(22, 90)
+        Me.GroupBox3.Location = New System.Drawing.Point(24, 67)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(890, 146)
+        Me.GroupBox3.Size = New System.Drawing.Size(890, 106)
         Me.GroupBox3.TabIndex = 35
         Me.GroupBox3.TabStop = False
         '
@@ -331,7 +330,8 @@ Partial Class Dieta
         Me.AutoSize = True
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(1442, 724)
+        Me.ClientSize = New System.Drawing.Size(1442, 664)
+        Me.Controls.Add(Me.dgvDieta)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -366,7 +366,7 @@ Partial Class Dieta
     Friend WithEvents btnAtras As Button
     Friend WithEvents btnAgregar As Button
     Friend WithEvents dgvIngredientesDieta As DataGridView
-    Friend WithEvents btnSelecionarDierta As Button
+    Friend WithEvents btnCargarIngredientes As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents lblCodIngre As Label
     Friend WithEvents GroupBox1 As GroupBox
@@ -374,6 +374,6 @@ Partial Class Dieta
     Friend WithEvents cmbCodIngre As ComboBox
     Friend WithEvents dgvDieta As DataGridView
     Friend WithEvents lbl_ingrediente As Label
-    Friend WithEvents btnBuscar As Button
+    Friend WithEvents btnLimpiar As Button
     Friend WithEvents GroupBox3 As GroupBox
 End Class
