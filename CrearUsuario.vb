@@ -42,6 +42,7 @@ Public Class CrearUsuario
 
 
         LimpiarCampos()
+
     End Sub
 
     Private Sub crearusuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -121,6 +122,9 @@ Public Class CrearUsuario
             Me.Show()
         End If
     End Sub
+
+
 #End Region
+
 
 End Class

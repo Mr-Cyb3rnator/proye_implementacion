@@ -133,7 +133,6 @@ Partial Class Clientes
         Me.btnEliminar.BackColor = System.Drawing.Color.BurlyWood
         Me.btnEliminar.BackgroundImage = Global.proye.My.Resources.Resources.iconfinder_4781838_cancel_close_delete_exit_logout_icon_32px2
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminar.Enabled = False
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btnEliminar.Location = New System.Drawing.Point(241, 263)
@@ -178,7 +177,6 @@ Partial Class Clientes
         Me.btnEditar.BackColor = System.Drawing.Color.BurlyWood
         Me.btnEditar.BackgroundImage = Global.proye.My.Resources.Resources.iconfinder_185042_edit_modify_icon_32px2
         Me.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEditar.Enabled = False
         Me.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEditar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btnEditar.Location = New System.Drawing.Point(136, 263)

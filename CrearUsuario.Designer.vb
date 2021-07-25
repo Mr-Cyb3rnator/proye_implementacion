@@ -43,9 +43,9 @@ Partial Class CrearUsuario
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(30, 123)
+        Me.Label1.Location = New System.Drawing.Point(26, 92)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 23)
+        Me.Label1.Size = New System.Drawing.Size(70, 21)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Usuario:"
         '
@@ -53,9 +53,9 @@ Partial Class CrearUsuario
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(24, 204)
+        Me.Label2.Location = New System.Drawing.Point(21, 153)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(130, 23)
+        Me.Label2.Size = New System.Drawing.Size(107, 21)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Contraseña:"
         '
@@ -63,38 +63,41 @@ Partial Class CrearUsuario
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(30, 275)
+        Me.Label3.Location = New System.Drawing.Point(26, 206)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 23)
+        Me.Label3.Size = New System.Drawing.Size(46, 21)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Tipo:"
         '
         'txtusuario
         '
         Me.txtusuario.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtusuario.Location = New System.Drawing.Point(153, 115)
+        Me.txtusuario.Location = New System.Drawing.Point(134, 86)
+        Me.txtusuario.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtusuario.Name = "txtusuario"
-        Me.txtusuario.Size = New System.Drawing.Size(125, 32)
+        Me.txtusuario.Size = New System.Drawing.Size(110, 27)
         Me.txtusuario.TabIndex = 3
         '
         'txtcontra
         '
         Me.txtcontra.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtcontra.Location = New System.Drawing.Point(153, 196)
+        Me.txtcontra.Location = New System.Drawing.Point(134, 147)
+        Me.txtcontra.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtcontra.Name = "txtcontra"
         Me.txtcontra.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtcontra.Size = New System.Drawing.Size(125, 32)
+        Me.txtcontra.Size = New System.Drawing.Size(110, 27)
         Me.txtcontra.TabIndex = 4
         '
         'dtgcrear
         '
         Me.dtgcrear.AllowUserToAddRows = False
         Me.dtgcrear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgcrear.Location = New System.Drawing.Point(297, 39)
+        Me.dtgcrear.Location = New System.Drawing.Point(260, 29)
+        Me.dtgcrear.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dtgcrear.Name = "dtgcrear"
         Me.dtgcrear.RowHeadersWidth = 51
         Me.dtgcrear.RowTemplate.Height = 29
-        Me.dtgcrear.Size = New System.Drawing.Size(499, 264)
+        Me.dtgcrear.Size = New System.Drawing.Size(437, 198)
         Me.dtgcrear.TabIndex = 6
         '
         'btn_Guardar
@@ -104,9 +107,10 @@ Partial Class CrearUsuario
         Me.btn_Guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Guardar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btn_Guardar.Location = New System.Drawing.Point(829, 35)
+        Me.btn_Guardar.Location = New System.Drawing.Point(725, 26)
+        Me.btn_Guardar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Guardar.Name = "btn_Guardar"
-        Me.btn_Guardar.Size = New System.Drawing.Size(135, 61)
+        Me.btn_Guardar.Size = New System.Drawing.Size(118, 46)
         Me.btn_Guardar.TabIndex = 7
         Me.btn_Guardar.Text = "     Guardar"
         Me.btn_Guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -119,9 +123,10 @@ Partial Class CrearUsuario
         Me.btn_Modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Modificar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btn_Modificar.Location = New System.Drawing.Point(829, 104)
+        Me.btn_Modificar.Location = New System.Drawing.Point(725, 78)
+        Me.btn_Modificar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Modificar.Name = "btn_Modificar"
-        Me.btn_Modificar.Size = New System.Drawing.Size(135, 61)
+        Me.btn_Modificar.Size = New System.Drawing.Size(118, 46)
         Me.btn_Modificar.TabIndex = 8
         Me.btn_Modificar.Text = "   Modificar"
         Me.btn_Modificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -135,9 +140,10 @@ Partial Class CrearUsuario
         Me.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Eliminar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_Eliminar.Location = New System.Drawing.Point(829, 171)
+        Me.btn_Eliminar.Location = New System.Drawing.Point(725, 128)
+        Me.btn_Eliminar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Eliminar.Name = "btn_Eliminar"
-        Me.btn_Eliminar.Size = New System.Drawing.Size(135, 61)
+        Me.btn_Eliminar.Size = New System.Drawing.Size(118, 46)
         Me.btn_Eliminar.TabIndex = 9
         Me.btn_Eliminar.Text = "Eliminar"
         Me.btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -150,9 +156,10 @@ Partial Class CrearUsuario
         Me.btn_Salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Salir.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.btn_Salir.Location = New System.Drawing.Point(829, 237)
+        Me.btn_Salir.Location = New System.Drawing.Point(725, 178)
+        Me.btn_Salir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Salir.Name = "btn_Salir"
-        Me.btn_Salir.Size = New System.Drawing.Size(135, 65)
+        Me.btn_Salir.Size = New System.Drawing.Size(118, 49)
         Me.btn_Salir.TabIndex = 10
         Me.btn_Salir.Text = "   Salir"
         Me.btn_Salir.UseVisualStyleBackColor = False
@@ -160,35 +167,37 @@ Partial Class CrearUsuario
         'txttipo
         '
         Me.txttipo.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txttipo.Location = New System.Drawing.Point(153, 267)
+        Me.txttipo.Location = New System.Drawing.Point(134, 200)
+        Me.txttipo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txttipo.Name = "txttipo"
-        Me.txttipo.Size = New System.Drawing.Size(125, 32)
+        Me.txttipo.Size = New System.Drawing.Size(110, 27)
         Me.txttipo.TabIndex = 11
         '
         'txtcod
         '
         Me.txtcod.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtcod.Location = New System.Drawing.Point(153, 39)
+        Me.txtcod.Location = New System.Drawing.Point(134, 29)
+        Me.txtcod.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtcod.Name = "txtcod"
-        Me.txtcod.Size = New System.Drawing.Size(125, 32)
+        Me.txtcod.Size = New System.Drawing.Size(110, 27)
         Me.txtcod.TabIndex = 13
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(30, 49)
+        Me.Label4.Location = New System.Drawing.Point(26, 37)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(87, 23)
+        Me.Label4.Size = New System.Drawing.Size(72, 21)
         Me.Label4.TabIndex = 12
         Me.Label4.Text = "Código:"
         '
         'CrearUsuario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(977, 348)
+        Me.ClientSize = New System.Drawing.Size(855, 261)
         Me.Controls.Add(Me.txtcod)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txttipo)
@@ -203,6 +212,7 @@ Partial Class CrearUsuario
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "CrearUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Crear Usuario"
