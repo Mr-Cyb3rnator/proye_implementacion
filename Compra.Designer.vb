@@ -102,7 +102,7 @@ Partial Class Compra
         Me.btnAgregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(104, 48)
-        Me.btnAgregar.TabIndex = 32
+        Me.btnAgregar.TabIndex = 5
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
@@ -114,7 +114,7 @@ Partial Class Compra
         Me.txtPrecio.MaxLength = 7
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.Size = New System.Drawing.Size(119, 27)
-        Me.txtPrecio.TabIndex = 30
+        Me.txtPrecio.TabIndex = 4
         '
         'txtEdad
         '
@@ -124,7 +124,7 @@ Partial Class Compra
         Me.txtEdad.MaxLength = 2
         Me.txtEdad.Name = "txtEdad"
         Me.txtEdad.Size = New System.Drawing.Size(119, 27)
-        Me.txtEdad.TabIndex = 28
+        Me.txtEdad.TabIndex = 2
         '
         'txtPesoIni
         '
@@ -134,7 +134,7 @@ Partial Class Compra
         Me.txtPesoIni.MaxLength = 4
         Me.txtPesoIni.Name = "txtPesoIni"
         Me.txtPesoIni.Size = New System.Drawing.Size(119, 27)
-        Me.txtPesoIni.TabIndex = 27
+        Me.txtPesoIni.TabIndex = 1
         '
         'txtTotal
         '
@@ -164,7 +164,7 @@ Partial Class Compra
         Me.btnGuardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(166, 72)
-        Me.btnGuardar.TabIndex = 23
+        Me.btnGuardar.TabIndex = 7
         Me.btnGuardar.Text = "Comprar"
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
@@ -234,7 +234,7 @@ Partial Class Compra
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(649, 91)
+        Me.GroupBox1.Size = New System.Drawing.Size(666, 91)
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Encabezado"
@@ -243,7 +243,7 @@ Partial Class Compra
         '
         Me.dtpFecha.Enabled = False
         Me.dtpFecha.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.dtpFecha.Location = New System.Drawing.Point(346, 36)
+        Me.dtpFecha.Location = New System.Drawing.Point(373, 39)
         Me.dtpFecha.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(276, 32)
@@ -251,11 +251,11 @@ Partial Class Compra
         '
         'txtCodCliente
         '
-        Me.txtCodCliente.Location = New System.Drawing.Point(122, 40)
+        Me.txtCodCliente.Location = New System.Drawing.Point(153, 39)
         Me.txtCodCliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtCodCliente.Name = "txtCodCliente"
         Me.txtCodCliente.Size = New System.Drawing.Size(119, 32)
-        Me.txtCodCliente.TabIndex = 11
+        Me.txtCodCliente.TabIndex = 0
         '
         'lb_CodigoCliente
         '
@@ -271,7 +271,7 @@ Partial Class Compra
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(289, 39)
+        Me.Label4.Location = New System.Drawing.Point(289, 43)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(72, 23)
         Me.Label4.TabIndex = 6
@@ -292,7 +292,7 @@ Partial Class Compra
         Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(105, 48)
-        Me.btnLimpiar.TabIndex = 40
+        Me.btnLimpiar.TabIndex = 6
         Me.btnLimpiar.Text = "Limpiar"
         Me.btnLimpiar.UseVisualStyleBackColor = False
         '
@@ -306,7 +306,7 @@ Partial Class Compra
         Me.cbRaza.Margin = New System.Windows.Forms.Padding(2)
         Me.cbRaza.Name = "cbRaza"
         Me.cbRaza.Size = New System.Drawing.Size(122, 29)
-        Me.cbRaza.TabIndex = 41
+        Me.cbRaza.TabIndex = 3
         '
         'btnAtras
         '
@@ -317,7 +317,7 @@ Partial Class Compra
         Me.btnAtras.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(94, 74)
-        Me.btnAtras.TabIndex = 42
+        Me.btnAtras.TabIndex = 8
         Me.btnAtras.UseVisualStyleBackColor = False
         '
         'Compra

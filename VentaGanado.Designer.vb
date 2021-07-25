@@ -102,7 +102,7 @@ Partial Class VentaGanado
         Me.txtCodCliente.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtCodCliente.Name = "txtCodCliente"
         Me.txtCodCliente.Size = New System.Drawing.Size(132, 32)
-        Me.txtCodCliente.TabIndex = 7
+        Me.txtCodCliente.TabIndex = 5
         '
         'txtLibrasTotales
         '
@@ -111,7 +111,7 @@ Partial Class VentaGanado
         Me.txtLibrasTotales.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtLibrasTotales.Name = "txtLibrasTotales"
         Me.txtLibrasTotales.Size = New System.Drawing.Size(132, 32)
-        Me.txtLibrasTotales.TabIndex = 8
+        Me.txtLibrasTotales.TabIndex = 52
         '
         'txtCodGrupo
         '
@@ -120,7 +120,7 @@ Partial Class VentaGanado
         Me.txtCodGrupo.MaxLength = 7
         Me.txtCodGrupo.Name = "txtCodGrupo"
         Me.txtCodGrupo.Size = New System.Drawing.Size(132, 32)
-        Me.txtCodGrupo.TabIndex = 9
+        Me.txtCodGrupo.TabIndex = 0
         '
         'txtPrecioLibra
         '
@@ -129,7 +129,7 @@ Partial Class VentaGanado
         Me.txtPrecioLibra.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtPrecioLibra.Name = "txtPrecioLibra"
         Me.txtPrecioLibra.Size = New System.Drawing.Size(132, 32)
-        Me.txtPrecioLibra.TabIndex = 10
+        Me.txtPrecioLibra.TabIndex = 4
         '
         'dgvVentaGanado
         '
@@ -154,11 +154,11 @@ Partial Class VentaGanado
         '
         Me.btnCargarGrupo.BackColor = System.Drawing.Color.BurlyWood
         Me.btnCargarGrupo.Enabled = False
-        Me.btnCargarGrupo.Location = New System.Drawing.Point(508, 313)
+        Me.btnCargarGrupo.Location = New System.Drawing.Point(521, 313)
         Me.btnCargarGrupo.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnCargarGrupo.Name = "btnCargarGrupo"
         Me.btnCargarGrupo.Size = New System.Drawing.Size(160, 70)
-        Me.btnCargarGrupo.TabIndex = 22
+        Me.btnCargarGrupo.TabIndex = 2
         Me.btnCargarGrupo.Text = "Cargar Grupo"
         Me.btnCargarGrupo.UseVisualStyleBackColor = False
         '
@@ -170,7 +170,7 @@ Partial Class VentaGanado
         Me.btnVender.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnVender.Name = "btnVender"
         Me.btnVender.Size = New System.Drawing.Size(166, 70)
-        Me.btnVender.TabIndex = 21
+        Me.btnVender.TabIndex = 6
         Me.btnVender.Text = "Vender"
         Me.btnVender.UseVisualStyleBackColor = False
         '
@@ -191,7 +191,7 @@ Partial Class VentaGanado
         Me.btnAtras.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(103, 61)
-        Me.btnAtras.TabIndex = 25
+        Me.btnAtras.TabIndex = 7
         Me.btnAtras.UseVisualStyleBackColor = False
         '
         'txtTotalVenta
@@ -201,7 +201,7 @@ Partial Class VentaGanado
         Me.txtTotalVenta.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.txtTotalVenta.Name = "txtTotalVenta"
         Me.txtTotalVenta.Size = New System.Drawing.Size(132, 32)
-        Me.txtTotalVenta.TabIndex = 27
+        Me.txtTotalVenta.TabIndex = 50
         '
         'Label8
         '
@@ -228,6 +228,7 @@ Partial Class VentaGanado
         Me.dgvGrupos.AllowUserToDeleteRows = False
         Me.dgvGrupos.AllowUserToResizeColumns = False
         Me.dgvGrupos.AllowUserToResizeRows = False
+        Me.dgvGrupos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.dgvGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGrupos.Location = New System.Drawing.Point(476, 100)
         Me.dgvGrupos.MultiSelect = False
@@ -237,8 +238,8 @@ Partial Class VentaGanado
         Me.dgvGrupos.RowHeadersWidth = 51
         Me.dgvGrupos.RowTemplate.Height = 29
         Me.dgvGrupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGrupos.Size = New System.Drawing.Size(222, 207)
-        Me.dgvGrupos.TabIndex = 29
+        Me.dgvGrupos.Size = New System.Drawing.Size(247, 207)
+        Me.dgvGrupos.TabIndex = 1
         '
         'lb_Animales
         '

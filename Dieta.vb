@@ -121,7 +121,7 @@ Public Class Dieta
     '=======boton para regresar al menu
     Private Sub btnAtras_Click_1(sender As Object, e As EventArgs) Handles btnAtras.Click
         Me.Close()
-        frm_Menu.Show()
+        frmMenu.Show()
     End Sub
     Private Sub btnEliminar_Click_1(sender As Object, e As EventArgs) Handles btnEliminar.Click
         '---------boton eliminar dieta
