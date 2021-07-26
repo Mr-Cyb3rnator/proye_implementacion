@@ -1590,3 +1590,43 @@ BEGIN
 END
 GO
 
+
+/****** Object:  StoredProcedure [dbo].[insertarClientes]    Script Date: 26/7/2021 01:14:19 ******/
+DROP PROCEDURE [dbo].[insertarClientes]
+GO
+
+/****** Object:  StoredProcedure [dbo].[insertarClientes]    Script Date: 26/7/2021 01:14:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[insertarClientes]
+
+	@nombre nvarchar(50),
+	@apellido nvarchar(50),
+	@identidad varchar(50),
+	@direccion nvarchar(50),
+	@telefono varchar(50)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	insert into clientes(nombre,apellido, identidad,direcion, telefono) 
+	values(@nombre,@apellido,@identidad,@direccion,@telefono)
+END
+
+
+/****** Object:  StoredProcedure [dbo].[insertarIngredientes]    Script Date: 25/7/2021 00:04:23 ******/
+SET ANSI_NULLS ON
+GO
+
