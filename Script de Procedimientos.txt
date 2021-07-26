@@ -1625,8 +1625,81 @@ BEGIN
 	values(@nombre,@apellido,@identidad,@direccion,@telefono)
 END
 
-
-/****** Object:  StoredProcedure [dbo].[insertarIngredientes]    Script Date: 25/7/2021 00:04:23 ******/
+/****** Object:  StoredProcedure [dbo].[ListaClientes]    Script Date: 25/7/2021 00:04:55 ******/
 SET ANSI_NULLS ON
 GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[ListaClientes]
+
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	Select 
+		cod_cliente as 'Código',
+		nombre as 'Nombre',
+		apellido as 'Apellido',
+		identidad as 'Identidad',
+		direccion as 'dirección',
+		telefono as 'Teléfono'
+
+	From clientes
+   
+END
+
+
+/****** Object:  StoredProcedure [dbo].[ActualizarClientes]    Script Date: 26/7/2021 01:47:32 ******/
+DROP PROCEDURE [dbo].[ActualizarClientes]
+GO
+
+/****** Object:  StoredProcedure [dbo].[ActualizarClientes]    Script Date: 26/7/2021 01:47:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[ActualizarClientes] 
+	@cod_cliente int,
+	@nombre nvarchar(50),
+	@apellido nvarchar(50),
+	@identidad varchar(50),
+	@direccion nvarchar(50),
+	@telefono varchar(50)
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	update clientes 
+		set nombre = @nombre,
+		apellido = @apellido,
+		identidad = @identidad,
+		@direccion= @direccion,
+		telefono= @telefono
+	where cod_cliente= @cod_cliente
+
+    
+END
+
+
+/****** Object:  StoredProcedure [dbo].[EliminarClientes]    Script Date: 25/7/2021 00:03:34 ******/
+SET ANSI_NULLS ON
+GO
+
 
