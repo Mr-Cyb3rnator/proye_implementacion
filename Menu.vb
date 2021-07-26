@@ -1,6 +1,7 @@
 ﻿Public Class frmMenu
 
     Dim strHelpPath As String = System.IO.Path.Combine(Application.StartupPath, “HelpGanado.chm”)
+    Dim closingsession As String
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If (nivel = 1) Then
             btnGrupo.Enabled = True
@@ -78,19 +79,37 @@
     End Sub
 
 
-    Private Sub Form3_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
-        If MsgBox("Deseas terminar la aplicación?", vbYesNo Or vbQuestion) = vbYes Then
-            End
+
+    Private Sub btnHelp_Click(sender As Object, e As EventArgs) Handles btnHelp.Click
+        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+
+    End Sub
+
+    Private Sub btnCerrarSesion_Click(sender As Object, e As EventArgs) Handles btnCerrarSesion.Click
+
+
+        closingsession = MsgBox("¿Desea cerrar Sesion?", vbYesNo + vbQuestion, "Gracias")
+
+        If closingsession = vbYes Then
+            Me.Close()
+            frmInicioSesion.Show()
         Else
+            Exit Sub
+        End If
 
-            Me.Show()
+
+    End Sub
+
+    Private Sub frmMenu_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        If (closingsession = vbYes) Then
+        Else
+            Application.Exit()
         End If
 
     End Sub
 
-    Private Sub btnHelp_Click(sender As Object, e As EventArgs) Handles btnHelp.Click
-        Help.ShowHelp(Me, HelpProvider1.HelpNamespace, HelpNavigator.TableOfContents)
+    Private Sub frmMenu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
     End Sub
 End Class

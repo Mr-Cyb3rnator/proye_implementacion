@@ -5,7 +5,8 @@ Module condb
 
     Public conectar As New SqlClient.SqlConnection
 
-    Public cn As New SqlClient.SqlConnection("Data Source=localhost;Initial Catalog=base_proyecto;Integrated Security=True")
+    'Public cn As New SqlClient.SqlConnection("Data Source=localhost;Initial Catalog=base_proyecto;Integrated Security=True")
+    Public cn As New SqlClient.SqlConnection("Data Source=localhost;Initial Catalog=base_proyecto;User Id = admin ; Password =admin")
     Public cmd As New SqlClient.SqlCommand
     Public adt As New SqlClient.SqlDataAdapter
     Public ds As New DataSet
@@ -15,7 +16,8 @@ Module condb
 
     Public Sub conecta()
 
-        conectar.ConnectionString = "Data Source=localhost;Initial Catalog=base_proyecto;Integrated Security=True"
+        'conectar.ConnectionString = "Data Source=localhost;Initial Catalog=base_proyecto;Integrated Security=True"
+        conectar.ConnectionString = "Data Source=localhost;Initial Catalog=base_proyecto;User Id = admin ; Password =admin"
 
         If conectar.State = 0 Then
             conectar.Open()

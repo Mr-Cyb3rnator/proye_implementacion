@@ -47,6 +47,7 @@ Partial Class frmMenu
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.btnCerrarSesion = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -316,12 +317,26 @@ Partial Class frmMenu
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Grupos"
         '
+        'btnCerrarSesion
+        '
+        Me.btnCerrarSesion.BackgroundImage = Global.proye.My.Resources.Resources.systemlogout
+        Me.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnCerrarSesion.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
+        Me.btnCerrarSesion.FlatAppearance.BorderSize = 0
+        Me.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrarSesion.Location = New System.Drawing.Point(58, 4)
+        Me.btnCerrarSesion.Name = "btnCerrarSesion"
+        Me.btnCerrarSesion.Size = New System.Drawing.Size(39, 37)
+        Me.btnCerrarSesion.TabIndex = 27
+        Me.btnCerrarSesion.UseVisualStyleBackColor = True
+        '
         'frmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.BurlyWood
         Me.ClientSize = New System.Drawing.Size(926, 670)
+        Me.Controls.Add(Me.btnCerrarSesion)
         Me.Controls.Add(Me.lb_Usuario)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -359,4 +374,5 @@ Partial Class frmMenu
     Friend WithEvents btnReportes As Button
     Friend WithEvents HelpProvider1 As HelpProvider
     Friend WithEvents btnHelp As Button
+    Friend WithEvents btnCerrarSesion As Button
 End Class
