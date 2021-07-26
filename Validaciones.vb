@@ -1,4 +1,6 @@
 ﻿Module Validaciones
+
+    'Funcion para validar que los campos solo aceptan numeros
     Public Function CampoValidacionNumeros(e As KeyPressEventArgs) As Boolean
         Dim state As Boolean
 
@@ -17,6 +19,7 @@
         Return state
     End Function
 
+    'Funcion para validar los campos que solo aceptan letras
     Public Function CampoValidacionLetras(e As KeyPressEventArgs) As Boolean
         Dim state As Boolean
 

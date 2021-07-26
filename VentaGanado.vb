@@ -11,7 +11,8 @@ Public Class VentaGanado
         'Listar los animales listos para la venta de acuerdo al grupo
         dgvVentaGanado.DataSource = CargarDatosGrid("exec MostrarAnimales_GrupoListos " & txtCodGrupo.Text)
 
-        conectar.Close()
+        CerrarConexion()
+
 
     End Sub
 
@@ -92,22 +93,22 @@ Public Class VentaGanado
     Private Sub btnCargarGrupo_Click(sender As Object, e As EventArgs) Handles btnCargarGrupo.Click
 
         'Recorrer el Data Grid View Cargado de Grupos'
-        'Dim getValue As String'
+
         Dim grupoPresente As Boolean
 
         For Each row As DataGridViewRow In dgvGrupos.Rows
             If row.Cells("Grupos").Value = txtCodGrupo.Text Then
 
-                'getValue = "Todo normal"'
+
                 grupoPresente = 1
                 Exit For
             Else
-                'getValue = "No Existe"'
+
                 grupoPresente = 0
 
             End If
         Next
-        'MsgBox(getValue)'
+
         If (grupoPresente) Then
             cargar_peso_total()
             cargarGridGrupo()
@@ -162,7 +163,7 @@ Public Class VentaGanado
         Dim total_venta As Integer
 
         If (txtPrecioLibra.Text IsNot "") Then
-
+            'Hace el calculo de la venta a medida se va cambiando el precio de la libra
             total_venta = Val(txtLibrasTotales.Text) * Val(txtPrecioLibra.Text)
             txtTotalVenta.Text = total_venta
 

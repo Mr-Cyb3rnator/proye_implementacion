@@ -46,8 +46,8 @@ Public Class Compra
             'Se obtienen los datos del ultimo grupo generado por la compra de animales
             Dim recuperar As SqlDataReader
             Dim numGrupo As String
-            Dim numFactura As String ' por qué el número de grupo es el el número de factura también
-            numGrupo = "1"
+            Dim numFactura As String 'número de grupo es el el número de factura también
+            
             Try
                 recuperar = LecturaBD("select top 1 cod_compra from compra_animales order by cod_compra desc")
                 recuperar.Read()

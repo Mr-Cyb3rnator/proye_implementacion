@@ -27,29 +27,29 @@ Partial Class Gasto
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cb_Grupo = New System.Windows.Forms.ComboBox()
-        Me.dt_fecha = New System.Windows.Forms.DateTimePicker()
+        Me.cbGrupo = New System.Windows.Forms.ComboBox()
+        Me.dtFecha = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.txtprecio = New System.Windows.Forms.TextBox()
+        Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.btagregar = New System.Windows.Forms.Button()
-        Me.cb_Ingredientes = New System.Windows.Forms.ComboBox()
-        Me.txtcantidad = New System.Windows.Forms.TextBox()
-        Me.txtcod_ingre = New System.Windows.Forms.TextBox()
-        Me.btnatras = New System.Windows.Forms.Button()
-        Me.btn_Facturar = New System.Windows.Forms.Button()
-        Me.txttotal = New System.Windows.Forms.TextBox()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.cbIngredientes = New System.Windows.Forms.ComboBox()
+        Me.txtCantidad = New System.Windows.Forms.TextBox()
+        Me.txtcodIngre = New System.Windows.Forms.TextBox()
+        Me.btnAtras = New System.Windows.Forms.Button()
+        Me.btnFacturar = New System.Windows.Forms.Button()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.dgv_IngredientesUtilizados = New System.Windows.Forms.DataGridView()
+        Me.dgvIngredientesUtilizados = New System.Windows.Forms.DataGridView()
         Me.ccodigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ccantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cprecio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.csubtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.b_Eliminar = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.dgv_IngredientesUtilizados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvIngredientesUtilizados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -94,8 +94,8 @@ Partial Class Gasto
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.cb_Grupo)
-        Me.GroupBox1.Controls.Add(Me.dt_fecha)
+        Me.GroupBox1.Controls.Add(Me.cbGrupo)
+        Me.GroupBox1.Controls.Add(Me.dtFecha)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(26, 22)
@@ -107,33 +107,33 @@ Partial Class Gasto
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Gastos"
         '
-        'cb_Grupo
+        'cbGrupo
         '
-        Me.cb_Grupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb_Grupo.FormattingEnabled = True
-        Me.cb_Grupo.Location = New System.Drawing.Point(159, 40)
-        Me.cb_Grupo.Name = "cb_Grupo"
-        Me.cb_Grupo.Size = New System.Drawing.Size(135, 31)
-        Me.cb_Grupo.TabIndex = 7
+        Me.cbGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbGrupo.FormattingEnabled = True
+        Me.cbGrupo.Location = New System.Drawing.Point(159, 40)
+        Me.cbGrupo.Name = "cbGrupo"
+        Me.cbGrupo.Size = New System.Drawing.Size(135, 31)
+        Me.cbGrupo.TabIndex = 7
         '
-        'dt_fecha
+        'dtFecha
         '
-        Me.dt_fecha.Enabled = False
-        Me.dt_fecha.Location = New System.Drawing.Point(447, 39)
-        Me.dt_fecha.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.dt_fecha.Name = "dt_fecha"
-        Me.dt_fecha.Size = New System.Drawing.Size(373, 32)
-        Me.dt_fecha.TabIndex = 6
+        Me.dtFecha.Enabled = False
+        Me.dtFecha.Location = New System.Drawing.Point(447, 39)
+        Me.dtFecha.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.dtFecha.Name = "dtFecha"
+        Me.dtFecha.Size = New System.Drawing.Size(373, 32)
+        Me.dtFecha.TabIndex = 6
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.txtprecio)
+        Me.GroupBox2.Controls.Add(Me.txtPrecio)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.btagregar)
-        Me.GroupBox2.Controls.Add(Me.cb_Ingredientes)
-        Me.GroupBox2.Controls.Add(Me.txtcantidad)
-        Me.GroupBox2.Controls.Add(Me.txtcod_ingre)
+        Me.GroupBox2.Controls.Add(Me.btnAgregar)
+        Me.GroupBox2.Controls.Add(Me.cbIngredientes)
+        Me.GroupBox2.Controls.Add(Me.txtCantidad)
+        Me.GroupBox2.Controls.Add(Me.txtcodIngre)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Location = New System.Drawing.Point(26, 140)
@@ -145,14 +145,14 @@ Partial Class Gasto
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles"
         '
-        'txtprecio
+        'txtPrecio
         '
-        Me.txtprecio.Enabled = False
-        Me.txtprecio.Location = New System.Drawing.Point(482, 108)
-        Me.txtprecio.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtprecio.Name = "txtprecio"
-        Me.txtprecio.Size = New System.Drawing.Size(116, 32)
-        Me.txtprecio.TabIndex = 30
+        Me.txtPrecio.Enabled = False
+        Me.txtPrecio.Location = New System.Drawing.Point(482, 108)
+        Me.txtPrecio.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtPrecio.Name = "txtPrecio"
+        Me.txtPrecio.Size = New System.Drawing.Size(116, 32)
+        Me.txtPrecio.TabIndex = 30
         '
         'Label9
         '
@@ -174,76 +174,76 @@ Partial Class Gasto
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Ingrediente"
         '
-        'btagregar
+        'btnAgregar
         '
-        Me.btagregar.Enabled = False
-        Me.btagregar.Location = New System.Drawing.Point(688, 36)
-        Me.btagregar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.btagregar.Name = "btagregar"
-        Me.btagregar.Size = New System.Drawing.Size(112, 98)
-        Me.btagregar.TabIndex = 10
-        Me.btagregar.Text = "Agregar "
-        Me.btagregar.UseVisualStyleBackColor = True
+        Me.btnAgregar.Enabled = False
+        Me.btnAgregar.Location = New System.Drawing.Point(688, 36)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(112, 98)
+        Me.btnAgregar.TabIndex = 10
+        Me.btnAgregar.Text = "Agregar "
+        Me.btnAgregar.UseVisualStyleBackColor = True
         '
-        'cb_Ingredientes
+        'cbIngredientes
         '
-        Me.cb_Ingredientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb_Ingredientes.Enabled = False
-        Me.cb_Ingredientes.FormattingEnabled = True
-        Me.cb_Ingredientes.Location = New System.Drawing.Point(159, 31)
-        Me.cb_Ingredientes.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.cb_Ingredientes.Name = "cb_Ingredientes"
-        Me.cb_Ingredientes.Size = New System.Drawing.Size(135, 31)
-        Me.cb_Ingredientes.TabIndex = 28
+        Me.cbIngredientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbIngredientes.Enabled = False
+        Me.cbIngredientes.FormattingEnabled = True
+        Me.cbIngredientes.Location = New System.Drawing.Point(159, 31)
+        Me.cbIngredientes.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cbIngredientes.Name = "cbIngredientes"
+        Me.cbIngredientes.Size = New System.Drawing.Size(135, 31)
+        Me.cbIngredientes.TabIndex = 28
         '
-        'txtcantidad
+        'txtCantidad
         '
-        Me.txtcantidad.Enabled = False
-        Me.txtcantidad.Location = New System.Drawing.Point(482, 36)
-        Me.txtcantidad.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtcantidad.Name = "txtcantidad"
-        Me.txtcantidad.Size = New System.Drawing.Size(116, 32)
-        Me.txtcantidad.TabIndex = 8
+        Me.txtCantidad.Enabled = False
+        Me.txtCantidad.Location = New System.Drawing.Point(482, 36)
+        Me.txtCantidad.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.Size = New System.Drawing.Size(116, 32)
+        Me.txtCantidad.TabIndex = 8
         '
-        'txtcod_ingre
+        'txtcodIngre
         '
-        Me.txtcod_ingre.Enabled = False
-        Me.txtcod_ingre.Location = New System.Drawing.Point(159, 102)
-        Me.txtcod_ingre.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtcod_ingre.Name = "txtcod_ingre"
-        Me.txtcod_ingre.Size = New System.Drawing.Size(116, 32)
-        Me.txtcod_ingre.TabIndex = 7
+        Me.txtcodIngre.Enabled = False
+        Me.txtcodIngre.Location = New System.Drawing.Point(159, 102)
+        Me.txtcodIngre.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtcodIngre.Name = "txtcodIngre"
+        Me.txtcodIngre.Size = New System.Drawing.Size(116, 32)
+        Me.txtcodIngre.TabIndex = 7
         '
-        'btnatras
+        'btnAtras
         '
-        Me.btnatras.BackColor = System.Drawing.Color.BurlyWood
-        Me.btnatras.Image = Global.proye.My.Resources.Resources.atras__2_
-        Me.btnatras.Location = New System.Drawing.Point(753, 464)
-        Me.btnatras.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.btnatras.Name = "btnatras"
-        Me.btnatras.Size = New System.Drawing.Size(109, 73)
-        Me.btnatras.TabIndex = 26
-        Me.btnatras.UseVisualStyleBackColor = False
+        Me.btnAtras.BackColor = System.Drawing.Color.BurlyWood
+        Me.btnAtras.Image = Global.proye.My.Resources.Resources.atras__2_
+        Me.btnAtras.Location = New System.Drawing.Point(753, 464)
+        Me.btnAtras.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.btnAtras.Name = "btnAtras"
+        Me.btnAtras.Size = New System.Drawing.Size(109, 73)
+        Me.btnAtras.TabIndex = 26
+        Me.btnAtras.UseVisualStyleBackColor = False
         '
-        'btn_Facturar
+        'btnFacturar
         '
-        Me.btn_Facturar.Enabled = False
-        Me.btn_Facturar.Location = New System.Drawing.Point(594, 388)
-        Me.btn_Facturar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.btn_Facturar.Name = "btn_Facturar"
-        Me.btn_Facturar.Size = New System.Drawing.Size(109, 84)
-        Me.btn_Facturar.TabIndex = 27
-        Me.btn_Facturar.Text = "Facturar"
-        Me.btn_Facturar.UseVisualStyleBackColor = True
+        Me.btnFacturar.Enabled = False
+        Me.btnFacturar.Location = New System.Drawing.Point(594, 388)
+        Me.btnFacturar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.btnFacturar.Name = "btnFacturar"
+        Me.btnFacturar.Size = New System.Drawing.Size(109, 84)
+        Me.btnFacturar.TabIndex = 27
+        Me.btnFacturar.Text = "Facturar"
+        Me.btnFacturar.UseVisualStyleBackColor = True
         '
-        'txttotal
+        'txtTotal
         '
-        Me.txttotal.Enabled = False
-        Me.txttotal.Location = New System.Drawing.Point(728, 399)
-        Me.txttotal.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txttotal.Name = "txttotal"
-        Me.txttotal.Size = New System.Drawing.Size(148, 32)
-        Me.txttotal.TabIndex = 29
+        Me.txtTotal.Enabled = False
+        Me.txtTotal.Location = New System.Drawing.Point(728, 399)
+        Me.txtTotal.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.Size = New System.Drawing.Size(148, 32)
+        Me.txtTotal.TabIndex = 29
         '
         'Label10
         '
@@ -255,19 +255,19 @@ Partial Class Gasto
         Me.Label10.TabIndex = 28
         Me.Label10.Text = "TOTAL"
         '
-        'dgv_IngredientesUtilizados
+        'dgvIngredientesUtilizados
         '
-        Me.dgv_IngredientesUtilizados.AllowUserToAddRows = False
-        Me.dgv_IngredientesUtilizados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_IngredientesUtilizados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ccodigo, Me.ccantidad, Me.cprecio, Me.csubtotal})
-        Me.dgv_IngredientesUtilizados.Location = New System.Drawing.Point(26, 334)
-        Me.dgv_IngredientesUtilizados.Name = "dgv_IngredientesUtilizados"
-        Me.dgv_IngredientesUtilizados.ReadOnly = True
-        Me.dgv_IngredientesUtilizados.RowHeadersWidth = 51
-        Me.dgv_IngredientesUtilizados.RowTemplate.Height = 29
-        Me.dgv_IngredientesUtilizados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv_IngredientesUtilizados.Size = New System.Drawing.Size(555, 240)
-        Me.dgv_IngredientesUtilizados.TabIndex = 30
+        Me.dgvIngredientesUtilizados.AllowUserToAddRows = False
+        Me.dgvIngredientesUtilizados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvIngredientesUtilizados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ccodigo, Me.ccantidad, Me.cprecio, Me.csubtotal})
+        Me.dgvIngredientesUtilizados.Location = New System.Drawing.Point(26, 334)
+        Me.dgvIngredientesUtilizados.Name = "dgvIngredientesUtilizados"
+        Me.dgvIngredientesUtilizados.ReadOnly = True
+        Me.dgvIngredientesUtilizados.RowHeadersWidth = 51
+        Me.dgvIngredientesUtilizados.RowTemplate.Height = 29
+        Me.dgvIngredientesUtilizados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvIngredientesUtilizados.Size = New System.Drawing.Size(555, 240)
+        Me.dgvIngredientesUtilizados.TabIndex = 30
         '
         'ccodigo
         '
@@ -301,15 +301,15 @@ Partial Class Gasto
         Me.csubtotal.ReadOnly = True
         Me.csubtotal.Width = 125
         '
-        'b_Eliminar
+        'btnEliminar
         '
-        Me.b_Eliminar.Enabled = False
-        Me.b_Eliminar.Location = New System.Drawing.Point(594, 478)
-        Me.b_Eliminar.Name = "b_Eliminar"
-        Me.b_Eliminar.Size = New System.Drawing.Size(109, 88)
-        Me.b_Eliminar.TabIndex = 31
-        Me.b_Eliminar.Text = "Eliminar"
-        Me.b_Eliminar.UseVisualStyleBackColor = True
+        Me.btnEliminar.Enabled = False
+        Me.btnEliminar.Location = New System.Drawing.Point(594, 478)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(109, 88)
+        Me.btnEliminar.TabIndex = 31
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = True
         '
         'Gasto
         '
@@ -317,12 +317,12 @@ Partial Class Gasto
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.ClientSize = New System.Drawing.Size(911, 601)
-        Me.Controls.Add(Me.b_Eliminar)
-        Me.Controls.Add(Me.dgv_IngredientesUtilizados)
-        Me.Controls.Add(Me.txttotal)
+        Me.Controls.Add(Me.btnEliminar)
+        Me.Controls.Add(Me.dgvIngredientesUtilizados)
+        Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.btn_Facturar)
-        Me.Controls.Add(Me.btnatras)
+        Me.Controls.Add(Me.btnFacturar)
+        Me.Controls.Add(Me.btnAtras)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
@@ -335,7 +335,7 @@ Partial Class Gasto
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.dgv_IngredientesUtilizados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvIngredientesUtilizados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -346,21 +346,21 @@ Partial Class Gasto
     Friend WithEvents Label6 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents txtcantidad As TextBox
-    Friend WithEvents txtcod_ingre As TextBox
-    Friend WithEvents btagregar As Button
-    Friend WithEvents btnatras As Button
-    Friend WithEvents btn_Facturar As Button
+    Friend WithEvents txtCantidad As TextBox
+    Friend WithEvents txtcodIngre As TextBox
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents btnAtras As Button
+    Friend WithEvents btnFacturar As Button
     Friend WithEvents Label8 As Label
-    Friend WithEvents cb_Ingredientes As ComboBox
-    Friend WithEvents txtprecio As TextBox
+    Friend WithEvents cbIngredientes As ComboBox
+    Friend WithEvents txtPrecio As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents txttotal As TextBox
+    Friend WithEvents txtTotal As TextBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents dt_fecha As DateTimePicker
-    Friend WithEvents cb_Grupo As ComboBox
-    Friend WithEvents dgv_IngredientesUtilizados As DataGridView
-    Friend WithEvents b_Eliminar As Button
+    Friend WithEvents dtFecha As DateTimePicker
+    Friend WithEvents cbGrupo As ComboBox
+    Friend WithEvents dgvIngredientesUtilizados As DataGridView
+    Friend WithEvents btnEliminar As Button
     Friend WithEvents ccodigo As DataGridViewTextBoxColumn
     Friend WithEvents ccantidad As DataGridViewTextBoxColumn
     Friend WithEvents cprecio As DataGridViewTextBoxColumn

@@ -193,16 +193,17 @@ BEGIN
 END
 GO
 
-/****** Object:  StoredProcedure [dbo].[HistoricoCompra_General]    Script Date: 23/7/2021 22:29:19 ******/
+/****** Object:  StoredProcedure [dbo].[HistoricoCompra_General]    Script Date: 25/7/2021 00:00:58 ******/
 DROP PROCEDURE [dbo].[HistoricoCompra_General]
 GO
 
-/****** Object:  StoredProcedure [dbo].[HistoricoCompra_General]    Script Date: 23/7/2021 22:29:19 ******/
+/****** Object:  StoredProcedure [dbo].[HistoricoCompra_General]    Script Date: 25/7/2021 00:00:58 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		Oscar Andrade
@@ -228,22 +229,24 @@ BEGIN
 
 FROM compra_animales CA
 INNER JOIN clientes C ON CA.cod_cliente = C.cod_cliente
-INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_detalle_compra
+INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_compra
 GROUP BY CA.fecha,CA.cod_compra,C.nombre,DCA.raza
 ORDER BY CA.fecha DESC
 END
+
 GO
 
-/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoCliente]    Script Date: 23/7/2021 22:30:03 ******/
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoCliente]    Script Date: 25/7/2021 00:02:30 ******/
 DROP PROCEDURE [dbo].[HistoricoCompraFiltradoCliente]
 GO
 
-/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoCliente]    Script Date: 23/7/2021 22:30:03 ******/
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoCliente]    Script Date: 25/7/2021 00:02:30 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		Oscar Andrade
@@ -272,7 +275,7 @@ BEGIN
 
 FROM compra_animales CA
 INNER JOIN clientes C ON CA.cod_cliente = C.cod_cliente
-INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_detalle_compra
+INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_compra
 WHERE C.nombre like '%'+@cliente+'%' AND (CA.fecha between @fechainicial and @fechafinal) 
 GROUP BY CA.fecha,CA.cod_compra,C.nombre,DCA.raza
 ORDER BY CA.fecha DESC
@@ -280,16 +283,17 @@ END
 GO
 
 
-/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoRaza]    Script Date: 23/7/2021 22:31:23 ******/
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoRaza]    Script Date: 25/7/2021 00:03:32 ******/
 DROP PROCEDURE [dbo].[HistoricoCompraFiltradoRaza]
 GO
 
-/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoRaza]    Script Date: 23/7/2021 22:31:23 ******/
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraFiltradoRaza]    Script Date: 25/7/2021 00:03:32 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		Oscar Andrade
@@ -317,30 +321,25 @@ BEGIN
 
 FROM compra_animales CA
 INNER JOIN clientes C ON CA.cod_cliente = C.cod_cliente
-INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_detalle_compra
+INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_compra
 WHERE DCA.raza like '%'+@raza+'%' AND (CA.fecha between @fechainicial and @fechafinal)
 GROUP BY CA.fecha,CA.cod_compra,C.nombre,DCA.raza
 ORDER BY CA.fecha DESC
 END
 GO
 
-/****** Object:  StoredProcedure [dbo].[HistoricoCompraxGrupo]    Script Date: 23/7/2021 22:31:46 ******/
-DROP PROCEDURE [dbo].[HistoricoCompraxGrupo]
-GO
-
-/****** Object:  StoredProcedure [dbo].[HistoricoCompraxGrupo]    Script Date: 23/7/2021 22:31:46 ******/
+/****** Object:  StoredProcedure [dbo].[HistoricoCompraxGrupo]    Script Date: 25/7/2021 00:04:54 ******/
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
 
 -- =============================================
 -- Author:		Oscar Andrade
 -- Create date: 20 de julio del 2021
--- Description:	Historico de Compra por Grupo en especÃ­fico
+-- Description:	Historico de Compra por Grupo en específico
 -- =============================================
-CREATE PROCEDURE [dbo].[HistoricoCompraxGrupo]
+ALTER PROCEDURE [dbo].[HistoricoCompraxGrupo]
 	-- Add the parameters for the stored procedure here
 	@grupo int
 AS
@@ -359,11 +358,10 @@ BEGIN
 
 FROM compra_animales CA
 INNER JOIN clientes C ON CA.cod_cliente = C.cod_cliente
-INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_detalle_compra
+INNER JOIN detalle_compra_animal DCA ON CA.cod_compra = DCA.cod_compra
 WHERE CA.cod_compra = @grupo
 GROUP BY CA.fecha,CA.cod_compra,C.nombre
 END
-GO
 
 /****** Object:  StoredProcedure [dbo].[HistoricoVentas_FiltradoCliente]    Script Date: 23/7/2021 22:32:05 ******/
 DROP PROCEDURE [dbo].[HistoricoVentas_FiltradoCliente]
@@ -1576,6 +1574,20 @@ BEGIN
 
 	where cod_grupo=@cod_grupo
 END
+/////////////////////////////////////////////////////////////////////////////////////////////
 GO
+CREATE PROCEDURE [dbo].[InsertarDietas]
+	@cantidadlibras as int,
+	@comidasxdia as int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
 
+    -- Insert statements for procedure here
+	INSERT INTO dieta(cantidad_libras,comidas_al_dia)
+	VALUES(@cantidadlibras,@comidasXdia)
+END
+GO
 
