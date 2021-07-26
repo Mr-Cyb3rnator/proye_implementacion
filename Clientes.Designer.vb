@@ -59,7 +59,6 @@ Partial Class Clientes
         '
         'txtCodigoCliente
         '
-        Me.txtCodigoCliente.Enabled = False
         Me.txtCodigoCliente.Location = New System.Drawing.Point(164, 29)
         Me.txtCodigoCliente.Name = "txtCodigoCliente"
         Me.txtCodigoCliente.Size = New System.Drawing.Size(113, 23)
@@ -68,7 +67,7 @@ Partial Class Clientes
         'txtNombre
         '
         Me.txtNombre.Location = New System.Drawing.Point(164, 64)
-        Me.txtNombre.MaxLength = 25
+        Me.txtNombre.MaxLength = 20
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(113, 23)
         Me.txtNombre.TabIndex = 3
@@ -123,13 +122,13 @@ Partial Class Clientes
         '
         Me.dvgClientes.AllowUserToAddRows = False
         Me.dvgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dvgClientes.Location = New System.Drawing.Point(359, 39)
+        Me.dvgClientes.Location = New System.Drawing.Point(350, 27)
         Me.dvgClientes.MultiSelect = False
         Me.dvgClientes.Name = "dvgClientes"
         Me.dvgClientes.ReadOnly = True
         Me.dvgClientes.RowHeadersWidth = 51
         Me.dvgClientes.RowTemplate.Height = 24
-        Me.dvgClientes.Size = New System.Drawing.Size(474, 231)
+        Me.dvgClientes.Size = New System.Drawing.Size(669, 231)
         Me.dvgClientes.TabIndex = 8
         '
         'btnEliminar
@@ -152,7 +151,6 @@ Partial Class Clientes
         Me.btnAgregar.BackColor = System.Drawing.Color.BurlyWood
         Me.btnAgregar.BackgroundImage = Global.proye.My.Resources.Resources.agregar
         Me.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAgregar.Enabled = False
         Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregar.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -218,7 +216,7 @@ Partial Class Clientes
         'txtApellido
         '
         Me.txtApellido.Location = New System.Drawing.Point(164, 103)
-        Me.txtApellido.MaxLength = 25
+        Me.txtApellido.MaxLength = 20
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(113, 23)
         Me.txtApellido.TabIndex = 33
@@ -226,7 +224,7 @@ Partial Class Clientes
         'txtIdentidad
         '
         Me.txtIdentidad.Location = New System.Drawing.Point(164, 143)
-        Me.txtIdentidad.MaxLength = 50
+        Me.txtIdentidad.MaxLength = 13
         Me.txtIdentidad.Name = "txtIdentidad"
         Me.txtIdentidad.Size = New System.Drawing.Size(113, 23)
         Me.txtIdentidad.TabIndex = 34
@@ -236,7 +234,7 @@ Partial Class Clientes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.ClientSize = New System.Drawing.Size(925, 343)
+        Me.ClientSize = New System.Drawing.Size(1040, 362)
         Me.Controls.Add(Me.txtIdentidad)
         Me.Controls.Add(Me.txtApellido)
         Me.Controls.Add(Me.Label6)

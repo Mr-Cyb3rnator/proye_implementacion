@@ -198,6 +198,7 @@ Partial Class Grupos
         Me.btnAgregar.TabIndex = 25
         Me.btnAgregar.Text = "Agregar "
         Me.btnAgregar.UseVisualStyleBackColor = False
+        Me.btnAgregar.Visible = False
         '
         'btnAtras
         '

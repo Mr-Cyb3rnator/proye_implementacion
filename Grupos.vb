@@ -179,6 +179,11 @@ Public Class Grupos
 
     Private Sub Grupos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargargrid()
+<<<<<<< Updated upstream
+=======
+
+        txtcodgrup.Enabled = False
+>>>>>>> Stashed changes
 
         DTfechaini.Value = Date.Now
         DTfechafin.Value = DTfechaini.Value.AddMonths(3)

@@ -337,7 +337,7 @@ GO
 -- =============================================
 -- Author:		Oscar Andrade
 -- Create date: 20 de julio del 2021
--- Description:	Historico de Compra por Grupo en específico
+-- Description:	Historico de Compra por Grupo en especï¿½fico
 -- =============================================
 ALTER PROCEDURE [dbo].[HistoricoCompraxGrupo]
 	-- Add the parameters for the stored procedure here
@@ -1573,34 +1573,20 @@ BEGIN
 
 	where cod_grupo=@cod_grupo
 END
+/////////////////////////////////////////////////////////////////////////////////////////////
 GO
-
-/****** Object:  StoredProcedure [dbo].[insertarClientes]    Script Date: 25/7/2021 00:04:01 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [dbo].[insertarClientes]
-
-	@nombre nvarchar(50),
-	@apellido nvarchar(50),
-	@identidad varchar(50),
-	@direccion nvarchar(50),
-	@telefono varchar(50)
+CREATE PROCEDURE [dbo].[InsertarDietas]
+	@cantidadlibras as int,
+	@comidasxdia as int
 AS
 BEGIN
-
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	insert into clientes(nombre,apellido, identidad,direcion, telefono) 
-	values(@nombre,@apellido,@identidad,@direccion,@telefono)
+	INSERT INTO dieta(cantidad_libras,comidas_al_dia)
+	VALUES(@cantidadlibras,@comidasXdia)
 END
 GO
-
 
