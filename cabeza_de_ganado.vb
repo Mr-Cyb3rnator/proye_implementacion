@@ -1,7 +1,7 @@
 ﻿
 Imports System.Data.SqlClient
 Public Class Cabeza_ganado
-
+    'Todos los procesos que entran en contacto con la base de datos usan procediminetos almacenados para efectuarse
     Public Sub cargar_combo_grupos()
 
         Try
@@ -47,8 +47,11 @@ Public Class Cabeza_ganado
 
             conecta()
 
-
-            ModificarBD("exec InsertarAnimalesFormCabezas " & Val(txtpesoini.Text) & "," & "'" & cb_Raza.Text & "'" & "," & Val(combo_grupos.Text) & "," & Val(txtprecio.Text) & "," & Val(txtedad.Text))
+            Try
+                ModificarBD("exec InsertarAnimalesFormCabezas " & Val(txtpesoini.Text) & "," & "'" & cb_Raza.Text & "'" & "," & Val(combo_grupos.Text) & "," & Val(txtprecio.Text) & "," & Val(txtedad.Text))
+            Catch ex As Exception
+                MsgBox("Error en la BD y/o Revisar Campos de grupo ")
+            End Try
 
             conectar.Close()
             cargargrid()
@@ -63,10 +66,13 @@ Public Class Cabeza_ganado
     Private Sub bteliminar_Click(sender As Object, e As EventArgs) Handles bteliminar.Click
 
         conecta()
-        Dim eliminar As String = "delete from animales where cod_animal=@cod_animal "
-        Dim procesar As New SqlCommand(eliminar, conectar)
-        procesar.Parameters.AddWithValue("@cod_animal", txtcodigoanimal.Text)
-        procesar.ExecuteNonQuery()
+        Try
+            ModificarBD("exec EliminarCabezaGanado " & txtcodigoanimal.Text)
+        Catch ex As Exception
+            MsgBox("Error en la BD y/o con los parametros necesarios")
+        End Try
+
+
         conectar.Close()
         cargargrid()
 
@@ -81,7 +87,7 @@ Public Class Cabeza_ganado
     End Sub
 
     Private Sub bteditar_Click(sender As Object, e As EventArgs) Handles bteditar.Click
-
+        'validacion de pesos para poder editar
         Dim pesoini, pesoboj As Integer
         pesoini = (Val(txtpesoini.Text))
         pesoboj = (Val(txtpesoobj.Text))
@@ -95,7 +101,13 @@ Public Class Cabeza_ganado
             If (Val(txtpeso1.Text) >= 0 And Val(txtpeso1.Text) <= 5000) Then
                 conecta()
 
-                ModificarBD("exec ActualizarAnimales " & Val(txtcodigoanimal.Text) & "," & Val(txtpesoini.Text) & "," & "'" & cb_Raza.Text & "'" & "," & Val(combo_grupos.Text) & "," & Val(txtprecio.Text) & "," & Val(txtedad.Text) & "," & Val(txtpesoobj.Text) & "," & Val(txtpeso1.Text) & "," & Val(txtpeso2.Text) & "," & Val(txtpeso3.Text) & "," & Val(txtpeso4.Text) & "," & "'" & rtxtobs.Text & "'")
+
+                Try
+                    ModificarBD("exec ActualizarAnimales " & Val(txtcodigoanimal.Text) & "," & Val(txtpesoini.Text) & "," & "'" & cb_Raza.Text & "'" & "," & Val(combo_grupos.Text) & "," & Val(txtprecio.Text) & "," & Val(txtedad.Text) & "," & Val(txtpesoobj.Text) & "," & Val(txtpeso1.Text) & "," & Val(txtpeso2.Text) & "," & Val(txtpeso3.Text) & "," & Val(txtpeso4.Text) & "," & "'" & rtxtobs.Text & "'")
+
+                Catch ex As Exception
+                    MsgBox("Error en la BD y/o con los parametros necesarios")
+                End Try
 
                 conectar.Close()
                 cargargrid()
@@ -110,16 +122,7 @@ Public Class Cabeza_ganado
     End Sub
 
     Private Sub txtcodigoanimal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcodigoanimal.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
-
-        End If
+        CampoValidacionNumeros(e)
     End Sub
 
     Private Sub txtpesoobj_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpesoobj.KeyPress
@@ -187,7 +190,7 @@ Public Class Cabeza_ganado
 
 
     Private Sub DGcabezas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGcabezas.CellContentClick
-
+        ' este evento rellena de forma automatica los campos para  evitar  escribirlos de forma manual 
         conecta()
         Dim fila_actual As Integer
         fila_actual = DGcabezas.CurrentRow.Index

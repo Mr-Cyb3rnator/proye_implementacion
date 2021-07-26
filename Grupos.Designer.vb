@@ -149,6 +149,7 @@ Partial Class Grupos
         '
         'txtNumAnimales
         '
+        Me.txtNumAnimales.Enabled = False
         Me.txtNumAnimales.Location = New System.Drawing.Point(260, 96)
         Me.txtNumAnimales.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNumAnimales.MaxLength = 2
