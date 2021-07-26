@@ -74,7 +74,7 @@ Partial Class CrearUsuario
         Me.txtUsuario.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtUsuario.Location = New System.Drawing.Point(153, 115)
         Me.txtUsuario.Name = "txtUsuario"
-        Me.txtUsuario.Size = New System.Drawing.Size(125, 32)
+        Me.txtUsuario.Size = New System.Drawing.Size(125, 27)
         Me.txtUsuario.TabIndex = 3
         '
         'txtContra
@@ -83,14 +83,14 @@ Partial Class CrearUsuario
         Me.txtContra.Location = New System.Drawing.Point(153, 196)
         Me.txtContra.Name = "txtContra"
         Me.txtContra.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtContra.Size = New System.Drawing.Size(125, 32)
+        Me.txtContra.Size = New System.Drawing.Size(125, 27)
         Me.txtContra.TabIndex = 4
         '
         'dtgcrear
         '
         Me.dtgcrear.AllowUserToAddRows = False
         Me.dtgcrear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgcrear.Location = New System.Drawing.Point(260, 29)
+        Me.dtgcrear.Location = New System.Drawing.Point(304, 50)
         Me.dtgcrear.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dtgcrear.Name = "dtgcrear"
         Me.dtgcrear.RowHeadersWidth = 51
@@ -163,7 +163,7 @@ Partial Class CrearUsuario
         Me.txtTipo.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtTipo.Location = New System.Drawing.Point(153, 267)
         Me.txtTipo.Name = "txtTipo"
-        Me.txtTipo.Size = New System.Drawing.Size(125, 32)
+        Me.txtTipo.Size = New System.Drawing.Size(125, 27)
         Me.txtTipo.TabIndex = 11
         '
         'txtCodigo
@@ -171,7 +171,7 @@ Partial Class CrearUsuario
         Me.txtCodigo.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtCodigo.Location = New System.Drawing.Point(153, 39)
         Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(125, 32)
+        Me.txtCodigo.Size = New System.Drawing.Size(125, 27)
         Me.txtCodigo.TabIndex = 13
         '
         'Label4

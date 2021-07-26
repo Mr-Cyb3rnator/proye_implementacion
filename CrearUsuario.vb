@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class CrearUsuario
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+
         Dim token As New Encriptacion()
         Dim cifrado As String
 
@@ -32,6 +33,7 @@ Public Class CrearUsuario
 
         Try
             ModificarBD("exec Insertar_Usuarios " & txtCodigo.Text & "," & txtUsuario.Text & ",'" & cifrado & "'," & txtTipo.Text)
+
             MsgBox("Datos del Usuario Ingresados Correctamente", MsgBoxResult.Ok, "Estado")
         Catch ex As Exception
             MsgBox("Revisar Conexion a la BD y/o Procedimiento junto a sus parametros")

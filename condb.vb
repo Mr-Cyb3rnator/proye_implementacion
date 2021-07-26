@@ -15,9 +15,9 @@ Module condb
 
     Public Sub conecta()
 
-        conectar.ConnectionString = ("Data Source=localhost;Initial Catalog=base_proyecto;Integrated Security=True")
+        conectar.ConnectionString = "Data Source=localhost;Initial Catalog=base_proyecto;Integrated Security=True"
 
-        If (conectar.State = 0) Then
+        If conectar.State = 0 Then
             conectar.Open()
         Else
             MsgBox("Enlace de Conexión ya está abierto", MsgBoxStyle.OkOnly, "Mensaje")
