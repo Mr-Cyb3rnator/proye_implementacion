@@ -391,20 +391,19 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT
+	SELECT DISTINCT
 	VA.fecha as 'Fecha',
 	C.nombre as 'Cliente',
 	VA.cod_grupo as 'Grupo',
-	SUM(VA.cantidad_libras) as 'Total Lbs',
+	VA.cantidad_libras as 'Total Lbs',
 	VA.precio_libra as 'Precio x Lb',
-	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	VA.cantidad_libras * Va.precio_libra AS 'Total'
 	
 
 FROM animales A
 INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
 Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
 WHERE a.estado is not null and C.nombre like '%'+@cliente+'%' AND (VA.fecha between @fechainicial and @fechafinal)
-GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
 ORDER BY VA.fecha DESC
 END
 GO
