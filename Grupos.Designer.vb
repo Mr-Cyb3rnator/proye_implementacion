@@ -108,9 +108,12 @@ Partial Class Grupos
         Me.dgvGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGrupos.Location = New System.Drawing.Point(531, 55)
         Me.dgvGrupos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dgvGrupos.MultiSelect = False
         Me.dgvGrupos.Name = "dgvGrupos"
+        Me.dgvGrupos.ReadOnly = True
         Me.dgvGrupos.RowHeadersWidth = 51
         Me.dgvGrupos.RowTemplate.Height = 24
+        Me.dgvGrupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvGrupos.Size = New System.Drawing.Size(870, 421)
         Me.dgvGrupos.TabIndex = 6
         '

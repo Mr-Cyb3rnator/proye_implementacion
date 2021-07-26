@@ -113,13 +113,8 @@ Public Class CrearUsuario
         CampoValidacionNumeros(e)
     End Sub
 
-    Private Sub CrearUsuario_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If MsgBox("Deseas terminar la aplicación?", vbYesNo Or vbQuestion) = vbYes Then
-            End
-        Else
+    Private Sub CrearUsuario_FormClosing(sender As Object, e As FormClosingEventArgs)
 
-            Me.Show()
-        End If
     End Sub
 
 

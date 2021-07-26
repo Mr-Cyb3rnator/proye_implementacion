@@ -34,6 +34,7 @@ Partial Class frmMenu
         Me.btnGasto = New System.Windows.Forms.Button()
         Me.btnCompra = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnHelp = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.btnReportes = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -46,7 +47,6 @@ Partial Class frmMenu
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        Me.btnHelp = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -193,6 +193,18 @@ Partial Class frmMenu
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         '
+        'btnHelp
+        '
+        Me.btnHelp.BackgroundImage = Global.proye.My.Resources.Resources.Question_Block
+        Me.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnHelp.FlatAppearance.BorderColor = System.Drawing.Color.DarkSeaGreen
+        Me.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnHelp.Location = New System.Drawing.Point(730, 55)
+        Me.btnHelp.Name = "btnHelp"
+        Me.btnHelp.Size = New System.Drawing.Size(134, 125)
+        Me.btnHelp.TabIndex = 26
+        Me.btnHelp.UseVisualStyleBackColor = True
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -303,15 +315,6 @@ Partial Class frmMenu
         Me.Label1.Size = New System.Drawing.Size(80, 23)
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Grupos"
-        '
-        'btnHelp
-        '
-        Me.btnHelp.Location = New System.Drawing.Point(771, 82)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(94, 29)
-        Me.btnHelp.TabIndex = 26
-        Me.btnHelp.Text = "Help"
-        Me.btnHelp.UseVisualStyleBackColor = True
         '
         'frmMenu
         '

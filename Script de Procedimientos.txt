@@ -438,21 +438,21 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT
+	SELECT DISTINCT
 	VA.fecha as 'Fecha',
 	C.nombre as 'Cliente',
 	VA.cod_grupo as 'Grupo',
-	SUM(VA.cantidad_libras) 'Total Lbs',
+	VA.cantidad_libras 'Total Lbs',
 	VA.precio_libra as 'Precio x Lb',
-	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	VA.cantidad_libras * Va.precio_libra AS 'Total'
 	
 
 FROM animales A
 INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
 Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
-WHERE A.estado is not null AND (VA.fecha between @fechainicial and @fechafinal)
-GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
-HAVING SUM(VA.cantidad_libras) >= @peso
+WHERE A.estado is not null AND 
+	(VA.fecha between @fechainicial and @fechafinal) AND
+	VA.cantidad_libras >= @peso
 ORDER BY VA.fecha DESC
 END
 GO
@@ -485,21 +485,22 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT
+	SELECT DISTINCT
 	VA.fecha as 'Fecha',
 	C.nombre as 'Cliente',
 	VA.cod_grupo as 'Grupo',
-	SUM(VA.cantidad_libras) 'Total Lbs',
+	VA.cantidad_libras 'Total Lbs',
 	VA.precio_libra as 'Precio x Lb',
-	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	VA.cantidad_libras * Va.precio_libra AS 'Total'
 	
 
 FROM animales A
 INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
 Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
-WHERE a.estado is not null AND (VA.fecha between @fechainicial and @fechafinal)   
-GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
-HAVING SUM(VA.cantidad_libras) <= @peso
+WHERE 
+	a.estado is not null AND 
+	(VA.fecha between @fechainicial and @fechafinal) AND 
+	VA.cantidad_libras <= @peso  
 ORDER BY VA.fecha DESC
 END
 GO
@@ -529,18 +530,17 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT
+	SELECT DISTINCT
 	
 	C.nombre as 'Cliente',
 	VA.cod_grupo as 'Grupo',
-	SUM(VA.cantidad_libras) as 'Total Lbs',
-	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	VA.cantidad_libras as 'Total Lbs',
+	VA.cantidad_libras * Va.precio_libra AS 'Total'
 	
 FROM animales A
 INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
 Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
 WHERE a.estado is not null and VA.cod_grupo = @codgrupo
-GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
 END
 GO
 
@@ -569,22 +569,22 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT
+	SELECT DISTINCT
 	VA.fecha as 'Fecha',
 	C.nombre as 'Cliente',
 	VA.cod_grupo as 'Grupo',
-	SUM(VA.cantidad_libras) as 'Total Lbs',
+	VA.cantidad_libras as 'Total Lbs',
 	VA.precio_libra as 'Precio x Lb',
-	SUM(VA.cantidad_libras * Va.precio_libra) AS 'Total'
+	VA.cantidad_libras * Va.precio_libra AS 'Total'
 	
 
 FROM animales A
 INNER JOIN venta_animales VA ON a.cod_grupo = VA.cod_grupo
 Inner JOIN clientes C ON VA.cod_cliente = C.cod_cliente
 WHERE a.estado is not null
-GROUP BY VA.fecha,C.nombre,Va.cod_grupo,Va.[precio_libra]
 END
 GO
+
 
 /****** Object:  StoredProcedure [dbo].[Insertar_Usuarios]    Script Date: 23/7/2021 22:33:44 ******/
 DROP PROCEDURE [dbo].[Insertar_Usuarios]
@@ -1573,6 +1573,34 @@ BEGIN
 		observaciones =@obs
 
 	where cod_grupo=@cod_grupo
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[insertarClientes]    Script Date: 25/7/2021 00:04:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[insertarClientes]
+
+	@nombre nvarchar(50),
+	@apellido nvarchar(50),
+	@identidad varchar(50),
+	@direccion nvarchar(50),
+	@telefono varchar(50)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	insert into clientes(nombre,apellido, identidad,direcion, telefono) 
+	values(@nombre,@apellido,@identidad,@direccion,@telefono)
 END
 GO
 

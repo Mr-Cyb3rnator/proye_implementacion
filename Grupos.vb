@@ -25,8 +25,8 @@ Public Class Grupos
         insertar_gr.Parameters.AddWithValue("@cod_grup", txtCodGrup.Text)
         insertar_gr.Parameters.AddWithValue("@nanimal", txtNumAnimales.Text)
         insertar_gr.Parameters.AddWithValue("@cod_dieta", txtCodigoDieta.Text)
-        insertar_gr.Parameters.AddWithValue("@fecha1", DTfechaini.Value)
-        insertar_gr.Parameters.AddWithValue("@fecha2", DTfechafin.Value)
+        insertar_gr.Parameters.AddWithValue("@fecha1", DTfechaini.Value.Date.ToString("yyyy-MM-dd"))
+        insertar_gr.Parameters.AddWithValue("@fecha2", DTfechafin.Value.Date.ToString("yyyy-MM-dd"))
         insertar_gr.Parameters.AddWithValue("@obser", rtxtObs.Text)
 
 
@@ -79,6 +79,10 @@ Public Class Grupos
         procesar_gr.ExecuteNonQuery()
         conectar.Close()
         cargargrid()
+        txtCodGrup.Clear()
+        txtNumAnimales.Clear()
+        txtCodigoDieta.Clear()
+
     End Sub
 
     Private Sub DGgrupos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGrupos.CellContentClick
@@ -204,7 +208,7 @@ Public Class Grupos
 
             conecta()
 
-            ModificarBD("exec ActualizarGruposFormGrupos " & Val(txtCodGrup.Text) & "," & "'" & DTfechaini.Value & "'" & "," & "'" & DTfechafin.Value & "'" & "," & Val(txtCodigoDieta.Text) & "," & "'" & rtxtObs.Text & "'")
+            ModificarBD("exec ActualizarGruposFormGrupos " & Val(txtCodGrup.Text) & "," & "'" & DTfechaini.Value.Date.ToString("yyyy-MM-dd") & "'" & "," & "'" & DTfechafin.Value.Date.ToString("yyyy-MM-dd") & "'" & "," & Val(txtCodigoDieta.Text) & "," & "'" & rtxtObs.Text & "'")
 
             conectar.Close()
             cargargrid()

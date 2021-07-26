@@ -127,6 +127,9 @@
   <data name="icons8-borrar-para-siempre-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\iconos\icons8-borrar-para-siempre-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Question_Block" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\Question_Block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="vaca (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vaca (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,8 +157,8 @@
   <data name="icons8-flecha-responder-a-todos-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-flecha-responder-a-todos-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconfinder_326518_arrow_back_icon_128px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\iconos\iconfinder_326518_arrow_back_icon_128px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="atras (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\iconos\atras (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="granja" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\iconos\granja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,26 +187,29 @@
   <data name="iconfinder_285655_user_icon_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\iconos\iconfinder_285655_user_icon_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vaca1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vaca1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="vaca (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vaca (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-ventas-totales-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-ventas-totales-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vaca (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vaca (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconfinder_326518_arrow_back_icon_128px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\iconos\iconfinder_326518_arrow_back_icon_128px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-año-del-buey-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-año-del-buey-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vaca1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vaca1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pagar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\iconos\pagar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pagar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pagar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="iconfinder_185042_edit_modify_icon_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\iconos\iconfinder_185042_edit_modify_icon_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-año-del-buey-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-año-del-buey-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="vaca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vaca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconfinder_1031520_arrow_download_save_guardar_icon_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\iconos\iconfinder_1031520_arrow_download_save_guardar_icon_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,8 +244,8 @@
   <data name="vaca (3)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vaca (3)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vaca" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vaca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pagar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pagar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-toro-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-toro-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,7 +256,7 @@
   <data name="icons8-grupo-de-usuario-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-grupo-de-usuario-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="atras (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\iconos\atras (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Question_Block1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\Question_Block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
